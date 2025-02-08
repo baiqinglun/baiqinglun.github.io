@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-02-08T06:59:08.650Z</updated>
+  <updated>2025-02-08T07:06:55.612Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AI生成代码</title>
+    <link href="http://example.com/2025/02/08/035%20AI%E9%97%AE%E7%AD%94%E5%BD%A2%E5%BC%8F%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/"/>
+    <id>http://example.com/2025/02/08/035%20AI%E9%97%AE%E7%AD%94%E5%BD%A2%E5%BC%8F%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/</id>
+    <published>2025-02-08T07:06:00.000Z</published>
+    <updated>2025-02-08T07:06:55.612Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="AI问答形式生成代码"><a href="#AI问答形式生成代码" class="headerlink" title="AI问答形式生成代码"></a>AI问答形式生成代码</h2><p>今天无意间在b站看到一位up主用AI写代码的过程，无比惊讶，不需要会前端，就能使用问答的形式生成好看的前端页面。我也亲自体验了一下。</p><p><a href="https://v0.dev/chat/">https://v0.dev/chat/</a></p><p>这是我使用这个网站生成的前端页面，但是每天有限制次数，<u>一定要谨慎使用，想好了问题再问。</u></p><h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p><a href="https://v0.dev/chat/GvO3hYBppbW">https://v0.dev/chat/GvO3hYBppbW</a></p><h2 id="问答生成"><a href="#问答生成" class="headerlink" title="问答生成"></a>问答生成</h2><p>有样学样，首先给他生成网站的目的及类型。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">I</span> want <span class="hljs-selector-tag">to</span> make an app for university applicants. <span class="hljs-selector-tag">To</span> learn about major. <span class="hljs-selector-tag">I</span> want <span class="hljs-selector-tag">to</span> <span class="hljs-attribute">display</span> <span class="hljs-selector-tag">a</span> list of major, and their coresponging subject, and comparisons between majors. Now generate the major list page.<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143611587.png" alt="image-20241123143611587">​</p><p>但显示的内容过于多，而不是自己想要的，我想要在主页面能呈现更多的专业</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">but </span>make it more concise, <span class="hljs-keyword">because </span>there are <span class="hljs-keyword">bundreds </span>of majors i want to <span class="hljs-keyword">display </span>in the home page<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143748042.png" alt="image-20241123143748042">​</p><p>它还贴心的加上了搜索功能，但是我想着美化一下，添加一个主题颜色</p><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs openscad"><span class="hljs-keyword">use</span> clean <span class="hljs-built_in">color</span> themes<br></code></pre></td></tr></table></figure><p>但是单词打错了，<code>clear</code>写成了<code>clean</code>，它把所有颜色删除了。当时我没意识到，只是让它在搜索栏右侧添加一个筛选按钮，可以筛选分类。</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">add </span>a category <span class="hljs-keyword">button </span><span class="hljs-built_in">at</span> search <span class="hljs-keyword">box </span>right, I can choose <span class="hljs-keyword">different </span>category<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144043521.png" alt="image-20241123144043521">​</p><p>还是不甘心，加点颜色主题吧</p><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs openscad"><span class="hljs-keyword">use</span> gradient <span class="hljs-built_in">color</span> theme<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144129571.png" alt="image-20241123144129571">​</p><p>但这个紫色系不是我想要的，想要个蓝色系的。</p><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mel">use gradient <span class="hljs-keyword">color</span> theme <span class="hljs-keyword">about</span> blue<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144236324.png" alt="image-20241123144236324">​</p><p>生成一个详情页面</p><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">generate</span> a <span class="hljs-keyword">new</span> page <span class="hljs-keyword">for</span> major detail, <span class="hljs-keyword">this</span> page should contain subjects related to <span class="hljs-number">10</span> majors.<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144410492.png" alt="image-20241123144410492">​</p><p>这个页面有些简单，增加一下问答功能</p><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">detail page should have comment <span class="hljs-keyword">and</span> question / answer seciotn <span class="hljs-keyword">below</span><br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144451374.png" alt="image-20241123144451374">​</p><p>但是推荐的专业里面推荐的是大分类，想改成大分类中的小分类</p><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">The recommended major is <span class="hljs-keyword">the</span> minor major <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> larger category <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> detail page<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144604904.png" alt="image-20241123144604904">​</p><p>生成专业对比页面</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">generate a new page about major <span class="hljs-built_in">compare</span>. Side-<span class="hljs-keyword">by-side </span><span class="hljs-built_in">compare</span> <span class="hljs-number">2</span> major majors interm of suject to study, related <span class="hljs-keyword">jobs, </span><span class="hljs-keyword">and </span>more. <span class="hljs-keyword">be </span>creative.<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144639352.png" alt="image-20241123144639352">​</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144650053.png" alt="image-20241123144650053">​</p><p>还想优化一下，但是今日的生成次数用尽了。总之这个网站对我的冲击还是比较大的。一时间让我感觉自己之前学的东西都白费了，自己一天写的网站，它使用几分钟就能搞定，而且还美观。不得不惊叹目前AI发展的速度，自己还是要掌握一些核心技能，不然免不了被淘汰。</p><h2 id="全部页面"><a href="#全部页面" class="headerlink" title="全部页面"></a>全部页面</h2><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143233687.png" alt="image-20241123143233687">​</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143249198.png" alt="image-20241123143249198">​</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143259159.png" alt="image-20241123143259159">​</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143337907.png" alt="image-20241123143337907">​</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143346607.png" alt="image-20241123143346607">​</p>]]></content>
+    
+    
+    <summary type="html">使用v0.dev.chat以问答形式生成代码测试</summary>
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="AI代码生成" scheme="http://example.com/tags/AI%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/"/>
+    
+    <category term="大模型" scheme="http://example.com/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="v0.chat" scheme="http://example.com/tags/v0-chat/"/>
+    
+  </entry>
   
   <entry>
     <title>在powershell上禁止运行脚本</title>
@@ -56,9 +81,9 @@
     <category term="Fluent" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/Fluent/"/>
     
     
-    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
-    
     <category term="模拟" scheme="http://example.com/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
     
     <category term="学习笔记" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
@@ -85,9 +110,9 @@
     <category term="Fluent" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/Fluent/"/>
     
     
-    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
-    
     <category term="模拟" scheme="http://example.com/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
     
     <category term="Python" scheme="http://example.com/tags/Python/"/>
     
@@ -118,9 +143,9 @@
     <category term="Fluent" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/Fluent/"/>
     
     
-    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
-    
     <category term="模拟" scheme="http://example.com/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
     
     <category term="学习笔记" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
@@ -147,9 +172,9 @@
     <category term="Fluent" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/Fluent/"/>
     
     
-    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
-    
     <category term="模拟" scheme="http://example.com/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
     
     <category term="学习笔记" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
@@ -176,9 +201,9 @@
     <category term="Fluent" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/Fluent/"/>
     
     
-    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
-    
     <category term="模拟" scheme="http://example.com/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
     
     <category term="学习笔记" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
@@ -400,9 +425,9 @@
     <category term="Fluent" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/Fluent/"/>
     
     
-    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
-    
     <category term="模拟" scheme="http://example.com/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
     
   </entry>
   
@@ -535,29 +560,6 @@
     
     
     <category term="随想" scheme="http://example.com/tags/%E9%9A%8F%E6%83%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>边界层理论</title>
-    <link href="http://example.com/2024/03/20/013%20%E8%BE%B9%E7%95%8C%E5%B1%82%E7%90%86%E8%AE%BA/"/>
-    <id>http://example.com/2024/03/20/013%20%E8%BE%B9%E7%95%8C%E5%B1%82%E7%90%86%E8%AE%BA/</id>
-    <published>2024-03-20T09:00:00.000Z</published>
-    <updated>2025-02-08T06:47:20.939Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="边界层理论"><a href="#边界层理论" class="headerlink" title="边界层理论"></a>边界层理论</h1><p>关键词：<span class="label label-primary">边界层</span> <span class="label label-info">增长比率</span> <span class="label label-success">y+</span></p><p>疑问：</p><ol><li>边界层应该画多少个（N）？</li><li>第一层网格的大小（yH）？</li><li>增长比率是多少（G）？</li></ol><h2 id="1、边界层理论"><a href="#1、边界层理论" class="headerlink" title="1、边界层理论"></a>1、边界层理论</h2><p>流体在大雷诺数下作绕流流动时，在离固体壁面较远处，粘性力比惯性力小得多，可以忽略；但在固体壁面附近的薄层中，粘性力的影响则不能忽略，沿壁面法线方向存在相当大的速度梯度，这一薄层叫做边界层。流体的雷诺数越大，边界层越薄。</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320150149505.png" alt="image-20240320150149505"></p><p>需要小的单元来捕获给定方向上的梯度。</p><p>${\delta_{99}}$表示速度到达自由流速度 99%时厚度。</p><ol><li>在边界层内，粘性力与惯性力同一数量级</li><li>由于边界层很薄，可以近似认为边界层中各截面上的压强等于同一截面上边界层外边界上的压强值。</li></ol><h3 id="无粘流动与真实流动的区别"><a href="#无粘流动与真实流动的区别" class="headerlink" title="无粘流动与真实流动的区别"></a>无粘流动与真实流动的区别</h3><p>考虑边界层的存在，在后方会出现分离区</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320154409785.png" alt="image-20240320154409785"></p><h2 id="2、第一层网格大小"><a href="#2、第一层网格大小" class="headerlink" title="2、第一层网格大小"></a>2、第一层网格大小</h2><p>yH 依赖于 y+的值</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320151316147.png" alt="image-20240320151316147"></p><p>$$y^+&#x3D;\frac{\rho u_\tau y_p}\mu $$</p><ul><li>动力粘度：单位为 Pa.s(N&#x2F;m2.s),厘泊（CP），1Pa.s&#x3D;10P（泊）&#x3D;1000CP（厘泊）</li><li>运动粘度 V：即动力粘度 u 与密度 p 的比值：v&#x3D;u&#x2F;p，运动粘度的单位为 m2&#x2F;s，习惯单位为：厘斯(mm2&#x2F;s)</li><li>这里指的是动力粘度</li></ul><h2 id="3、总高度"><a href="#3、总高度" class="headerlink" title="3、总高度"></a>3、总高度</h2><p>网格边界层的总高度要包含${\delta_{99}}$</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320151535403.png" alt="image-20240320151535403"></p><p>2 个边界层</p><p>$$y_T&#x3D;y_H+y_H*G$$</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320151740787.png" alt="image-20240320151740787"></p><p>3 个边界层</p><p>$$y_T&#x3D;y_H+y_HG+y_HG^2$$</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320151857224.png" alt="image-20240320151857224"></p><p>我们可以得出边界层公式</p><p>$$y_T&#x3D;y_H+y_HG+y_HG^2+y_HG^3+…+y_HG^{N-1}$$</p><p>即</p><p>$$\sum_{k&#x3D;0}^{N-1}y_HG^k&#x3D;y_H\frac{1-G^N}{1-G}$$</p><p>$$\delta_{99}&#x3D;y_H\frac{1-G^N}{1-G}$$</p><p>而边界层厚度的计算公式为</p><p>$$\begin{aligned}\delta_{99}&amp;&#x3D;\frac{4.91L}{\sqrt{Re_L}}\quad&amp;Re&lt;5\times10^5\\delta_{99}&amp;&#x3D;\frac{0.38L}{Re_L^{1&#x2F;5}}\quad&amp;Re&gt;5\times10^5\end{aligned}$$</p><h2 id="4、G-和-N-如何确定"><a href="#4、G-和-N-如何确定" class="headerlink" title="4、G 和 N 如何确定"></a>4、G 和 N 如何确定</h2><p>首先可以大致猜测一下</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320152635843.png" alt="image-20240320152635843"></p><p>如果 N&gt;10，则第一个网格高度约为 30</p><p>如果 N&gt;25，则第一个网格高度约为 1</p><p>通常</p><ul><li>1.05&lt;G&lt;1.3</li><li>10&lt;N&lt;30</li></ul><h2 id="5、如何确定网格是好坏"><a href="#5、如何确定网格是好坏" class="headerlink" title="5、如何确定网格是好坏"></a>5、如何确定网格是好坏</h2><h3 id="小的网格转变"><a href="#小的网格转变" class="headerlink" title="小的网格转变"></a>小的网格转变</h3><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320153250656.png" alt="image-20240320153250656"></p><h3 id="在大涡模拟中"><a href="#在大涡模拟中" class="headerlink" title="在大涡模拟中"></a>在大涡模拟中</h3><p>$$v_{sgs}&#x3D;\left(C_{s}\Delta\right)^{2}\sqrt{2S_{ij}S_{ij}}$$</p><p>网格大小突然改变，会导致$v_{sgs}$突然改变</p><h3 id="在-RANS-中"><a href="#在-RANS-中" class="headerlink" title="在 RANS 中"></a>在 RANS 中</h3><p>使用至少 3 种不同的网格进行网格细化研究是非常必要的。</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320153804905.png" alt="image-20240320153804905"></p><p><a href="https://www.youtube.com/watch?v=1gSHN99I7L4&list=PLnJ8lIgfDbkqaOdo-twtuco-qYahdAeG8">边界层理论</a></p><h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="y-定义"><a href="#y-定义" class="headerlink" title="y+定义"></a><a href="https://www.simscale.com/forum/t/what-is-y-yplus/82394">y+定义</a></h3><p>根据 y+的大小，可以将湍流边界层分为好多层。</p><ol><li>粘性子层($y^{+} &lt; 5$)：粘性影响占据主要地位，雷诺应力可忽略，则$u^{+} &#x3D; y^{+}$</li><li>对数区域($y^{+} &gt; 30$)：湍流应力占主导地位，$u^+&#x3D;\frac1\kappa ln(y^+)+B$，其中 k&#x3D;0.41,B&#x3D;5.2</li><li>缓冲层($5 &lt; y^{+} &lt; 30$)：粘性应力和湍流应力的大小相近，由于该区域比较复杂，速度剖面的定义不明确，原始壁面函数会避开位于该区域的第一个单元中心。</li></ol><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240320162112.png" alt="The Law of the Wall"></p><p>壁面函数要求第一层网格尺寸$30&lt;y^{+}&lt;300$</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240320164028.png" alt="y+应用"></p>]]></content>
-    
-    
-    <summary type="html">如何设置边界层第一层网格大小、边界层总数量数量和增长率</summary>
-    
-    
-    
-    <category term="模拟" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/"/>
-    
-    <category term="基础知识" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    
-    
-    <category term="模拟" scheme="http://example.com/tags/%E6%A8%A1%E6%8B%9F/"/>
     
   </entry>
   

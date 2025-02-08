@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>AI生成代码</title>
+    <link href="/2025/02/08/035%20AI%E9%97%AE%E7%AD%94%E5%BD%A2%E5%BC%8F%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/"/>
+    <url>/2025/02/08/035%20AI%E9%97%AE%E7%AD%94%E5%BD%A2%E5%BC%8F%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/</url>
+    
+    <content type="html"><![CDATA[<h2 id="AI问答形式生成代码"><a href="#AI问答形式生成代码" class="headerlink" title="AI问答形式生成代码"></a>AI问答形式生成代码</h2><p>今天无意间在b站看到一位up主用AI写代码的过程，无比惊讶，不需要会前端，就能使用问答的形式生成好看的前端页面。我也亲自体验了一下。</p><p><a href="https://v0.dev/chat/">https://v0.dev/chat/</a></p><p>这是我使用这个网站生成的前端页面，但是每天有限制次数，<u>一定要谨慎使用，想好了问题再问。</u></p><h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p><a href="https://v0.dev/chat/GvO3hYBppbW">https://v0.dev/chat/GvO3hYBppbW</a></p><h2 id="问答生成"><a href="#问答生成" class="headerlink" title="问答生成"></a>问答生成</h2><p>有样学样，首先给他生成网站的目的及类型。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">I</span> want <span class="hljs-selector-tag">to</span> make an app for university applicants. <span class="hljs-selector-tag">To</span> learn about major. <span class="hljs-selector-tag">I</span> want <span class="hljs-selector-tag">to</span> <span class="hljs-attribute">display</span> <span class="hljs-selector-tag">a</span> list of major, and their coresponging subject, and comparisons between majors. Now generate the major list page.<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143611587.png" alt="image-20241123143611587">​</p><p>但显示的内容过于多，而不是自己想要的，我想要在主页面能呈现更多的专业</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">but </span>make it more concise, <span class="hljs-keyword">because </span>there are <span class="hljs-keyword">bundreds </span>of majors i want to <span class="hljs-keyword">display </span>in the home page<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143748042.png" alt="image-20241123143748042">​</p><p>它还贴心的加上了搜索功能，但是我想着美化一下，添加一个主题颜色</p><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs openscad"><span class="hljs-keyword">use</span> clean <span class="hljs-built_in">color</span> themes<br></code></pre></td></tr></table></figure><p>但是单词打错了，<code>clear</code>写成了<code>clean</code>，它把所有颜色删除了。当时我没意识到，只是让它在搜索栏右侧添加一个筛选按钮，可以筛选分类。</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">add </span>a category <span class="hljs-keyword">button </span><span class="hljs-built_in">at</span> search <span class="hljs-keyword">box </span>right, I can choose <span class="hljs-keyword">different </span>category<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144043521.png" alt="image-20241123144043521">​</p><p>还是不甘心，加点颜色主题吧</p><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs openscad"><span class="hljs-keyword">use</span> gradient <span class="hljs-built_in">color</span> theme<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144129571.png" alt="image-20241123144129571">​</p><p>但这个紫色系不是我想要的，想要个蓝色系的。</p><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mel">use gradient <span class="hljs-keyword">color</span> theme <span class="hljs-keyword">about</span> blue<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144236324.png" alt="image-20241123144236324">​</p><p>生成一个详情页面</p><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">generate</span> a <span class="hljs-keyword">new</span> page <span class="hljs-keyword">for</span> major detail, <span class="hljs-keyword">this</span> page should contain subjects related to <span class="hljs-number">10</span> majors.<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144410492.png" alt="image-20241123144410492">​</p><p>这个页面有些简单，增加一下问答功能</p><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">detail page should have comment <span class="hljs-keyword">and</span> question / answer seciotn <span class="hljs-keyword">below</span><br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144451374.png" alt="image-20241123144451374">​</p><p>但是推荐的专业里面推荐的是大分类，想改成大分类中的小分类</p><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">The recommended major is <span class="hljs-keyword">the</span> minor major <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> larger category <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> detail page<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144604904.png" alt="image-20241123144604904">​</p><p>生成专业对比页面</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">generate a new page about major <span class="hljs-built_in">compare</span>. Side-<span class="hljs-keyword">by-side </span><span class="hljs-built_in">compare</span> <span class="hljs-number">2</span> major majors interm of suject to study, related <span class="hljs-keyword">jobs, </span><span class="hljs-keyword">and </span>more. <span class="hljs-keyword">be </span>creative.<br></code></pre></td></tr></table></figure><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144639352.png" alt="image-20241123144639352">​</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123144650053.png" alt="image-20241123144650053">​</p><p>还想优化一下，但是今日的生成次数用尽了。总之这个网站对我的冲击还是比较大的。一时间让我感觉自己之前学的东西都白费了，自己一天写的网站，它使用几分钟就能搞定，而且还美观。不得不惊叹目前AI发展的速度，自己还是要掌握一些核心技能，不然免不了被淘汰。</p><h2 id="全部页面"><a href="#全部页面" class="headerlink" title="全部页面"></a>全部页面</h2><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143233687.png" alt="image-20241123143233687">​</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143249198.png" alt="image-20241123143249198">​</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143259159.png" alt="image-20241123143259159">​</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143337907.png" alt="image-20241123143337907">​</p><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241123143346607.png" alt="image-20241123143346607">​</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>AI代码生成</tag>
+      
+      <tag>大模型</tag>
+      
+      <tag>v0.chat</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>在powershell上禁止运行脚本</title>
     <link href="/2025/02/08/034%20Powershell%E9%99%90%E5%88%B6/"/>
     <url>/2025/02/08/034%20Powershell%E9%99%90%E5%88%B6/</url>
@@ -47,9 +76,9 @@
     
     <tags>
       
-      <tag>Fluent</tag>
-      
       <tag>模拟</tag>
+      
+      <tag>Fluent</tag>
       
       <tag>学习笔记</tag>
       
@@ -80,9 +109,9 @@
     
     <tags>
       
-      <tag>Fluent</tag>
-      
       <tag>模拟</tag>
+      
+      <tag>Fluent</tag>
       
       <tag>Python</tag>
       
@@ -117,9 +146,9 @@
     
     <tags>
       
-      <tag>Fluent</tag>
-      
       <tag>模拟</tag>
+      
+      <tag>Fluent</tag>
       
       <tag>学习笔记</tag>
       
@@ -150,9 +179,9 @@
     
     <tags>
       
-      <tag>Fluent</tag>
-      
       <tag>模拟</tag>
+      
+      <tag>Fluent</tag>
       
       <tag>学习笔记</tag>
       
@@ -183,9 +212,9 @@
     
     <tags>
       
-      <tag>Fluent</tag>
-      
       <tag>模拟</tag>
+      
+      <tag>Fluent</tag>
       
       <tag>学习笔记</tag>
       
@@ -439,9 +468,9 @@
     
     <tags>
       
-      <tag>Fluent</tag>
-      
       <tag>模拟</tag>
+      
+      <tag>Fluent</tag>
       
     </tags>
     
@@ -688,11 +717,11 @@
     
     <tags>
       
-      <tag>UDF</tag>
+      <tag>模拟</tag>
       
       <tag>Fluent</tag>
       
-      <tag>模拟</tag>
+      <tag>UDF</tag>
       
     </tags>
     
@@ -719,11 +748,11 @@
     
     <tags>
       
-      <tag>UDF</tag>
+      <tag>模拟</tag>
       
       <tag>Fluent</tag>
       
-      <tag>模拟</tag>
+      <tag>UDF</tag>
       
     </tags>
     
