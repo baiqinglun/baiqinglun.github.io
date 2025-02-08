@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208154154222.png">
 <meta property="article:published_time" content="2025-02-08T07:11:00.000Z">
-<meta property="article:modified_time" content="2025-02-08T07:42:05.213Z">
+<meta property="article:modified_time" content="2025-02-08T11:39:07.393Z">
 <meta property="article:author" content="DB">
 <meta property="article:tag" content="深度学习">
 <meta property="article:tag" content="吴恩达">
@@ -72,7 +72,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/logo.png","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/images/icons8-loading-96.png","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -284,93 +284,245 @@
             
               <div class="markdown-body">
                 
-                <span class="label label-primary">梯度下降</span> <span class="label label-info">线性回归</span> <span class="label label-warning">学习率</span>
-
-<hr>
+                <div class="note note-success">
+            <p>本文最新更新于 2025/02/08 晚上</p>
+          </div>
+<span class="label label-primary">梯度下降</span>
+<span class="label label-info">线性回归</span>
+<span class="label label-warning">学习率</span>
+<hr />
 <a class="btn" href="https://github.com/kaieye/2022-Machine-Learning-Specialization"  title="Github资料" target="_blank">Github资料</a>
-
-<h2 id="1、机器学习分类"><a href="#1、机器学习分类" class="headerlink" title="1、机器学习分类"></a>1、机器学习分类</h2><p>分为监督学习和无监督学习</p>
-<h3 id="1-1-监督学习"><a href="#1-1-监督学习" class="headerlink" title="1.1 监督学习"></a>1.1 监督学习</h3><ul>
+<h2 id="机器学习分类">1、机器学习分类</h2>
+<p>分为监督学习和无监督学习</p>
+<h3 id="监督学习">1.1 监督学习</h3>
+<ul>
 <li>定义：在给定的数据集中学习出一个函数，当输入新的x时，能够预测输出结果y。</li>
 <li>两种主要类型：回归和分类</li>
 <li>学习技术：逻辑回归、线性回归、决策树和神经网络。</li>
 </ul>
-<h3 id="1-2-无监督学习"><a href="#1-2-无监督学习" class="headerlink" title="1.2 无监督学习"></a>1.2 无监督学习</h3><ul>
+<h3 id="无监督学习">1.2 无监督学习</h3>
+<ul>
 <li>无监督学习算法会使用未标记的数据进行训练。</li>
 <li>无监督学习可用于将新闻文章分类</li>
 <li>学习技术：集群、关联规则学习、概率密度和降维</li>
 </ul>
-<h3 id="1-3-区别"><a href="#1-3-区别" class="headerlink" title="1.3 区别"></a>1.3 区别</h3><ul>
+<h3 id="区别">1.3 区别</h3>
+<ul>
 <li>监督学习是一种目的明确的训练方式，你知道得到的是什么；而<strong>无监督学习则是没有明确目的的训练方式，你无法提前知道结果是什么</strong>。</li>
 <li>监督学习由于目标明确，所以可以衡量效果；而<strong>无监督学习几乎无法量化效果如何</strong>。</li>
 </ul>
 <div class="note note-info">
-            <ol><li><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/compare/the-difference-between-machine-learning-supervised-and-unsupervised/">有监督学习和无监督学习有什么区别</a></li><li><a target="_blank" rel="noopener" href="https://easyai.tech/ai-definition/unsupervised-learning/">无监督学习 – Unsupervised learning | UL</a></li></ol>
+            <ol type="1"><li><atarget="_blank" rel="noopener" href="https://aws.amazon.com/cn/compare/the-difference-between-machine-learning-supervised-and-unsupervised/">有监督学习和无监督学习有什么区别</a></li><li><atarget="_blank" rel="noopener" href="https://easyai.tech/ai-definition/unsupervised-learning/">无监督学习– Unsupervised learning | UL</a></li></ol>
           </div>
-
-<h2 id="2、线性回归"><a href="#2、线性回归" class="headerlink" title="2、线性回归"></a>2、线性回归</h2><h3 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h3><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161210625.png" srcset="/img/logo.png" lazyload alt="image.png|500"></p>
-<p>任何预测数字之间的监督学习模型都可被称作回归问题。线性回归时回归模型中的一个用例。<br>模型可以有无限可能的输出。</p>
-<p>Training : Data used to train the model<br>x : 输入<br>y : 输出<br>m : 训练集的数量<br>(x,y) : 单个训练样本<br>$(x^{(i)},y^{(i)})$ : 第i个训练样本<br>$\hat{y}$ : 预测值<br>f : 函数模型<br>$\hat{y}-y$ : error</p>
+<h2 id="线性回归">2、线性回归</h2>
+<h3 id="定义">2.1 定义</h3>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161210625.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>任何预测数字之间的监督学习模型都可被称作回归问题。线性回归时回归模型中的一个用例。
+模型可以有无限可能的输出。</p>
+<p>Training : Data used to train the model</p>
+<ul>
+<li>x : 输入</li>
+<li>y : 输出</li>
+<li>m : 训练集的数量</li>
+<li>(x,y) : 单个训练样本</li>
+<li>$ (x<sup>{i},y</sup>{i}) $ : 第i个训练样本fs</li>
+<li><span class="math inline">\(\hat{y}\)</span> : 预测值</li>
+<li>f : 函数模型</li>
+<li><span class="math inline">\(\hat{y}-y\)</span> : error</li>
+</ul>
 <blockquote>
-<p>另一种机器学习类别是分类，分类问题时预测类别或者离散类别，如预测图片是猫还是狗。<br>在分类问题中，只有少量可能的输出。</p>
+<p>另一种机器学习类别是分类，分类问题时预测类别或者离散类别，如预测图片是猫还是狗。
+在分类问题中，只有少量可能的输出。</p>
 </blockquote>
-<h3 id="2-2-损失函数"><a href="#2-2-损失函数" class="headerlink" title="2.2 损失函数"></a>2.2 损失函数</h3><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161303796.png" srcset="/img/logo.png" lazyload alt="image.png|500"><br>模型<br>$$<br>f_{w,b}(x)&#x3D;wx+b<br>$$<br>参数为w和b<br>$$<br>J(w,b)&#x3D;\frac{1}{2m}\sum_{i&#x3D;1}^{m}\bigl(f_{w,b}\bigl(x^{(i)}\bigr)-y^{(i)}\bigr)^{2}<br>$$</p>
+<h3 id="损失函数">2.2 损失函数</h3>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161303796.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>模型 <span class="math display">\[
+f_{w,b}(x)=wx+b
+\]</span> 参数为w和b <span class="math display">\[
+J(w,b)=\frac{1}{2m}\sum_{i=1}^{m}\bigl(f_{w,b}\bigl(x^{(i)}\bigr)-y^{(i)}\bigr)^{2}
+\]</span></p>
 <blockquote>
-<p>$J(w,b)$最小化</p>
+<p><span class="math inline">\(J(w,b)\)</span>最小化</p>
 </blockquote>
 <p>为方便举例，假设只有一个参数w。如图所示，当参数w为1时，J(w)时是最小的</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161301562.png" srcset="/img/logo.png" lazyload alt="image.png|800"></p>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161301562.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
 <p>如果参数有w和b则</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161303421.png" srcset="/img/logo.png" lazyload alt="image.png|800"></p>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161303421.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
 <p>或者</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161307927.png" srcset="/img/logo.png" lazyload alt="image.png|800"></p>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161307927.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
 <p>完整对应关系</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161309467.png" srcset="/img/logo.png" lazyload alt="image.png|800"></p>
-<hr>
-<h2 id="3、梯度下降"><a href="#3、梯度下降" class="headerlink" title="3、梯度下降"></a>3、梯度下降</h2><p>有时我们的损失值J并不是规则的，如图所示，存在诸多小峰和低谷。机器学习的目标就是找到最低点，如何快速找到最低点至关重要。</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161313907.png" srcset="/img/logo.png" lazyload alt="image.png|800"><br>假设你站在一个山坡上，如何找到最快的下坡路线？即朝哪个方向迈出一步？每走一步都要再次确认下一步往哪迈。</p>
-<p><strong>实现梯度下降</strong></p>
-<p>$$<br>w&#x3D;w-\alpha\frac\partial{\partial w}J(w,b)<br>$$</p>
-<p>$$<br>b&#x3D;b-\alpha\frac\partial{\partial b}J(w,b)<br>$$<br>学习率$\alpha$决定下坡的步数大小</p>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161309467.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h2 id="梯度下降">3、梯度下降</h2>
+<p>有时我们的损失值J并不是规则的，如图所示，存在诸多小峰和低谷。机器学习的目标就是找到最低点，如何快速找到最低点至关重要。</p>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202409161313907.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>假设你站在一个山坡上，如何找到最快的下坡路线？即朝哪个方向迈出一步？每走一步都要再次确认下一步往哪迈。</p>
 <blockquote>
-<p>对于某个特定步的两个量(w,b)的更新，$\frac\partial{\partial w}J(w,b)$要一致。</p>
+<p>实现梯度下降</p>
 </blockquote>
-<p>$$<br>tmp_w &#x3D; w-\alpha\frac\partial{\partial w}J(w,b)<br>$$</p>
-<p>$$<br>tmp_b &#x3D; b-\alpha\frac\partial{\partial b}J(w,b)<br>$$</p>
-<p>$$<br>w &#x3D; tmp_w<br>$$</p>
-<p>$$<br>b &#x3D; tmp_b<br>$$</p>
+<p><span class="math display">\[
+w=w-\alpha\frac\partial{\partial w}J(w,b)
+\]</span></p>
+<p><span class="math display">\[
+b=b-\alpha\frac\partial{\partial b}J(w,b)
+\]</span></p>
+<p>学习率<span
+class="math inline">\(\alpha\)</span>决定下坡的步数大小</p>
+<blockquote>
+<p>对于某个特定步的两个量(w,b)的更新，<span
+class="math inline">\(\frac\partial{\partial
+w}J(w,b)\)</span>要一致。</p>
+</blockquote>
+<p><span class="math display">\[
+tmp_w = w-\alpha\frac\partial{\partial w}J(w,b)
+\]</span></p>
+<p><span class="math display">\[
+tmp_b = b-\alpha\frac\partial{\partial b}J(w,b)
+\]</span></p>
+<p><span class="math display">\[
+w = tmp_w
+\]</span></p>
+<p><span class="math display">\[
+b = tmp_b
+\]</span></p>
 <p><strong>直观理解梯度下降</strong></p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240918185034.png" srcset="/img/logo.png" lazyload alt="image.png|800"></p>
-<hr>
-<h3 id="3-1-学习率"><a href="#3-1-学习率" class="headerlink" title="3.1 学习率"></a>3.1 学习率</h3><p>学习率的值至关重要，太小和太大会产生什么影响呢？</p>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240918185034.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h3 id="学习率">3.1 学习率</h3>
+<p>学习率的值至关重要，太小和太大会产生什么影响呢？</p>
 <ul>
 <li>太小学习很慢</li>
 <li>太大可能会离最小值越来越远，导致发散</li>
 </ul>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240918185505.png" srcset="/img/logo.png" lazyload alt="image.png|500"></p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240918185512.png" srcset="/img/logo.png" lazyload alt="image.png|500"></p>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240918185505.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240918185512.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
 <p>固定的学习率，下降的步长会越来越小，因为导数在变小</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240918185832.png" srcset="/img/logo.png" lazyload alt="image.png|500"></p>
-<h3 id="3-2-线性回归中的梯度下降"><a href="#3-2-线性回归中的梯度下降" class="headerlink" title="3.2 线性回归中的梯度下降"></a>3.2 线性回归中的梯度下降</h3><p>$$f_{w,b}(x)&#x3D;wx+b$$<br>$$J(w,b)&#x3D;\frac{1}{2m}\sum_{i&#x3D;1}^{m}(f_{w,b}(x^{(i)})-y^{(i)})^{2}$$<br>$$w&#x3D;w-\alpha\frac{\partial}{\partial w}J(w,b)$$<br>$$b&#x3D;b-\alpha\frac{\partial}{\partial b}J(w,b)$$<br>而<br>$$\frac{\partial}{\partial w}J(w,b) &#x3D; \frac{1}{m}\sum_{i&#x3D;1}^{m}(f_{w,b}\big(x^{(i)}\big)-y^{(i)})x^{(i)}$$<br>$$\frac{\partial}{\partial w}J(w,b) &#x3D; \frac{1}{m}\sum_{i&#x3D;1}^{m}(f_{w,b}\big(x^{(i)}\big)-y^{(i)})$$<br>则<br>$$w&#x3D;w-\alpha\frac{1}{m}\sum_{i&#x3D;1}^{m}(f_{w,b}(x^{(i)})-y^{(i)}) x^{(i)}$$<br>$$b&#x3D;b-\alpha\frac{1}{m}\sum_{i&#x3D;1}^{m}(f_{w,b}(x^{(i)})-y^{(i)})$$</p>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240918185832.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h3 id="线性回归中的梯度下降">3.2 线性回归中的梯度下降</h3>
+<p><span class="math display">\[
+f_{w,b}(x)=wx+b
+\]</span></p>
+<p><span class="math display">\[
+J(w,b)=\frac{1}{2m}\sum_{i=1}^{m}(f_{w,b}(x^{(i)})-y^{(i)})^{2}\]</span></p>
+<p><span class="math display">\[
+w=w-\alpha\frac{\partial}{\partial w}J(w,b)
+\]</span></p>
+<p><span class="math display">\[
+b=b-\alpha\frac{\partial}{\partial b}J(w,b)
+\]</span></p>
+<p>而</p>
+<p><span class="math display">\[
+\frac{\partial}{\partial w}J(w,b) =
+\frac{1}{m}\sum_{i=1}^{m}(f_{w,b}\big(x^{(i)}\big)-y^{(i)})x^{(i)}
+\]</span></p>
+<p><span class="math display">\[
+\frac{\partial}{\partial w}J(w,b) =
+\frac{1}{m}\sum_{i=1}^{m}(f_{w,b}\big(x^{(i)}\big)-y^{(i)})
+\]</span></p>
+<p>则</p>
+<p><span class="math display">\[
+w=w-\alpha\frac{1}{m}\sum_{i=1}^{m}(f_{w,b}(x^{(i)})-y^{(i)}) x^{(i)}
+\]</span></p>
+<p><span class="math display">\[
+b=b-\alpha\frac{1}{m}\sum_{i=1}^{m}(f_{w,b}(x^{(i)})-y^{(i)})
+\]</span></p>
 <blockquote>
 <p>梯度下降只能找到局部最小值，而不能找到全局最小值。对于凸函数只有一个最小值，梯度下降是适用的</p>
 </blockquote>
-<h2 id="4、多元线性回归"><a href="#4、多元线性回归" class="headerlink" title="4、多元线性回归"></a>4、多元线性回归</h2><p>多元线性回归模型中有多个特征值。比如房间的价格Y不止与面积X1有关，还与地段X2、房间数X3等有关。此时的X实际为一个向量 [X1,X2,X3]。此时模型可以定义为<br>$$f_{\overrightarrow{w},b}(\overrightarrow{X})&#x3D;w_{1}X_{1}+w_{2}X_{2}+w_{3}X_{3}+b$$<br>$$\overrightarrow{w} &#x3D; [X1,X2,X3]$$<br>$$<br>f_{\overrightarrow{w},b}(\overrightarrow{X})&#x3D;\overrightarrow{w}\cdot\overrightarrow{X} + b<br>$$<br><strong>向量化</strong></p>
-<p>$$f&#x3D;w[0]*x[0]+w[1]*x[1]+w[2]*x[2]+b$$<br>代码表示</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">f = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,n):<br>	f = f + w[j] * x[j]<br>f = f + b<br><br>// 也可以使用numpy，这种方式计算效率高，因为numpy可以并行计算<br>f = np.dot(w,x) + b<br></code></pre></td></tr></table></figure>
-
-<hr>
+<h2 id="多元线性回归">4、多元线性回归</h2>
+<p>多元线性回归模型中有多个特征值。比如房间的价格Y不止与面积X1有关，还与地段X2、房间数X3等有关。此时的X实际为一个向量
+[X1,X2,X3]。此时模型可以定义为</p>
+<p><span class="math display">\[
+f_{\overrightarrow{w},b}(\overrightarrow{X})=w_{1}X_{1}+w_{2}X_{2}+w_{3}X_{3}+b
+\]</span></p>
+<p><span class="math display">\[
+\overrightarrow{w} = [X1,X2,X3]
+\]</span></p>
+<p><span class="math display">\[
+f_{\overrightarrow{w},b}(\overrightarrow{X})=\overrightarrow{w}\cdot\overrightarrow{X}
++ b
+\]</span></p>
+<p><strong>向量化</strong></p>
+<p><span
+class="math display">\[f=w[0]*x[0]+w[1]*x[1]+w[2]*x[2]+b\]</span>
+代码表示</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">f = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,n):<br>  f = f + w[j] * x[j]<br>f = f + b<br><br>// 也可以使用numpy，这种方式计算效率高，因为numpy可以并行计算<br>f = np.dot(w,x) + b<br></code></pre></td></tr></table></figure>
 <p><strong>向量中的梯度算法</strong></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Bq421A74G?p=24&vd_source=33b50a4dd201d7564e6e63d321809ce9">https://www.bilibili.com/video/BV1Bq421A74G?p=24&amp;vd_source=33b50a4dd201d7564e6e63d321809ce9</a><br>多个特征值<br>$$<br>\begin{align*} \text{repeat}&amp;\text{ until convergence:} ; \lbrace \newline;<br>&amp; w_j &#x3D; w_j -  \alpha \frac{\partial J(\mathbf{w},b)}{\partial w_j} \tag{5}  ; &amp; \text{for j &#x3D; 0..n-1}\newline<br>&amp;b\ \ &#x3D; b -  \alpha \frac{\partial J(\mathbf{w},b)}{\partial b}  \newline \rbrace<br>\end{align*}<br>$$<br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208153328456.png" srcset="/img/logo.png" lazyload alt="image-20250208153328456"></p>
-<h3 id="4-1-梯度下降-特征放缩"><a href="#4-1-梯度下降-特征放缩" class="headerlink" title="4.1 梯度下降:特征放缩"></a>4.1 梯度下降:特征放缩</h3><p>如果两个特征值在量级上相差较大，如房间数和面积，房间数一般在1<del>5，而面积在100</del>150，这时绘制出的w1和w2的J(w,b)呈现椭圆形，在梯度下降时会来回反弹。<br>最有利的方式是将特征值进行放缩，使得两个特征值在相同量级。<br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240924084546.png" srcset="/img/logo.png" lazyload alt="image.png|500"></p>
-<h3 id="4-2-如何缩放"><a href="#4-2-如何缩放" class="headerlink" title="4.2 如何缩放"></a>4.2 如何缩放</h3><p><strong>最值归一化</strong></p>
-<p>除以特征值取值的最大值，数据会映射到0~1之间。<br>$$x_{scale}&#x3D;\frac{x-x_{min}}{x_{max}-x_{min}}$$<br>最值归一化只适用于有明显边间的情况。</p>
+<a class="btn" href="https://www.bilibili.com/video/BV1Bq421A74G?p=24&vd_source=33b50a4dd201d7564e6e63d321809ce9"  title="视频讲解" target="_blank">视频讲解</a>
+<p>多个特征值</p>
+<p><span class="math display">\[
+\begin{align*} \text{repeat}&amp;\text{ until convergence:} \; \lbrace
+\newline\;
+&amp; w_j = w_j -  \alpha \frac{\partial J(\mathbf{w},b)}{\partial w_j}
+\tag{5}  \; &amp; \text{for j = 0..n-1}\newline
+&amp;b\ \ = b -  \alpha \frac{\partial J(\mathbf{w},b)}{\partial b}
+ \newline \rbrace
+\end{align*}
+\]</span></p>
+<p><span class="math display">\[
+\frac{\partial J(\mathbf{w},b)}{\partial
+w_j}=\frac{1}{m}\sum_{i=0}^{m-1}(f_{\mathbf{w},b}(\mathbf{x}^{(i)})-y^{(i)})x_j^{(i)}
+\]</span></p>
+<p><span class="math display">\[
+\frac{\partial J(\mathbf{w},b)}{\partial
+b}=\frac{1}{m}\sum_{i=0}^{m-1}(f_{\mathbf{w},b}(\mathbf{x}^{(i)})-y^{(i)})
+\]</span></p>
+<h3 id="梯度下降特征放缩">4.1 梯度下降:特征放缩</h3>
+<p>如果两个特征值在量级上相差较大，如房间数和面积，房间数一般在1<sub>5，而面积在100</sub>150，这时绘制出的w1和w2的J(w,b)呈现椭圆形，在梯度下降时会来回反弹。
+最有利的方式是将特征值进行放缩，使得两个特征值在相同量级。</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240924084546.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image.png|500" />
+<figcaption aria-hidden="true">image.png|500</figcaption>
+</figure>
+<h3 id="如何缩放">4.2 如何缩放</h3>
+<p><strong>最值归一化</strong></p>
+<p>除以特征值取值的最大值，数据会映射到0~1之间。 <span
+class="math display">\[x_{scale}=\frac{x-x_{min}}{x_{max}-x_{min}}\]</span>
+最值归一化只适用于有明显边间的情况。</p>
 <p><strong>均值归一化</strong></p>
-<p>$$x_{scale}&#x3D;\frac{x-\mu}S$$<br>其中$x$为要归一化的值，$x_{scale}$为归一化之后的值。$\mu$ 为样本的平均值，$S$为样本的标准差。</p>
+<p><span class="math display">\[x_{scale}=\frac{x-\mu}S\]</span>
+其中<span class="math inline">\(x\)</span>为要归一化的值，<span
+class="math inline">\(x_{scale}\)</span>为归一化之后的值。<span
+class="math inline">\(\mu\)</span> 为样本的平均值，<span
+class="math inline">\(S\)</span>为样本的标准差。</p>
 <p><strong>均值方差归一化</strong></p>
-<p>$$Y_i&#x3D;\sigma\cdot X_i+\mu $$<br>其中，X为标准正态分布中的元素，$\mu$为平均值，$\sigma$为标准差。</p>
-<h3 id="4-3-学习曲线"><a href="#4-3-学习曲线" class="headerlink" title="4.3 学习曲线"></a>4.3 学习曲线</h3><p>可以判断何时停止训练特定模拟<br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240927140525.png" srcset="/img/logo.png" lazyload alt="image.png|500"></p>
-<h3 id="4-4-学习率选择"><a href="#4-4-学习率选择" class="headerlink" title="4.4 学习率选择"></a>4.4 学习率选择</h3><p>一个小的学习率，J应该是持续减小的。<br>在选择学习率时，可从小的开始，每次增加10倍改变，如0.001、0.01、0.1、1、10…</p>
+<p><span class="math display">\[Y_i=\sigma\cdot X_i+\mu \]</span>
+其中，X为标准正态分布中的元素，<span
+class="math inline">\(\mu\)</span>为平均值，<span
+class="math inline">\(\sigma\)</span>为标准差。</p>
+<h3 id="学习曲线">4.3 学习曲线</h3>
+<p>可以判断何时停止训练特定模拟</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240927140525.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image.png|500" />
+<figcaption aria-hidden="true">image.png|500</figcaption>
+</figure>
+<h3 id="学习率选择">4.4 学习率选择</h3>
+<p>一个小的学习率，J应该是持续减小的。
+在选择学习率时，可从小的开始，每次增加10倍改变，如0.001、0.01、0.1、1、10...</p>
 
                 
               </div>
@@ -538,6 +690,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -746,6 +904,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

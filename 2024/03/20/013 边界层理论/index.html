@@ -71,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/logo.png","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/images/icons8-loading-96.png","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -229,7 +229,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          815 字
+          810 字
         
       </span>
     
@@ -283,48 +283,101 @@
             
               <div class="markdown-body">
                 
-                <h1 id="边界层理论"><a href="#边界层理论" class="headerlink" title="边界层理论"></a>边界层理论</h1><p>关键词：<span class="label label-primary">边界层</span> <span class="label label-info">增长比率</span> <span class="label label-success">y+</span></p>
+                <h1 id="边界层理论">边界层理论</h1>
+<p>关键词：<span class="label label-primary">边界层</span> <span
+class="label label-info">增长比率</span> <span
+class="label label-success">y+</span></p>
 <p>疑问：</p>
-<ol>
+<ol type="1">
 <li>边界层应该画多少个（N）？</li>
 <li>第一层网格的大小（yH）？</li>
 <li>增长比率是多少（G）？</li>
 </ol>
-<h2 id="1、边界层理论"><a href="#1、边界层理论" class="headerlink" title="1、边界层理论"></a>1、边界层理论</h2><p>流体在大雷诺数下作绕流流动时，在离固体壁面较远处，粘性力比惯性力小得多，可以忽略；但在固体壁面附近的薄层中，粘性力的影响则不能忽略，沿壁面法线方向存在相当大的速度梯度，这一薄层叫做边界层。流体的雷诺数越大，边界层越薄。</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320150149505.png" srcset="/img/logo.png" lazyload alt="image-20240320150149505"></p>
+<h2 id="边界层理论-1">1、边界层理论</h2>
+<p>流体在大雷诺数下作绕流流动时，在离固体壁面较远处，粘性力比惯性力小得多，可以忽略；但在固体壁面附近的薄层中，粘性力的影响则不能忽略，沿壁面法线方向存在相当大的速度梯度，这一薄层叫做边界层。流体的雷诺数越大，边界层越薄。</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320150149505.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20240320150149505" />
+<figcaption aria-hidden="true">image-20240320150149505</figcaption>
+</figure>
 <p>需要小的单元来捕获给定方向上的梯度。</p>
-<p>${\delta_{99}}$表示速度到达自由流速度 99%时厚度。</p>
-<ol>
+<p><span
+class="math inline">\({\delta_{99}}\)</span>表示速度到达自由流速度
+99%时厚度。</p>
+<ol type="1">
 <li>在边界层内，粘性力与惯性力同一数量级</li>
 <li>由于边界层很薄，可以近似认为边界层中各截面上的压强等于同一截面上边界层外边界上的压强值。</li>
 </ol>
-<h3 id="无粘流动与真实流动的区别"><a href="#无粘流动与真实流动的区别" class="headerlink" title="无粘流动与真实流动的区别"></a>无粘流动与真实流动的区别</h3><p>考虑边界层的存在，在后方会出现分离区</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320154409785.png" srcset="/img/logo.png" lazyload alt="image-20240320154409785"></p>
-<h2 id="2、第一层网格大小"><a href="#2、第一层网格大小" class="headerlink" title="2、第一层网格大小"></a>2、第一层网格大小</h2><p>yH 依赖于 y+的值</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320151316147.png" srcset="/img/logo.png" lazyload alt="image-20240320151316147"></p>
-<p>$$y^+&#x3D;\frac{\rho u_\tau y_p}\mu $$</p>
+<h3 id="无粘流动与真实流动的区别">无粘流动与真实流动的区别</h3>
+<p>考虑边界层的存在，在后方会出现分离区</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320154409785.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20240320154409785" />
+<figcaption aria-hidden="true">image-20240320154409785</figcaption>
+</figure>
+<h2 id="第一层网格大小">2、第一层网格大小</h2>
+<p>yH 依赖于 y+的值</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320151316147.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20240320151316147" />
+<figcaption aria-hidden="true">image-20240320151316147</figcaption>
+</figure>
+<p><span class="math display">\[y^+=\frac{\rho u_\tau y_p}\mu
+\]</span></p>
 <ul>
-<li>动力粘度：单位为 Pa.s(N&#x2F;m2.s),厘泊（CP），1Pa.s&#x3D;10P（泊）&#x3D;1000CP（厘泊）</li>
-<li>运动粘度 V：即动力粘度 u 与密度 p 的比值：v&#x3D;u&#x2F;p，运动粘度的单位为 m2&#x2F;s，习惯单位为：厘斯(mm2&#x2F;s)</li>
+<li>动力粘度：单位为
+Pa.s(N/m2.s),厘泊（CP），1Pa.s=10P（泊）=1000CP（厘泊）</li>
+<li>运动粘度 V：即动力粘度 u 与密度 p 的比值：v=u/p，运动粘度的单位为
+m2/s，习惯单位为：厘斯(mm2/s)</li>
 <li>这里指的是动力粘度</li>
 </ul>
-<h2 id="3、总高度"><a href="#3、总高度" class="headerlink" title="3、总高度"></a>3、总高度</h2><p>网格边界层的总高度要包含${\delta_{99}}$</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320151535403.png" srcset="/img/logo.png" lazyload alt="image-20240320151535403"></p>
+<h2 id="总高度">3、总高度</h2>
+<p>网格边界层的总高度要包含<span
+class="math inline">\({\delta_{99}}\)</span></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320151535403.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20240320151535403" />
+<figcaption aria-hidden="true">image-20240320151535403</figcaption>
+</figure>
 <p>2 个边界层</p>
-<p>$$y_T&#x3D;y_H+y_H*G$$</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320151740787.png" srcset="/img/logo.png" lazyload alt="image-20240320151740787"></p>
+<p><span class="math display">\[y_T=y_H+y_H*G\]</span></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320151740787.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20240320151740787" />
+<figcaption aria-hidden="true">image-20240320151740787</figcaption>
+</figure>
 <p>3 个边界层</p>
-<p>$$y_T&#x3D;y_H+y_HG+y_HG^2$$</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320151857224.png" srcset="/img/logo.png" lazyload alt="image-20240320151857224"></p>
+<p><span class="math display">\[y_T=y_H+y_HG+y_HG^2\]</span></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320151857224.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20240320151857224" />
+<figcaption aria-hidden="true">image-20240320151857224</figcaption>
+</figure>
 <p>我们可以得出边界层公式</p>
-<p>$$y_T&#x3D;y_H+y_HG+y_HG^2+y_HG^3+…+y_HG^{N-1}$$</p>
+<p><span
+class="math display">\[y_T=y_H+y_HG+y_HG^2+y_HG^3+...+y_HG^{N-1}\]</span></p>
 <p>即</p>
-<p>$$\sum_{k&#x3D;0}^{N-1}y_HG^k&#x3D;y_H\frac{1-G^N}{1-G}$$</p>
-<p>$$\delta_{99}&#x3D;y_H\frac{1-G^N}{1-G}$$</p>
+<p><span
+class="math display">\[\sum_{k=0}^{N-1}y_HG^k=y_H\frac{1-G^N}{1-G}\]</span></p>
+<p><span
+class="math display">\[\delta_{99}=y_H\frac{1-G^N}{1-G}\]</span></p>
 <p>而边界层厚度的计算公式为</p>
-<p>$$\begin{aligned}\delta_{99}&amp;&#x3D;\frac{4.91L}{\sqrt{Re_L}}\quad&amp;Re&lt;5\times10^5\\delta_{99}&amp;&#x3D;\frac{0.38L}{Re_L^{1&#x2F;5}}\quad&amp;Re&gt;5\times10^5\end{aligned}$$</p>
-<h2 id="4、G-和-N-如何确定"><a href="#4、G-和-N-如何确定" class="headerlink" title="4、G 和 N 如何确定"></a>4、G 和 N 如何确定</h2><p>首先可以大致猜测一下</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320152635843.png" srcset="/img/logo.png" lazyload alt="image-20240320152635843"></p>
+<p><span
+class="math display">\[\begin{aligned}\delta_{99}&amp;=\frac{4.91L}{\sqrt{Re_L}}\quad&amp;Re&lt;5\times10^5\\\delta_{99}&amp;=\frac{0.38L}{Re_L^{1/5}}\quad&amp;Re&gt;5\times10^5\end{aligned}\]</span></p>
+<h2 id="g-和-n-如何确定">4、G 和 N 如何确定</h2>
+<p>首先可以大致猜测一下</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320152635843.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20240320152635843" />
+<figcaption aria-hidden="true">image-20240320152635843</figcaption>
+</figure>
 <p>如果 N&gt;10，则第一个网格高度约为 30</p>
 <p>如果 N&gt;25，则第一个网格高度约为 1</p>
 <p>通常</p>
@@ -332,21 +385,58 @@
 <li>1.05&lt;G&lt;1.3</li>
 <li>10&lt;N&lt;30</li>
 </ul>
-<h2 id="5、如何确定网格是好坏"><a href="#5、如何确定网格是好坏" class="headerlink" title="5、如何确定网格是好坏"></a>5、如何确定网格是好坏</h2><h3 id="小的网格转变"><a href="#小的网格转变" class="headerlink" title="小的网格转变"></a>小的网格转变</h3><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320153250656.png" srcset="/img/logo.png" lazyload alt="image-20240320153250656"></p>
-<h3 id="在大涡模拟中"><a href="#在大涡模拟中" class="headerlink" title="在大涡模拟中"></a>在大涡模拟中</h3><p>$$v_{sgs}&#x3D;\left(C_{s}\Delta\right)^{2}\sqrt{2S_{ij}S_{ij}}$$</p>
-<p>网格大小突然改变，会导致$v_{sgs}$突然改变</p>
-<h3 id="在-RANS-中"><a href="#在-RANS-中" class="headerlink" title="在 RANS 中"></a>在 RANS 中</h3><p>使用至少 3 种不同的网格进行网格细化研究是非常必要的。</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320153804905.png" srcset="/img/logo.png" lazyload alt="image-20240320153804905"></p>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=1gSHN99I7L4&list=PLnJ8lIgfDbkqaOdo-twtuco-qYahdAeG8">边界层理论</a></p>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="y-定义"><a href="#y-定义" class="headerlink" title="y+定义"></a><a target="_blank" rel="noopener" href="https://www.simscale.com/forum/t/what-is-y-yplus/82394">y+定义</a></h3><p>根据 y+的大小，可以将湍流边界层分为好多层。</p>
-<ol>
-<li>粘性子层($y^{+} &lt; 5$)：粘性影响占据主要地位，雷诺应力可忽略，则$u^{+} &#x3D; y^{+}$</li>
-<li>对数区域($y^{+} &gt; 30$)：湍流应力占主导地位，$u^+&#x3D;\frac1\kappa ln(y^+)+B$，其中 k&#x3D;0.41,B&#x3D;5.2</li>
-<li>缓冲层($5 &lt; y^{+} &lt; 30$)：粘性应力和湍流应力的大小相近，由于该区域比较复杂，速度剖面的定义不明确，原始壁面函数会避开位于该区域的第一个单元中心。</li>
+<h2 id="如何确定网格是好坏">5、如何确定网格是好坏</h2>
+<h3 id="小的网格转变">小的网格转变</h3>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320153250656.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20240320153250656" />
+<figcaption aria-hidden="true">image-20240320153250656</figcaption>
+</figure>
+<h3 id="在大涡模拟中">在大涡模拟中</h3>
+<p><span
+class="math display">\[v_{sgs}=\left(C_{s}\Delta\right)^{2}\sqrt{2S_{ij}S_{ij}}\]</span></p>
+<p>网格大小突然改变，会导致<span
+class="math inline">\(v_{sgs}\)</span>突然改变</p>
+<h3 id="在-rans-中">在 RANS 中</h3>
+<p>使用至少 3 种不同的网格进行网格细化研究是非常必要的。</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20240320153804905.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20240320153804905" />
+<figcaption aria-hidden="true">image-20240320153804905</figcaption>
+</figure>
+<p><a
+target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=1gSHN99I7L4&amp;list=PLnJ8lIgfDbkqaOdo-twtuco-qYahdAeG8">边界层理论</a></p>
+<h2 id="附录">附录</h2>
+<h3 id="y定义"><a
+target="_blank" rel="noopener" href="https://www.simscale.com/forum/t/what-is-y-yplus/82394">y+定义</a></h3>
+<p>根据 y+的大小，可以将湍流边界层分为好多层。</p>
+<ol type="1">
+<li>粘性子层(<span class="math inline">\(y^{+} &lt;
+5\)</span>)：粘性影响占据主要地位，雷诺应力可忽略，则<span
+class="math inline">\(u^{+} = y^{+}\)</span></li>
+<li>对数区域(<span class="math inline">\(y^{+} &gt;
+30\)</span>)：湍流应力占主导地位，<span
+class="math inline">\(u^+=\frac1\kappa ln(y^+)+B\)</span>，其中
+k=0.41,B=5.2</li>
+<li>缓冲层(<span class="math inline">\(5 &lt; y^{+} &lt;
+30\)</span>)：粘性应力和湍流应力的大小相近，由于该区域比较复杂，速度剖面的定义不明确，原始壁面函数会避开位于该区域的第一个单元中心。</li>
 </ol>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240320162112.png" srcset="/img/logo.png" lazyload alt="The Law of the Wall"></p>
-<p>壁面函数要求第一层网格尺寸$30&lt;y^{+}&lt;300$</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240320164028.png" srcset="/img/logo.png" lazyload alt="y+应用"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240320162112.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="The Law of the Wall" />
+<figcaption aria-hidden="true">The Law of the Wall</figcaption>
+</figure>
+<p>壁面函数要求第一层网格尺寸<span
+class="math inline">\(30&lt;y^{+}&lt;300\)</span></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240320164028.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="y+应用" />
+<figcaption aria-hidden="true">y+应用</figcaption>
+</figure>
 
                 
               </div>
@@ -512,6 +602,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -720,6 +816,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208144105189.png">
 <meta property="article:published_time" content="2025-02-08T06:33:00.000Z">
-<meta property="article:modified_time" content="2025-02-08T06:59:08.650Z">
+<meta property="article:modified_time" content="2025-02-08T11:39:29.438Z">
 <meta property="article:author" content="DB">
 <meta property="article:tag" content="powershell">
 <meta name="twitter:card" content="summary_large_image">
@@ -71,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/logo.png","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/images/icons8-loading-96.png","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -229,7 +229,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          70 字
+          84 字
         
       </span>
     
@@ -283,15 +283,35 @@
             
               <div class="markdown-body">
                 
-                <p>在使用<code>tabby</code>运行<code>PowerShell</code>时，输入命令行<code>hexo s</code>出现如下报错</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208144105189.png" srcset="/img/logo.png" lazyload alt="image-20250208144105189"></p>
+                <div class="note note-success">
+            <p>本文最新更新于 2025/02/08 下午</p>
+          </div>
+<p>在使用<code>tabby</code>运行<code>PowerShell</code>时，输入命令行<code>hexo s</code>出现如下报错</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208144105189.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20250208144105189" />
+<figcaption aria-hidden="true">image-20250208144105189</figcaption>
+</figure>
 <p><strong>分析原因</strong></p>
-<p><code>PowerShell</code>执行策略是<code>Restricted</code> 。<code>Restricted</code> 执行策略不允许任何脚本运行。</p>
+<p><code>PowerShell</code>执行策略是<code>Restricted</code>
+。<code>Restricted</code> 执行策略不允许任何脚本运行。</p>
 <p>查看执行策略<code>get-executionpolicy</code></p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208143829255.png" srcset="/img/logo.png" lazyload alt="image-20250208143829255"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208143829255.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20250208143829255" />
+<figcaption aria-hidden="true">image-20250208143829255</figcaption>
+</figure>
 <p><strong>解决方法</strong></p>
-<p>管理员身份打开<code>PowerShell</code> 输入 <code>set-executionpolicy remotesigned</code>更改执行策略</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208143928799.png" srcset="/img/logo.png" lazyload alt="image-20250208143928799"></p>
+<p>管理员身份打开<code>PowerShell</code> 输入
+<code>set-executionpolicy remotesigned</code>更改执行策略</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208143928799.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20250208143928799" />
+<figcaption aria-hidden="true">image-20250208143928799</figcaption>
+</figure>
 
                 
               </div>
@@ -450,6 +470,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -658,6 +684,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

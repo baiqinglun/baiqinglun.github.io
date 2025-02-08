@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/logo.png","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/images/icons8-loading-96.png","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -285,14 +285,16 @@
             
               <div class="markdown-body">
                 
-                <h1 id="python-调用-REFPROP"><a href="#python-调用-REFPROP" class="headerlink" title="python 调用 REFPROP"></a>python 调用 REFPROP</h1><h2 id="1、安装调试"><a href="#1、安装调试" class="headerlink" title="1、安装调试"></a>1、安装调试</h2><ol>
+                <h1 id="python-调用-refprop">python 调用 REFPROP</h1>
+<h2 id="安装调试">1、安装调试</h2>
+<ol type="1">
 <li>安装 refprop10</li>
 <li>安装 python 库<code>pip install ctREFPROP</code></li>
 </ol>
 <p>测试使用</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os, numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> ctREFPROP.ctREFPROP <span class="hljs-keyword">import</span> REFPROPFunctionLibrary<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">NBP</span>():<br>    RP = REFPROPFunctionLibrary(os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>])<br>    RP.SETPATHdll(os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>])<br>    <span class="hljs-built_in">print</span>(RP.RPVersion())<br>    MOLAR_BASE_SI = RP.GETENUMdll(<span class="hljs-number">0</span>,<span class="hljs-string">&quot;MOLAR BASE SI&quot;</span>).iEnum<br><br>    r = RP.REFPROPdll(<span class="hljs-string">&quot;PROPANE&quot;</span>,<span class="hljs-string">&quot;PQ&quot;</span>,<span class="hljs-string">&quot;T&quot;</span>,MOLAR_BASE_SI, <span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">101325</span>, <span class="hljs-number">0</span>, [<span class="hljs-number">1.0</span>])<br>    <span class="hljs-built_in">print</span>(r.ierr, r.herr, r.Output[<span class="hljs-number">0</span>])<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># 路径</span><br>    os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>] = <span class="hljs-string">r&#x27;D:/REFPROP10&#x27;</span><br><br>    NBP()<br><br>&gt;&gt;<br><span class="hljs-number">10.0</span><br><span class="hljs-number">0</span>  <span class="hljs-number">231.0362479100902</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="2、基本语法"><a href="#2、基本语法" class="headerlink" title="2、基本语法"></a>2、基本语法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os, numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> ctREFPROP.ctREFPROP <span class="hljs-keyword">import</span> REFPROPFunctionLibrary<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">calculate_properties</span>():<br>    <span class="hljs-comment"># 初始化REFPROP</span><br>    RP = REFPROPFunctionLibrary(os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>])<br>    RP.SETPATHdll(os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>])<br><br>    <span class="hljs-comment"># 将单位设置为国际单位制（摩尔基准）</span><br>    MOLAR_BASE_SI = RP.GETENUMdll(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;MASS BASE SI&quot;</span>).iEnum<br><br>    <span class="hljs-comment"># 指定物质（氢）、计算类型（H为焓值，D为密度，S为熵值）</span><br>    substance = <span class="hljs-string">&quot;HYDROGEN&quot;</span><br><br>    <span class="hljs-comment"># 指定输入条件（温度、压力）</span><br>    temperature = <span class="hljs-number">298.15</span>  <span class="hljs-comment"># 单位：K</span><br>    pressure = <span class="hljs-number">101325</span>  <span class="hljs-comment"># 单位：Pa</span><br><br>    <span class="hljs-comment"># 调用REFPROPdll计算性质</span><br>    H_result = RP.REFPROPdll(substance, <span class="hljs-string">&quot;PT&quot;</span>,<span class="hljs-string">&quot;H&quot;</span>,  MOLAR_BASE_SI, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, pressure, temperature, [<span class="hljs-number">1.0</span>]) <span class="hljs-comment"># J/kg</span><br>    D_result = RP.REFPROPdll(substance, <span class="hljs-string">&quot;PT&quot;</span>,<span class="hljs-string">&quot;D&quot;</span>,  MOLAR_BASE_SI, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, pressure, temperature, [<span class="hljs-number">1.0</span>]) <span class="hljs-comment"># kg/m3</span><br>    S_result = RP.REFPROPdll(substance, <span class="hljs-string">&quot;PT&quot;</span>,<span class="hljs-string">&quot;S&quot;</span>,  MOLAR_BASE_SI, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, pressure, temperature, [<span class="hljs-number">1.0</span>]) <span class="hljs-comment"># J/(kg·K)</span><br>    <span class="hljs-comment"># 检查是否有错误</span><br>    <span class="hljs-keyword">if</span> H_result.ierr == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> D_result.ierr == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> S_result.ierr == <span class="hljs-number">0</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;计算得到的H=:&quot;</span>,H_result.Output[<span class="hljs-number">0</span>])<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;计算得到的D=:&quot;</span>,D_result.Output[<span class="hljs-number">0</span>])<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;计算得到的S=:&quot;</span>,S_result.Output[<span class="hljs-number">0</span>])<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;错误: <span class="hljs-subst">&#123;H_result.herr&#125;</span>&quot;</span>)<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># 路径</span><br>    os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>] = <span class="hljs-string">r&#x27;D:/REFPROP10&#x27;</span><br><br>    calculate_properties()<br></code></pre></td></tr></table></figure>
+<h2 id="基本语法">2、基本语法</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os, numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> ctREFPROP.ctREFPROP <span class="hljs-keyword">import</span> REFPROPFunctionLibrary<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">calculate_properties</span>():<br>    <span class="hljs-comment"># 初始化REFPROP</span><br>    RP = REFPROPFunctionLibrary(os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>])<br>    RP.SETPATHdll(os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>])<br><br>    <span class="hljs-comment"># 将单位设置为国际单位制（摩尔基准）</span><br>    MOLAR_BASE_SI = RP.GETENUMdll(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;MASS BASE SI&quot;</span>).iEnum<br><br>    <span class="hljs-comment"># 指定物质（氢）、计算类型（H为焓值，D为密度，S为熵值）</span><br>    substance = <span class="hljs-string">&quot;HYDROGEN&quot;</span><br><br>    <span class="hljs-comment"># 指定输入条件（温度、压力）</span><br>    temperature = <span class="hljs-number">298.15</span>  <span class="hljs-comment"># 单位：K</span><br>    pressure = <span class="hljs-number">101325</span>  <span class="hljs-comment"># 单位：Pa</span><br><br>    <span class="hljs-comment"># 调用REFPROPdll计算性质</span><br>    H_result = RP.REFPROPdll(substance, <span class="hljs-string">&quot;PT&quot;</span>,<span class="hljs-string">&quot;H&quot;</span>,  MOLAR_BASE_SI, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, pressure, temperature, [<span class="hljs-number">1.0</span>]) <span class="hljs-comment"># J/kg</span><br>    D_result = RP.REFPROPdll(substance, <span class="hljs-string">&quot;PT&quot;</span>,<span class="hljs-string">&quot;D&quot;</span>,  MOLAR_BASE_SI, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, pressure, temperature, [<span class="hljs-number">1.0</span>]) <span class="hljs-comment"># kg/m3</span><br>    S_result = RP.REFPROPdll(substance, <span class="hljs-string">&quot;PT&quot;</span>,<span class="hljs-string">&quot;S&quot;</span>,  MOLAR_BASE_SI, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, pressure, temperature, [<span class="hljs-number">1.0</span>]) <span class="hljs-comment"># J/(kg·K)</span><br>    <span class="hljs-comment"># 检查是否有错误</span><br>    <span class="hljs-keyword">if</span> H_result.ierr == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> D_result.ierr == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> S_result.ierr == <span class="hljs-number">0</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;计算得到的H=:&quot;</span>,H_result.Output[<span class="hljs-number">0</span>])<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;计算得到的D=:&quot;</span>,D_result.Output[<span class="hljs-number">0</span>])<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;计算得到的S=:&quot;</span>,S_result.Output[<span class="hljs-number">0</span>])<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;错误: <span class="hljs-subst">&#123;H_result.herr&#125;</span>&quot;</span>)<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># 路径</span><br>    os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>] = <span class="hljs-string">r&#x27;D:/REFPROP10&#x27;</span><br><br>    calculate_properties()<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -462,6 +464,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -670,6 +678,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

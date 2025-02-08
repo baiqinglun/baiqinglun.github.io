@@ -74,7 +74,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/logo.png","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/images/icons8-loading-96.png","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -286,41 +286,69 @@
             
               <div class="markdown-body">
                 
-                <h1 id="1、历史发展"><a href="#1、历史发展" class="headerlink" title="1、历史发展"></a>1、历史发展</h1><p>流体动力学中描述流体在外力作用下流动的主要控制方程是<strong>纳维-斯托克斯方程</strong>。这些方程的强大之处在于它们能够描述作用在流体上的任何力的影响以及由此产生的流动行为。然而，<em>它们不能针对每个系统或流量情况以封闭形式求解。</em></p>
-<p>由于最早 1973 年提出的 ke 模型无法准确预测逆压力梯度 adverse pressure gradient 下的边界层运动，Spalart-Allmaras Model（1994）、（1998）以及 （1994）分别被提出。</p>
-<p>在物理学中，Spalart-Allmaras 模型是一种单方程模型，可求解运动涡流湍流粘度的模拟输运方程。在其原始形式中，该模型实际上是一个低雷诺数模型，需要正确解析边界层的粘度影响区域（y+ ~1 个网格）。它没有针对一般工业流动进行标定，对于一些自由剪切流，尤其是平面和圆形射流，确实会产生较大的误差。此外，不能依靠它来预测均匀、各向同性湍流的衰减。</p>
-<h1 id="2、基本形式"><a href="#2、基本形式" class="headerlink" title="2、基本形式"></a>2、基本形式</h1><p>$$\tau_{ij}&#x3D;2\mu_t\left(S_{ij}-\frac{1}{3}\frac{\partial u_k}{\partial x_k}\delta_{ij}\right)-\frac{2}{3}\rho k\delta_{ij}$$</p>
-<p>Spalart-Allmaras 湍流模型遵循一个描述运动粘度类变量（称为 Spalart-Allmaras 变量）的动态方程：</p>
-<p>$$\frac{\partial\bar{v}}{\partial t}+u_{j}\frac{\partial\bar{v}}{\partial x_{j}}&#x3D;C_{b,1}(1-f_{t,2})\hat{S}\bar{v}-<a href="%5Cfrac%7B%5Cbar%7Bv%7D%7D%7Bd%7D">c_{w,1}f_{w}-\frac{c_{b,1}}{\kappa^{2}}f_{t,2}</a>^{2}+\frac{1}{\sigma}[\frac{\partial}{\partial x_{j}}((v+\bar{v})\frac{\partial\bar{v}}{\partial x_{j}})+c_{b,2}\frac{\partial\bar{v}}{\partial x_{i}}\frac{\partial\bar{v}}{\partial x_{i}}]$$</p>
+                <h1 id="历史发展">1、历史发展</h1>
+<p>流体动力学中描述流体在外力作用下流动的主要控制方程是<strong>纳维-斯托克斯方程</strong>。这些方程的强大之处在于它们能够描述作用在流体上的任何力的影响以及由此产生的流动行为。然而，<em>它们不能针对每个系统或流量情况以封闭形式求解。</em></p>
+<p>由于最早 1973 年提出的 ke 模型无法准确预测逆压力梯度 adverse pressure
+gradient 下的边界层运动，Spalart-Allmaras Model（1994）、（1998）以及
+（1994）分别被提出。</p>
+<p>在物理学中，Spalart-Allmaras
+模型是一种单方程模型，可求解运动涡流湍流粘度的模拟输运方程。在其原始形式中，该模型实际上是一个低雷诺数模型，需要正确解析边界层的粘度影响区域（y+
+~1
+个网格）。它没有针对一般工业流动进行标定，对于一些自由剪切流，尤其是平面和圆形射流，确实会产生较大的误差。此外，不能依靠它来预测均匀、各向同性湍流的衰减。</p>
+<h1 id="基本形式">2、基本形式</h1>
+<p><span
+class="math display">\[\tau_{ij}=2\mu_t\left(S_{ij}-\frac{1}{3}\frac{\partial
+u_k}{\partial x_k}\delta_{ij}\right)-\frac{2}{3}\rho
+k\delta_{ij}\]</span></p>
+<p>Spalart-Allmaras 湍流模型遵循一个描述运动粘度类变量（称为
+Spalart-Allmaras 变量）的动态方程：</p>
+<p><span class="math display">\[\frac{\partial\bar{v}}{\partial
+t}+u_{j}\frac{\partial\bar{v}}{\partial
+x_{j}}=C_{b,1}(1-f_{t,2})\hat{S}\bar{v}-[c_{w,1}f_{w}-\frac{c_{b,1}}{\kappa^{2}}f_{t,2}](\frac{\bar{v}}{d})^{2}+\frac{1}{\sigma}[\frac{\partial}{\partial
+x_{j}}((v+\bar{v})\frac{\partial\bar{v}}{\partial
+x_{j}})+c_{b,2}\frac{\partial\bar{v}}{\partial
+x_{i}}\frac{\partial\bar{v}}{\partial x_{i}}]\]</span></p>
 <p>该方程的目标是确定湍流涡流粘度，其由以下公式确定：</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194639.png" srcset="/img/logo.png" lazyload></p>
-<p>在这些方程中，分子运动粘度为 𝜈 &#x3D; μ&#x2F;⍴，流体密度为 ⍴，μ 是流体的分子动力粘度。模型中的其他参数以场点到最近壁 d 的距离和涡度大小给出</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194722.png" srcset="/img/logo.png" lazyload></p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194738.png" srcset="/img/logo.png" lazyload></p>
+<p><img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194639.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
+<p>在这些方程中，分子运动粘度为 𝜈 = μ/⍴，流体密度为 ⍴，μ
+是流体的分子动力粘度。模型中的其他参数以场点到最近壁 d
+的距离和涡度大小给出</p>
+<p><img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194722.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
+<p><img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194738.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
 <p>以下定义：</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194758.png" srcset="/img/logo.png" lazyload></p>
+<p><img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194758.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
 <p>从上面的定义中可以看出几个常量。这些常量定义如下：</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194819.png" srcset="/img/logo.png" lazyload></p>
-<p>由于所考虑的系统以墙为界，因此沿着墙的表面有一个固定边界条件。其他边界条件可能会施加在系统的其他地方，尽管这些边界条件是否会干扰解决远离壁本身的涡流可能值得怀疑。最后，我们对远场 Spalart-Allmaras 变量有以下条件：</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194845.png" srcset="/img/logo.png" lazyload></p>
+<p><img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194819.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
+<p>由于所考虑的系统以墙为界，因此沿着墙的表面有一个固定边界条件。其他边界条件可能会施加在系统的其他地方，尽管这些边界条件是否会干扰解决远离壁本身的涡流可能值得怀疑。最后，我们对远场
+Spalart-Allmaras 变量有以下条件：</p>
+<p><img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194845.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
 <p>优点：</p>
-<ol>
+<ol type="1">
 <li>降维可以降低问题的复杂性和整体模拟时间。</li>
 <li>无需使用沿湍流的剪切层的局部厚度来计算长度尺度。</li>
 <li>对于具有<strong>任意压力梯度</strong>的边界层流很有用。</li>
-<li>稳健；对于低雷诺数 k - ε 模型不收敛甚至发散的相对粗糙的网格，它可以给出合理的结果</li>
+<li>稳健；对于低雷诺数 k - ε
+模型不收敛甚至发散的相对粗糙的网格，它可以给出合理的结果</li>
 </ol>
 <p>缺点：</p>
-<ol>
+<ol type="1">
 <li>不适用于涉及喷射状自由剪切区域的应用</li>
 <li></li>
 </ol>
-<h1 id="3、用途"><a href="#3、用途" class="headerlink" title="3、用途"></a>3、用途</h1><h1 id="4、注意事项"><a href="#4、注意事项" class="headerlink" title="4、注意事项"></a>4、注意事项</h1><p>参考：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://resources.system-analysis.cadence.com/blog/msa2024-what-is-the-spalart-allmaras-turbulence-model">https://resources.system-analysis.cadence.com/blog/msa2024-what-is-the-spalart-allmaras-turbulence-model</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cfd-online.com/Wiki/Spalart-Allmaras_model">https://www.cfd-online.com/Wiki/Spalart-Allmaras_model</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Xivc0EIGFQw">https://www.youtube.com/watch?v=Xivc0EIGFQw</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/408434524">https://zhuanlan.zhihu.com/p/408434524</a></li>
+<h1 id="用途">3、用途</h1>
+<h1 id="注意事项">4、注意事项</h1>
+<p>参考：</p>
+<ol type="1">
+<li>https://resources.system-analysis.cadence.com/blog/msa2024-what-is-the-spalart-allmaras-turbulence-model</li>
+<li>https://www.cfd-online.com/Wiki/Spalart-Allmaras_model</li>
+<li>https://www.youtube.com/watch?v=Xivc0EIGFQw</li>
+<li>https://zhuanlan.zhihu.com/p/408434524</li>
 </ol>
 
                 
@@ -493,6 +521,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -701,6 +735,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

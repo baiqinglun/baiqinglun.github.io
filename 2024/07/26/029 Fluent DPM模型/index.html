@@ -74,7 +74,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/logo.png","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/images/icons8-loading-96.png","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -286,30 +286,47 @@
             
               <div class="markdown-body">
                 
-                <h1 id="1-学习笔记"><a href="#1-学习笔记" class="headerlink" title="1 学习笔记"></a>1 学习笔记</h1><h2 id="0、Fluent-颗粒流"><a href="#0、Fluent-颗粒流" class="headerlink" title="0、Fluent 颗粒流"></a>0、Fluent 颗粒流</h2><p>Fluent 有 3 种颗粒模拟方法</p>
-<ol>
+                <h1 id="学习笔记">1 学习笔记</h1>
+<h2 id="fluent-颗粒流">0、Fluent 颗粒流</h2>
+<p>Fluent 有 3 种颗粒模拟方法</p>
+<ol type="1">
 <li>欧拉颗粒流（双流体模型）：把颗粒当做连续介质处理，优点是计算量小，但需要更多的相互作用模型，比如阻力等，多用于流化床。</li>
-<li>DPM 模型（离散相模型）：DPM 模型之间不考虑碰撞也不考虑体积空间，适用于流体占主导作用的，颗粒占比不超过 10%。模拟一般灰尘、气溶胶等小颗粒的运动，也经常配合化学反应。</li>
-<li>DDPM 模型（稠密离散相模型）：DDPM 是 Dense Discrete Phase Model 的缩写，是专门用来模拟例如流化床这种稠密颗粒流的模型，可以理解为简化了的 DEM。他和 DPM 的区别就是考虑了<strong>体积分数</strong>，是有孔隙率的，后处理中能够查看颗粒所占的体积分数，在相间相互作用力也可以考虑颗粒之间的碰撞，但是对于碰撞的计算是进行了模化的，不是用软球模型计算真实的碰撞过程，颗粒间的碰撞产生的力是根据 KTGF 下颗粒的 stress tensori 计算得到。</li>
-<li>DEM 离散元模型：可考虑颗粒的真实碰撞，可采用弹性 弹性阻尼 赫兹 赫兹阻尼碰撞模型，一般 DDPM+DEM 一起使用</li>
+<li>DPM 模型（离散相模型）：DPM
+模型之间不考虑碰撞也不考虑体积空间，适用于流体占主导作用的，颗粒占比不超过
+10%。模拟一般灰尘、气溶胶等小颗粒的运动，也经常配合化学反应。</li>
+<li>DDPM 模型（稠密离散相模型）：DDPM 是 Dense Discrete Phase Model
+的缩写，是专门用来模拟例如流化床这种稠密颗粒流的模型，可以理解为简化了的
+DEM。他和 DPM
+的区别就是考虑了<strong>体积分数</strong>，是有孔隙率的，后处理中能够查看颗粒所占的体积分数，在相间相互作用力也可以考虑颗粒之间的碰撞，但是对于碰撞的计算是进行了模化的，不是用软球模型计算真实的碰撞过程，颗粒间的碰撞产生的力是根据
+KTGF 下颗粒的 stress tensori 计算得到。</li>
+<li>DEM 离散元模型：可考虑颗粒的真实碰撞，可采用弹性 弹性阻尼 赫兹
+赫兹阻尼碰撞模型，一般 DDPM+DEM 一起使用</li>
 </ol>
-<h2 id="1、耦合"><a href="#1、耦合" class="headerlink" title="1、耦合"></a>1、耦合</h2><ol>
+<h2 id="耦合">1、耦合</h2>
+<ol type="1">
 <li>单向耦合</li>
 <li>双向耦合</li>
 </ol>
-<h3 id="1-1-单向耦合"><a href="#1-1-单向耦合" class="headerlink" title="1.1 单向耦合"></a>1.1 单向耦合</h3><p>单向耦合：离散相对连续相影响很小无需设置相间耦合.</p>
+<h3 id="单向耦合">1.1 单向耦合</h3>
+<p>单向耦合：离散相对连续相影响很小无需设置相间耦合.</p>
 <p>单向耦合问题：只要在加入离散相粒子前计算连续相流场直至收敛，然后打开离散相模型，加入离散相粒子，无需迭代计算因为已经计算收敛流场稳定了.</p>
-<p>连续相（也就是流场）计算可以是 steady（定常&#x2F;稳态流场）也可以是 unsteady（非定常&#x2F;瞬态&#x2F;transient）。这两种连续相的流场中离散相计算都可以用非耦合粒子计算。</p>
-<p>单相耦合计算不考虑离散相对连续相的影响，离散相的动量、质量、温度等信息不会反馈给流场，因为流场事先已经计算收敛了，不能变了，当开 DPM 时候，就是通过流场的信息计算 DPM 了，简单说是流场产生 DPM 场的概念。</p>
-<h3 id="1-2-双向耦合"><a href="#1-2-双向耦合" class="headerlink" title="1.2 双向耦合"></a>1.2 双向耦合</h3><p>耦合计算的步骤：</p>
-<ol>
+<p>连续相（也就是流场）计算可以是 steady（定常/稳态流场）也可以是
+unsteady（非定常/瞬态/transient）。这两种连续相的流场中离散相计算都可以用非耦合粒子计算。</p>
+<p>单相耦合计算不考虑离散相对连续相的影响，离散相的动量、质量、温度等信息不会反馈给流场，因为流场事先已经计算收敛了，不能变了，当开
+DPM 时候，就是通过流场的信息计算 DPM 了，简单说是流场产生 DPM
+场的概念。</p>
+<h3 id="双向耦合">1.2 双向耦合</h3>
+<p>耦合计算的步骤：</p>
+<ol type="1">
 <li>求解连续相流场（在引入离散相之前））</li>
 <li>通过计算每个离散相注入的粒子轨迹来引入离散相。</li>
 <li>使用先前粒子计算期间确定的动量、热量和质量的相间交换，重新计算连续相流。</li>
 <li>重新计算修改的连续相流场中的离散相轨迹。</li>
-<li>重复前两个步骤，直到获得收敛解，其中连续相流场和离散相颗粒轨迹在每次附加计算<br>中都保持不变。</li>
+<li>重复前两个步骤，直到获得收敛解，其中连续相流场和离散相颗粒轨迹在每次附加计算
+中都保持不变。</li>
 </ol>
-<h2 id="2、DPM-边界条件"><a href="#2、DPM-边界条件" class="headerlink" title="2、DPM 边界条件"></a>2、DPM 边界条件</h2><ol>
+<h2 id="dpm-边界条件">2、DPM 边界条件</h2>
+<ol type="1">
 <li>escape 逃逸：颗粒离开流体域</li>
 <li>trap：被捕获吸收</li>
 <li>reflect：反弹，一般用于壁面上，需要指定反射系数</li>
@@ -317,37 +334,137 @@
 <li>wall film：需要打开壁面液膜模型，与 wall jet 相似</li>
 <li>reinject：当颗粒达到某个计算域边界时，将粒子重新引入域。</li>
 </ol>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291658664.png" srcset="/img/logo.png" lazyload alt="image-20230829165815567"></p>
-<h2 id="3、粒子方向"><a href="#3、粒子方向" class="headerlink" title="3、粒子方向"></a>3、粒子方向</h2><p>Inject Using Face Normal Direction：开启这个选项后，粒子在入射时的速度方向将与面法向一致，这样就无需定义颗粒在 x、y、z 三个方向的速度分量，只需要定义速度值；<br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202309020913147.png" srcset="/img/logo.png" lazyload alt="image.png"></p>
-<h2 id="4、粒子射入类型"><a href="#4、粒子射入类型" class="headerlink" title="4、粒子射入类型"></a>4、粒子射入类型</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/532180420">https://zhuanlan.zhihu.com/p/532180420</a><br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202309020914955.png" srcset="/img/logo.png" lazyload alt="image.png"></p>
-<h2 id="5、颗粒碰撞"><a href="#5、颗粒碰撞" class="headerlink" title="5、颗粒碰撞"></a>5、颗粒碰撞</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/621078742">https://zhuanlan.zhihu.com/p/621078742</a></p>
-<h2 id="6、颗粒其他作用"><a href="#6、颗粒其他作用" class="headerlink" title="6、颗粒其他作用"></a>6、颗粒其他作用</h2><h1 id="2-案例：颗粒搅拌"><a href="#2-案例：颗粒搅拌" class="headerlink" title="2 案例：颗粒搅拌"></a>2 案例：颗粒搅拌</h1><h2 id="1、重力项"><a href="#1、重力项" class="headerlink" title="1、重力项"></a>1、重力项</h2><h2 id="2、离散相模型"><a href="#2、离散相模型" class="headerlink" title="2、离散相模型"></a>2、离散相模型</h2><p>打开【交互】-【与连续相的交互】</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291658664.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230829165815567" />
+<figcaption aria-hidden="true">image-20230829165815567</figcaption>
+</figure>
+<h2 id="粒子方向">3、粒子方向</h2>
+<p>Inject Using Face Normal
+Direction：开启这个选项后，粒子在入射时的速度方向将与面法向一致，这样就无需定义颗粒在
+x、y、z 三个方向的速度分量，只需要定义速度值； <img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202309020913147.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image.png" /></p>
+<h2 id="粒子射入类型">4、粒子射入类型</h2>
+<p>https://zhuanlan.zhihu.com/p/532180420 <img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202309020914955.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image.png" /></p>
+<h2 id="颗粒碰撞">5、颗粒碰撞</h2>
+<p>https://zhuanlan.zhihu.com/p/621078742</p>
+<h2 id="颗粒其他作用">6、颗粒其他作用</h2>
+<h1 id="案例颗粒搅拌">2 案例：颗粒搅拌</h1>
+<h2 id="重力项">1、重力项</h2>
+<h2 id="离散相模型">2、离散相模型</h2>
+<p>打开【交互】-【与连续相的交互】</p>
 <ul>
-<li>每次流动迭代更新 DPM 源项：意思是每 10 个流动迭代更新一下颗粒的数量变化，这个都给他勾选上，颗粒破碎，被壁面捕获，更改质量流量都会使数量发生变化。</li>
-<li>DPM 迭代间隔：连续相每次迭代 10 步，开始进行离散相的计算。（不收敛可调小）</li>
-<li>颗粒时时间步大小：如为 0.001s 代表颗粒相每 0.001s 追踪一次，但是，在开始计算阶段，粒子一边释放一边追踪，释放完成后也在追踪。（不收敛可调小）</li>
-<li>最大步数和步长因子：Max number of steps 和 Specify Length Scale，每一次轨迹跟踪的最大积分时间步数和积分长度标尺，都是为了确定积分时间步长 ∆t。选择 Specify Length Scale 选项以确定积分时间步长时，积分时间步长约等于所给的长度尺度（Length Scale）除以颗粒相对于连续相的速度大小。而积分步数约等于颗粒时间步长（Particle Time Step Size）除以积分时间步长，但以 Max Number of Steps 为限（因此：积分时间步长 ∆t&lt;颗粒时间步长 Particle Time Step Size∆tp）。所以，如 Max Number of Steps 不够大，则未到颗粒时间步长就结束一个颗粒时间步，并转入下一个颗粒时间步，因而颗粒终了状态报告为 incomplete。</li>
+<li>每次流动迭代更新 DPM 源项：意思是每 10
+个流动迭代更新一下颗粒的数量变化，这个都给他勾选上，颗粒破碎，被壁面捕获，更改质量流量都会使数量发生变化。</li>
+<li>DPM 迭代间隔：连续相每次迭代 10
+步，开始进行离散相的计算。（不收敛可调小）</li>
+<li>颗粒时时间步大小：如为 0.001s 代表颗粒相每 0.001s
+追踪一次，但是，在开始计算阶段，粒子一边释放一边追踪，释放完成后也在追踪。（不收敛可调小）</li>
+<li>最大步数和步长因子：Max number of steps 和 Specify Length
+Scale，每一次轨迹跟踪的最大积分时间步数和积分长度标尺，都是为了确定积分时间步长
+∆t。选择 Specify Length Scale
+选项以确定积分时间步长时，积分时间步长约等于所给的长度尺度（Length
+Scale）除以颗粒相对于连续相的速度大小。而积分步数约等于颗粒时间步长（Particle
+Time Step Size）除以积分时间步长，但以 Max Number of Steps
+为限（因此：积分时间步长 ∆t&lt;颗粒时间步长 Particle Time Step
+Size∆tp）。所以，如 Max Number of Steps
+不够大，则未到颗粒时间步长就结束一个颗粒时间步，并转入下一个颗粒时间步，因而颗粒终了状态报告为
+incomplete。</li>
 </ul>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291040314.png" srcset="/img/logo.png" lazyload alt="image-20230829104022213"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291040314.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230829104022213" />
+<figcaption aria-hidden="true">image-20230829104022213</figcaption>
+</figure>
 <p>设置喷射源</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291041115.png" srcset="/img/logo.png" lazyload alt="image-20230829104130041"></p>
-<h2 id="3、追踪颗粒轨迹"><a href="#3、追踪颗粒轨迹" class="headerlink" title="3、追踪颗粒轨迹"></a>3、追踪颗粒轨迹</h2><p>创建颗粒轨迹</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291541393.png" srcset="/img/logo.png" lazyload alt="image-20230829154138243"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291041115.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230829104130041" />
+<figcaption aria-hidden="true">image-20230829104130041</figcaption>
+</figure>
+<h2 id="追踪颗粒轨迹">3、追踪颗粒轨迹</h2>
+<p>创建颗粒轨迹</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291541393.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230829154138243" />
+<figcaption aria-hidden="true">image-20230829154138243</figcaption>
+</figure>
 <p>创建颗粒场景并保存</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291542031.png" srcset="/img/logo.png" lazyload alt="image-20230829154239921"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291542031.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230829154239921" />
+<figcaption aria-hidden="true">image-20230829154239921</figcaption>
+</figure>
 <p>创建解决方案动画</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291543657.png" srcset="/img/logo.png" lazyload alt="image-20230829154309557"></p>
-<h2 id="4、导出颗粒数据"><a href="#4、导出颗粒数据" class="headerlink" title="4、导出颗粒数据"></a>4、导出颗粒数据</h2><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291543784.png" srcset="/img/logo.png" lazyload alt="image-20230829154336663"></p>
-<h1 id="3-喷头模拟"><a href="#3-喷头模拟" class="headerlink" title="3 喷头模拟"></a>3 喷头模拟</h1><h2 id="碳酸氢钠性质"><a href="#碳酸氢钠性质" class="headerlink" title="碳酸氢钠性质"></a>碳酸氢钠性质</h2><p>密度：2.16 g&#x2F;mL<br>直径：在 0.1-10mm 之间</p>
-<h2 id="20230829"><a href="#20230829" class="headerlink" title="20230829"></a>20230829</h2><p>使用之前的网格，只有喷嘴和场域，出口 5MPa 和出口 2MPa 都发散。<br>想到昨天尝试的将出口都改为压力出口（包括计算域的 edge）计算较好，今天再试一下，但还是发散。<br>使用昨天的设置再跑一边，只不过加入离散相。但是昨天加入了 VOF 模型，现在关闭了。<br><strong>成功设置</strong><br>1、瞬态<br>2、能量<br>3、标准 k-e，标准壁面<br>4、离散相模型：<br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291913883.png" srcset="/img/logo.png" lazyload alt="image.png"><br>直径 0.0001，温度 300K，停止时间 1e-5，总流量 100000<br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291913817.png" srcset="/img/logo.png" lazyload alt="image.png"><br>5、材料<br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291914553.png" srcset="/img/logo.png" lazyload alt="image.png"><br>6、边界条件<br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291915645.png" srcset="/img/logo.png" lazyload alt="image.png"><br>压力进口（ecapse）<br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291916777.png" srcset="/img/logo.png" lazyload alt="image.png"><br>压力出口 edge（reflect）<br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291916237.png" srcset="/img/logo.png" lazyload alt="image.png"><br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291917062.png" srcset="/img/logo.png" lazyload alt="image.png"><br>7、方法<br>PISO 方法<br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291917948.png" srcset="/img/logo.png" lazyload alt="image.png"><br>8、残差<br>1e-06<br>9、步长<br>时间步长 0.01<br>时间步数 100</p>
-<h2 id="20230905"><a href="#20230905" class="headerlink" title="20230905"></a>20230905</h2><p>截止今日，在雪研师姐电脑上已经模拟完成渐扩喷头 2MPa 和 5MPa，在自己电脑上渐扩喷头（带孔）2MPa，步长 1e-6，共 1000 步。但是模拟出的粒子速度太大，现在想要使用 udf 改变压力边界条件，呈现一个递减的趋势，气体使用真实气体状态方程进行模拟，密度基求解器。</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291543657.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230829154309557" />
+<figcaption aria-hidden="true">image-20230829154309557</figcaption>
+</figure>
+<h2 id="导出颗粒数据">4、导出颗粒数据</h2>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291543784.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230829154336663" />
+<figcaption aria-hidden="true">image-20230829154336663</figcaption>
+</figure>
+<h1 id="喷头模拟">3 喷头模拟</h1>
+<h2 id="碳酸氢钠性质">碳酸氢钠性质</h2>
+<p>密度：2.16 g/mL 直径：在 0.1-10mm 之间</p>
+<h2 id="section">20230829</h2>
+<p>使用之前的网格，只有喷嘴和场域，出口 5MPa 和出口 2MPa 都发散。
+想到昨天尝试的将出口都改为压力出口（包括计算域的
+edge）计算较好，今天再试一下，但还是发散。
+使用昨天的设置再跑一边，只不过加入离散相。但是昨天加入了 VOF
+模型，现在关闭了。 <strong>成功设置</strong> 1、瞬态 2、能量 3、标准
+k-e，标准壁面 4、离散相模型： <img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291913883.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image.png" /> 直径 0.0001，温度 300K，停止时间 1e-5，总流量 100000
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291913817.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image.png" /> 5、材料 <img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291914553.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image.png" /> 6、边界条件 <img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291915645.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image.png" /> 压力进口（ecapse） <img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291916777.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image.png" /> 压力出口 edge（reflect） <img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291916237.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image.png" /> <img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291917062.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image.png" /> 7、方法 PISO 方法 <img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291917948.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image.png" /> 8、残差 1e-06 9、步长 时间步长 0.01 时间步数 100</p>
+<h2 id="section-1">20230905</h2>
+<p>截止今日，在雪研师姐电脑上已经模拟完成渐扩喷头 2MPa 和
+5MPa，在自己电脑上渐扩喷头（带孔）2MPa，步长 1e-6，共 1000
+步。但是模拟出的粒子速度太大，现在想要使用 udf
+改变压力边界条件，呈现一个递减的趋势，气体使用真实气体状态方程进行模拟，密度基求解器。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;udf.h&quot;</span></span><br>DEFINE_PROFILE(inlet_x,thread,index)<br>&#123;<br>	real y,v0,h0;<br>	real x[ND_ND];<br>	<span class="hljs-type">face_t</span> f;<br>	real flow_time = CURRENT_TIME;  <span class="hljs-comment">// 获取当前模拟的时间</span><br>	begin_f_loop(f,thread)<br>	&#123;<br>		<span class="hljs-keyword">if</span>(flow_time &gt;=<span class="hljs-number">0</span> &amp;&amp; flow_time &lt;= <span class="hljs-number">0.05</span> )<br>			F_PROFILE(f,thread,index) = <span class="hljs-number">2000000</span> - <span class="hljs-number">40000000</span> * flow_time;<br>		<span class="hljs-keyword">else</span><br>			F_PROFILE(f,thread,index) = <span class="hljs-number">0</span>;<br>	&#125;<br>	end_f_loop(f,thread)<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>为了能使粒子喷出后分散均匀，共设计 6 种喷头结构，分别为渐扩喷头、渐扩喷头（带孔）、拉法尔喷头、拉法尔喷头（带孔）、蘑菇喷头和蘑菇喷头（带孔）。<br>喷嘴尺寸：</p>
+<p>为了能使粒子喷出后分散均匀，共设计 6
+种喷头结构，分别为渐扩喷头、渐扩喷头（带孔）、拉法尔喷头、拉法尔喷头（带孔）、蘑菇喷头和蘑菇喷头（带孔）。
+喷嘴尺寸：</p>
 <p>喷嘴网格：</p>
-<h3 id="空气"><a href="#空气" class="headerlink" title="空气"></a>空气</h3><p>使用高压空气作为驱动气充入喷粉罐中，空气携带粒子以 2MPa 和 5MPa 的压力喷出。压力以 40MPa&#x2F;s 速度衰减，在 50ms 时衰减为 0。<br>使用理想气体，密度变化。</p>
-<h3 id="粒子"><a href="#粒子" class="headerlink" title="粒子"></a>粒子</h3><p>抑爆剂粒子选用 NaHCO3 粒子，密度为 2.16g&#x2F;cm³，比热为 2170J&#x2F;(kg K)<br>粒子的直径分布在 1~100um 范围内，平均直径为 50um，共 10 种粒子大小。<br>粒子总质量 100g，在 50ms 内喷完。即产生速率为 2kg&#x2F;s。（假设阀门 50ms 打开）<br>粒子速度为 0.1m&#x2F;s 从壁面出来<br>双向耦合，考虑粒子的碰撞</p>
-<h3 id="求解器设置："><a href="#求解器设置：" class="headerlink" title="求解器设置："></a>求解器设置：</h3><p>因喷出速度较大，求解器选用密度基。</p>
+<h3 id="空气">空气</h3>
+<p>使用高压空气作为驱动气充入喷粉罐中，空气携带粒子以 2MPa 和 5MPa
+的压力喷出。压力以 40MPa/s 速度衰减，在 50ms 时衰减为 0。
+使用理想气体，密度变化。</p>
+<h3 id="粒子">粒子</h3>
+<p>抑爆剂粒子选用 NaHCO3 粒子，密度为 2.16g/cm³，比热为 2170J/(kg K)
+粒子的直径分布在 1~100um 范围内，平均直径为 50um，共 10 种粒子大小。
+粒子总质量 100g，在 50ms 内喷完。即产生速率为 2kg/s。（假设阀门 50ms
+打开） 粒子速度为 0.1m/s 从壁面出来 双向耦合，考虑粒子的碰撞</p>
+<h3 id="求解器设置">求解器设置：</h3>
+<p>因喷出速度较大，求解器选用密度基。</p>
 
                 
               </div>
@@ -519,6 +636,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -727,6 +850,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
