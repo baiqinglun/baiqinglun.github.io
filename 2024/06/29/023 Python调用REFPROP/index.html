@@ -394,9 +394,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/06/29/025%20ICEM%E5%B8%B8%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/" title="ICEM常遇问题">
+                      <a href="/2024/06/29/024%20Nest%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Nest学习笔记">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ICEM常遇问题</span>
+                        <span class="hidden-mobile">Nest学习笔记</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -462,12 +462,6 @@
 
 
   
-
-
-  
-  
-
-
 
 
 
@@ -676,49 +670,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-
-        Fluid.events.registerRefreshCallback(function() {
-          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-            MathJax.typesetPromise();
-          }
-        });
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
