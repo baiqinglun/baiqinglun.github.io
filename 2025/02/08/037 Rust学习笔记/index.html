@@ -16,34 +16,25 @@
   <meta name="author" content="DB">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1、安装与配置1.1 安装官网下载  双击打开会弹出命令行窗口，直接回车即可。 查看是否安装成功 1rustup --version  查看rust版本环境 1rustup show  安装生产版本 1rustup install nightly  切换版本环境 123rustup default nightlyorrustup default stable  1.2 编译命令文件编译 12rus">
+    <meta name="description" content="Rust基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大白的个人博客">
-<meta property="og:url" content="http://example.com/2025/01/17/037%20Rust%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="Rust学习笔记">
+<meta property="og:url" content="http://example.com/2025/02/08/037%20Rust%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="大白的个人博客">
-<meta property="og:description" content="1、安装与配置1.1 安装官网下载  双击打开会弹出命令行窗口，直接回车即可。 查看是否安装成功 1rustup --version  查看rust版本环境 1rustup show  安装生产版本 1rustup install nightly  切换版本环境 123rustup default nightlyorrustup default stable  1.2 编译命令文件编译 12rus">
+<meta property="og:description" content="Rust基础">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028185911269.png">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028191914203.png">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028190911111.png">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028192529489.png">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028194646626.png">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028194723176.png">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028200046092.png">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028200813404.png">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028200822258.png">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241029191648931.png">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241029191949573.png">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241029192441011.png">
-<meta property="article:published_time" content="2025-01-17T12:38:22.046Z">
-<meta property="article:modified_time" content="2024-11-20T09:26:12.000Z">
+<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208154355372.png">
+<meta property="article:published_time" content="2025-02-08T07:43:00.000Z">
+<meta property="article:modified_time" content="2025-02-08T07:44:07.048Z">
 <meta property="article:author" content="DB">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="Rust">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028185911269.png">
+<meta name="twitter:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208154355372.png">
   
   
   
-  <title>大白的个人博客</title>
+  <title>Rust学习笔记 - 大白的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -210,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="Rust学习笔记"></span>
           
         </div>
 
@@ -226,8 +217,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-01-17 20:38" pubdate>
-          星期五, 一月 17日 2025, 8:38 晚上
+        <time datetime="2025-02-08 15:43" pubdate>
+          星期六, 二月 8日 2025, 3:43 下午
         </time>
       </span>
     
@@ -288,7 +279,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">Rust学习笔记</h1>
             
             
               <div class="markdown-body">
@@ -492,6 +483,43 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B/Rust/" class="category-chain-item">Rust</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="print-no-link">#学习笔记</a>
+      
+        <a href="/tags/Rust/" class="print-no-link">#Rust</a>
+      
+    </div>
   
 </div>
 
@@ -501,8 +529,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>http://example.com/2025/01/17/037 Rust学习笔记/</div>
+      <div>Rust学习笔记</div>
+      <div>http://example.com/2025/02/08/037 Rust学习笔记/</div>
     </div>
     <div class="license-meta">
       
@@ -514,7 +542,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年1月17日</div>
+          <div>2025年2月8日</div>
         </div>
       
       
@@ -546,18 +574,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/02/08/034%20Powershell%E9%99%90%E5%88%B6/" title="在powershell上禁止运行脚本">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">在powershell上禁止运行脚本</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/07/30/033%20%E6%B9%8D%E6%B5%81%E6%A8%A1%E5%9E%8B%E4%B9%8BSpalart-Allmaras/" title="The Spalart-Allmaras Turbulence Model">
-                        <span class="hidden-mobile">The Spalart-Allmaras Turbulence Model</span>
+                      <a href="/2025/02/08/036%20%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E5%90%B4%E6%81%A9%E8%BE%BE%EF%BC%89/" title="深度学习基础">
+                        <span class="hidden-mobile">深度学习基础</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
