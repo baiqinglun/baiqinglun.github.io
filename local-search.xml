@@ -4,6 +4,91 @@
   
   
   <entry>
+    <title>拥有自己的Deepseek大模型</title>
+    <link href="/2025/02/10/040%20%E7%A1%85%E5%9F%BA%E6%B5%81%E5%8A%A8%E9%85%8D%E7%BD%AEDeepseek%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
+    <url>/2025/02/10/040%20%E7%A1%85%E5%9F%BA%E6%B5%81%E5%8A%A8%E9%85%8D%E7%BD%AEDeepseek%E5%A4%A7%E6%A8%A1%E5%9E%8B/</url>
+    
+    <content type="html"><![CDATA[<div class="note note-success">            <p>本文最新更新于 2025/02/10 上午</p>          </div><h2 id="打开硅基流动官网注册账号">1、打开硅基流动官网注册账号</h2><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210095231.png"></p></div><a class="btn" href="https://siliconflow.cn/zh-cn/"  title="硅基流动官网" target="_blank">硅基流动官网</a><blockquote><p>硅基流动专为大模型微调与托管打造的一站式服务平台。通过该平台，用户可以快速、无缝地将自定义模型部署为服务，并根据自己上传的数据进行模型微调。</p></blockquote><p>填写邀请码<code>NShCQzWq</code>，这样的话双方均能获得<code>2000w token</code></p><h2id="下载客户端cherry-studio部署">2、下载客户端<code>Cherry studio</code>部署</h2><a class="btn" href="https://docs.cherry-ai.com/cherrystudio/download"  title="Cherry studio download" target="_blank">Cherry studio download</a><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210095741.png"></p></div><h2 id="获取api密钥">3、获取api密钥</h2><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210095840.png"></p></div><p>粘贴入<code>Cherry studio</code></p><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210095942.png"></p></div><p>点击检查，选择<code>deepseek-ai/DeepSeek-R1</code>模型</p><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210100040.png"></p></div><h2 id="开始聊天">4、开始聊天</h2><p>在聊天窗口可切换模型，目前<code>deepseek-ai/DeepSeek-R1</code>有深度思考功能，但速度略慢，<code>deepseek-ai/DeepSeek-V3</code>速度较快。</p><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210100315.png"></p></div><div class="note note-success">            <p>完成</p>          </div>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>大模型</tag>
+      
+      <tag>Deepseek</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Vscode基于aliyun配置Picgo</title>
+    <link href="/2025/02/09/039%20Vscode%E9%85%8D%E7%BD%AEPicgo/"/>
+    <url>/2025/02/09/039%20Vscode%E9%85%8D%E7%BD%AEPicgo/</url>
+    
+    <content type="html"><![CDATA[<div class="note note-success">            <p>本文最新更新于 2025/02/09 晚上</p>          </div><p>步骤</p><ol type="1"><li>在vscode扩展商店中下载<code>picgo</code>插件</li></ol><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221048-2025-02-09.png"></p></div><ol start="2" type="1"><li>点击插件设置，填写必须的信息</li></ol><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221146-2025-02-09.png"></p></div><ol start="3" type="1"><li>先将上传图床切换成阿里云图床</li></ol><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221252-2025-02-09.png"></p></div><ol start="4" type="1"><li>创建Bucket</li></ol><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221357-2025-02-09.png"></p></div><ol start="5" type="1"><li>填写名称，点击创建。</li></ol><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221451-2025-02-09.png"></p></div><ol start="6" type="1"><li>进入Bucket，修改读写权限为<code>公共权限</code></li></ol><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221734-2025-02-09.png"></p></div><ol start="7" type="1"><li>在Bucket中创建文件夹，不创建也可，我这里创建一个vscode文件夹</li></ol><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221713-2025-02-09.png"></p></div><ol start="8" type="1"><li>获取存储空间名称及Bucket域名，记录为param1、param2、param3</li></ol><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209222501-2025-02-09.png"></p></div><ol start="9" type="1"><li>获取访问apikey及秘钥，记录为param4、param4</li></ol><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209222618-2025-02-09.png"></p></div><ol start="10" type="1"><li>将信息填写到vscode插件中</li></ol><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209222739-2025-02-09.png"></p></div><blockquote><p>！！！切记这里填写<code>Custom Url</code>时需在前面加<code>https://</code></p></blockquote><div class="note note-info">            <p>配置完成</p>          </div><p>可以使用snipaste软件或者qq截图软件截图复制到剪贴板，然后再vscode中点击快键键<code>Ctrl+Alt+U</code>粘贴入笔记中</p><p>附上上传的3中方式及快捷键，用的最多的就是截图上传。</p><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209223514-2025-02-09.png"></p></div><div class="note note-warning">            <p>注意事项</p>          </div><p>我这里想插入到笔记中后以html格式插入方便修改图片大小，所以将返回格式写成了这种<code>&lt;div style="width: 60%; margin: auto"&gt;\n  &lt;img src="$&#123;url&#125;"&gt;\n&lt;/div&gt;</code>，其中<code>\n</code>代表换行符，如果你不喜欢这种可以使用markdown原本的格式<code>![$&#123;uploadedName&#125;]($&#123;url&#125;)</code></p><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209222902-2025-02-09.png"></p></div><p>呈现的效果</p><div style="width: 60%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209223108-2025-02-09.png"></p></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Picgo</tag>
+      
+      <tag>Vscode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Abaqus学习笔记</title>
+    <link href="/2025/02/09/038%20Abaqus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <url>/2025/02/09/038%20Abaqus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<div class="note note-success">            <p>本文最新更新于 2025/02/09 晚上</p>          </div><a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=2"  title="学习视频" target="_blank">学习视频</a><h2 id="基本介绍">1、基本介绍</h2><h3 id="abaqus的基本功能">1.1 Abaqus的基本功能</h3><ol type="1"><li>计算结构的力学性能——&gt;结构场：静力学动力学（线性非线性）冲击断裂|复材等</li><li>计算结构的热力学性能——&gt;温度场+结构场：稳态、瞬态、线性、非线性</li><li>计算流体的动力学性能——&gt;流场：流速、压力、温度、稳态、瞬态</li><li>计算结构的电磁场性能——&gt;电场/磁场：电感、电容、磁通量、涡流等</li><li>计算结构的NVH性——&gt;结构场+声场：声压、声功率等</li><li>计算耦合场性能——&gt;热结构耦合、热流耦合、热电耦合、流固耦合</li><li>计算结构的优化——&gt;参数优化、非参数优化</li></ol><h3 id="文件系统">1.2 文件系统</h3><ol type="1"><li><strong>数据库文件</strong><ol type="1"><li>模型数据库（.cas）：在Abaqus/CAE中直接打开，包含几个模型、网格、载荷信息及分析任务等；</li><li>结果数据库文件（.odb）：可在Abaqus/CAE中直接打开，也可输入到CAE文件中作为不见或模型，包含在<code>分析步模块</code>中定义的场变量和历史变量输出结果，可以由可视化模块打开。</li></ol></li><li><strong>输入文件</strong><ol type="1"><li><strong>inp文件</strong>：文本文件，可在作业(Job)模块中提交任务时或单击分析作业管理器中的WriteInput按钮在工作目录中生成。Inp文件可以输入模型，也可以由ABAQUSCommand直接运行，inp文件输入的模型只包含有限元模型而无几何模型；</li><li><strong>pes文件</strong>：参数更改后重新的inp文件；</li><li><strong>Par文件</strong>：参数更改后重写的以参数形式运行的inp文件。</li></ol></li><li><strong>日志文件</strong>：Log文件：文本文件，运行ABAQUS的日志。</li><li><strong>数据文件</strong>：Dat文件：文本文件，记录数据和参数检查、单元质量检查等信息，包含预处理inp文件产生的错误和警告信息。包含用户定义的ABAQUS/standard输入数据，ABAQUS/Explicit的结果不会写入其中。</li><li><strong>信息文件</strong><ol type="1"><li><strong>MSG文件</strong>：记录计算过程中的平衡迭代次数、参数设置、计算时间、错误与警告信息等；</li><li><strong>Ipm文件</strong>：气动ABAQUS、CAE分析时开始写入，记录从ABAQUS/Standard或ABAQUS/Explicit到ABAQUS、CAE的过程日志；</li><li><strong>Prt文件</strong>：模型的部件或装配信息；</li><li><strong>Pac文件</strong>：模型信息，仅用于ABAQUS/Explicit。</li></ol></li><li><strong>状态文件</strong><ol type="1"><li><strong>Sta文件</strong>：文本文件，包含分析过程信息；</li><li><strong>Abq文件</strong>：仅用于ABAQUS/Explicit，记录分析、继续和恢复命令；</li><li><strong>Stt文件</strong>：运行数据检查时产生的文件；</li><li><strong>Psr文件</strong>：文本文件，参数化分析要求的输入结果；</li><li><strong>Sel文件</strong>：用于结果选择，仅用于ABAQUS/Explicit。</li></ol></li><li><strong>模型文件</strong>：MDL文件：ABAQUS/Standard与ABAQUS/Explicit中运行数据产生的文件。</li><li><strong>保存命令的文件</strong><ol type="1"><li><strong>Jnl文件</strong>：文本文件，包含于复制已存储的模型数据库的ABAQUS/CAE命令</li><li><strong>Rpy文件</strong>：记录运行一次ABAQUS/CAE所所运用的所有命令</li><li><strong>Rec文件</strong>：包含用于恢复内存中模型数据库的ABAQUS/CAE命令</li></ol></li><li><strong>重启动文件</strong>：Res文件：使用step功能模块进行定义</li><li><strong>脚本文件</strong>：Psf文件：用户定义参数化研究时需要创建的文件</li><li><strong>临时文件</strong><ol type="1"><li><strong>Ods文件</strong>：记录长输出变量的临时运算结果，运行后自动删除</li><li><strong>lck文件</strong>：用于阻止并发写入输出数据库，关闭输出数据库时自动删除</li></ol></li></ol><blockquote><p>在Part导入模块时尽量不要导入igs文件，igs只会包含表面信息。</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>模拟</category>
+      
+      <category>Abaqus</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模拟</tag>
+      
+      <tag>学习笔记</tag>
+      
+      <tag>Abaqus</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Rust学习笔记</title>
     <link href="/2025/02/08/037%20Rust%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <url>/2025/02/08/037%20Rust%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>

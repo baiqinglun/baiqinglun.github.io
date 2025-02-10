@@ -16,25 +16,25 @@
   <meta name="author" content="DB">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Rust基础">
+    <meta name="description" content="实现粘贴图片一键上传云端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Rust学习笔记">
-<meta property="og:url" content="http://example.com/2025/02/08/037%20Rust%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="Vscode基于aliyun配置Picgo">
+<meta property="og:url" content="http://example.com/2025/02/09/039%20Vscode%E9%85%8D%E7%BD%AEPicgo/index.html">
 <meta property="og:site_name" content="大白的个人博客">
-<meta property="og:description" content="Rust基础">
+<meta property="og:description" content="实现粘贴图片一键上传云端">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208154355372.png">
-<meta property="article:published_time" content="2025-02-08T07:43:00.000Z">
-<meta property="article:modified_time" content="2025-02-08T11:39:14.900Z">
+<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221048-2025-02-09.png">
+<meta property="article:published_time" content="2025-02-09T13:46:00.000Z">
+<meta property="article:modified_time" content="2025-02-10T01:30:40.449Z">
 <meta property="article:author" content="DB">
-<meta property="article:tag" content="学习笔记">
-<meta property="article:tag" content="Rust">
+<meta property="article:tag" content="Picgo">
+<meta property="article:tag" content="Vscode">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208154355372.png">
+<meta name="twitter:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221048-2025-02-09.png">
   
   
   
-  <title>Rust学习笔记 - 大白的个人博客</title>
+  <title>Vscode基于aliyun配置Picgo - 大白的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Rust学习笔记"></span>
+            <span id="subtitle" data-typed-text="Vscode基于aliyun配置Picgo"></span>
           
         </div>
 
@@ -217,8 +217,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-02-08 15:43" pubdate>
-          星期六, 二月 8日 2025, 3:43 下午
+        <time datetime="2025-02-09 21:46" pubdate>
+          星期日, 二月 9日 2025, 9:46 晚上
         </time>
       </span>
     
@@ -230,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          896 字
+          313 字
         
       </span>
     
@@ -242,7 +242,7 @@
         
         
           <!-- compatible with older versions-->
-          8 分钟
+          3 分钟
         
       </span>
     
@@ -279,253 +279,97 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Rust学习笔记</h1>
+            <h1 id="seo-header">Vscode基于aliyun配置Picgo</h1>
             
             
               <div class="markdown-body">
                 
                 <div class="note note-success">
-            <p>本文最新更新于 2025/02/08 晚上</p>
+            <p>本文最新更新于 2025/02/09 晚上</p>
           </div>
-<h1 id="安装与配置">1、安装与配置</h1>
-<h2 id="安装">1.1 安装</h2>
-<p><a
-target="_blank" rel="noopener" href="https://www.rust-lang.org/zh-CN/learn/get-started">官网下载</a></p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028185911269.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20241028185911269" />
-<figcaption aria-hidden="true">image-20241028185911269</figcaption>
-</figure>
-<p>双击打开会弹出命令行窗口，直接回车即可。</p>
-<p>查看是否安装成功</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rustup --version<br></code></pre></td></tr></table></figure>
-<p>查看rust版本环境</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rustup show<br></code></pre></td></tr></table></figure>
-<p>安装生产版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rustup install nightly<br></code></pre></td></tr></table></figure>
-<p>切换版本环境</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">rustup default nightly<br>or<br>rustup default stable<br></code></pre></td></tr></table></figure>
-<h2 id="编译命令">1.2 编译命令</h2>
-<p>文件编译</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">rustc 被编译文件名 -o 输出文件名<br>rustc main.rs -o hello<br></code></pre></td></tr></table></figure>
-<h1 id="包管理">2、包管理</h1>
-<h2 id="包管理工具cargo">2.1 包管理工具<code>Cargo</code></h2>
-<p><strong><u>创建项目</u></strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo new project_name<br>cargo new --lib project_lib_name<br></code></pre></td></tr></table></figure>
-<p><strong><u>构建项目</u></strong></p>
-<p>会出现一个名为<code>target</code>文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo build<br>cargo build --release  这个性能较好<br></code></pre></td></tr></table></figure>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028191914203.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20241028191914203" />
-<figcaption aria-hidden="true">image-20241028191914203</figcaption>
-</figure>
-<p><strong><u>检测</u></strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo check<br></code></pre></td></tr></table></figure>
-<p><strong><u>运行/测试</u></strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo run<br>cargo <span class="hljs-built_in">test</span><br></code></pre></td></tr></table></figure>
-<p><strong><u>项目结构</u></strong></p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028190911111.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20241028190911111" />
-<figcaption aria-hidden="true">image-20241028190911111</figcaption>
-</figure>
-<h2 id="cargo.toml文件">2.2 Cargo.toml文件</h2>
-<ul>
-<li>package
-<ul>
-<li>设置版本名</li>
-<li>版本等</li>
-</ul></li>
-<li>dependencies
-<ul>
-<li>设置依赖</li>
-<li>[build-dependencies]列出了在构建项目时需要的依赖项</li>
-<li>[dev-dependencies]列出了只在开发时需要的依赖项</li>
-</ul></li>
-</ul>
-<h2 id="加载库">2.3 加载库</h2>
-<p>填写依赖项后保存会自动加载依赖项</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028192529489.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20241028192529489" />
-<figcaption aria-hidden="true">image-20241028192529489</figcaption>
-</figure>
-<p>推荐使用<code>cargo-edit</code></p>
-<p>安装<code>cargo-edit</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo install cargo-edit<br></code></pre></td></tr></table></figure>
-<p>添加库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo add dependency_name<br></code></pre></td></tr></table></figure>
-<p>安装指定版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo add dependency_name@1.2.3<br></code></pre></td></tr></table></figure>
-<p>添加开发时用的依赖库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo add --dev dev_dependency_name<br></code></pre></td></tr></table></figure>
-<p>添加构建时用的依赖库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo add --build build_dependency_name<br></code></pre></td></tr></table></figure>
-<p>删除库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo <span class="hljs-built_in">rm</span> dependency_name<br></code></pre></td></tr></table></figure>
-<h2 id="设置国内源">2.4 设置国内源</h2>
-<p>推荐使用<code>rsproxy</code></p>
-<p>在<code>C:\Users\23984\.cargo\.config</code></p>
-<p>但是我没有找到</p>
-<h1 id="基本类型">3、基本类型</h1>
-<h2 id="变量与不可变性">3.1 变量与不可变性</h2>
+<p>步骤</p>
 <ol type="1">
-<li>使用<code>let</code>声明变量</li>
-<li>后置类型定义</li>
-<li>变量使用蛇形命名法，枚举和结构体命名使用帕斯卡命名法</li>
-<li>强制类型转换<code>Casting a Value to a Different Type</code></li>
-<li>使用<code>mut</code>关键词将变量置为可变</li>
-<li></li>
+<li>在vscode扩展商店中下载<code>picgo</code>插件</li>
 </ol>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028194646626.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20241028194646626" />
-<figcaption aria-hidden="true">image-20241028194646626</figcaption>
-</figure>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028194723176.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20241028194723176" />
-<figcaption aria-hidden="true">image-20241028194723176</figcaption>
-</figure>
-<h2 id="常量与静态变量">3.2 常量与静态变量</h2>
-<p><strong><u>常量</u></strong></p>
-<ol type="1">
-<li>常量的值在编译时已知，必须指定类型与值</li>
-<li>与C不同，Rust的const常量值被直接嵌入到生成的底层机器代码中，而不是简单字符替换</li>
-<li>常量名与静态变量名必须全部大写，单词之间加下划线</li>
-<li>常来那个的作用域是块级作用域，只在声明他们的作用域内可见</li>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221048-2025-02-09.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<ol start="2" type="1">
+<li>点击插件设置，填写必须的信息</li>
 </ol>
-<p><strong><u>static静态变量</u></strong></p>
-<ol type="1">
-<li>在运行时分配内存</li>
-<li>并不是不可变的，可使用unsafe修改</li>
-<li>静态变量的生命周期为整个程序的运行时间</li>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221146-2025-02-09.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<ol start="3" type="1">
+<li>先将上传图床切换成阿里云图床</li>
 </ol>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028200046092.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20241028200046092" />
-<figcaption aria-hidden="true">image-20241028200046092</figcaption>
-</figure>
-<h2 id="基本数据类型">3.3 基本数据类型</h2>
-<ul>
-<li><code>Integer types</code> ： 默认推断为<code>i32</code>
-<ul>
-<li>i8、i16、i32、i64、i128</li>
-</ul></li>
-<li><code>Unsigned Integer types</code>
-<ul>
-<li>u8、u16、u32、u64、u128</li>
-</ul></li>
-<li>platform-specific integer type（由平台决定）
-<ul>
-<li>usize</li>
-<li>isize</li>
-</ul></li>
-<li>Float Types
-<ul>
-<li>f32与f64</li>
-<li>尽量用f64</li>
-</ul></li>
-<li>Boolean Values
-<ul>
-<li>true</li>
-<li>false</li>
-</ul></li>
-<li>Character Types
-<ul>
-<li>Rust支持Unicode字符</li>
-<li>表示char类型使用单引号</li>
-</ul></li>
-</ul>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,<span class="hljs-type">u32</span>::MAX);<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,<span class="hljs-type">u32</span>::MIN);<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,<span class="hljs-type">usize</span>::MAX);<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,<span class="hljs-type">usize</span>::MIN);<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;isize is &#123;&#125; bytes&quot;</span>,std::mem::size_of::&lt;<span class="hljs-type">isize</span>&gt;());<br></code></pre></td></tr></table></figure>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028200813404.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20241028200813404" />
-<figcaption aria-hidden="true">image-20241028200813404</figcaption>
-</figure>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028200822258.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20241028200822258" />
-<figcaption aria-hidden="true">image-20241028200822258</figcaption>
-</figure>
-<p>该2.4了</p>
-<p>https://www.bilibili.com/video/BV15y421h7j7?spm_id_from=333.788.videopod.episodes&amp;vd_source=33b50a4dd201d7564e6e63d321809ce9&amp;p=7</p>
-<h2 id="元祖和数组">3.4 元祖和数组</h2>
-<p>相同点：</p>
-<ul>
-<li>都是复合类型Compound Types，而Vec和Map都是集合类型Collection
-Types</li>
-<li>元组和数组长度都是固定的</li>
-</ul>
-<p>不同点：</p>
-<ul>
-<li>Tuples：不同类型的数据类型</li>
-<li>Arrays：同一类型的数据类型</li>
-</ul>
-<p><u><strong>数组：</strong></u></p>
-<ul>
-<li><p>创建方式</p>
-<ul>
-<li><p><code>[a,b,c]</code></p></li>
-<li><p><code>[value;size]</code></p></li>
-</ul></li>
-<li><p>获取元素<code>arr[index]</code></p></li>
-<li><p>获取长度<code>arr.len()</code></p></li>
-</ul>
-<p><strong><u>元组：</u></strong></p>
-<ul>
-<li>获取数据：tup.index</li>
-<li>没有len()</li>
-<li>默认返回值<code>Emoty Tuple()</code></li>
-</ul>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221252-2025-02-09.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<ol start="4" type="1">
+<li>创建Bucket</li>
+</ol>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221357-2025-02-09.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<ol start="5" type="1">
+<li>填写名称，点击创建。</li>
+</ol>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221451-2025-02-09.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<ol start="6" type="1">
+<li>进入Bucket，修改读写权限为<code>公共权限</code></li>
+</ol>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221734-2025-02-09.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<ol start="7" type="1">
+<li>在Bucket中创建文件夹，不创建也可，我这里创建一个vscode文件夹</li>
+</ol>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209221713-2025-02-09.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<ol start="8" type="1">
+<li>获取存储空间名称及Bucket域名，记录为param1、param2、param3</li>
+</ol>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209222501-2025-02-09.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<ol start="9" type="1">
+<li>获取访问apikey及秘钥，记录为param4、param4</li>
+</ol>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209222618-2025-02-09.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<ol start="10" type="1">
+<li>将信息填写到vscode插件中</li>
+</ol>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209222739-2025-02-09.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
 <blockquote>
-<ul>
-<li>元组和数组都是可以直接打印的；<code>println!("&#123;:?&#125;",arr);</code></li>
-<li>赋值默认都是<code>copy</code>操作；</li>
-</ul>
+<p>！！！切记这里填写<code>Custom Url</code>时需在前面加<code>https://</code></p>
 </blockquote>
-<p>string赋值时是<code>move</code>操作，会转移所有权，不能再打印。</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241029191648931.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20241029191648931" />
-<figcaption aria-hidden="true">image-20241029191648931</figcaption>
-</figure>
-<h1 id="ownership与结构体枚举">4、Ownership与结构体、枚举</h1>
-<h2 id="rust的内存管理模型">4.1 Rust的内存管理模型</h2>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241029191949573.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20241029191949573" />
-<figcaption aria-hidden="true">image-20241029191949573</figcaption>
-</figure>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241029192441011.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20241029192441011" />
-<figcaption aria-hidden="true">image-20241029192441011</figcaption>
-</figure>
-<p><strong><u>1、所有权系统</u></strong></p>
-<ul>
-<li>每个值都有一个与之关联的变量，该变量是该值的所有者</li>
-<li>同一时间只能有一个所有者</li>
-<li>当所有者离开作用域时，它拥有的值将被丢弃</li>
-</ul>
-<p><strong><u>2、RAII原则</u></strong></p>
-<p>资源获取即初始化原则。当对象被创建时，它会获取必要的资源，并在生命周期结束时释放这些资源。</p>
-<blockquote>
-<p>https://blog.csdn.net/CrystalLawson/article/details/138190719</p>
-</blockquote>
+<div class="note note-info">
+            <p>配置完成</p>
+          </div>
+<p>可以使用snipaste软件或者qq截图软件截图复制到剪贴板，然后再vscode中点击快键键<code>Ctrl+Alt+U</code>粘贴入笔记中</p>
+<p>附上上传的3中方式及快捷键，用的最多的就是截图上传。</p>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209223514-2025-02-09.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<div class="note note-warning">
+            <p>注意事项</p>
+          </div>
+<p>我这里想插入到笔记中后以html格式插入方便修改图片大小，所以将返回格式写成了这种<code>&lt;div style="width: 60%; margin: auto"&gt;\n  &lt;img src="$&#123;url&#125;"&gt;\n&lt;/div&gt;</code>，其中<code>\n</code>代表换行符，如果你不喜欢这种可以使用markdown原本的格式<code>![$&#123;uploadedName&#125;]($&#123;url&#125;)</code></p>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209222902-2025-02-09.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>呈现的效果</p>
+<div style="width: 60%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250209223108-2025-02-09.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
 
                 
               </div>
@@ -544,15 +388,8 @@ alt="image-20241029192441011" />
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B/Rust/" class="category-chain-item">Rust</a>
-  
-  
-
   
 
       </span>
@@ -566,9 +403,9 @@ alt="image-20241029192441011" />
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="print-no-link">#学习笔记</a>
+        <a href="/tags/Picgo/" class="print-no-link">#Picgo</a>
       
-        <a href="/tags/Rust/" class="print-no-link">#Rust</a>
+        <a href="/tags/Vscode/" class="print-no-link">#Vscode</a>
       
     </div>
   
@@ -580,8 +417,8 @@ alt="image-20241029192441011" />
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Rust学习笔记</div>
-      <div>http://example.com/2025/02/08/037 Rust学习笔记/</div>
+      <div>Vscode基于aliyun配置Picgo</div>
+      <div>http://example.com/2025/02/09/039 Vscode配置Picgo/</div>
     </div>
     <div class="license-meta">
       
@@ -593,7 +430,7 @@ alt="image-20241029192441011" />
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年2月8日</div>
+          <div>2025年2月9日</div>
         </div>
       
       
@@ -625,9 +462,9 @@ alt="image-20241029192441011" />
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/02/09/038%20Abaqus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Abaqus学习笔记">
+                      <a href="/2025/02/10/040%20%E7%A1%85%E5%9F%BA%E6%B5%81%E5%8A%A8%E9%85%8D%E7%BD%AEDeepseek%E5%A4%A7%E6%A8%A1%E5%9E%8B/" title="拥有自己的Deepseek大模型">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Abaqus学习笔记</span>
+                        <span class="hidden-mobile">拥有自己的Deepseek大模型</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -635,8 +472,8 @@ alt="image-20241029192441011" />
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/02/08/036%20%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E5%90%B4%E6%81%A9%E8%BE%BE%EF%BC%89/" title="深度学习基础">
-                        <span class="hidden-mobile">深度学习基础</span>
+                      <a href="/2025/02/09/038%20Abaqus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Abaqus学习笔记">
+                        <span class="hidden-mobile">Abaqus学习笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
