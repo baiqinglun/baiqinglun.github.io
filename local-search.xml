@@ -405,6 +405,35 @@
   
   
   <entry>
+    <title>ICEM常遇问题</title>
+    <link href="/2024/06/29/025%20ICEM%E5%B8%B8%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/"/>
+    <url>/2024/06/29/025%20ICEM%E5%B8%B8%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<h2 id="d-网格不闭合">2D 网格不闭合</h2><blockquote><p>Mesh has uncovered edges. ANSYS Fluent needs a complete boundary(lines in 2D) or it will give a variety of errors and not read in themesh! If this was 2D Hexa, perhaps your edges are not associated withperimeter curves</p></blockquote><p>原因是线和线之间可能没有关联</p><figure><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202302161539612.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>模拟</category>
+      
+      <category>ICEM</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模拟</tag>
+      
+      <tag>ICEM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Nest学习笔记</title>
     <link href="/2024/06/29/024%20Nest%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <url>/2024/06/29/024%20Nest%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
@@ -430,35 +459,6 @@
       <tag>后端</tag>
       
       <tag>Nest</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>ICEM常遇问题</title>
-    <link href="/2024/06/29/025%20ICEM%E5%B8%B8%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/"/>
-    <url>/2024/06/29/025%20ICEM%E5%B8%B8%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/</url>
-    
-    <content type="html"><![CDATA[<h2 id="d-网格不闭合">2D 网格不闭合</h2><blockquote><p>Mesh has uncovered edges. ANSYS Fluent needs a complete boundary(lines in 2D) or it will give a variety of errors and not read in themesh! If this was 2D Hexa, perhaps your edges are not associated withperimeter curves</p></blockquote><p>原因是线和线之间可能没有关联</p><figure><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202302161539612.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>模拟</category>
-      
-      <category>ICEM</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>模拟</tag>
-      
-      <tag>ICEM</tag>
       
     </tags>
     
