@@ -229,7 +229,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          84 字
+          81 字
         
       </span>
     
@@ -287,31 +287,14 @@
             <p>本文最新更新于 2025/02/08 下午</p>
           </div>
 <p>在使用<code>tabby</code>运行<code>PowerShell</code>时，输入命令行<code>hexo s</code>出现如下报错</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208144105189.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20250208144105189" />
-<figcaption aria-hidden="true">image-20250208144105189</figcaption>
-</figure>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208144105189.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20250208144105189"></p>
 <p><strong>分析原因</strong></p>
-<p><code>PowerShell</code>执行策略是<code>Restricted</code>
-。<code>Restricted</code> 执行策略不允许任何脚本运行。</p>
+<p><code>PowerShell</code>执行策略是<code>Restricted</code> 。<code>Restricted</code> 执行策略不允许任何脚本运行。</p>
 <p>查看执行策略<code>get-executionpolicy</code></p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208143829255.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20250208143829255" />
-<figcaption aria-hidden="true">image-20250208143829255</figcaption>
-</figure>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208143829255.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20250208143829255"></p>
 <p><strong>解决方法</strong></p>
-<p>管理员身份打开<code>PowerShell</code> 输入
-<code>set-executionpolicy remotesigned</code>更改执行策略</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208143928799.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20250208143928799" />
-<figcaption aria-hidden="true">image-20250208143928799</figcaption>
-</figure>
+<p>管理员身份打开<code>PowerShell</code> 输入 <code>set-executionpolicy remotesigned</code>更改执行策略</p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/picgo/image-20250208143928799.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20250208143928799"></p>
 
                 
               </div>

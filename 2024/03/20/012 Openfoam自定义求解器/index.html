@@ -230,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          426 字
+          409 字
         
       </span>
     
@@ -284,140 +284,42 @@
             
               <div class="markdown-body">
                 
-                <h1 id="求解器">1、求解器</h1>
-<h2 id="复制源码">1.1 复制源码</h2>
-<p>本案例以 icoFoam
-为例，复制【openFOAM/OpenFOAM-9/applications/solvers/incompressible/icoFoam】文件夹至
-run 文件夹下（我的是【openFOAM/mtl-9/run/solvers/incompressible】）</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202306131700207.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<h2 id="修改名称">1.2 修改名称</h2>
-<p>将文件夹重新命名为【myIconFoam】 <img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202306131703290.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image.png" /></p>
+                <h1 id="1、求解器"><a href="#1、求解器" class="headerlink" title="1、求解器"></a>1、求解器</h1><h2 id="1-1-复制源码"><a href="#1-1-复制源码" class="headerlink" title="1.1 复制源码"></a>1.1 复制源码</h2><p>本案例以 icoFoam 为例，复制【openFOAM/OpenFOAM-9/applications/solvers/incompressible/icoFoam】文件夹至 run 文件夹下（我的是【openFOAM/mtl-9/run/solvers/incompressible】）</p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202306131700207.png" srcset="/images/icons8-loading-96.png" lazyload alt="image.png"></p>
+<h2 id="1-2-修改名称"><a href="#1-2-修改名称" class="headerlink" title="1.2 修改名称"></a>1.2 修改名称</h2><p>将文件夹重新命名为【myIconFoam】<br><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202306131703290.png" srcset="/images/icons8-loading-96.png" lazyload alt="image.png"></p>
 <p>修改该目录下的文件名称，为了便于分辨是自己的求解器，在源代码里输出一些内容</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614001149142.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20230614001149142" />
-<figcaption aria-hidden="true">image-20230614001149142</figcaption>
-</figure>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202306131703091.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<h2 id="修改-files">1.3 修改 files</h2>
-<p>修改【Make/files】</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202306131704567.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614001149142.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230614001149142"></p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202306131703091.png" srcset="/images/icons8-loading-96.png" lazyload alt="image.png"></p>
+<h2 id="1-3-修改-files"><a href="#1-3-修改-files" class="headerlink" title="1.3 修改 files"></a>1.3 修改 files</h2><p>修改【Make/files】</p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202306131704567.png" srcset="/images/icons8-loading-96.png" lazyload alt="image.png"></p>
 <p>注意：这里路径要改为【$(FOAM_USER_APPBIN)】，与之前【FOAM_USER_APPBIN】区别</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202306131705640.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<h2 id="编译">1.4 编译</h2>
-<p>输入【wmake】</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614001032908.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20230614001032908" />
-<figcaption aria-hidden="true">image-20230614001032908</figcaption>
-</figure>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202306131705640.png" srcset="/images/icons8-loading-96.png" lazyload alt="image.png"></p>
+<h2 id="1-4-编译"><a href="#1-4-编译" class="headerlink" title="1.4 编译"></a>1.4 编译</h2><p>输入【wmake】</p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614001032908.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230614001032908"></p>
 <p>编译成功之后开始使用</p>
-<h1 id="使用">2、使用</h1>
-<p>复制一份 cavity 案例</p>
+<h1 id="2、使用"><a href="#2、使用" class="headerlink" title="2、使用"></a>2、使用</h1><p>复制一份 cavity 案例</p>
 <p>blockMesh 划分网格</p>
 <p>myIcoFoam 求解</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614001314507.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20230614001314507" />
-<figcaption aria-hidden="true">image-20230614001314507</figcaption>
-</figure>
-<h1 id="进阶">3、进阶</h1>
-<p>本案例修改 icoFoam 求解器，添加温度项。 <span
-class="math display">\[\frac{\partial T}{\partial t} + \bigtriangledown
-\cdot (UT)-{\bigtriangledown }^2(D_{T}T)=0\]</span></p>
-<h2 id="修改源文件">3.1 修改源文件</h2>
-<p>添加以下代码，及上述方程</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614005652819.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20230614005652819" />
-<figcaption aria-hidden="true">image-20230614005652819</figcaption>
-</figure>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614001314507.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230614001314507"></p>
+<h1 id="3、进阶"><a href="#3、进阶" class="headerlink" title="3、进阶"></a>3、进阶</h1><p>本案例修改 icoFoam 求解器，添加温度项。</p>
+<script type="math/tex; mode=display">\frac{\partial T}{\partial t} + \bigtriangledown \cdot (UT)-{\bigtriangledown }^2(D_{T}T)=0</script><h2 id="3-1-修改源文件"><a href="#3-1-修改源文件" class="headerlink" title="3.1 修改源文件"></a>3.1 修改源文件</h2><p>添加以下代码，及上述方程</p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614005652819.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230614005652819"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">fvScalarMatrix <span class="hljs-title">TEqn</span></span><br><span class="hljs-function"><span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function">    fvm::ddt(T) + fvm::div(phi, T) - fvm::laplacian(DT, T)</span></span><br><span class="hljs-params"><span class="hljs-function">)</span></span>;<br>TEqn.<span class="hljs-built_in">solve</span>();<br></code></pre></td></tr></table></figure>
-<h2 id="修改场文件">3.2 修改场文件</h2>
-<p>新增以下有关温度项的代码</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614005903552.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20230614005903552" />
-<figcaption aria-hidden="true">image-20230614005903552</figcaption>
-</figure>
+<h2 id="3-2-修改场文件"><a href="#3-2-修改场文件" class="headerlink" title="3.2 修改场文件"></a>3.2 修改场文件</h2><p>新增以下有关温度项的代码</p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614005903552.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230614005903552"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs c++">IOdictionary myProperties <span class="hljs-comment">// 新增一个myProperties项</span><br>(<br>    <span class="hljs-built_in">IOobject</span><br>    (<br>        <span class="hljs-string">&quot;myProperties&quot;</span>,<br>        runTime.<span class="hljs-built_in">system</span>(), <span class="hljs-comment">// 存储在system文件夹下</span><br>        mesh,<br>        IOobject::MUST_READ_IF_MODIFIED,<br>        IOobject::NO_WRITE<br>    )<br>);<br><br>dimensionedScalar DT <span class="hljs-comment">// 定义一个变量DT，从myProperties中获取</span><br>(<br>    <span class="hljs-string">&quot;DT&quot;</span>,<br>    myProperties.<span class="hljs-built_in">lookup</span>(<span class="hljs-string">&quot;DT&quot;</span>)<br>);<br><br>Info&lt;&lt; <span class="hljs-string">&quot;Reading field T\n&quot;</span> &lt;&lt; endl;<br>volScalarField T <span class="hljs-comment">// 定义一个变量T</span><br>(<br>    <span class="hljs-built_in">IOobject</span><br>    (<br>        <span class="hljs-string">&quot;T&quot;</span>,<br>        runTime.<span class="hljs-built_in">timeName</span>(),<br>        mesh,<br>        IOobject::MUST_READ,<br>        IOobject::AUTO_WRITE<br>    ),<br>    mesh<br>);<br></code></pre></td></tr></table></figure>
-<h2 id="编译-1">3.3 编译</h2>
-<p>修改完成之后，【wmake】编译</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614010106515.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20230614010106515" />
-<figcaption aria-hidden="true">image-20230614010106515</figcaption>
-</figure>
-<h2 id="使用-1">3.4 使用</h2>
-<h3 id="初始条件">3.4.1 初始条件</h3>
-<p>复制 p 文件至 T，改变名称、单位、初始值和边界条件</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614010203279.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20230614010203279" />
-<figcaption aria-hidden="true">image-20230614010203279</figcaption>
-</figure>
-<h3 id="自定义属性">3.4.2 自定义属性</h3>
-<p>复制 constant 里的文件【transportProperties】文件至 system，修改名称
-myProperties</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614010351434.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20230614010351434" />
-<figcaption aria-hidden="true">image-20230614010351434</figcaption>
-</figure>
-<h3 id="新增离散格式">3.4.3 新增离散格式</h3>
-<p>新增 div(phi,T)的离散格式</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614010458808.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20230614010458808" />
-<figcaption aria-hidden="true">image-20230614010458808</figcaption>
-</figure>
-<h3 id="新增求解项">3.4.4 新增求解项</h3>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614010607465.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20230614010607465" />
-<figcaption aria-hidden="true">image-20230614010607465</figcaption>
-</figure>
-<h3 id="求解">3.4.5 求解</h3>
-<p>划分网格：blockMesh</p>
+<h2 id="3-3-编译"><a href="#3-3-编译" class="headerlink" title="3.3 编译"></a>3.3 编译</h2><p>修改完成之后，【wmake】编译</p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614010106515.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230614010106515"></p>
+<h2 id="3-4-使用"><a href="#3-4-使用" class="headerlink" title="3.4 使用"></a>3.4 使用</h2><h3 id="3-4-1-初始条件"><a href="#3-4-1-初始条件" class="headerlink" title="3.4.1 初始条件"></a>3.4.1 初始条件</h3><p>复制 p 文件至 T，改变名称、单位、初始值和边界条件</p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614010203279.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230614010203279"></p>
+<h3 id="3-4-2-自定义属性"><a href="#3-4-2-自定义属性" class="headerlink" title="3.4.2 自定义属性"></a>3.4.2 自定义属性</h3><p>复制 constant 里的文件【transportProperties】文件至 system，修改名称 myProperties</p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614010351434.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230614010351434"></p>
+<h3 id="3-4-3-新增离散格式"><a href="#3-4-3-新增离散格式" class="headerlink" title="3.4.3 新增离散格式"></a>3.4.3 新增离散格式</h3><p>新增 div(phi,T)的离散格式</p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614010458808.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230614010458808"></p>
+<h3 id="3-4-4-新增求解项"><a href="#3-4-4-新增求解项" class="headerlink" title="3.4.4 新增求解项"></a>3.4.4 新增求解项</h3><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614010607465.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230614010607465"></p>
+<h3 id="3-4-5-求解"><a href="#3-4-5-求解" class="headerlink" title="3.4.5 求解"></a>3.4.5 求解</h3><p>划分网格：blockMesh</p>
 <p>求解：myIcoFoam</p>
-<figure>
-<img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614010711878.png" srcset="/images/icons8-loading-96.png" lazyload
-alt="image-20230614010711878" />
-<figcaption aria-hidden="true">image-20230614010711878</figcaption>
-</figure>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230614010711878.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230614010711878"></p>
 <p>完成</p>
 
                 

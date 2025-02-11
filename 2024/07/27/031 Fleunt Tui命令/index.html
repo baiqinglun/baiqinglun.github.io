@@ -27,8 +27,8 @@
 <meta property="article:published_time" content="2024-07-27T13:29:00.000Z">
 <meta property="article:modified_time" content="2025-02-08T06:47:20.944Z">
 <meta property="article:author" content="DB">
-<meta property="article:tag" content="Fluent">
 <meta property="article:tag" content="模拟">
+<meta property="article:tag" content="Fluent">
 <meta property="article:tag" content="学习笔记">
 <meta property="article:tag" content="TUI">
 <meta name="twitter:card" content="summary_large_image">
@@ -286,19 +286,14 @@
             
               <div class="markdown-body">
                 
-                <h1 id="tui-命令基本认识">1、TUI 命令基本认识</h1>
-<p>Fluent 中的 Tui 命令能使 Fluent
-自动化操作，包括文件设置、案例读取、参数设置等功能。</p>
-<h1 id="基本操作">2、基本操作</h1>
-<p>在 Fluent 中的命令行可进行 tui 命令操作</p>
+                <h1 id="1、TUI-命令基本认识"><a href="#1、TUI-命令基本认识" class="headerlink" title="1、TUI 命令基本认识"></a>1、TUI 命令基本认识</h1><p>Fluent 中的 Tui 命令能使 Fluent 自动化操作，包括文件设置、案例读取、参数设置等功能。</p>
+<h1 id="2、基本操作"><a href="#2、基本操作" class="headerlink" title="2、基本操作"></a>2、基本操作</h1><p>在 Fluent 中的命令行可进行 tui 命令操作</p>
 <ul>
 <li>回车可查看命令提示；</li>
 <li>q：返回上一级</li>
 </ul>
-<p><img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240727213342.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
-<h1 id="案例">3、案例</h1>
-<p>案例中包含注释</p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240727213342.png" srcset="/images/icons8-loading-96.png" lazyload alt=""></p>
+<h1 id="3、案例"><a href="#3、案例" class="headerlink" title="3、案例"></a>3、案例</h1><p>案例中包含注释</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><code class="hljs jou">; 1、读取网格文件<br>rc fluent.msh<br>mesh/check<br>mesh/quality<br><br><br>display mesh-outline<br><br>; 2、勾选瞬态<br>/define/models/unsteady-2nd-order yes<br><br>; 3、设置重力加速度<br>/define/operating-conditions/gravity yes 0 -9.81 0<br><br>; 4、开启能量方程<br>/define/models/energy y y y<br><br>; 5、湍流模型<br>/define/models/viscous/spalart-allmaras y<br><br>; 6、新增混合气体<br>/define/models/species/species-transport y hydrogen-air<br>/define/materials/change-create hydrogen-air hydrogen-air y 2 h2 air 0 0 n n n n n n<br><br>; 7、管道材料及土壤材料<br>/define/materials/copy/solid/steel<br>/define/materials/change-create aluminum soil y constant 2650 y constant 789 y constant 2.9 y<br><br>; 8、设置边界条件<br>/define/boundary-conditions/fluid solid fluid no no no no no  0 no 0 no 0 no  0 no 0 no 0 no no no no yes no no 1 no 0 no 0 no  0 no 1 no 0 yes no 245000000000 no 245000000000 no 245000000000 no no 502000 no 502000 no 502000 0 0 no 0.43 constant 1 yes no no no<br><br>/define/boundary-conditions/zone-type inlet pressure-inlet<br>/define/boundary-conditions/set/pressure-inlet inlet () p0 no 400000 q<br>/define/boundary-conditions/set/pressure-inlet inlet () supersonic/initial-gauge-pressure no 400000 q<br>/define/boundary-conditions/set/pressure-inlet inlet () ke-spec no no no yes q<br>/define/boundary-conditions/set/pressure-inlet inlet () turb-hydraulic-diam 0.01 q<br>/define/boundary-conditions/set/pressure-inlet inlet () t0 no 288.15 q<br>/define/boundary-conditions/set/pressure-inlet inlet () species-in-mole-fractions yes q<br>/define/boundary-conditions/set/pressure-inlet inlet () mf no 1 q<br><br>/define/boundary-conditions/set/pressure-outlet outlet_x1 outlet_x2 outlet_y1 outlet_z1 outlet_z2 () t0 no 288.15 q<br><br>/define/boundary-conditions wall pipe 0 no 0 yes steel no no 0 no no no no no 0 no 0.5 yes no 1<br>/define/boundary-conditions wall ground 0 no 0 yes soil no no 0 no no no no no 0 no 0.5 yes no 1<br><br>; 9、创建并设置监测点和面<br>surf point-surf point-1 0 0.4 0 q<br>surf point-surf point-2 0 0.5 0 q<br>surf point-surf point-3 2 0.4 0 q<br><br>/solve/report-definitions add report1 surface-vertexavg field molef-h2 surface-names point-1 () q<br><br>/surface/plane plane1 0 0 0 0 1 0 0 0 1<br><br>; 10、初始化<br>/solve/initialize/set-defaults/ temperature 288.15<br>/solve/initialize/set-defaults/ pressure 0<br>/solve/initialize/set-defaults/ species-0 0<br><br>/solve/initialize initialize-flow ok<br>; 显示一下contour<br>;/display/contour molef-h2 0 1<br><br><br>; 11、设置保存格式及频率<br>; 设置数据保存内容<br>/file/data-file-options molef-h2 molef-air absolute-pressure air h2 velocity-magnitude mesh-x-velocity mesh-y-velocity mesh-z-velocity pressure density total-pressure total-temperature  x-velocity y-velocity z-velocity viscosity-eff viscosity-lam viscosity-ratio viscosity-turb vorticity-mag q<br>; 保存tecplot文件<br>/file/transient-export/tecplot  C:/Users/23984/Desktop/tui_test/tecplot1 ground inlet outlet_x1 outlet_x2 outlet_y1 outlet_z1 outlet_z2 pipe () molef-h2 molef-air absolute-pressure air h2 velocity-magnitude mesh-x-velocity mesh-y-velocity mesh-z-velocity pressure density total-pressure total-temperature  x-velocity y-velocity z-velocity viscosity-eff viscosity-lam viscosity-ratio viscosity-turb vorticity-mag q tecplot1 10 time-step<br><br>; 12、创建contour并保存动画<br>/display/objects/create contour &quot;contour-1&quot; filled yes field molef-h2 surfaces-list plane1 () q<br>/solve/animate/objects/create &quot;animation-1&quot; animate-on contour-1 storage-dir C:\Users\23984\Desktop\tui_test frequency-of &quot;Time Step&quot; q<br><br>; 13、设置迭代参数<br>/solve/set/max-iterations-per-time-step 50<br>/solve/set/time-step 1<br>/solve/set/number-of-time-steps 1000<br>/file/write-case/setting.cas<br><br>; 14、开始计算<br>/solve/dual-time-iterate 1000 20<br></code></pre></td></tr></table></figure>
 
                 
@@ -340,9 +335,9 @@ src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/2024072721334
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Fluent/" class="print-no-link">#Fluent</a>
-      
         <a href="/tags/%E6%A8%A1%E6%8B%9F/" class="print-no-link">#模拟</a>
+      
+        <a href="/tags/Fluent/" class="print-no-link">#Fluent</a>
       
         <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="print-no-link">#学习笔记</a>
       

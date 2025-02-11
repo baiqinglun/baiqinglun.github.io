@@ -27,8 +27,8 @@
 <meta property="article:published_time" content="2024-06-25T02:23:00.000Z">
 <meta property="article:modified_time" content="2025-02-08T06:47:20.940Z">
 <meta property="article:author" content="DB">
-<meta property="article:tag" content="Fluent">
 <meta property="article:tag" content="模拟">
+<meta property="article:tag" content="Fluent">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/1722858654.jpg">
   
@@ -230,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          379 字
+          383 字
         
       </span>
     
@@ -284,48 +284,19 @@
             
               <div class="markdown-body">
                 
-                <h1 id="fluent-中的浮力模型">Fluent 中的浮力模型</h1>
-<h2 id="基本概念">1、基本概念</h2>
-<p>当计算域开启重力场和能量场时，可在<code>ke</code>模型中考虑浮力的产生。</p>
+                <h1 id="Fluent-中的浮力模型"><a href="#Fluent-中的浮力模型" class="headerlink" title="Fluent 中的浮力模型"></a>Fluent 中的浮力模型</h1><h2 id="1、基本概念"><a href="#1、基本概念" class="headerlink" title="1、基本概念"></a>1、基本概念</h2><p>当计算域开启重力场和能量场时，可在<code>ke</code>模型中考虑浮力的产生。</p>
 <p>由于浮力而产生的湍流公式：</p>
-<p><span class="math display">\[G_b=\beta
-g_i\frac{\mu_t}{\mathrm{Pr}_t}\frac{\partial T}{\partial
-x_i}\]</span></p>
-<p>其中<span
-class="math inline">\(Pr_{t}\)</span>是能量的湍流普朗特数，<span
-class="math inline">\(g_{i}\)</span>是重力矢量在<span
-class="math inline">\(i\)</span>方向上的分量。对于标准和可实现<code>ke</code>模型，<span
-class="math inline">\(Pr_{t}=0.85\)</span>。在<code>RNG ke</code>模型，$Pr_{t}=
-<span class="math inline">\(。其中\)</span>$由以下公式计算：</p>
-<p><span
-class="math display">\[\left|\frac{\alpha-1.3929}{\alpha_0-1.3929}\right|^{0.6321}\left|\frac{\alpha+2.3929}{\alpha_0+2.3929}\right|^{0.3679}=\frac{\mu_{\mathrm{mol}}}{\mu_{\mathrm{eff}}}\]</span></p>
-<p>其中<span
-class="math inline">\(\alpha_{0}=1.0\)</span>，在高雷诺数限制下，<span
-class="math inline">\(\mu_{\mathrm{mol}}/\mu_{\mathrm{eff}}\ll1\)</span>，<span
-class="math inline">\(\alpha_{k}=\alpha_{\epsilon}\approx1.393\)</span></p>
-<p>系数$$定义为</p>
-<p><span
-class="math display">\[\beta=-\frac1\rho\left(\frac{\partial\rho}{\partial
-T}\right)_p\]</span></p>
-<p>对于理想气体状态方程：</p>
-<p><span
-class="math display">\[G_b=-g_i\frac{\mu_t}{\rho\mathrm{Pr}_t}\frac{\partial\rho}{\partial
-x_i}\]</span></p>
-<blockquote>
+<script type="math/tex; mode=display">G_b=\beta g_i\frac{\mu_t}{\mathrm{Pr}_t}\frac{\partial T}{\partial x_i}</script><p>其中$Pr_{t}$是能量的湍流普朗特数，$g_{i}$是重力矢量在$i$方向上的分量。对于标准和可实现<code>ke</code>模型，$Pr_{t}=0.85$。在<code>RNG ke</code>模型，$Pr_{t}=\frac{1 }{\alpha} $。其中$\alpha$由以下公式计算：</p>
+<script type="math/tex; mode=display">\left|\frac{\alpha-1.3929}{\alpha_0-1.3929}\right|^{0.6321}\left|\frac{\alpha+2.3929}{\alpha_0+2.3929}\right|^{0.3679}=\frac{\mu_{\mathrm{mol}}}{\mu_{\mathrm{eff}}}</script><p>其中$\alpha_{0}=1.0$，在高雷诺数限制下，$\mu_{\mathrm{mol}}/\mu_{\mathrm{eff}}\ll1$，$\alpha_{k}=\alpha_{\epsilon}\approx1.393$</p>
+<p>系数$\beta $定义为</p>
+<script type="math/tex; mode=display">\beta=-\frac1\rho\left(\frac{\partial\rho}{\partial T}\right)_p</script><p>对于理想气体状态方程：</p>
+<script type="math/tex; mode=display">G_b=-g_i\frac{\mu_t}{\rho\mathrm{Pr}_t}\frac{\partial\rho}{\partial x_i}</script><blockquote>
 <p>在不稳定分层中，湍动能趋于增大。对于不稳定的分层，浮力会抑制湍流。</p>
 </blockquote>
-<p>受浮力影响程度由常数<span class="math inline">\(C_{3\epsilon
-}\)</span>决定，在 Fluent 中可通过以下公式计算</p>
-<p><span
-class="math display">\[C_{3\epsilon}=\tanh\left|\frac{v}{u}\right|\]</span></p>
-<p><span
-class="math inline">\(v\)</span>是平行于重力矢量的流速分量，<span
-class="math inline">\(u\)</span>是垂直于重力矢量的流速分量。对于主流方向与重力方向一致的浮力剪切层，该常数为
-1。对于垂直于重力矢量的浮力剪切层，该值为 0。</p>
-<h2 id="如何操作">2、如何操作</h2>
-<p>开启重力加速度和能量方程，即可在<code>ke</code>模型中设置全浮力模型。</p>
-<p><img
-src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240625092823.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
+<p>受浮力影响程度由常数$C_{3\epsilon }$决定，在 Fluent 中可通过以下公式计算</p>
+<script type="math/tex; mode=display">C_{3\epsilon}=\tanh\left|\frac{v}{u}\right|</script><p>$v$是平行于重力矢量的流速分量，$u$是垂直于重力矢量的流速分量。对于主流方向与重力方向一致的浮力剪切层，该常数为 1。对于垂直于重力矢量的浮力剪切层，该值为 0。</p>
+<h2 id="2、如何操作"><a href="#2、如何操作" class="headerlink" title="2、如何操作"></a>2、如何操作</h2><p>开启重力加速度和能量方程，即可在<code>ke</code>模型中设置全浮力模型。</p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240625092823.png" srcset="/images/icons8-loading-96.png" lazyload alt=""></p>
 
                 
               </div>
@@ -366,9 +337,9 @@ src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/2024062509282
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Fluent/" class="print-no-link">#Fluent</a>
-      
         <a href="/tags/%E6%A8%A1%E6%8B%9F/" class="print-no-link">#模拟</a>
+      
+        <a href="/tags/Fluent/" class="print-no-link">#Fluent</a>
       
     </div>
   
