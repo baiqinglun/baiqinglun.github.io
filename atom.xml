@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-02-10T02:22:00.388Z</updated>
+  <updated>2025-02-11T00:35:44.364Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>文献写作词句</title>
+    <link href="http://example.com/2025/02/11/041%20%E6%96%87%E7%8C%AE%E5%86%99%E4%BD%9C%E8%AF%8D%E5%8F%A5/"/>
+    <id>http://example.com/2025/02/11/041%20%E6%96%87%E7%8C%AE%E5%86%99%E4%BD%9C%E8%AF%8D%E5%8F%A5/</id>
+    <published>2025-02-11T00:29:00.000Z</published>
+    <updated>2025-02-11T00:35:44.364Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note note-success">            <p>本文最新更新于 2025/02/11 上午</p>          </div><h2 id="section">2025-02-11</h2><div class="note note-info">            <p>原文： <strong>This knowledge plays a vital role in process andchemical safety as well as in fuel design</strong>翻译：<em>这些知识在工艺和化学安全以及燃料设计中起着至关重要的作用</em>写作建议：<span class="label label-primary">起着关键作用</span> <spanclass="label label-info">3并列</span></p>          </div>]]></content>
+    
+    
+    <summary type="html">收录文献阅读中的好词好句以及好的表达方式</summary>
+    
+    
+    
+    <category term="科研" scheme="http://example.com/categories/%E7%A7%91%E7%A0%94/"/>
+    
+    
+    <category term="科研" scheme="http://example.com/tags/%E7%A7%91%E7%A0%94/"/>
+    
+    <category term="写作" scheme="http://example.com/tags/%E5%86%99%E4%BD%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>拥有自己的Deepseek大模型</title>
@@ -67,9 +90,9 @@
     <link href="http://example.com/2025/02/09/038%20Abaqus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://example.com/2025/02/09/038%20Abaqus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2025-02-09T13:20:00.000Z</published>
-    <updated>2025-02-10T01:30:40.448Z</updated>
+    <updated>2025-02-10T09:19:37.560Z</updated>
     
-    <content type="html"><![CDATA[<div class="note note-success">            <p>本文最新更新于 2025/02/09 晚上</p>          </div><a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=2"  title="学习视频" target="_blank">学习视频</a><h2 id="基本介绍">1、基本介绍</h2><h3 id="abaqus的基本功能">1.1 Abaqus的基本功能</h3><ol type="1"><li>计算结构的力学性能——&gt;结构场：静力学动力学（线性非线性）冲击断裂|复材等</li><li>计算结构的热力学性能——&gt;温度场+结构场：稳态、瞬态、线性、非线性</li><li>计算流体的动力学性能——&gt;流场：流速、压力、温度、稳态、瞬态</li><li>计算结构的电磁场性能——&gt;电场/磁场：电感、电容、磁通量、涡流等</li><li>计算结构的NVH性——&gt;结构场+声场：声压、声功率等</li><li>计算耦合场性能——&gt;热结构耦合、热流耦合、热电耦合、流固耦合</li><li>计算结构的优化——&gt;参数优化、非参数优化</li></ol><h3 id="文件系统">1.2 文件系统</h3><ol type="1"><li><strong>数据库文件</strong><ol type="1"><li>模型数据库（.cas）：在Abaqus/CAE中直接打开，包含几个模型、网格、载荷信息及分析任务等；</li><li>结果数据库文件（.odb）：可在Abaqus/CAE中直接打开，也可输入到CAE文件中作为不见或模型，包含在<code>分析步模块</code>中定义的场变量和历史变量输出结果，可以由可视化模块打开。</li></ol></li><li><strong>输入文件</strong><ol type="1"><li><strong>inp文件</strong>：文本文件，可在作业(Job)模块中提交任务时或单击分析作业管理器中的WriteInput按钮在工作目录中生成。Inp文件可以输入模型，也可以由ABAQUSCommand直接运行，inp文件输入的模型只包含有限元模型而无几何模型；</li><li><strong>pes文件</strong>：参数更改后重新的inp文件；</li><li><strong>Par文件</strong>：参数更改后重写的以参数形式运行的inp文件。</li></ol></li><li><strong>日志文件</strong>：Log文件：文本文件，运行ABAQUS的日志。</li><li><strong>数据文件</strong>：Dat文件：文本文件，记录数据和参数检查、单元质量检查等信息，包含预处理inp文件产生的错误和警告信息。包含用户定义的ABAQUS/standard输入数据，ABAQUS/Explicit的结果不会写入其中。</li><li><strong>信息文件</strong><ol type="1"><li><strong>MSG文件</strong>：记录计算过程中的平衡迭代次数、参数设置、计算时间、错误与警告信息等；</li><li><strong>Ipm文件</strong>：气动ABAQUS、CAE分析时开始写入，记录从ABAQUS/Standard或ABAQUS/Explicit到ABAQUS、CAE的过程日志；</li><li><strong>Prt文件</strong>：模型的部件或装配信息；</li><li><strong>Pac文件</strong>：模型信息，仅用于ABAQUS/Explicit。</li></ol></li><li><strong>状态文件</strong><ol type="1"><li><strong>Sta文件</strong>：文本文件，包含分析过程信息；</li><li><strong>Abq文件</strong>：仅用于ABAQUS/Explicit，记录分析、继续和恢复命令；</li><li><strong>Stt文件</strong>：运行数据检查时产生的文件；</li><li><strong>Psr文件</strong>：文本文件，参数化分析要求的输入结果；</li><li><strong>Sel文件</strong>：用于结果选择，仅用于ABAQUS/Explicit。</li></ol></li><li><strong>模型文件</strong>：MDL文件：ABAQUS/Standard与ABAQUS/Explicit中运行数据产生的文件。</li><li><strong>保存命令的文件</strong><ol type="1"><li><strong>Jnl文件</strong>：文本文件，包含于复制已存储的模型数据库的ABAQUS/CAE命令</li><li><strong>Rpy文件</strong>：记录运行一次ABAQUS/CAE所所运用的所有命令</li><li><strong>Rec文件</strong>：包含用于恢复内存中模型数据库的ABAQUS/CAE命令</li></ol></li><li><strong>重启动文件</strong>：Res文件：使用step功能模块进行定义</li><li><strong>脚本文件</strong>：Psf文件：用户定义参数化研究时需要创建的文件</li><li><strong>临时文件</strong><ol type="1"><li><strong>Ods文件</strong>：记录长输出变量的临时运算结果，运行后自动删除</li><li><strong>lck文件</strong>：用于阻止并发写入输出数据库，关闭输出数据库时自动删除</li></ol></li></ol><blockquote><p>在Part导入模块时尽量不要导入igs文件，igs只会包含表面信息。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<div class="note note-success">            <p>本文最新更新于 2025/02/10 下午</p>          </div><a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=2"  title="学习视频" target="_blank">学习视频</a><h2 id="基本介绍">1、基本介绍</h2><h3 id="abaqus的基本功能">1.1 Abaqus的基本功能</h3><ol type="1"><li>计算结构的力学性能——&gt;结构场：静力学动力学（线性非线性）冲击断裂|复材等</li><li>计算结构的热力学性能——&gt;温度场+结构场：稳态、瞬态、线性、非线性</li><li>计算流体的动力学性能——&gt;流场：流速、压力、温度、稳态、瞬态</li><li>计算结构的电磁场性能——&gt;电场/磁场：电感、电容、磁通量、涡流等</li><li>计算结构的NVH性——&gt;结构场+声场：声压、声功率等</li><li>计算耦合场性能——&gt;热结构耦合、热流耦合、热电耦合、流固耦合</li><li>计算结构的优化——&gt;参数优化、非参数优化</li></ol><h3 id="文件系统">1.2 文件系统</h3><ol type="1"><li><strong>数据库文件</strong><ol type="1"><li>模型数据库（.cas）：在Abaqus/CAE中直接打开，包含几个模型、网格、载荷信息及分析任务等；</li><li>结果数据库文件（.odb）：可在Abaqus/CAE中直接打开，也可输入到CAE文件中作为不见或模型，包含在<code>分析步模块</code>中定义的场变量和历史变量输出结果，可以由可视化模块打开。</li></ol></li><li><strong>输入文件</strong><ol type="1"><li><strong>inp文件</strong>：文本文件，可在作业(Job)模块中提交任务时或单击分析作业管理器中的WriteInput按钮在工作目录中生成。Inp文件可以输入模型，也可以由ABAQUSCommand直接运行，inp文件输入的模型只包含有限元模型而无几何模型；</li><li><strong>pes文件</strong>：参数更改后重新的inp文件；</li><li><strong>Par文件</strong>：参数更改后重写的以参数形式运行的inp文件。</li></ol></li><li><strong>日志文件</strong>：Log文件：文本文件，运行ABAQUS的日志。</li><li><strong>数据文件</strong>：Dat文件：文本文件，记录数据和参数检查、单元质量检查等信息，包含预处理inp文件产生的错误和警告信息。包含用户定义的ABAQUS/standard输入数据，ABAQUS/Explicit的结果不会写入其中。</li><li><strong>信息文件</strong><ol type="1"><li><strong>MSG文件</strong>：记录计算过程中的平衡迭代次数、参数设置、计算时间、错误与警告信息等；</li><li><strong>Ipm文件</strong>：气动ABAQUS、CAE分析时开始写入，记录从ABAQUS/Standard或ABAQUS/Explicit到ABAQUS、CAE的过程日志；</li><li><strong>Prt文件</strong>：模型的部件或装配信息；</li><li><strong>Pac文件</strong>：模型信息，仅用于ABAQUS/Explicit。</li></ol></li><li><strong>状态文件</strong><ol type="1"><li><strong>Sta文件</strong>：文本文件，包含分析过程信息；</li><li><strong>Abq文件</strong>：仅用于ABAQUS/Explicit，记录分析、继续和恢复命令；</li><li><strong>Stt文件</strong>：运行数据检查时产生的文件；</li><li><strong>Psr文件</strong>：文本文件，参数化分析要求的输入结果；</li><li><strong>Sel文件</strong>：用于结果选择，仅用于ABAQUS/Explicit。</li></ol></li><li><strong>模型文件</strong>：MDL文件：ABAQUS/Standard与ABAQUS/Explicit中运行数据产生的文件。</li><li><strong>保存命令的文件</strong><ol type="1"><li><strong>Jnl文件</strong>：文本文件，包含于复制已存储的模型数据库的ABAQUS/CAE命令</li><li><strong>Rpy文件</strong>：记录运行一次ABAQUS/CAE所所运用的所有命令</li><li><strong>Rec文件</strong>：包含用于恢复内存中模型数据库的ABAQUS/CAE命令</li></ol></li><li><strong>重启动文件</strong>：Res文件：使用step功能模块进行定义</li><li><strong>脚本文件</strong>：Psf文件：用户定义参数化研究时需要创建的文件</li><li><strong>临时文件</strong><ol type="1"><li><strong>Ods文件</strong>：记录长输出变量的临时运算结果，运行后自动删除</li><li><strong>lck文件</strong>：用于阻止并发写入输出数据库，关闭输出数据库时自动删除</li></ol></li></ol><blockquote><p>在Part导入模块时尽量不要导入igs文件，igs只会包含表面信息。</p></blockquote><h3 id="模块介绍">1.3 模块介绍</h3><ol type="1"><li><strong>Part</strong>：进行零部件建模(3D、2D、轴对称)、模型编辑及修复(去除烂面、抽取中面、模型切割等)</li><li><strong>Property</strong>；创建材料以及截面，完成属性的指派</li><li><strong>Assembly</strong>：组件装配体用于后续分析</li><li><strong>Step</strong>：创建分析步及定义输出</li><li><strong>Interaction</strong>：创建相互作用，包括接触、耦合、弹簧单元、质量单元、焊点等</li><li><strong>Load</strong>：施加载荷、约束以及模型初始条件</li><li><strong>Mesh</strong>：进行网格划分以及单元类型设定</li><li><strong>Optinizatio</strong>n：创建优化任务</li><li><strong>Job</strong>：创建作业以及求解</li><li><strong>Visualization</strong>：可视化后处理</li><li><strong>Sketch</strong>：创建草图，可用于零部件建模</li></ol><h3 id="单位制问题">1.4 单位制问题</h3><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210165813.png"></p></div><h3 id="操作技巧">1.5 操作技巧</h3><ol type="1"><li><code>ctrl+shift+中键</code>：移动</li><li><code>ctrl+shift+左键</code>：旋转</li><li><code>ctrl+shift+右键</code>：缩放</li></ol><h2 id="part模块">2、Part模块</h2><p>选择面或者线时：要按住<code>Alt</code>键</p>]]></content>
     
     
     <summary type="html">Abaqus基础</summary>
@@ -366,31 +389,6 @@
   </entry>
   
   <entry>
-    <title>ICEM常遇问题</title>
-    <link href="http://example.com/2024/06/29/025%20ICEM%E5%B8%B8%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/"/>
-    <id>http://example.com/2024/06/29/025%20ICEM%E5%B8%B8%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/</id>
-    <published>2024-06-29T12:40:00.000Z</published>
-    <updated>2025-02-08T06:47:20.942Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="d-网格不闭合">2D 网格不闭合</h2><blockquote><p>Mesh has uncovered edges. ANSYS Fluent needs a complete boundary(lines in 2D) or it will give a variety of errors and not read in themesh! If this was 2D Hexa, perhaps your edges are not associated withperimeter curves</p></blockquote><p>原因是线和线之间可能没有关联</p><figure><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202302161539612.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure>]]></content>
-    
-    
-    <summary type="html">在使用ICEM划分网格时常遇到的问题</summary>
-    
-    
-    
-    <category term="模拟" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/"/>
-    
-    <category term="ICEM" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/ICEM/"/>
-    
-    
-    <category term="模拟" scheme="http://example.com/tags/%E6%A8%A1%E6%8B%9F/"/>
-    
-    <category term="ICEM" scheme="http://example.com/tags/ICEM/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Nest学习笔记</title>
     <link href="http://example.com/2024/06/29/024%20Nest%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://example.com/2024/06/29/024%20Nest%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
@@ -416,6 +414,31 @@
     <category term="后端" scheme="http://example.com/tags/%E5%90%8E%E7%AB%AF/"/>
     
     <category term="Nest" scheme="http://example.com/tags/Nest/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ICEM常遇问题</title>
+    <link href="http://example.com/2024/06/29/025%20ICEM%E5%B8%B8%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/"/>
+    <id>http://example.com/2024/06/29/025%20ICEM%E5%B8%B8%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/</id>
+    <published>2024-06-29T12:40:00.000Z</published>
+    <updated>2025-02-08T06:47:20.942Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="d-网格不闭合">2D 网格不闭合</h2><blockquote><p>Mesh has uncovered edges. ANSYS Fluent needs a complete boundary(lines in 2D) or it will give a variety of errors and not read in themesh! If this was 2D Hexa, perhaps your edges are not associated withperimeter curves</p></blockquote><p>原因是线和线之间可能没有关联</p><figure><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202302161539612.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure>]]></content>
+    
+    
+    <summary type="html">在使用ICEM划分网格时常遇到的问题</summary>
+    
+    
+    
+    <category term="模拟" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/"/>
+    
+    <category term="ICEM" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/ICEM/"/>
+    
+    
+    <category term="模拟" scheme="http://example.com/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+    <category term="ICEM" scheme="http://example.com/tags/ICEM/"/>
     
   </entry>
   
@@ -526,31 +549,6 @@
     <category term="搜索技巧" scheme="http://example.com/tags/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/"/>
     
     <category term="google" scheme="http://example.com/tags/google/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Fluent中的浮力模型</title>
-    <link href="http://example.com/2024/06/25/019%20Fluent%E4%B8%AD%E7%9A%84%E6%B5%AE%E5%8A%9B%E6%A8%A1%E5%9E%8B/"/>
-    <id>http://example.com/2024/06/25/019%20Fluent%E4%B8%AD%E7%9A%84%E6%B5%AE%E5%8A%9B%E6%A8%A1%E5%9E%8B/</id>
-    <published>2024-06-25T02:23:00.000Z</published>
-    <updated>2025-02-08T06:47:20.940Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="fluent-中的浮力模型">Fluent 中的浮力模型</h1><h2 id="基本概念">1、基本概念</h2><p>当计算域开启重力场和能量场时，可在<code>ke</code>模型中考虑浮力的产生。</p><p>由于浮力而产生的湍流公式：</p><p><span class="math display">\[G_b=\betag_i\frac{\mu_t}{\mathrm{Pr}_t}\frac{\partial T}{\partialx_i}\]</span></p><p>其中<spanclass="math inline">\(Pr_{t}\)</span>是能量的湍流普朗特数，<spanclass="math inline">\(g_{i}\)</span>是重力矢量在<spanclass="math inline">\(i\)</span>方向上的分量。对于标准和可实现<code>ke</code>模型，<spanclass="math inline">\(Pr_{t}=0.85\)</span>。在<code>RNG ke</code>模型，$Pr_{t}=<span class="math inline">\(。其中\)</span>$由以下公式计算：</p><p><spanclass="math display">\[\left|\frac{\alpha-1.3929}{\alpha_0-1.3929}\right|^{0.6321}\left|\frac{\alpha+2.3929}{\alpha_0+2.3929}\right|^{0.3679}=\frac{\mu_{\mathrm{mol}}}{\mu_{\mathrm{eff}}}\]</span></p><p>其中<spanclass="math inline">\(\alpha_{0}=1.0\)</span>，在高雷诺数限制下，<spanclass="math inline">\(\mu_{\mathrm{mol}}/\mu_{\mathrm{eff}}\ll1\)</span>，<spanclass="math inline">\(\alpha_{k}=\alpha_{\epsilon}\approx1.393\)</span></p><p>系数$$定义为</p><p><spanclass="math display">\[\beta=-\frac1\rho\left(\frac{\partial\rho}{\partialT}\right)_p\]</span></p><p>对于理想气体状态方程：</p><p><spanclass="math display">\[G_b=-g_i\frac{\mu_t}{\rho\mathrm{Pr}_t}\frac{\partial\rho}{\partialx_i}\]</span></p><blockquote><p>在不稳定分层中，湍动能趋于增大。对于不稳定的分层，浮力会抑制湍流。</p></blockquote><p>受浮力影响程度由常数<span class="math inline">\(C_{3\epsilon}\)</span>决定，在 Fluent 中可通过以下公式计算</p><p><spanclass="math display">\[C_{3\epsilon}=\tanh\left|\frac{v}{u}\right|\]</span></p><p><spanclass="math inline">\(v\)</span>是平行于重力矢量的流速分量，<spanclass="math inline">\(u\)</span>是垂直于重力矢量的流速分量。对于主流方向与重力方向一致的浮力剪切层，该常数为1。对于垂直于重力矢量的浮力剪切层，该值为 0。</p><h2 id="如何操作">2、如何操作</h2><p>开启重力加速度和能量方程，即可在<code>ke</code>模型中设置全浮力模型。</p><p><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240625092823.png" /></p>]]></content>
-    
-    
-    <summary type="html">Fluent中的浮力模型</summary>
-    
-    
-    
-    <category term="模拟" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/"/>
-    
-    <category term="Fluent" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/Fluent/"/>
-    
-    
-    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
-    
-    <category term="模拟" scheme="http://example.com/tags/%E6%A8%A1%E6%8B%9F/"/>
     
   </entry>
   
