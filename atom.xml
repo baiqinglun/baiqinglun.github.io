@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-02-12T03:04:51.010Z</updated>
+  <updated>2025-02-12T08:35:13.294Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mathtype在word中不显示问题</title>
+    <link href="http://example.com/2025/02/12/045%20mathtype%E5%9C%A8word%E4%B8%AD%E6%98%BE%E7%A4%BA/"/>
+    <id>http://example.com/2025/02/12/045%20mathtype%E5%9C%A8word%E4%B8%AD%E6%98%BE%E7%A4%BA/</id>
+    <published>2025-02-12T08:11:00.000Z</published>
+    <updated>2025-02-12T08:35:13.294Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note note-success">            <p>本文最新更新于 2025/02/12 下午</p>          </div><div class="note note-warning">            <p>安装好的mathtype在word导航栏中不显示</p>          </div><p>定位mathtype安装目录，复制这3个文件到<code>C:\Users\**\AppData\Roaming\Microsoft\Word\STARTUP</code></p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250212162700.png"></p></div><p>重新打开word即可。</p><p>如果还想将mathtype添加到ppt中，需要打开加载项，转到加载项</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250212163056.png"></p></div><p>添加插件即可</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250212163107.png"></p></div><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250212163136.png"></p></div><p>如果不知道如何找mathtype和word安装位置，可以在搜索框搜索，然后右键打开文件位置</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250212163423.png"></p></div><div class="note note-success">            <p>完成</p>          </div>]]></content>
+    
+    
+    <summary type="html">解决mathtype在word中不显示问题</summary>
+    
+    
+    
+    <category term="科研" scheme="http://example.com/categories/%E7%A7%91%E7%A0%94/"/>
+    
+    
+    <category term="科研" scheme="http://example.com/tags/%E7%A7%91%E7%A0%94/"/>
+    
+    <category term="mathtype" scheme="http://example.com/tags/mathtype/"/>
+    
+  </entry>
   
   <entry>
     <title>zotero实现标注自动打标签</title>
@@ -516,33 +539,6 @@
     <category term="模拟" scheme="http://example.com/tags/%E6%A8%A1%E6%8B%9F/"/>
     
     <category term="ICEM" scheme="http://example.com/tags/ICEM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python调用REFPROP</title>
-    <link href="http://example.com/2024/06/29/023%20Python%E8%B0%83%E7%94%A8REFPROP/"/>
-    <id>http://example.com/2024/06/29/023%20Python%E8%B0%83%E7%94%A8REFPROP/</id>
-    <published>2024-06-29T12:30:00.000Z</published>
-    <updated>2025-02-08T06:47:20.941Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="python-调用-refprop">python 调用 REFPROP</h1><h2 id="安装调试">1、安装调试</h2><ol type="1"><li>安装 refprop10</li><li>安装 python 库<code>pip install ctREFPROP</code></li></ol><p>测试使用</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os, numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> ctREFPROP.ctREFPROP <span class="hljs-keyword">import</span> REFPROPFunctionLibrary<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">NBP</span>():<br>    RP = REFPROPFunctionLibrary(os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>])<br>    RP.SETPATHdll(os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>])<br>    <span class="hljs-built_in">print</span>(RP.RPVersion())<br>    MOLAR_BASE_SI = RP.GETENUMdll(<span class="hljs-number">0</span>,<span class="hljs-string">&quot;MOLAR BASE SI&quot;</span>).iEnum<br><br>    r = RP.REFPROPdll(<span class="hljs-string">&quot;PROPANE&quot;</span>,<span class="hljs-string">&quot;PQ&quot;</span>,<span class="hljs-string">&quot;T&quot;</span>,MOLAR_BASE_SI, <span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">101325</span>, <span class="hljs-number">0</span>, [<span class="hljs-number">1.0</span>])<br>    <span class="hljs-built_in">print</span>(r.ierr, r.herr, r.Output[<span class="hljs-number">0</span>])<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># 路径</span><br>    os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>] = <span class="hljs-string">r&#x27;D:/REFPROP10&#x27;</span><br><br>    NBP()<br><br>&gt;&gt;<br><span class="hljs-number">10.0</span><br><span class="hljs-number">0</span>  <span class="hljs-number">231.0362479100902</span><br></code></pre></td></tr></table></figure><h2 id="基本语法">2、基本语法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os, numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> ctREFPROP.ctREFPROP <span class="hljs-keyword">import</span> REFPROPFunctionLibrary<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">calculate_properties</span>():<br>    <span class="hljs-comment"># 初始化REFPROP</span><br>    RP = REFPROPFunctionLibrary(os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>])<br>    RP.SETPATHdll(os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>])<br><br>    <span class="hljs-comment"># 将单位设置为国际单位制（摩尔基准）</span><br>    MOLAR_BASE_SI = RP.GETENUMdll(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;MASS BASE SI&quot;</span>).iEnum<br><br>    <span class="hljs-comment"># 指定物质（氢）、计算类型（H为焓值，D为密度，S为熵值）</span><br>    substance = <span class="hljs-string">&quot;HYDROGEN&quot;</span><br><br>    <span class="hljs-comment"># 指定输入条件（温度、压力）</span><br>    temperature = <span class="hljs-number">298.15</span>  <span class="hljs-comment"># 单位：K</span><br>    pressure = <span class="hljs-number">101325</span>  <span class="hljs-comment"># 单位：Pa</span><br><br>    <span class="hljs-comment"># 调用REFPROPdll计算性质</span><br>    H_result = RP.REFPROPdll(substance, <span class="hljs-string">&quot;PT&quot;</span>,<span class="hljs-string">&quot;H&quot;</span>,  MOLAR_BASE_SI, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, pressure, temperature, [<span class="hljs-number">1.0</span>]) <span class="hljs-comment"># J/kg</span><br>    D_result = RP.REFPROPdll(substance, <span class="hljs-string">&quot;PT&quot;</span>,<span class="hljs-string">&quot;D&quot;</span>,  MOLAR_BASE_SI, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, pressure, temperature, [<span class="hljs-number">1.0</span>]) <span class="hljs-comment"># kg/m3</span><br>    S_result = RP.REFPROPdll(substance, <span class="hljs-string">&quot;PT&quot;</span>,<span class="hljs-string">&quot;S&quot;</span>,  MOLAR_BASE_SI, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, pressure, temperature, [<span class="hljs-number">1.0</span>]) <span class="hljs-comment"># J/(kg·K)</span><br>    <span class="hljs-comment"># 检查是否有错误</span><br>    <span class="hljs-keyword">if</span> H_result.ierr == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> D_result.ierr == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> S_result.ierr == <span class="hljs-number">0</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;计算得到的H=:&quot;</span>,H_result.Output[<span class="hljs-number">0</span>])<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;计算得到的D=:&quot;</span>,D_result.Output[<span class="hljs-number">0</span>])<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;计算得到的S=:&quot;</span>,S_result.Output[<span class="hljs-number">0</span>])<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;错误: <span class="hljs-subst">&#123;H_result.herr&#125;</span>&quot;</span>)<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># 路径</span><br>    os.environ[<span class="hljs-string">&#x27;RPPREFIX&#x27;</span>] = <span class="hljs-string">r&#x27;D:/REFPROP10&#x27;</span><br><br>    calculate_properties()<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">将REFPROP封装为python库方便调用物性参数</summary>
-    
-    
-    
-    <category term="编程" scheme="http://example.com/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-    <category term="Python" scheme="http://example.com/categories/%E7%BC%96%E7%A8%8B/Python/"/>
-    
-    
-    <category term="Python" scheme="http://example.com/tags/Python/"/>
-    
-    <category term="编程" scheme="http://example.com/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-    <category term="REFPROP" scheme="http://example.com/tags/REFPROP/"/>
     
   </entry>
   
