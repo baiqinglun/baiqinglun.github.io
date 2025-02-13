@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>Abaqus模拟之应用梁单元做强度分析实例</title>
+    <link href="/2025/02/13/046%20Abaqus%E6%A8%A1%E6%8B%9F%E4%B9%8B%E5%BA%94%E7%94%A8%E6%A2%81%E5%8D%95%E5%85%83%E5%81%9A%E5%BC%BA%E5%BA%A6%E5%88%86%E6%9E%90%E5%AE%9E%E4%BE%8B/"/>
+    <url>/2025/02/13/046%20Abaqus%E6%A8%A1%E6%8B%9F%E4%B9%8B%E5%BA%94%E7%94%A8%E6%A2%81%E5%8D%95%E5%85%83%E5%81%9A%E5%BC%BA%E5%BA%A6%E5%88%86%E6%9E%90%E5%AE%9E%E4%BE%8B/</url>
+    
+    <content type="html"><![CDATA[<div class="note note-success">            <p>本文最新更新于 2025/02/13 下午</p>          </div><a class="btn" href="https://www.bilibili.com/video/BV1SK4y147Z8?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=12"  title="案例视频" target="_blank">案例视频</a><h2 id="案例条件">1、案例条件</h2><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213150823.png"></p></div><div class="note note-info">            <p>问题分析</p>          </div><p>此单元应使用梁单元，降低建模以及计算复杂度。</p><p>梁的截面</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213151329.png"></p></div><h2 id="创建模型">2、创建模型</h2><p>模型选择三维线，更改大致尺寸为10（本次案例采用m单位制）</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213151512.png"></p></div><p>可以先绘制一个矩形然后删除</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213151755.png"></p></div><h2 id="创建材料及剖面">3、创建材料及剖面</h2><p>这里可创建剖面</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213152328.png"></p></div><h2 id="创建截面并赋予截面">4、创建截面并赋予截面</h2><p>这里会自动识别</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213152521.png"></p></div><h2 id="定义梁的方向并装配固定">5、定义梁的方向并装配固定</h2><p>需要按住Shitf进行加选</p><p>这一步没太看懂什么意思</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213153029.png"></p></div><blockquote><p>显示梁的结构剖面</p></blockquote><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213153143.png"></p></div><h2 id="创建分析步">6、创建分析步</h2><p>打开几何非线性</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213153254.png"></p></div><h2 id="施加载荷">7、施加载荷</h2><p>固定和集中力</p><blockquote><p>需要按住Shitf进行加选</p></blockquote><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213153758.png"></p></div><h2 id="划分网格并提交计算">8、划分网格并提交计算</h2><p>选择部件</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213153956.png"></p></div><h2 id="后处理">9、后处理</h2><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213154643.png"></p></div><p>查看位移值为0.0158，对比计算的为0.0154</p><div class="note note-success">            <p>完成</p>          </div>]]></content>
+    
+    
+    <categories>
+      
+      <category>模拟</category>
+      
+      <category>Abaqus</category>
+      
+      <category>案例</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模拟</tag>
+      
+      <tag>Abaqus</tag>
+      
+      <tag>案例</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>mathtype在word中不显示问题</title>
     <link href="/2025/02/12/045%20mathtype%E5%9C%A8word%E4%B8%AD%E6%98%BE%E7%A4%BA/"/>
     <url>/2025/02/12/045%20mathtype%E5%9C%A8word%E4%B8%AD%E6%98%BE%E7%A4%BA/</url>
@@ -113,6 +146,8 @@
       
       <tag>裂纹扩展</tag>
       
+      <tag>案例</tag>
+      
     </tags>
     
   </entry>
@@ -205,7 +240,7 @@
     <link href="/2025/02/09/038%20Abaqus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <url>/2025/02/09/038%20Abaqus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     
-    <content type="html"><![CDATA[<div class="note note-success">            <p>本文最新更新于 2025/02/10 下午</p>          </div><h2 id="基本介绍">1、基本介绍</h2><a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=2"  title="学习视频" target="_blank">学习视频</a><h3 id="abaqus的基本功能">1.1 Abaqus的基本功能</h3><ol type="1"><li>计算结构的力学性能——&gt;结构场：静力学动力学（线性非线性）冲击断裂|复材等</li><li>计算结构的热力学性能——&gt;温度场+结构场：稳态、瞬态、线性、非线性</li><li>计算流体的动力学性能——&gt;流场：流速、压力、温度、稳态、瞬态</li><li>计算结构的电磁场性能——&gt;电场/磁场：电感、电容、磁通量、涡流等</li><li>计算结构的NVH性——&gt;结构场+声场：声压、声功率等</li><li>计算耦合场性能——&gt;热结构耦合、热流耦合、热电耦合、流固耦合</li><li>计算结构的优化——&gt;参数优化、非参数优化</li></ol><h3 id="文件系统">1.2 文件系统</h3><ol type="1"><li><strong>数据库文件</strong><ol type="1"><li>模型数据库（.cas）：在Abaqus/CAE中直接打开，包含几个模型、网格、载荷信息及分析任务等；</li><li>结果数据库文件（.odb）：可在Abaqus/CAE中直接打开，也可输入到CAE文件中作为不见或模型，包含在<code>分析步模块</code>中定义的场变量和历史变量输出结果，可以由可视化模块打开。</li></ol></li><li><strong>输入文件</strong><ol type="1"><li><strong>inp文件</strong>：文本文件，可在作业(Job)模块中提交任务时或单击分析作业管理器中的WriteInput按钮在工作目录中生成。Inp文件可以输入模型，也可以由ABAQUSCommand直接运行，inp文件输入的模型只包含有限元模型而无几何模型；</li><li><strong>pes文件</strong>：参数更改后重新的inp文件；</li><li><strong>Par文件</strong>：参数更改后重写的以参数形式运行的inp文件。</li></ol></li><li><strong>日志文件</strong>：Log文件：文本文件，运行ABAQUS的日志。</li><li><strong>数据文件</strong>：Dat文件：文本文件，记录数据和参数检查、单元质量检查等信息，包含预处理inp文件产生的错误和警告信息。包含用户定义的ABAQUS/standard输入数据，ABAQUS/Explicit的结果不会写入其中。</li><li><strong>信息文件</strong><ol type="1"><li><strong>MSG文件</strong>：记录计算过程中的平衡迭代次数、参数设置、计算时间、错误与警告信息等；</li><li><strong>Ipm文件</strong>：气动ABAQUS、CAE分析时开始写入，记录从ABAQUS/Standard或ABAQUS/Explicit到ABAQUS、CAE的过程日志；</li><li><strong>Prt文件</strong>：模型的部件或装配信息；</li><li><strong>Pac文件</strong>：模型信息，仅用于ABAQUS/Explicit。</li></ol></li><li><strong>状态文件</strong><ol type="1"><li><strong>Sta文件</strong>：文本文件，包含分析过程信息；</li><li><strong>Abq文件</strong>：仅用于ABAQUS/Explicit，记录分析、继续和恢复命令；</li><li><strong>Stt文件</strong>：运行数据检查时产生的文件；</li><li><strong>Psr文件</strong>：文本文件，参数化分析要求的输入结果；</li><li><strong>Sel文件</strong>：用于结果选择，仅用于ABAQUS/Explicit。</li></ol></li><li><strong>模型文件</strong>：MDL文件：ABAQUS/Standard与ABAQUS/Explicit中运行数据产生的文件。</li><li><strong>保存命令的文件</strong><ol type="1"><li><strong>Jnl文件</strong>：文本文件，包含于复制已存储的模型数据库的ABAQUS/CAE命令</li><li><strong>Rpy文件</strong>：记录运行一次ABAQUS/CAE所所运用的所有命令</li><li><strong>Rec文件</strong>：包含用于恢复内存中模型数据库的ABAQUS/CAE命令</li></ol></li><li><strong>重启动文件</strong>：Res文件：使用step功能模块进行定义</li><li><strong>脚本文件</strong>：Psf文件：用户定义参数化研究时需要创建的文件</li><li><strong>临时文件</strong><ol type="1"><li><strong>Ods文件</strong>：记录长输出变量的临时运算结果，运行后自动删除</li><li><strong>lck文件</strong>：用于阻止并发写入输出数据库，关闭输出数据库时自动删除</li></ol></li></ol><blockquote><p>在Part导入模块时尽量不要导入igs文件，igs只会包含表面信息。</p></blockquote><h3 id="模块介绍">1.3 模块介绍</h3><ol type="1"><li><strong>Part</strong>：进行零部件建模(3D、2D、轴对称)、模型编辑及修复(去除烂面、抽取中面、模型切割等)</li><li><strong>Property</strong>；创建材料以及截面，完成属性的指派</li><li><strong>Assembly</strong>：组件装配体用于后续分析</li><li><strong>Step</strong>：创建分析步及定义输出</li><li><strong>Interaction</strong>：创建相互作用，包括接触、耦合、弹簧单元、质量单元、焊点等</li><li><strong>Load</strong>：施加载荷、约束以及模型初始条件</li><li><strong>Mesh</strong>：进行网格划分以及单元类型设定</li><li><strong>Optinizatio</strong>n：创建优化任务</li><li><strong>Job</strong>：创建作业以及求解</li><li><strong>Visualization</strong>：可视化后处理</li><li><strong>Sketch</strong>：创建草图，可用于零部件建模</li></ol><h3 id="单位制问题">1.4 单位制问题</h3><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210165813.png"></p></div><h3 id="操作技巧">1.5 操作技巧</h3><ol type="1"><li><code>ctrl+shift+中键</code>：移动</li><li><code>ctrl+shift+左键</code>：旋转</li><li><code>ctrl+shift+右键</code>：缩放</li></ol><h2 id="part模块">2、Part模块</h2><a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=3"  title="学习视频" target="_blank">学习视频</a><p>选择面或者线时：要按住<code>Alt</code>键</p>]]></content>
+    <content type="html"><![CDATA[<div class="note note-success">            <p>本文最新更新于 2025/02/10 下午</p>          </div><h2 id="基本介绍">1、基本介绍</h2><a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=2"  title="学习视频" target="_blank">学习视频</a><h3 id="abaqus的基本功能">1.1 Abaqus的基本功能</h3><ol type="1"><li>计算结构的力学性能——&gt;结构场：静力学动力学（线性非线性）冲击断裂|复材等</li><li>计算结构的热力学性能——&gt;温度场+结构场：稳态、瞬态、线性、非线性</li><li>计算流体的动力学性能——&gt;流场：流速、压力、温度、稳态、瞬态</li><li>计算结构的电磁场性能——&gt;电场/磁场：电感、电容、磁通量、涡流等</li><li>计算结构的NVH性——&gt;结构场+声场：声压、声功率等</li><li>计算耦合场性能——&gt;热结构耦合、热流耦合、热电耦合、流固耦合</li><li>计算结构的优化——&gt;参数优化、非参数优化</li></ol><h3 id="文件系统">1.2 文件系统</h3><ol type="1"><li><strong>数据库文件</strong><ol type="1"><li>模型数据库（.cas）：在Abaqus/CAE中直接打开，包含几个模型、网格、载荷信息及分析任务等；</li><li>结果数据库文件（.odb）：可在Abaqus/CAE中直接打开，也可输入到CAE文件中作为不见或模型，包含在<code>分析步模块</code>中定义的场变量和历史变量输出结果，可以由可视化模块打开。</li></ol></li><li><strong>输入文件</strong><ol type="1"><li><strong>inp文件</strong>：文本文件，可在作业(Job)模块中提交任务时或单击分析作业管理器中的WriteInput按钮在工作目录中生成。Inp文件可以输入模型，也可以由ABAQUSCommand直接运行，inp文件输入的模型只包含有限元模型而无几何模型；</li><li><strong>pes文件</strong>：参数更改后重新的inp文件；</li><li><strong>Par文件</strong>：参数更改后重写的以参数形式运行的inp文件。</li></ol></li><li><strong>日志文件</strong>：Log文件：文本文件，运行ABAQUS的日志。</li><li><strong>数据文件</strong>：Dat文件：文本文件，记录数据和参数检查、单元质量检查等信息，包含预处理inp文件产生的错误和警告信息。包含用户定义的ABAQUS/standard输入数据，ABAQUS/Explicit的结果不会写入其中。</li><li><strong>信息文件</strong><ol type="1"><li><strong>MSG文件</strong>：记录计算过程中的平衡迭代次数、参数设置、计算时间、错误与警告信息等；</li><li><strong>Ipm文件</strong>：气动ABAQUS、CAE分析时开始写入，记录从ABAQUS/Standard或ABAQUS/Explicit到ABAQUS、CAE的过程日志；</li><li><strong>Prt文件</strong>：模型的部件或装配信息；</li><li><strong>Pac文件</strong>：模型信息，仅用于ABAQUS/Explicit。</li></ol></li><li><strong>状态文件</strong><ol type="1"><li><strong>Sta文件</strong>：文本文件，包含分析过程信息；</li><li><strong>Abq文件</strong>：仅用于ABAQUS/Explicit，记录分析、继续和恢复命令；</li><li><strong>Stt文件</strong>：运行数据检查时产生的文件；</li><li><strong>Psr文件</strong>：文本文件，参数化分析要求的输入结果；</li><li><strong>Sel文件</strong>：用于结果选择，仅用于ABAQUS/Explicit。</li></ol></li><li><strong>模型文件</strong>：MDL文件：ABAQUS/Standard与ABAQUS/Explicit中运行数据产生的文件。</li><li><strong>保存命令的文件</strong><ol type="1"><li><strong>Jnl文件</strong>：文本文件，包含于复制已存储的模型数据库的ABAQUS/CAE命令</li><li><strong>Rpy文件</strong>：记录运行一次ABAQUS/CAE所所运用的所有命令</li><li><strong>Rec文件</strong>：包含用于恢复内存中模型数据库的ABAQUS/CAE命令</li></ol></li><li><strong>重启动文件</strong>：Res文件：使用step功能模块进行定义</li><li><strong>脚本文件</strong>：Psf文件：用户定义参数化研究时需要创建的文件</li><li><strong>临时文件</strong><ol type="1"><li><strong>Ods文件</strong>：记录长输出变量的临时运算结果，运行后自动删除</li><li><strong>lck文件</strong>：用于阻止并发写入输出数据库，关闭输出数据库时自动删除</li></ol></li></ol><blockquote><p>在Part导入模块时尽量不要导入igs文件，igs只会包含表面信息。</p></blockquote><h3 id="模块介绍">1.3 模块介绍</h3><ol type="1"><li><strong>Part</strong>：进行零部件建模(3D、2D、轴对称)、模型编辑及修复(去除烂面、抽取中面、模型切割等)</li><li><strong>Property</strong>；创建材料以及截面，完成属性的指派</li><li><strong>Assembly</strong>：组件装配体用于后续分析</li><li><strong>Step</strong>：创建分析步及定义输出</li><li><strong>Interaction</strong>：创建相互作用，包括接触、耦合、弹簧单元、质量单元、焊点等</li><li><strong>Load</strong>：施加载荷、约束以及模型初始条件</li><li><strong>Mesh</strong>：进行网格划分以及单元类型设定</li><li><strong>Optinizatio</strong>n：创建优化任务</li><li><strong>Job</strong>：创建作业以及求解</li><li><strong>Visualization</strong>：可视化后处理</li><li><strong>Sketch</strong>：创建草图，可用于零部件建模</li></ol><h3 id="单位制问题">1.4 单位制问题</h3><p>最常用的单位又<code>mm-T-s</code>和<code>m-kg-s</code>两种</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210165813.png"></p></div><h3 id="操作技巧">1.5 操作技巧</h3><ol type="1"><li><code>ctrl+shift+中键</code>：移动</li><li><code>ctrl+shift+左键</code>：旋转</li><li><code>ctrl+shift+右键</code>：缩放</li></ol><h2 id="part模块">2、Part模块</h2><a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=3"  title="学习视频" target="_blank">学习视频</a><p>选择面或者线时：要按住<code>Alt</code>键</p><h2 id="属性模块">3、属性模块</h2><a class="btn" href="https://www.bilibili.com/video/BV1F7NbeXEtq/?spm_id_from=333.337.search-card.all.click&vd_source=33b50a4dd201d7564e6e63d321809ce9"  title="ABAQUS 属性模块详细教程" target="_blank">ABAQUS 属性模块详细教程</a><p>属性界面功能</p><ol type="1"><li>设置材料特性</li><li>设计界面特性</li><li>定义弹簧、阻尼器和实体表面壳等</li></ol><p>材料属性三步曲</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213142620.png"></p></div><blockquote><p>一定要注意单位问题</p></blockquote><h2 id="创建材料">3.1 创建材料</h2><p>属性获取</p><ul><li>论文</li><li>力学性能试验</li><li>《有限元常用材料参数手册》</li><li>https://www.matweb.com/</li></ul><p>可在导入的材料库中双击添加</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213145331.png"></p></div><h2 id="创建截面">3.2 创建截面</h2><p>abaqus不能将材料直接赋予给模型，需要先创建包含材料属性的截面，再将截面属性分配给模型区域。</p><div class="note note-info">            <p>常用截面类型</p>          </div><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213145659.png"></p></div><ul><li>实体：用于定义实体的截面特性，一般选用的类型为均质实体；</li><li>壳：用于定义壳体的截面特性，常用类型为均质和膜等；</li><li>梁：用于定义梁的截面特性，包括梁和桁架，在创建梁的截面特性前，需要先定义梁的横截面形状和尺寸。</li></ul><blockquote><p>注意：对于均质壳截面，实际可以把厚度显示出来，正常显示的位置为中间层，在装配时要考虑壳的厚度。</p></blockquote><h2 id="指定截面">3.3 指定截面</h2><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213150230.png"></p></div>]]></content>
     
     
     <categories>
@@ -548,6 +583,35 @@
   
   
   <entry>
+    <title>ICEM常遇问题</title>
+    <link href="/2024/06/29/025%20ICEM%E5%B8%B8%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/"/>
+    <url>/2024/06/29/025%20ICEM%E5%B8%B8%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<h2 id="d-网格不闭合">2D 网格不闭合</h2><blockquote><p>Mesh has uncovered edges. ANSYS Fluent needs a complete boundary(lines in 2D) or it will give a variety of errors and not read in themesh! If this was 2D Hexa, perhaps your edges are not associated withperimeter curves</p></blockquote><p>原因是线和线之间可能没有关联</p><figure><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202302161539612.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>模拟</category>
+      
+      <category>ICEM</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模拟</tag>
+      
+      <tag>ICEM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Nest学习笔记</title>
     <link href="/2024/06/29/024%20Nest%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <url>/2024/06/29/024%20Nest%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
@@ -573,35 +637,6 @@
       <tag>后端</tag>
       
       <tag>Nest</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>ICEM常遇问题</title>
-    <link href="/2024/06/29/025%20ICEM%E5%B8%B8%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/"/>
-    <url>/2024/06/29/025%20ICEM%E5%B8%B8%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98/</url>
-    
-    <content type="html"><![CDATA[<h2 id="d-网格不闭合">2D 网格不闭合</h2><blockquote><p>Mesh has uncovered edges. ANSYS Fluent needs a complete boundary(lines in 2D) or it will give a variety of errors and not read in themesh! If this was 2D Hexa, perhaps your edges are not associated withperimeter curves</p></blockquote><p>原因是线和线之间可能没有关联</p><figure><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202302161539612.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>模拟</category>
-      
-      <category>ICEM</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>模拟</tag>
-      
-      <tag>ICEM</tag>
       
     </tags>
     
