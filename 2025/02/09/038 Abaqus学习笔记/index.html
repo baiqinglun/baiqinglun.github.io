@@ -288,10 +288,8 @@
                 <div class="note note-success">
             <p>本文最新更新于 2025/02/10 下午</p>
           </div>
-<h2 id="基本介绍">1、基本介绍</h2>
-<a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=2"  title="学习视频" target="_blank">学习视频</a>
-<h3 id="abaqus的基本功能">1.1 Abaqus的基本功能</h3>
-<ol type="1">
+<h2 id="1、基本介绍"><a href="#1、基本介绍" class="headerlink" title="1、基本介绍"></a>1、基本介绍</h2><a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=2"  title="学习视频" target="_blank">学习视频</a>
+<h3 id="1-1-Abaqus的基本功能"><a href="#1-1-Abaqus的基本功能" class="headerlink" title="1.1 Abaqus的基本功能"></a>1.1 Abaqus的基本功能</h3><ol>
 <li>计算结构的力学性能——&gt;结构场：静力学动力学（线性非线性）冲击断裂|复材等</li>
 <li>计算结构的热力学性能——&gt;温度场+结构场：稳态、瞬态、线性、非线性</li>
 <li>计算流体的动力学性能——&gt;流场：流速、压力、温度、稳态、瞬态</li>
@@ -300,57 +298,54 @@
 <li>计算耦合场性能——&gt;热结构耦合、热流耦合、热电耦合、流固耦合</li>
 <li>计算结构的优化——&gt;参数优化、非参数优化</li>
 </ol>
-<h3 id="文件系统">1.2 文件系统</h3>
-<ol type="1">
-<li><strong>数据库文件</strong>
-<ol type="1">
+<h3 id="1-2-文件系统"><a href="#1-2-文件系统" class="headerlink" title="1.2 文件系统"></a>1.2 文件系统</h3><ol>
+<li><strong>数据库文件</strong><ol>
 <li>模型数据库（.cas）：在Abaqus/CAE中直接打开，包含几个模型、网格、载荷信息及分析任务等；</li>
 <li>结果数据库文件（.odb）：可在Abaqus/CAE中直接打开，也可输入到CAE文件中作为不见或模型，包含在<code>分析步模块</code>中定义的场变量和历史变量输出结果，可以由可视化模块打开。</li>
-</ol></li>
-<li><strong>输入文件</strong>
-<ol type="1">
-<li><strong>inp文件</strong>：文本文件，可在作业(Job)模块中提交任务时或单击分析作业管理器中的Write
-Input按钮在工作目录中生成。Inp文件可以输入模型，也可以由ABAQUSCommand直接运行，inp文件输入的模型只包含有限元模型而无几何模型；</li>
+</ol>
+</li>
+<li><strong>输入文件</strong><ol>
+<li><strong>inp文件</strong>：文本文件，可在作业(Job)模块中提交任务时或单击分析作业管理器中的Write Input按钮在工作目录中生成。Inp文件可以输入模型，也可以由ABAQUSCommand直接运行，inp文件输入的模型只包含有限元模型而无几何模型；</li>
 <li><strong>pes文件</strong>：参数更改后重新的inp文件；</li>
 <li><strong>Par文件</strong>：参数更改后重写的以参数形式运行的inp文件。</li>
-</ol></li>
+</ol>
+</li>
 <li><strong>日志文件</strong>：Log文件：文本文件，运行ABAQUS的日志。</li>
 <li><strong>数据文件</strong>：Dat文件：文本文件，记录数据和参数检查、单元质量检查等信息，包含预处理inp文件产生的错误和警告信息。包含用户定义的ABAQUS/standard输入数据，ABAQUS/Explicit的结果不会写入其中。</li>
-<li><strong>信息文件</strong>
-<ol type="1">
+<li><strong>信息文件</strong><ol>
 <li><strong>MSG文件</strong>：记录计算过程中的平衡迭代次数、参数设置、计算时间、错误与警告信息等；</li>
 <li><strong>Ipm文件</strong>：气动ABAQUS、CAE分析时开始写入，记录从ABAQUS/Standard或ABAQUS/Explicit到ABAQUS、CAE的过程日志；</li>
 <li><strong>Prt文件</strong>：模型的部件或装配信息；</li>
 <li><strong>Pac文件</strong>：模型信息，仅用于ABAQUS/Explicit。</li>
-</ol></li>
-<li><strong>状态文件</strong>
-<ol type="1">
+</ol>
+</li>
+<li><strong>状态文件</strong><ol>
 <li><strong>Sta文件</strong>：文本文件，包含分析过程信息；</li>
 <li><strong>Abq文件</strong>：仅用于ABAQUS/Explicit，记录分析、继续和恢复命令；</li>
 <li><strong>Stt文件</strong>：运行数据检查时产生的文件；</li>
 <li><strong>Psr文件</strong>：文本文件，参数化分析要求的输入结果；</li>
 <li><strong>Sel文件</strong>：用于结果选择，仅用于ABAQUS/Explicit。</li>
-</ol></li>
+</ol>
+</li>
 <li><strong>模型文件</strong>：MDL文件：ABAQUS/Standard与ABAQUS/Explicit中运行数据产生的文件。</li>
-<li><strong>保存命令的文件</strong>
-<ol type="1">
+<li><strong>保存命令的文件</strong><ol>
 <li><strong>Jnl文件</strong>：文本文件，包含于复制已存储的模型数据库的ABAQUS/CAE命令</li>
 <li><strong>Rpy文件</strong>：记录运行一次ABAQUS/CAE所所运用的所有命令</li>
 <li><strong>Rec文件</strong>：包含用于恢复内存中模型数据库的ABAQUS/CAE命令</li>
-</ol></li>
+</ol>
+</li>
 <li><strong>重启动文件</strong>：Res文件：使用step功能模块进行定义</li>
 <li><strong>脚本文件</strong>：Psf文件：用户定义参数化研究时需要创建的文件</li>
-<li><strong>临时文件</strong>
-<ol type="1">
+<li><strong>临时文件</strong><ol>
 <li><strong>Ods文件</strong>：记录长输出变量的临时运算结果，运行后自动删除</li>
 <li><strong>lck文件</strong>：用于阻止并发写入输出数据库，关闭输出数据库时自动删除</li>
-</ol></li>
+</ol>
+</li>
 </ol>
 <blockquote>
 <p>在Part导入模块时尽量不要导入igs文件，igs只会包含表面信息。</p>
 </blockquote>
-<h3 id="模块介绍">1.3 模块介绍</h3>
-<ol type="1">
+<h3 id="1-3-模块介绍"><a href="#1-3-模块介绍" class="headerlink" title="1.3 模块介绍"></a>1.3 模块介绍</h3><ol>
 <li><strong>Part</strong>：进行零部件建模(3D、2D、轴对称)、模型编辑及修复(去除烂面、抽取中面、模型切割等)</li>
 <li><strong>Property</strong>；创建材料以及截面，完成属性的指派</li>
 <li><strong>Assembly</strong>：组件装配体用于后续分析</li>
@@ -363,55 +358,53 @@ Input按钮在工作目录中生成。Inp文件可以输入模型，也可以由
 <li><strong>Visualization</strong>：可视化后处理</li>
 <li><strong>Sketch</strong>：创建草图，可用于零部件建模</li>
 </ol>
-<h3 id="单位制问题">1.4 单位制问题</h3>
-<p>最常用的单位又<code>mm-T-s</code>和<code>m-kg-s</code>两种</p>
+<h3 id="1-4-单位制问题"><a href="#1-4-单位制问题" class="headerlink" title="1.4 单位制问题"></a>1.4 单位制问题</h3><p>最常用的单位又<code>mm-T-s</code>和<code>m-kg-s</code>两种</p>
 <div style="width: 80%; margin: auto">
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210165813.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+ <img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210165813.png" srcset="/images/icons8-loading-96.png" lazyload>
 </div>
-<h3 id="操作技巧">1.5 操作技巧</h3>
-<ol type="1">
+
+<h3 id="1-5-操作技巧"><a href="#1-5-操作技巧" class="headerlink" title="1.5 操作技巧"></a>1.5 操作技巧</h3><ol>
 <li><code>ctrl+shift+中键</code>：移动</li>
 <li><code>ctrl+shift+左键</code>：旋转</li>
 <li><code>ctrl+shift+右键</code>：缩放</li>
 </ol>
-<h2 id="part模块">2、Part模块</h2>
-<a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=3"  title="学习视频" target="_blank">学习视频</a>
+<h2 id="2、Part模块"><a href="#2、Part模块" class="headerlink" title="2、Part模块"></a>2、Part模块</h2><a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=3"  title="学习视频" target="_blank">学习视频</a>
 <p>选择面或者线时：要按住<code>Alt</code>键</p>
-<h2 id="属性模块">3、属性模块</h2>
-<a class="btn" href="https://www.bilibili.com/video/BV1F7NbeXEtq/?spm_id_from=333.337.search-card.all.click&vd_source=33b50a4dd201d7564e6e63d321809ce9"  title="ABAQUS 属性模块详细教程" target="_blank">ABAQUS 属性模块详细教程</a>
+<h2 id="3、属性模块"><a href="#3、属性模块" class="headerlink" title="3、属性模块"></a>3、属性模块</h2><a class="btn" href="https://www.bilibili.com/video/BV1F7NbeXEtq/?spm_id_from=333.337.search-card.all.click&vd_source=33b50a4dd201d7564e6e63d321809ce9"  title="ABAQUS 属性模块详细教程" target="_blank">ABAQUS 属性模块详细教程</a>
 <p>属性界面功能</p>
-<ol type="1">
+<ol>
 <li>设置材料特性</li>
 <li>设计界面特性</li>
 <li>定义弹簧、阻尼器和实体表面壳等</li>
 </ol>
 <p>材料属性三步曲</p>
 <div style="width: 80%; margin: auto">
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213142620.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+ <img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213142620.png" srcset="/images/icons8-loading-96.png" lazyload>
 </div>
+
 <blockquote>
 <p>一定要注意单位问题</p>
 </blockquote>
-<h2 id="创建材料">3.1 创建材料</h2>
-<p>属性获取</p>
+<h2 id="3-1-创建材料"><a href="#3-1-创建材料" class="headerlink" title="3.1 创建材料"></a>3.1 创建材料</h2><p>属性获取</p>
 <ul>
 <li>论文</li>
 <li>力学性能试验</li>
 <li>《有限元常用材料参数手册》</li>
-<li>https://www.matweb.com/</li>
+<li><a target="_blank" rel="noopener" href="https://www.matweb.com/">https://www.matweb.com/</a></li>
 </ul>
 <p>可在导入的材料库中双击添加</p>
 <div style="width: 80%; margin: auto">
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213145331.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+ <img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213145331.png" srcset="/images/icons8-loading-96.png" lazyload>
 </div>
-<h2 id="创建截面">3.2 创建截面</h2>
-<p>abaqus不能将材料直接赋予给模型，需要先创建包含材料属性的截面，再将截面属性分配给模型区域。</p>
+
+<h2 id="3-2-创建截面"><a href="#3-2-创建截面" class="headerlink" title="3.2 创建截面"></a>3.2 创建截面</h2><p>abaqus不能将材料直接赋予给模型，需要先创建包含材料属性的截面，再将截面属性分配给模型区域。</p>
 <div class="note note-info">
             <p>常用截面类型</p>
           </div>
 <div style="width: 80%; margin: auto">
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213145659.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+ <img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213145659.png" srcset="/images/icons8-loading-96.png" lazyload>
 </div>
+
 <ul>
 <li>实体：用于定义实体的截面特性，一般选用的类型为均质实体；</li>
 <li>壳：用于定义壳体的截面特性，常用类型为均质和膜等；</li>
@@ -420,11 +413,9 @@ Input按钮在工作目录中生成。Inp文件可以输入模型，也可以由
 <blockquote>
 <p>注意：对于均质壳截面，实际可以把厚度显示出来，正常显示的位置为中间层，在装配时要考虑壳的厚度。</p>
 </blockquote>
-<h2 id="指定截面">3.3 指定截面</h2>
-<div style="width: 80%; margin: auto">
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213150230.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+<h2 id="3-3-指定截面"><a href="#3-3-指定截面" class="headerlink" title="3.3 指定截面"></a>3.3 指定截面</h2><div style="width: 80%; margin: auto">
+ <img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213150230.png" srcset="/images/icons8-loading-96.png" lazyload>
 </div>
-
                 
               </div>
             
