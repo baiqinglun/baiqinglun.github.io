@@ -285,86 +285,147 @@
             
               <div class="markdown-body">
                 
-                <p>有时 fluent 自带的边界条件等不满足我们的需求，需要使用 udf 进行更改，比如一个泄漏口流量随时间变化。对于大多数没有编程基础的小伙伴来说，直接看 fluent udf 的官方文档比较吃力，花费大量的时间还找不到相关的函数。</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204081531095.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20220408153144869"></p>
-<h2 id="1、UDF-常见的循环宏"><a href="#1、UDF-常见的循环宏" class="headerlink" title="1、UDF 常见的循环宏"></a>1、UDF 常见的循环宏</h2><p><strong>简写</strong></p>
+                <p>有时 fluent 自带的边界条件等不满足我们的需求，需要使用 udf
+进行更改，比如一个泄漏口流量随时间变化。对于大多数没有编程基础的小伙伴来说，直接看
+fluent udf 的官方文档比较吃力，花费大量的时间还找不到相关的函数。</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204081531095.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20220408153144869" />
+<figcaption aria-hidden="true">image-20220408153144869</figcaption>
+</figure>
+<h2 id="udf-常见的循环宏">1、UDF 常见的循环宏</h2>
+<p><strong>简写</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">d:：domin（指针）<br><br>ct,t：cell thread（指针）<br><br>ft,f_thread：face thread（指针）<br><br>c：cell thread（变量）<br><br>f：face thread（变量）<br></code></pre></td></tr></table></figure>
-<h3 id="1-1-对域-d-中的所有单元循环"><a href="#1-1-对域-d-中的所有单元循环" class="headerlink" title="1.1 对域 d 中的所有单元循环"></a>1.1 对域 d 中的所有单元循环</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">thread_loop_f(ft,d) &#123;  &#125;;<br></code></pre></td></tr></table></figure>
-<h3 id="1-2-对域-d-中的所有面-thread-循环"><a href="#1-2-对域-d-中的所有面-thread-循环" class="headerlink" title="1.2 对域 d 中的所有面 thread 循环"></a>1.2 对域 d 中的所有面 thread 循环</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">thread_loop_f(ft,d) &#123;  &#125;;<br></code></pre></td></tr></table></figure>
-<h3 id="1-3-对-thread-t-中的所有单元循环"><a href="#1-3-对-thread-t-中的所有单元循环" class="headerlink" title="1.3 对 thread t 中的所有单元循环"></a>1.3 对 thread t 中的所有单元循环</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c">begin_c_loop(c,t)<br>	&#123;  &#125;<br>end_c_loop(c,t);<br></code></pre></td></tr></table></figure>
-<h3 id="1-4-对面-thread-中所有面循环"><a href="#1-4-对面-thread-中所有面循环" class="headerlink" title="1.4 对面 thread 中所有面循环"></a>1.4 对面 thread 中所有面循环</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c">begin_f_loop(f,f_thread)<br>	&#123;  &#125;<br>end_f_loop(f,f_thread)<br></code></pre></td></tr></table></figure>
-<h2 id="2、相关案例"><a href="#2、相关案例" class="headerlink" title="2、相关案例"></a>2、相关案例</h2><h3 id="2-1-风速随高度变化"><a href="#2-1-风速随高度变化" class="headerlink" title="2.1 风速随高度变化"></a>2.1 风速随高度变化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;udf.h&quot;</span></span><br>DEFINE_PROFILE(inlet_x,thread,index)<br>&#123;<br>	real y,v0,h0;<br>	real x[ND_ND];<span class="hljs-comment">//用来存储质心坐标</span><br>	<span class="hljs-type">face_t</span> f;<br>	v0=<span class="hljs-number">1</span>;<br>	h0=<span class="hljs-number">2</span>;<br>	begin_f_loop(f,thread)<br>	&#123;<br>        <span class="hljs-comment">//这里传入的x是质心</span><br>		F_CENTROID(x,f,thread);<span class="hljs-comment">//F_CENTROID 获得面中心的坐标</span><br>		y=x[<span class="hljs-number">2</span>];<br>		F_PROFILE(f,thread,index) = v0*<span class="hljs-built_in">pow</span>(y/h0,<span class="hljs-number">0.2</span>);<br>		end_f_loop(f,thread)<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-2-速度随时间变化"><a href="#2-2-速度随时间变化" class="headerlink" title="2.2 速度随时间变化"></a>2.2 速度随时间变化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;udf.h&quot;</span></span><br>DEFINE_PROFILE(inlet_V,thread,i)<br>&#123;<br>	<span class="hljs-type">face_t</span> f;<span class="hljs-comment">// 定义一个面f</span><br>	real flow_time = CURRENT_TIME;<span class="hljs-comment">//定义一个实数flow_time获取当前时间</span><br>	begin_f_loop(f,thread)<br>	&#123;<br>		<span class="hljs-keyword">if</span>(flow_time &gt;=<span class="hljs-number">0</span> )<br>			F_PROFILE(f,thread,i) = <span class="hljs-number">1.5</span>+<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(<span class="hljs-number">2</span>*<span class="hljs-number">3.14159</span>*<span class="hljs-number">0.1</span>*flow_time);<br>		<span class="hljs-keyword">else</span><br>			F_PROFILE(f,thread,i) = <span class="hljs-number">1.5</span>;<br>	&#125;<br>	end_f_loop(f,thread)<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-3-压力随着高度变化"><a href="#2-3-压力随着高度变化" class="headerlink" title="2.3 压力随着高度变化"></a>2.3 压力随着高度变化</h3><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204021506327.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20220402150600314"></p>
+<h3 id="对域-d-中的所有单元循环">1.1 对域 d 中的所有单元循环</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">thread_loop_f(ft,d) &#123;  &#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="对域-d-中的所有面-thread-循环">1.2 对域 d 中的所有面 thread
+循环</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">thread_loop_f(ft,d) &#123;  &#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="对-thread-t-中的所有单元循环">1.3 对 thread t
+中的所有单元循环</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c">begin_c_loop(c,t)<br>	&#123;  &#125;<br>end_c_loop(c,t);<br></code></pre></td></tr></table></figure>
+<h3 id="对面-thread-中所有面循环">1.4 对面 thread 中所有面循环</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c">begin_f_loop(f,f_thread)<br>	&#123;  &#125;<br>end_f_loop(f,f_thread)<br></code></pre></td></tr></table></figure>
+<h2 id="相关案例">2、相关案例</h2>
+<h3 id="风速随高度变化">2.1 风速随高度变化</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;udf.h&quot;</span></span><br>DEFINE_PROFILE(inlet_x,thread,index)<br>&#123;<br>	real y,v0,h0;<br>	real x[ND_ND];<span class="hljs-comment">//用来存储质心坐标</span><br>	<span class="hljs-type">face_t</span> f;<br>	v0=<span class="hljs-number">1</span>;<br>	h0=<span class="hljs-number">2</span>;<br>	begin_f_loop(f,thread)<br>	&#123;<br>        <span class="hljs-comment">//这里传入的x是质心</span><br>		F_CENTROID(x,f,thread);<span class="hljs-comment">//F_CENTROID 获得面中心的坐标</span><br>		y=x[<span class="hljs-number">2</span>];<br>		F_PROFILE(f,thread,index) = v0*<span class="hljs-built_in">pow</span>(y/h0,<span class="hljs-number">0.2</span>);<br>		end_f_loop(f,thread)<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="速度随时间变化">2.2 速度随时间变化</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;udf.h&quot;</span></span><br>DEFINE_PROFILE(inlet_V,thread,i)<br>&#123;<br>	<span class="hljs-type">face_t</span> f;<span class="hljs-comment">// 定义一个面f</span><br>	real flow_time = CURRENT_TIME;<span class="hljs-comment">//定义一个实数flow_time获取当前时间</span><br>	begin_f_loop(f,thread)<br>	&#123;<br>		<span class="hljs-keyword">if</span>(flow_time &gt;=<span class="hljs-number">0</span> )<br>			F_PROFILE(f,thread,i) = <span class="hljs-number">1.5</span>+<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(<span class="hljs-number">2</span>*<span class="hljs-number">3.14159</span>*<span class="hljs-number">0.1</span>*flow_time);<br>		<span class="hljs-keyword">else</span><br>			F_PROFILE(f,thread,i) = <span class="hljs-number">1.5</span>;<br>	&#125;<br>	end_f_loop(f,thread)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="压力随着高度变化">2.3 压力随着高度变化</h3>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204021506327.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20220402150600314" />
+<figcaption aria-hidden="true">image-20220402150600314</figcaption>
+</figure>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;udf.h&quot;</span></span><br><br>DEFINE_PROFILE(pressure_profile,t,i)<br>&#123;<br>   real x[ND_ND];<br>   real y;<br>   <span class="hljs-type">face_t</span> f;<br>   begin_f_loop(f,t)<br>   &#123;<br>       F_CENTROID(X,f,t);<span class="hljs-comment">//F_CENTROID 获得面中心的坐标，用来计算每个面的压力</span><br>       y = x[<span class="hljs-number">1</span>];<span class="hljs-comment">// 获取y数值，0表示x，1表示y，2表示z</span><br>       F_FPOFILE(f,t,i) = <span class="hljs-number">1.1e5</span> - y*y/(<span class="hljs-number">.0745</span>*<span class="hljs-number">.0745</span>)*<span class="hljs-number">0.1e5</span>;<br>   &#125;<br>   end_f_loop(f,t)<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-4-材料属性随温度变化"><a href="#2-4-材料属性随温度变化" class="headerlink" title="2.4 材料属性随温度变化"></a>2.4 材料属性随温度变化</h3><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204021508615.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20220402150830581"></p>
+<h3 id="材料属性随温度变化">2.4 材料属性随温度变化</h3>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204021508615.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20220402150830581" />
+<figcaption aria-hidden="true">image-20220402150830581</figcaption>
+</figure>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;udf.h&quot;</span></span><br>DEFILE_PROPERTY(steel_heat,c,t)<br>&#123;<br>	real <span class="hljs-type">s_t</span>;<br>	real = Tk = C_T(c,t);<span class="hljs-comment">//读取当前的温度</span><br>	<span class="hljs-keyword">if</span>(Tk&lt;=<span class="hljs-number">273.15</span>)<br>		<span class="hljs-type">s_t</span> = <span class="hljs-number">14</span>;<br>	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(Tk&lt;=<span class="hljs-number">1273.15</span>)<br>		<span class="hljs-type">s_t</span> = <span class="hljs-number">14</span>-(Tk<span class="hljs-number">-273.15</span>)*<span class="hljs-number">0.004</span>;<br>	<span class="hljs-keyword">else</span><br>		<span class="hljs-type">s_t</span> = <span class="hljs-number">10</span>;<br>	<span class="hljs-keyword">return</span> <span class="hljs-type">s_t</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204021524675.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20220402152435617"></p>
-<h3 id="2-5-质量流量随时间变化"><a href="#2-5-质量流量随时间变化" class="headerlink" title="2.5 质量流量随时间变化"></a>2.5 质量流量随时间变化</h3><p>以下名为 INTERT_MF 的 UDF 最初指定前 10 毫秒的质量流量为 3.0 千克/秒，然后在接下来的 10 毫秒内将其增加到 4.0 千克/秒，之后指定 5.0 千克/秒。</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204021524675.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20220402152435617" />
+<figcaption aria-hidden="true">image-20220402152435617</figcaption>
+</figure>
+<h3 id="质量流量随时间变化">2.5 质量流量随时间变化</h3>
+<p>以下名为 INTERT_MF 的 UDF 最初指定前 10 毫秒的质量流量为 3.0
+千克/秒，然后在接下来的 10 毫秒内将其增加到 4.0 千克/秒，之后指定 5.0
+千克/秒。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;udf.h&quot;</span></span><br>DEFINE_PROFILE(inlet_mf,th,i)<br>&#123;<br>	<span class="hljs-type">face_t</span> f;<br>	real flow_time = CURRENT_TIME;<span class="hljs-comment">/*查找当前流动的时间*/</span><br>	begin_f_loop(f,th)<br>	&#123;<br>		<span class="hljs-keyword">if</span>(flow_time &lt;= <span class="hljs-number">0.01</span>)<br>			F_PROFILE(f,th,i) = <span class="hljs-number">3.0</span>;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(flow_time &lt;= <span class="hljs-number">0.02</span>)<br>			F_PROFILE(f,th,i) = <span class="hljs-number">4.0</span>;<br>		<span class="hljs-keyword">else</span><br>			F_PROFILE(f,th,i) = <span class="hljs-number">5.0</span>;<br>	&#125;<br>	end_f_loop(f,th);<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-6-时间步长的改变"><a href="#2-6-时间步长的改变" class="headerlink" title="2.6 时间步长的改变"></a>2.6 时间步长的改变</h3><p>DEFINE_DELTAT</p>
+<h3 id="时间步长的改变">2.6 时间步长的改变</h3>
+<p>DEFINE_DELTAT</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c">DEFINE <span class="hljs-title function_">DELTAT</span> <span class="hljs-params">(mydeltat,d)</span><br>&#123;<br>    real time_step;<br>    real flow_time = CURRENT_TIME;<br>    <span class="hljs-keyword">if</span> (flow_time <span class="hljs-number">0.5</span>)<br>        time_step = <span class="hljs-number">0.1</span>;<br>    <span class="hljs-keyword">else</span><br>        time_step = <span class="hljs-number">0.2</span>;<br>    <span class="hljs-keyword">return</span> time_step;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-<h3 id="2-7-蒸发冷凝模型源相"><a href="#2-7-蒸发冷凝模型源相" class="headerlink" title="2.7 蒸发冷凝模型源相"></a>2.7 蒸发冷凝模型源相</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;udf.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;sg_mphase.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> T_SAT 373.15   <span class="hljs-comment">//饱和温度373.15 K</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> LAT_HT 1.e3 <span class="hljs-comment">//汽化潜热1000 J/kg</span></span><br><span class="hljs-comment">// 液相质量源项</span><br>DEFINE_SOURCE(liq_src, cell, pri_th, dS, eqn)<br>&#123;<br> Thread *mix_th, *sec_th;<br> real m_dot_l;<br> <span class="hljs-comment">// mix_th存储主相的Thread指针；sec_th存储次相指针，注意ID</span><br> mix_th = THREAD_SUPER_THREAD(pri_th);<br> sec_th = THREAD_SUB_THREAD(mix_th, <span class="hljs-number">1</span>);<br> <span class="hljs-comment">// 温度大于饱和温度，表示为蒸发</span><br> <span class="hljs-keyword">if</span> (C_T(cell, mix_th) &gt;= T_SAT)<br> &#123;<br>   <span class="hljs-comment">//计算蒸发量，注意液相质量流量为负值，0.1为coeff值</span><br>   m_dot_l = <span class="hljs-number">-0.1</span> * C_VOF(cell, pri_th) * C_R(cell, pri_th) *<br>             <span class="hljs-built_in">fabs</span>(C_T(cell, pri_th) - T_SAT) / T_SAT;<br>   <span class="hljs-comment">//对体积分数求导</span><br>   dS[eqn] = <span class="hljs-number">-0.1</span> * C_R(cell, pri_th) *<br>             <span class="hljs-built_in">fabs</span>(C_T(cell, pri_th) - T_SAT) / T_SAT;<br> &#125;<br> <span class="hljs-keyword">else</span><br> &#123;<br>   <span class="hljs-comment">//计算冷凝量，液相质量分数为正值</span><br>   m_dot_l = <span class="hljs-number">0.1</span> * C_VOF(cell, sec_th) * C_R(cell, sec_th) *<br>             <span class="hljs-built_in">fabs</span>(T_SAT - C_T(cell, mix_th)) / T_SAT;<br>   <span class="hljs-comment">//若对体积分数求导得到的值为正，干脆直接赋零值</span><br>   dS[eqn] = <span class="hljs-number">0.</span>;<br> &#125;<br> <span class="hljs-keyword">return</span> m_dot_l;<br>&#125;<br><span class="hljs-comment">// 气相质量源项，解释同上</span><br>DEFINE_SOURCE(vap_src, cell, sec_th, dS, eqn)<br>&#123;<br> Thread *mix_th, *pri_th;<br> real m_dot_v;<br> mix_th = THREAD_SUPER_THREAD(sec_th);<br> pri_th = THREAD_SUB_THREAD(mix_th, <span class="hljs-number">0</span>);<br> <span class="hljs-keyword">if</span> (C_T(cell, mix_th) &gt;= T_SAT)<br> &#123;<br>   m_dot_v = <span class="hljs-number">0.1</span> * C_VOF(cell, pri_th) * C_R(cell, pri_th) *<br>             <span class="hljs-built_in">fabs</span>(C_T(cell, mix_th) - T_SAT) / T_SAT;<br>   dS[eqn] = <span class="hljs-number">0.</span>;<br> &#125;<br> <span class="hljs-keyword">else</span><br> &#123;<br>   m_dot_v = <span class="hljs-number">-0.1</span> * C_VOF(cell, sec_th) * C_R(cell, sec_th) *<br>             <span class="hljs-built_in">fabs</span>(T_SAT - C_T(cell, mix_th)) / T_SAT;<br>   dS[eqn] = <span class="hljs-number">-0.1</span> * C_R(cell, sec_th) *<br>             <span class="hljs-built_in">fabs</span>(C_T(cell, sec_th) - T_SAT) / T_SAT;<br> &#125;<br> <span class="hljs-keyword">return</span> m_dot_v;<br>&#125;<br><span class="hljs-comment">//混合相的能量源项</span><br>DEFINE_SOURCE(enrg_src, cell, mix_th, dS, eqn)<br>&#123;<br> Thread *pri_th, *sec_th;<br> real m_dot;<br> pri_th = THREAD_SUB_THREAD(mix_th, <span class="hljs-number">0</span>);<br> sec_th = THREAD_SUB_THREAD(mix_th, <span class="hljs-number">1</span>);<br> <span class="hljs-keyword">if</span> (C_T(cell, mix_th) &gt;= T_SAT)<br> &#123;<br>   <span class="hljs-comment">// 得到蒸发量，Lee模型</span><br>   m_dot = <span class="hljs-number">-0.1</span> * C_VOF(cell, pri_th) * C_R(cell, pri_th) *<br>           <span class="hljs-built_in">fabs</span>(C_T(cell, pri_th) - T_SAT) / T_SAT;<br>   <span class="hljs-comment">//对温度求导，若为负则保留，否则赋值零</span><br>   dS[eqn] = <span class="hljs-number">-0.1</span> * C_VOF(cell, pri_th) * C_R(cell, pri_th) / T_SAT;<br> &#125;<br> <span class="hljs-keyword">else</span><br> &#123;<br>   <span class="hljs-comment">//得到冷凝量</span><br>   m_dot = <span class="hljs-number">0.1</span> * C_VOF(cell, sec_th) * C_R(cell, sec_th) *<br>           <span class="hljs-built_in">fabs</span>(T_SAT - C_T(cell, mix_th)) / T_SAT;<br>   dS[eqn] = <span class="hljs-number">-0.1</span> * C_VOF(cell, sec_th) * C_R(cell, sec_th) / T_SAT;<br> &#125;<br><br> <span class="hljs-comment">// 返回热量值，利用潜热与质量流量的乘积得到</span><br> <span class="hljs-keyword">return</span> LAT_HT * m_dot;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="3、函数"><a href="#3、函数" class="headerlink" title="3、函数"></a>3、函数</h2><h3 id="3-1-DEFINE-PROFILE"><a href="#3-1-DEFINE-PROFILE" class="headerlink" title="3.1 DEFINE_PROFILE"></a>3.1 DEFINE_PROFILE</h3><ol>
-<li><p>使用 DEFINE_PROFILE 定义一个<strong>自定义边界配置文件</strong>，该边界配置文件随空间坐标或时间的函数而变化。</p>
-</li>
-<li><p>边界的变量可以是速度、压力、温度、湍流动能、湍流耗散率、质量流率等（见手册 2.3.17）</p>
-</li>
+<h3 id="蒸发冷凝模型源相">2.7 蒸发冷凝模型源相</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;udf.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;sg_mphase.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> T_SAT 373.15   <span class="hljs-comment">//饱和温度373.15 K</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> LAT_HT 1.e3 <span class="hljs-comment">//汽化潜热1000 J/kg</span></span><br><span class="hljs-comment">// 液相质量源项</span><br>DEFINE_SOURCE(liq_src, cell, pri_th, dS, eqn)<br>&#123;<br> Thread *mix_th, *sec_th;<br> real m_dot_l;<br> <span class="hljs-comment">// mix_th存储主相的Thread指针；sec_th存储次相指针，注意ID</span><br> mix_th = THREAD_SUPER_THREAD(pri_th);<br> sec_th = THREAD_SUB_THREAD(mix_th, <span class="hljs-number">1</span>);<br> <span class="hljs-comment">// 温度大于饱和温度，表示为蒸发</span><br> <span class="hljs-keyword">if</span> (C_T(cell, mix_th) &gt;= T_SAT)<br> &#123;<br>   <span class="hljs-comment">//计算蒸发量，注意液相质量流量为负值，0.1为coeff值</span><br>   m_dot_l = <span class="hljs-number">-0.1</span> * C_VOF(cell, pri_th) * C_R(cell, pri_th) *<br>             <span class="hljs-built_in">fabs</span>(C_T(cell, pri_th) - T_SAT) / T_SAT;<br>   <span class="hljs-comment">//对体积分数求导</span><br>   dS[eqn] = <span class="hljs-number">-0.1</span> * C_R(cell, pri_th) *<br>             <span class="hljs-built_in">fabs</span>(C_T(cell, pri_th) - T_SAT) / T_SAT;<br> &#125;<br> <span class="hljs-keyword">else</span><br> &#123;<br>   <span class="hljs-comment">//计算冷凝量，液相质量分数为正值</span><br>   m_dot_l = <span class="hljs-number">0.1</span> * C_VOF(cell, sec_th) * C_R(cell, sec_th) *<br>             <span class="hljs-built_in">fabs</span>(T_SAT - C_T(cell, mix_th)) / T_SAT;<br>   <span class="hljs-comment">//若对体积分数求导得到的值为正，干脆直接赋零值</span><br>   dS[eqn] = <span class="hljs-number">0.</span>;<br> &#125;<br> <span class="hljs-keyword">return</span> m_dot_l;<br>&#125;<br><span class="hljs-comment">// 气相质量源项，解释同上</span><br>DEFINE_SOURCE(vap_src, cell, sec_th, dS, eqn)<br>&#123;<br> Thread *mix_th, *pri_th;<br> real m_dot_v;<br> mix_th = THREAD_SUPER_THREAD(sec_th);<br> pri_th = THREAD_SUB_THREAD(mix_th, <span class="hljs-number">0</span>);<br> <span class="hljs-keyword">if</span> (C_T(cell, mix_th) &gt;= T_SAT)<br> &#123;<br>   m_dot_v = <span class="hljs-number">0.1</span> * C_VOF(cell, pri_th) * C_R(cell, pri_th) *<br>             <span class="hljs-built_in">fabs</span>(C_T(cell, mix_th) - T_SAT) / T_SAT;<br>   dS[eqn] = <span class="hljs-number">0.</span>;<br> &#125;<br> <span class="hljs-keyword">else</span><br> &#123;<br>   m_dot_v = <span class="hljs-number">-0.1</span> * C_VOF(cell, sec_th) * C_R(cell, sec_th) *<br>             <span class="hljs-built_in">fabs</span>(T_SAT - C_T(cell, mix_th)) / T_SAT;<br>   dS[eqn] = <span class="hljs-number">-0.1</span> * C_R(cell, sec_th) *<br>             <span class="hljs-built_in">fabs</span>(C_T(cell, sec_th) - T_SAT) / T_SAT;<br> &#125;<br> <span class="hljs-keyword">return</span> m_dot_v;<br>&#125;<br><span class="hljs-comment">//混合相的能量源项</span><br>DEFINE_SOURCE(enrg_src, cell, mix_th, dS, eqn)<br>&#123;<br> Thread *pri_th, *sec_th;<br> real m_dot;<br> pri_th = THREAD_SUB_THREAD(mix_th, <span class="hljs-number">0</span>);<br> sec_th = THREAD_SUB_THREAD(mix_th, <span class="hljs-number">1</span>);<br> <span class="hljs-keyword">if</span> (C_T(cell, mix_th) &gt;= T_SAT)<br> &#123;<br>   <span class="hljs-comment">// 得到蒸发量，Lee模型</span><br>   m_dot = <span class="hljs-number">-0.1</span> * C_VOF(cell, pri_th) * C_R(cell, pri_th) *<br>           <span class="hljs-built_in">fabs</span>(C_T(cell, pri_th) - T_SAT) / T_SAT;<br>   <span class="hljs-comment">//对温度求导，若为负则保留，否则赋值零</span><br>   dS[eqn] = <span class="hljs-number">-0.1</span> * C_VOF(cell, pri_th) * C_R(cell, pri_th) / T_SAT;<br> &#125;<br> <span class="hljs-keyword">else</span><br> &#123;<br>   <span class="hljs-comment">//得到冷凝量</span><br>   m_dot = <span class="hljs-number">0.1</span> * C_VOF(cell, sec_th) * C_R(cell, sec_th) *<br>           <span class="hljs-built_in">fabs</span>(T_SAT - C_T(cell, mix_th)) / T_SAT;<br>   dS[eqn] = <span class="hljs-number">-0.1</span> * C_VOF(cell, sec_th) * C_R(cell, sec_th) / T_SAT;<br> &#125;<br><br> <span class="hljs-comment">// 返回热量值，利用潜热与质量流量的乘积得到</span><br> <span class="hljs-keyword">return</span> LAT_HT * m_dot;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="函数">3、函数</h2>
+<h3 id="define_profile">3.1 DEFINE_PROFILE</h3>
+<ol type="1">
+<li><p>使用 DEFINE_PROFILE
+定义一个<strong>自定义边界配置文件</strong>，该边界配置文件随空间坐标或时间的函数而变化。</p></li>
+<li><p>边界的变量可以是速度、压力、温度、湍流动能、湍流耗散率、质量流率等（见手册
+2.3.17）</p></li>
 </ol>
 <p>用法<code>DEFINE_PROFILE (name,t,i)</code></p>
 <p>thread *t：指向要应用边界条件的线程的指针。</p>
 <p>int i：标识要定义的变量的索引。</p>
-<h3 id="3-2-DEFILE-PROPERTY"><a href="#3-2-DEFILE-PROPERTY" class="headerlink" title="3.2 DEFILE_PROPERTY"></a>3.2 DEFILE_PROPERTY</h3><ol>
-<li><p>定义材料的属性</p>
-</li>
-<li><p>可以是密度、粘度、热导率、吸收和扩散系数、层流火焰速度、应变率等</p>
-</li>
+<h3 id="defile_property">3.2 DEFILE_PROPERTY</h3>
+<ol type="1">
+<li><p>定义材料的属性</p></li>
+<li><p>可以是密度、粘度、热导率、吸收和扩散系数、层流火焰速度、应变率等</p></li>
 </ol>
 <p><strong>对于多相流</strong></p>
 <p>传热系数（Mixture）、颗粒或液滴直径（Mixture）</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204021517069.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20220402151729022"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204021517069.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20220402151729022" />
+<figcaption aria-hidden="true">image-20220402151729022</figcaption>
+</figure>
 <p><strong>用法</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">DEFILE_PROPERTY(name,c,t)<br></code></pre></td></tr></table></figure>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204021518094.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20220402151838068"></p>
-<h2 id="4、常用宏"><a href="#4、常用宏" class="headerlink" title="4、常用宏"></a>4、常用宏</h2><h3 id="4-1-流场变量宏"><a href="#4-1-流场变量宏" class="headerlink" title="4.1 流场变量宏"></a>4.1 流场变量宏</h3><div class="table-container">
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204021518094.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20220402151838068" />
+<figcaption aria-hidden="true">image-20220402151838068</figcaption>
+</figure>
+<h2 id="常用宏">4、常用宏</h2>
+<h3 id="流场变量宏">4.1 流场变量宏</h3>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">C_R(c,t)</th>
-<th style="text-align:center">密度（Density）</th>
+<th style="text-align: center;">C_R(c,t)</th>
+<th style="text-align: center;">密度（Density）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">C_P(c,t)</td>
-<td style="text-align:center">压力（Pressure）</td>
+<td style="text-align: center;">C_P(c,t)</td>
+<td style="text-align: center;">压力（Pressure）</td>
 </tr>
 <tr>
-<td style="text-align:center">C_U(c,t)</td>
-<td style="text-align:center">x 方向速度（U-velocity）</td>
+<td style="text-align: center;">C_U(c,t)</td>
+<td style="text-align: center;">x 方向速度（U-velocity）</td>
 </tr>
 <tr>
-<td style="text-align:center">C_V(c,t)</td>
-<td style="text-align:center">y 方向速度（V-velocity）</td>
+<td style="text-align: center;">C_V(c,t)</td>
+<td style="text-align: center;">y 方向速度（V-velocity）</td>
 </tr>
 <tr>
-<td style="text-align:center">C_W(c,t)</td>
-<td style="text-align:center">z 方向速度（W-velocity）</td>
+<td style="text-align: center;">C_W(c,t)</td>
+<td style="text-align: center;">z 方向速度（W-velocity）</td>
 </tr>
 <tr>
-<td style="text-align:center">C_T(c,t)</td>
-<td style="text-align:center">温度（Temperature）</td>
+<td style="text-align: center;">C_T(c,t)</td>
+<td style="text-align: center;">温度（Temperature）</td>
 </tr>
 <tr>
-<td style="text-align:center">C_H(c,t)</td>
-<td style="text-align:center">焓（Enthalpy）</td>
+<td style="text-align: center;">C_H(c,t)</td>
+<td style="text-align: center;">焓（Enthalpy）</td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>其他</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204081421298.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20220408142156047"></p>
-<h3 id="4-2-几何和时间宏"><a href="#4-2-几何和时间宏" class="headerlink" title="4.2 几何和时间宏"></a>4.2 几何和时间宏</h3><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204081424561.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20220408142424531"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204081421298.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20220408142156047" />
+<figcaption aria-hidden="true">image-20220408142156047</figcaption>
+</figure>
+<h3 id="几何和时间宏">4.2 几何和时间宏</h3>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202204081424561.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20220408142424531" />
+<figcaption aria-hidden="true">image-20220408142424531</figcaption>
+</figure>
 <p>CURRENT_TIME；获取当前模拟时间的值；</p>
 
                 

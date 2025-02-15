@@ -232,7 +232,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          782 字
+          780 字
         
       </span>
     
@@ -286,38 +286,69 @@
             
               <div class="markdown-body">
                 
-                <h1 id="1、历史发展"><a href="#1、历史发展" class="headerlink" title="1、历史发展"></a>1、历史发展</h1><p>流体动力学中描述流体在外力作用下流动的主要控制方程是<strong>纳维-斯托克斯方程</strong>。这些方程的强大之处在于它们能够描述作用在流体上的任何力的影响以及由此产生的流动行为。然而，_它们不能针对每个系统或流量情况以封闭形式求解。_</p>
-<p>由于最早 1973 年提出的 ke 模型无法准确预测逆压力梯度 adverse pressure gradient 下的边界层运动，Spalart-Allmaras Model（1994）、（1998）以及 （1994）分别被提出。</p>
-<p>在物理学中，Spalart-Allmaras 模型是一种单方程模型，可求解运动涡流湍流粘度的模拟输运方程。在其原始形式中，该模型实际上是一个低雷诺数模型，需要正确解析边界层的粘度影响区域（y+ ~1 个网格）。它没有针对一般工业流动进行标定，对于一些自由剪切流，尤其是平面和圆形射流，确实会产生较大的误差。此外，不能依靠它来预测均匀、各向同性湍流的衰减。</p>
-<h1 id="2、基本形式"><a href="#2、基本形式" class="headerlink" title="2、基本形式"></a>2、基本形式</h1><script type="math/tex; mode=display">\tau_{ij}=2\mu_t\left(S_{ij}-\frac{1}{3}\frac{\partial u_k}{\partial x_k}\delta_{ij}\right)-\frac{2}{3}\rho k\delta_{ij}</script><p>Spalart-Allmaras 湍流模型遵循一个描述运动粘度类变量（称为 Spalart-Allmaras 变量）的动态方程：</p>
-<script type="math/tex; mode=display">\frac{\partial\bar{v}}{\partial t}+u_{j}\frac{\partial\bar{v}}{\partial x_{j}}=C_{b,1}(1-f_{t,2})\hat{S}\bar{v}-[c_{w,1}f_{w}-\frac{c_{b,1}}{\kappa^{2}}f_{t,2}](\frac{\bar{v}}{d})^{2}+\frac{1}{\sigma}[\frac{\partial}{\partial x_{j}}((v+\bar{v})\frac{\partial\bar{v}}{\partial x_{j}})+c_{b,2}\frac{\partial\bar{v}}{\partial x_{i}}\frac{\partial\bar{v}}{\partial x_{i}}]</script><p>该方程的目标是确定湍流涡流粘度，其由以下公式确定：</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194639.png" srcset="/images/icons8-loading-96.png" lazyload alt=""></p>
-<p>在这些方程中，分子运动粘度为 𝜈 = μ/⍴，流体密度为 ⍴，μ 是流体的分子动力粘度。模型中的其他参数以场点到最近壁 d 的距离和涡度大小给出</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194722.png" srcset="/images/icons8-loading-96.png" lazyload alt=""></p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194738.png" srcset="/images/icons8-loading-96.png" lazyload alt=""></p>
+                <h1 id="历史发展">1、历史发展</h1>
+<p>流体动力学中描述流体在外力作用下流动的主要控制方程是<strong>纳维-斯托克斯方程</strong>。这些方程的强大之处在于它们能够描述作用在流体上的任何力的影响以及由此产生的流动行为。然而，<em>它们不能针对每个系统或流量情况以封闭形式求解。</em></p>
+<p>由于最早 1973 年提出的 ke 模型无法准确预测逆压力梯度 adverse pressure
+gradient 下的边界层运动，Spalart-Allmaras Model（1994）、（1998）以及
+（1994）分别被提出。</p>
+<p>在物理学中，Spalart-Allmaras
+模型是一种单方程模型，可求解运动涡流湍流粘度的模拟输运方程。在其原始形式中，该模型实际上是一个低雷诺数模型，需要正确解析边界层的粘度影响区域（y+
+~1
+个网格）。它没有针对一般工业流动进行标定，对于一些自由剪切流，尤其是平面和圆形射流，确实会产生较大的误差。此外，不能依靠它来预测均匀、各向同性湍流的衰减。</p>
+<h1 id="基本形式">2、基本形式</h1>
+<p><span
+class="math display">\[\tau_{ij}=2\mu_t\left(S_{ij}-\frac{1}{3}\frac{\partial
+u_k}{\partial x_k}\delta_{ij}\right)-\frac{2}{3}\rho
+k\delta_{ij}\]</span></p>
+<p>Spalart-Allmaras 湍流模型遵循一个描述运动粘度类变量（称为
+Spalart-Allmaras 变量）的动态方程：</p>
+<p><span class="math display">\[\frac{\partial\bar{v}}{\partial
+t}+u_{j}\frac{\partial\bar{v}}{\partial
+x_{j}}=C_{b,1}(1-f_{t,2})\hat{S}\bar{v}-[c_{w,1}f_{w}-\frac{c_{b,1}}{\kappa^{2}}f_{t,2}](\frac{\bar{v}}{d})^{2}+\frac{1}{\sigma}[\frac{\partial}{\partial
+x_{j}}((v+\bar{v})\frac{\partial\bar{v}}{\partial
+x_{j}})+c_{b,2}\frac{\partial\bar{v}}{\partial
+x_{i}}\frac{\partial\bar{v}}{\partial x_{i}}]\]</span></p>
+<p>该方程的目标是确定湍流涡流粘度，其由以下公式确定：</p>
+<p><img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194639.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
+<p>在这些方程中，分子运动粘度为 𝜈 = μ/⍴，流体密度为 ⍴，μ
+是流体的分子动力粘度。模型中的其他参数以场点到最近壁 d
+的距离和涡度大小给出</p>
+<p><img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194722.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
+<p><img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194738.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
 <p>以下定义：</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194758.png" srcset="/images/icons8-loading-96.png" lazyload alt=""></p>
+<p><img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194758.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
 <p>从上面的定义中可以看出几个常量。这些常量定义如下：</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194819.png" srcset="/images/icons8-loading-96.png" lazyload alt=""></p>
-<p>由于所考虑的系统以墙为界，因此沿着墙的表面有一个固定边界条件。其他边界条件可能会施加在系统的其他地方，尽管这些边界条件是否会干扰解决远离壁本身的涡流可能值得怀疑。最后，我们对远场 Spalart-Allmaras 变量有以下条件：</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194845.png" srcset="/images/icons8-loading-96.png" lazyload alt=""></p>
+<p><img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194819.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
+<p>由于所考虑的系统以墙为界，因此沿着墙的表面有一个固定边界条件。其他边界条件可能会施加在系统的其他地方，尽管这些边界条件是否会干扰解决远离壁本身的涡流可能值得怀疑。最后，我们对远场
+Spalart-Allmaras 变量有以下条件：</p>
+<p><img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20240730194845.png" srcset="/images/icons8-loading-96.png" lazyload /></p>
 <p>优点：</p>
-<ol>
+<ol type="1">
 <li>降维可以降低问题的复杂性和整体模拟时间。</li>
 <li>无需使用沿湍流的剪切层的局部厚度来计算长度尺度。</li>
 <li>对于具有<strong>任意压力梯度</strong>的边界层流很有用。</li>
-<li>稳健；对于低雷诺数 k - ε 模型不收敛甚至发散的相对粗糙的网格，它可以给出合理的结果</li>
+<li>稳健；对于低雷诺数 k - ε
+模型不收敛甚至发散的相对粗糙的网格，它可以给出合理的结果</li>
 </ol>
 <p>缺点：</p>
-<ol>
-<li>不适用于涉及喷射状自由剪切区域的应用<br>2.</li>
+<ol type="1">
+<li>不适用于涉及喷射状自由剪切区域的应用</li>
+<li></li>
 </ol>
-<h1 id="3、用途"><a href="#3、用途" class="headerlink" title="3、用途"></a>3、用途</h1><h1 id="4、注意事项"><a href="#4、注意事项" class="headerlink" title="4、注意事项"></a>4、注意事项</h1><p>参考：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://resources.system-analysis.cadence.com/blog/msa2024-what-is-the-spalart-allmaras-turbulence-model">https://resources.system-analysis.cadence.com/blog/msa2024-what-is-the-spalart-allmaras-turbulence-model</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cfd-online.com/Wiki/Spalart-Allmaras_model">https://www.cfd-online.com/Wiki/Spalart-Allmaras_model</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Xivc0EIGFQw">https://www.youtube.com/watch?v=Xivc0EIGFQw</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/408434524">https://zhuanlan.zhihu.com/p/408434524</a></li>
+<h1 id="用途">3、用途</h1>
+<h1 id="注意事项">4、注意事项</h1>
+<p>参考：</p>
+<ol type="1">
+<li>https://resources.system-analysis.cadence.com/blog/msa2024-what-is-the-spalart-allmaras-turbulence-model</li>
+<li>https://www.cfd-online.com/Wiki/Spalart-Allmaras_model</li>
+<li>https://www.youtube.com/watch?v=Xivc0EIGFQw</li>
+<li>https://zhuanlan.zhihu.com/p/408434524</li>
 </ol>
 
                 

@@ -230,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          886 字
+          896 字
         
       </span>
     
@@ -287,8 +287,16 @@
                 <div class="note note-success">
             <p>本文最新更新于 2025/02/08 晚上</p>
           </div>
-<h1 id="1、安装与配置"><a href="#1、安装与配置" class="headerlink" title="1、安装与配置"></a>1、安装与配置</h1><h2 id="1-1-安装"><a href="#1-1-安装" class="headerlink" title="1.1 安装"></a>1.1 安装</h2><p><a target="_blank" rel="noopener" href="https://www.rust-lang.org/zh-CN/learn/get-started">官网下载</a></p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028185911269.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20241028185911269"></p>
+<h1 id="安装与配置">1、安装与配置</h1>
+<h2 id="安装">1.1 安装</h2>
+<p><a
+target="_blank" rel="noopener" href="https://www.rust-lang.org/zh-CN/learn/get-started">官网下载</a></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028185911269.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20241028185911269" />
+<figcaption aria-hidden="true">image-20241028185911269</figcaption>
+</figure>
 <p>双击打开会弹出命令行窗口，直接回车即可。</p>
 <p>查看是否安装成功</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rustup --version<br></code></pre></td></tr></table></figure>
@@ -298,35 +306,55 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rustup install nightly<br></code></pre></td></tr></table></figure>
 <p>切换版本环境</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">rustup default nightly<br>or<br>rustup default stable<br></code></pre></td></tr></table></figure>
-<h2 id="1-2-编译命令"><a href="#1-2-编译命令" class="headerlink" title="1.2 编译命令"></a>1.2 编译命令</h2><p>文件编译</p>
+<h2 id="编译命令">1.2 编译命令</h2>
+<p>文件编译</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">rustc 被编译文件名 -o 输出文件名<br>rustc main.rs -o hello<br></code></pre></td></tr></table></figure>
-<h1 id="2、包管理"><a href="#2、包管理" class="headerlink" title="2、包管理"></a>2、包管理</h1><h2 id="2-1-包管理工具Cargo"><a href="#2-1-包管理工具Cargo" class="headerlink" title="2.1 包管理工具Cargo"></a>2.1 包管理工具<code>Cargo</code></h2><p><strong><u>创建项目</u></strong></p>
+<h1 id="包管理">2、包管理</h1>
+<h2 id="包管理工具cargo">2.1 包管理工具<code>Cargo</code></h2>
+<p><strong><u>创建项目</u></strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo new project_name<br>cargo new --lib project_lib_name<br></code></pre></td></tr></table></figure>
 <p><strong><u>构建项目</u></strong></p>
 <p>会出现一个名为<code>target</code>文件夹</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo build<br>cargo build --release  这个性能较好<br></code></pre></td></tr></table></figure>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028191914203.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20241028191914203"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028191914203.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20241028191914203" />
+<figcaption aria-hidden="true">image-20241028191914203</figcaption>
+</figure>
 <p><strong><u>检测</u></strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo check<br></code></pre></td></tr></table></figure>
 <p><strong><u>运行/测试</u></strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo run<br>cargo <span class="hljs-built_in">test</span><br></code></pre></td></tr></table></figure>
 <p><strong><u>项目结构</u></strong></p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028190911111.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20241028190911111"></p>
-<h2 id="2-2-Cargo-toml文件"><a href="#2-2-Cargo-toml文件" class="headerlink" title="2.2 Cargo.toml文件"></a>2.2 Cargo.toml文件</h2><ul>
-<li>package<ul>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028190911111.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20241028190911111" />
+<figcaption aria-hidden="true">image-20241028190911111</figcaption>
+</figure>
+<h2 id="cargo.toml文件">2.2 Cargo.toml文件</h2>
+<ul>
+<li>package
+<ul>
 <li>设置版本名</li>
 <li>版本等</li>
-</ul>
-</li>
-<li>dependencies<ul>
+</ul></li>
+<li>dependencies
+<ul>
 <li>设置依赖</li>
 <li>[build-dependencies]列出了在构建项目时需要的依赖项</li>
 <li>[dev-dependencies]列出了只在开发时需要的依赖项</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="2-3-加载库"><a href="#2-3-加载库" class="headerlink" title="2.3 加载库"></a>2.3 加载库</h2><p>填写依赖项后保存会自动加载依赖项</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028192529489.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20241028192529489"></p>
+<h2 id="加载库">2.3 加载库</h2>
+<p>填写依赖项后保存会自动加载依赖项</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028192529489.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20241028192529489" />
+<figcaption aria-hidden="true">image-20241028192529489</figcaption>
+</figure>
 <p>推荐使用<code>cargo-edit</code></p>
 <p>安装<code>cargo-edit</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo install cargo-edit<br></code></pre></td></tr></table></figure>
@@ -340,10 +368,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo add --build build_dependency_name<br></code></pre></td></tr></table></figure>
 <p>删除库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo <span class="hljs-built_in">rm</span> dependency_name<br></code></pre></td></tr></table></figure>
-<h2 id="2-4-设置国内源"><a href="#2-4-设置国内源" class="headerlink" title="2.4 设置国内源"></a>2.4 设置国内源</h2><p>推荐使用<code>rsproxy</code></p>
+<h2 id="设置国内源">2.4 设置国内源</h2>
+<p>推荐使用<code>rsproxy</code></p>
 <p>在<code>C:\Users\23984\.cargo\.config</code></p>
 <p>但是我没有找到</p>
-<h1 id="3、基本类型"><a href="#3、基本类型" class="headerlink" title="3、基本类型"></a>3、基本类型</h1><h2 id="3-1-变量与不可变性"><a href="#3-1-变量与不可变性" class="headerlink" title="3.1 变量与不可变性"></a>3.1 变量与不可变性</h2><ol>
+<h1 id="基本类型">3、基本类型</h1>
+<h2 id="变量与不可变性">3.1 变量与不可变性</h2>
+<ol type="1">
 <li>使用<code>let</code>声明变量</li>
 <li>后置类型定义</li>
 <li>变量使用蛇形命名法，枚举和结构体命名使用帕斯卡命名法</li>
@@ -351,62 +382,89 @@
 <li>使用<code>mut</code>关键词将变量置为可变</li>
 <li></li>
 </ol>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028194646626.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20241028194646626"></p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028194723176.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20241028194723176"></p>
-<h2 id="3-2-常量与静态变量"><a href="#3-2-常量与静态变量" class="headerlink" title="3.2 常量与静态变量"></a>3.2 常量与静态变量</h2><p><strong><u>常量</u></strong></p>
-<ol>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028194646626.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20241028194646626" />
+<figcaption aria-hidden="true">image-20241028194646626</figcaption>
+</figure>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028194723176.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20241028194723176" />
+<figcaption aria-hidden="true">image-20241028194723176</figcaption>
+</figure>
+<h2 id="常量与静态变量">3.2 常量与静态变量</h2>
+<p><strong><u>常量</u></strong></p>
+<ol type="1">
 <li>常量的值在编译时已知，必须指定类型与值</li>
 <li>与C不同，Rust的const常量值被直接嵌入到生成的底层机器代码中，而不是简单字符替换</li>
 <li>常量名与静态变量名必须全部大写，单词之间加下划线</li>
 <li>常来那个的作用域是块级作用域，只在声明他们的作用域内可见</li>
 </ol>
 <p><strong><u>static静态变量</u></strong></p>
-<ol>
+<ol type="1">
 <li>在运行时分配内存</li>
 <li>并不是不可变的，可使用unsafe修改</li>
 <li>静态变量的生命周期为整个程序的运行时间</li>
 </ol>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028200046092.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20241028200046092"></p>
-<h2 id="3-3-基本数据类型"><a href="#3-3-基本数据类型" class="headerlink" title="3.3 基本数据类型"></a>3.3 基本数据类型</h2><ul>
-<li><code>Integer types</code> ： 默认推断为<code>i32</code><ul>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028200046092.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20241028200046092" />
+<figcaption aria-hidden="true">image-20241028200046092</figcaption>
+</figure>
+<h2 id="基本数据类型">3.3 基本数据类型</h2>
+<ul>
+<li><code>Integer types</code> ： 默认推断为<code>i32</code>
+<ul>
 <li>i8、i16、i32、i64、i128</li>
-</ul>
-</li>
-<li><code>Unsigned Integer types</code><ul>
+</ul></li>
+<li><code>Unsigned Integer types</code>
+<ul>
 <li>u8、u16、u32、u64、u128</li>
-</ul>
-</li>
-<li><p>platform-specific integer type（由平台决定）</p>
+</ul></li>
+<li>platform-specific integer type（由平台决定）
 <ul>
 <li>usize</li>
 <li>isize</li>
-</ul>
-</li>
-<li><p>Float Types</p>
+</ul></li>
+<li>Float Types
 <ul>
 <li>f32与f64</li>
 <li>尽量用f64</li>
-</ul>
-</li>
-<li>Boolean Values<ul>
+</ul></li>
+<li>Boolean Values
+<ul>
 <li>true</li>
 <li>false</li>
-</ul>
-</li>
-<li>Character Types<ul>
+</ul></li>
+<li>Character Types
+<ul>
 <li>Rust支持Unicode字符</li>
 <li>表示char类型使用单引号</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,<span class="hljs-type">u32</span>::MAX);<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,<span class="hljs-type">u32</span>::MIN);<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,<span class="hljs-type">usize</span>::MAX);<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,<span class="hljs-type">usize</span>::MIN);<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;isize is &#123;&#125; bytes&quot;</span>,std::mem::size_of::&lt;<span class="hljs-type">isize</span>&gt;());<br></code></pre></td></tr></table></figure>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028200813404.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20241028200813404"></p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028200822258.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20241028200822258"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028200813404.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20241028200813404" />
+<figcaption aria-hidden="true">image-20241028200813404</figcaption>
+</figure>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241028200822258.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20241028200822258" />
+<figcaption aria-hidden="true">image-20241028200822258</figcaption>
+</figure>
 <p>该2.4了</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV15y421h7j7?spm_id_from=333.788.videopod.episodes&amp;vd_source=33b50a4dd201d7564e6e63d321809ce9&amp;p=7">https://www.bilibili.com/video/BV15y421h7j7?spm_id_from=333.788.videopod.episodes&amp;vd_source=33b50a4dd201d7564e6e63d321809ce9&amp;p=7</a></p>
-<h2 id="3-4-元祖和数组"><a href="#3-4-元祖和数组" class="headerlink" title="3.4 元祖和数组"></a>3.4 元祖和数组</h2><p>相同点：</p>
+<p>https://www.bilibili.com/video/BV15y421h7j7?spm_id_from=333.788.videopod.episodes&amp;vd_source=33b50a4dd201d7564e6e63d321809ce9&amp;p=7</p>
+<h2 id="元祖和数组">3.4 元祖和数组</h2>
+<p>相同点：</p>
 <ul>
-<li>都是复合类型Compound Types，而Vec和Map都是集合类型Collection Types</li>
+<li>都是复合类型Compound Types，而Vec和Map都是集合类型Collection
+Types</li>
 <li>元组和数组长度都是固定的</li>
 </ul>
 <p>不同点：</p>
@@ -418,16 +476,11 @@
 <ul>
 <li><p>创建方式</p>
 <ul>
-<li><p><code>[a,b,c]</code></p>
-</li>
-<li><p><code>[value;size]</code></p>
-</li>
-</ul>
-</li>
-<li><p>获取元素<code>arr[index]</code></p>
-</li>
-<li><p>获取长度<code>arr.len()</code></p>
-</li>
+<li><p><code>[a,b,c]</code></p></li>
+<li><p><code>[value;size]</code></p></li>
+</ul></li>
+<li><p>获取元素<code>arr[index]</code></p></li>
+<li><p>获取长度<code>arr.len()</code></p></li>
 </ul>
 <p><strong><u>元组：</u></strong></p>
 <ul>
@@ -437,14 +490,31 @@
 </ul>
 <blockquote>
 <ul>
-<li>元组和数组都是可以直接打印的；<code>println!(&quot;&#123;:?&#125;&quot;,arr);</code></li>
+<li>元组和数组都是可以直接打印的；<code>println!("&#123;:?&#125;",arr);</code></li>
 <li>赋值默认都是<code>copy</code>操作；</li>
 </ul>
 </blockquote>
 <p>string赋值时是<code>move</code>操作，会转移所有权，不能再打印。</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241029191648931.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20241029191648931"></p>
-<h1 id="4、Ownership与结构体、枚举"><a href="#4、Ownership与结构体、枚举" class="headerlink" title="4、Ownership与结构体、枚举"></a>4、Ownership与结构体、枚举</h1><h2 id="4-1-Rust的内存管理模型"><a href="#4-1-Rust的内存管理模型" class="headerlink" title="4.1 Rust的内存管理模型"></a>4.1 Rust的内存管理模型</h2><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241029191949573.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20241029191949573"></p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241029192441011.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20241029192441011"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241029191648931.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20241029191648931" />
+<figcaption aria-hidden="true">image-20241029191648931</figcaption>
+</figure>
+<h1 id="ownership与结构体枚举">4、Ownership与结构体、枚举</h1>
+<h2 id="rust的内存管理模型">4.1 Rust的内存管理模型</h2>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241029191949573.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20241029191949573" />
+<figcaption aria-hidden="true">image-20241029191949573</figcaption>
+</figure>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20241029192441011.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20241029192441011" />
+<figcaption aria-hidden="true">image-20241029192441011</figcaption>
+</figure>
 <p><strong><u>1、所有权系统</u></strong></p>
 <ul>
 <li>每个值都有一个与之关联的变量，该变量是该值的所有者</li>
@@ -454,7 +524,7 @@
 <p><strong><u>2、RAII原则</u></strong></p>
 <p>资源获取即初始化原则。当对象被创建时，它会获取必要的资源，并在生命周期结束时释放这些资源。</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/CrystalLawson/article/details/138190719">https://blog.csdn.net/CrystalLawson/article/details/138190719</a></p>
+<p>https://blog.csdn.net/CrystalLawson/article/details/138190719</p>
 </blockquote>
 
                 

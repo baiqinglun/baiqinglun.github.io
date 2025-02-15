@@ -285,14 +285,17 @@
             
               <div class="markdown-body">
                 
-                <h1 id="一、起步"><a href="#一、起步" class="headerlink" title="一、起步"></a>一、起步</h1><h2 id="1-1-项目创建"><a href="#1-1-项目创建" class="headerlink" title="1.1 项目创建"></a>1.1 项目创建</h2><p>安装脚手架</p>
+                <h1 id="一起步">一、起步</h1>
+<h2 id="项目创建">1.1 项目创建</h2>
+<p>安装脚手架</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm i -g @nestjs/cli<br></code></pre></td></tr></table></figure>
 <p>创建新项目</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ nest new project-name<br></code></pre></td></tr></table></figure>
-<h2 id="1-2-项目文件"><a href="#1-2-项目文件" class="headerlink" title="1.2 项目文件"></a>1.2 项目文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">src<br> ├── app.controller.spec.ts<br> ├── app.controller.ts<br> ├── app.module.ts<br> ├── app.service.ts<br> └── main.ts<br></code></pre></td></tr></table></figure>
+<h2 id="项目文件">1.2 项目文件</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">src<br> ├── app.controller.spec.ts<br> ├── app.controller.ts<br> ├── app.module.ts<br> ├── app.service.ts<br> └── main.ts<br></code></pre></td></tr></table></figure>
 <p>含义</p>
-<div class="table-container">
 <table>
+
 <thead>
 <tr>
 <th>文件名</th>
@@ -318,94 +321,214 @@
 </tr>
 <tr>
 <td>main.ts</td>
-<td>应用程序入口文件。它使用 <code>NestFactory</code> 用来创建 Nest 应用实例。</td>
+<td>应用程序入口文件。它使用 <code>NestFactory</code> 用来创建 Nest
+应用实例。</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="1-3-启动项目"><a href="#1-3-启动项目" class="headerlink" title="1.3 启动项目"></a>1.3 启动项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> demo1<br>yarn run start<br></code></pre></td></tr></table></figure>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113144220518.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113144220518"></p>
+<h2 id="启动项目">1.3 启动项目</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> demo1<br>yarn run start<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113144220518.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113144220518" />
+<figcaption aria-hidden="true">image-20230113144220518</figcaption>
+</figure>
 <p>热启动项目（实时更新）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yarn start:dev<br></code></pre></td></tr></table></figure>
-<h2 id="1-4-主文件"><a href="#1-4-主文件" class="headerlink" title="1.4 主文件"></a>1.4 主文件</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// main.ts</span><br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">NestFactory</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@nestjs/core&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">AppModule</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./app.module&quot;</span>;<br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">bootstrap</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> app = <span class="hljs-keyword">await</span> <span class="hljs-title class_">NestFactory</span>.<span class="hljs-title function_">create</span>(<span class="hljs-title class_">AppModule</span>);<br>  <span class="hljs-keyword">await</span> app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>);<br>&#125;<br><span class="hljs-title function_">bootstrap</span>();<br></code></pre></td></tr></table></figure>
-<p>要创建一个 Nest 应用实例，我们使用了 <code>NestFactory</code> 核心类。<code>NestFactory</code> 暴露了一些静态方法用于创建应用实例。</p>
-<p><code>create()</code> 方法返回一个实现 <code>INestApplication</code> 接口的对象。该对象提供了一组可用的方法，我们会在后面的章节中对这些方法进行详细描述。 在上面的 <code>main.ts</code> 示例中，我们只是启动 HTTP 服务，让应用程序等待 HTTP 请求。</p>
-<h2 id="1-5-创建-Moudle"><a href="#1-5-创建-Moudle" class="headerlink" title="1.5 创建 Moudle"></a>1.5 创建 Moudle</h2><h3 id="1-5-1-手动创建"><a href="#1-5-1-手动创建" class="headerlink" title="1.5.1 手动创建"></a>1.5.1 手动创建</h3><p>src/auth/auth.moudle.ts</p>
+<h2 id="主文件">1.4 主文件</h2>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// main.ts</span><br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">NestFactory</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@nestjs/core&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">AppModule</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./app.module&quot;</span>;<br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">bootstrap</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> app = <span class="hljs-keyword">await</span> <span class="hljs-title class_">NestFactory</span>.<span class="hljs-title function_">create</span>(<span class="hljs-title class_">AppModule</span>);<br>  <span class="hljs-keyword">await</span> app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>);<br>&#125;<br><span class="hljs-title function_">bootstrap</span>();<br></code></pre></td></tr></table></figure>
+<p>要创建一个 Nest 应用实例，我们使用了 <code>NestFactory</code>
+核心类。<code>NestFactory</code>
+暴露了一些静态方法用于创建应用实例。</p>
+<p><code>create()</code> 方法返回一个实现 <code>INestApplication</code>
+接口的对象。该对象提供了一组可用的方法，我们会在后面的章节中对这些方法进行详细描述。
+在上面的 <code>main.ts</code> 示例中，我们只是启动 HTTP
+服务，让应用程序等待 HTTP 请求。</p>
+<h2 id="创建-moudle">1.5 创建 Moudle</h2>
+<h3 id="手动创建">1.5.1 手动创建</h3>
+<p>src/auth/auth.moudle.ts</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Module</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@nestjs/common&quot;</span>;<br><br><span class="hljs-meta">@Module</span>(&#123;&#125;)<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AuthModule</span> &#123;&#125;<br></code></pre></td></tr></table></figure>
 <p>导入到 app 中</p>
 <p>src/app.module.ts</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Module</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@nestjs/common&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">AuthModule</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./auth/auth.module&quot;</span>;<br><br><span class="hljs-meta">@Module</span>(&#123;<br>  <span class="hljs-attr">imports</span>: [<span class="hljs-title class_">AuthModule</span>],<br>&#125;)<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppModule</span> &#123;&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="1-5-2-命令行创建"><a href="#1-5-2-命令行创建" class="headerlink" title="1.5.2 命令行创建"></a>1.5.2 命令行创建</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs base">nest g module user<br></code></pre></td></tr></table></figure>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113165522565.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113165522565"></p>
-<h2 id="1-6-创建完整模块"><a href="#1-6-创建完整模块" class="headerlink" title="1.6 创建完整模块"></a>1.6 创建完整模块</h2><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113170716951.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113170716951"></p>
+<h3 id="命令行创建">1.5.2 命令行创建</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs base">nest g module user<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113165522565.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113165522565" />
+<figcaption aria-hidden="true">image-20230113165522565</figcaption>
+</figure>
+<h2 id="创建完整模块">1.6 创建完整模块</h2>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113170716951.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113170716951" />
+<figcaption aria-hidden="true">image-20230113170716951</figcaption>
+</figure>
 <p>controller 关注于请求的逻辑</p>
 <p>service 关注具体实现</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// src/auth/auth.module.ts</span><br><br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Module</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@nestjs/common&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">AuthContriller</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./auth.controller&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">AuthService</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./auth.service&quot;</span>;<br><br><span class="hljs-meta">@Module</span>(&#123;<br>  <span class="hljs-attr">controllers</span>: [<span class="hljs-title class_">AuthContriller</span>],<br>  <span class="hljs-attr">providers</span>: [<span class="hljs-title class_">AuthService</span>],<br>&#125;)<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AuthModule</span> &#123;&#125;<br></code></pre></td></tr></table></figure>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// src/auth/auth.controller.ts</span><br><br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Controller</span>, <span class="hljs-title class_">Post</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@nestjs/common&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">AuthService</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./auth.service&quot;</span>;<br><br><span class="hljs-meta">@Controller</span>(<span class="hljs-string">&quot;auth&quot;</span>)<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AuthContriller</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> authService: AuthService</span>) &#123;&#125;<br><br>  <span class="hljs-comment">// Post auth/signup</span><br>  <span class="hljs-meta">@Post</span>(<span class="hljs-string">&quot;signup&quot;</span>)<br>  <span class="hljs-title function_">signup</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">authService</span>.<span class="hljs-title function_">signup</span>();<br>  &#125;<br><br>  <span class="hljs-comment">// Post auth/signin</span><br>  <span class="hljs-meta">@Post</span>(<span class="hljs-string">&quot;signin&quot;</span>)<br>  <span class="hljs-title function_">signin</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">authService</span>.<span class="hljs-title function_">signin</span>();<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// src/auth/auth.service.ts</span><br><br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Injectable</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@nestjs/common&quot;</span>;<br><br><span class="hljs-meta">@Injectable</span>()<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AuthService</span> &#123;<br>  <span class="hljs-title function_">signup</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">msg</span>: <span class="hljs-string">&quot;This is a signup page!&quot;</span> &#125;;<br>  &#125;<br><br>  <span class="hljs-title function_">signin</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">msg</span>: <span class="hljs-string">&quot;This is a signin page!&quot;</span> &#125;;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="二、基本概念"><a href="#二、基本概念" class="headerlink" title="二、基本概念"></a>二、基本概念</h1><h2 id="2-1-控制器"><a href="#2-1-控制器" class="headerlink" title="2.1 控制器"></a>2.1 控制器</h2><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113144733598.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113144733598"></p>
+<h1 id="二基本概念">二、基本概念</h1>
+<h2 id="控制器">2.1 控制器</h2>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113144733598.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113144733598" />
+<figcaption aria-hidden="true">image-20230113144733598</figcaption>
+</figure>
 <p>目的：接受应用的特定请求；</p>
 <p>控制器与路由：通常一个控制器含多个请求，不同的路由执行不同的操纵；</p>
 <p>创建控制器：使用类和<code>装饰器</code>；</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ nest g controller cats<br></code></pre></td></tr></table></figure>
-<h3 id="2-1-1-路由"><a href="#2-1-1-路由" class="headerlink" title="2.1.1 路由"></a>2.1.1 路由</h3><p>在下面的例子中，我们使用 <code>@Controller()</code> 装饰器定义一个基本的控制器。</p>
-<p>可选 路由路径前缀设置为 <code>custom</code>。在 <code>@Controller()</code> 装饰器中使用路径前缀可以使我们轻松地对一组相关的路由进行分组，并最大程度地减少重复代码。</p>
+<h3 id="路由">2.1.1 路由</h3>
+<p>在下面的例子中，我们使用 <code>@Controller()</code>
+装饰器定义一个基本的控制器。</p>
+<p>可选 路由路径前缀设置为 <code>custom</code>。在
+<code>@Controller()</code>
+装饰器中使用路径前缀可以使我们轻松地对一组相关的路由进行分组，并最大程度地减少重复代码。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// app.controller.ts</span><br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Controller</span>, <span class="hljs-title class_">Get</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@nestjs/common&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">AppService</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./app.service&quot;</span>;<br><br><span class="hljs-meta">@Controller</span>(<span class="hljs-string">&quot;/custom&quot;</span>)<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppController</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> appService: AppService</span>) &#123;&#125;<br><br>  <span class="hljs-meta">@Get</span>(<span class="hljs-string">&quot;/eye&quot;</span>)<br>  <span class="hljs-title function_">getEye</span>(): <span class="hljs-built_in">string</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;我是眼睛&quot;</span>;<br>  &#125;<br><br>  <span class="hljs-meta">@Get</span>(<span class="hljs-string">&quot;/mouse&quot;</span>)<br>  <span class="hljs-title function_">getMouse</span>(): <span class="hljs-built_in">string</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;我是嘴巴&quot;</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>请求</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113145438467.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113145438467"></p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113145600949.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113145600949"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113145438467.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113145438467" />
+<figcaption aria-hidden="true">image-20230113145438467</figcaption>
+</figure>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113145600949.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113145600949" />
+<figcaption aria-hidden="true">image-20230113145600949</figcaption>
+</figure>
 <blockquote>
-<p>这里案例来说应该返回状态码加数据，而网页中直接显示了数据，原因是 nest 有两种操作响应。</p>
-<p>标准：使用这个内置方法，当请求处理程序返回一个 <code>JavaScript</code> 对象或数组时，它将自动序列化为 <code>JSON</code>。但是，当它返回一个 <code>JavaScript</code> 基本类型（例如<code>string、number、boolean</code>）时， Nest 将只发送值，而不尝试序列化它。这使响应处理变得简单：只需要返回值，其余的由 Nest 负责。</p>
-<p>类库特有：我们可以在函数签名处通过 <code>@Res()</code> 注入类库特定的响应对象（例如， <code>Express</code>）。使用此方法，你就能使用由该响应对象暴露的原生响应处理函数。例如，使用 <code>Express</code>，您可以使用 <code>response.status(200).send()</code> 构建响应</p>
+<p>这里案例来说应该返回状态码加数据，而网页中直接显示了数据，原因是 nest
+有两种操作响应。</p>
+<p>标准：使用这个内置方法，当请求处理程序返回一个
+<code>JavaScript</code> 对象或数组时，它将自动序列化为
+<code>JSON</code>。但是，当它返回一个 <code>JavaScript</code>
+基本类型（例如<code>string、number、boolean</code>）时， Nest
+将只发送值，而不尝试序列化它。这使响应处理变得简单：只需要返回值，其余的由
+Nest 负责。</p>
+<p>类库特有：我们可以在函数签名处通过 <code>@Res()</code>
+注入类库特定的响应对象（例如，
+<code>Express</code>）。使用此方法，你就能使用由该响应对象暴露的原生响应处理函数。例如，使用
+<code>Express</code>，您可以使用
+<code>response.status(200).send()</code> 构建响应</p>
 </blockquote>
 <p>类库特有</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Get</span>(<span class="hljs-string">&#x27;head&#x27;</span>)<br><span class="hljs-title function_">getHead</span>(<span class="hljs-params"><span class="hljs-meta">@Res</span>() res</span>) &#123;<br>    res.<span class="hljs-title function_">status</span>(<span class="hljs-title class_">HttpStatus</span>.<span class="hljs-property">OK</span>).<span class="hljs-title function_">send</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>而且，在上面的示例中，你失去与依赖于 Nest 标准响应处理的 Nest 功能（例如，拦截器（Interceptors） 和 <code>@HttpCode()</code>/<code>@Header()</code> 装饰器）的兼容性。要解决此问题，可以将 <code>passthrough</code> 选项设置为 <code>true</code>，如下所示：</p>
+<p>而且，在上面的示例中，你失去与依赖于 Nest 标准响应处理的 Nest
+功能（例如，拦截器（Interceptors） 和
+<code>@HttpCode()</code>/<code>@Header()</code>
+装饰器）的兼容性。要解决此问题，可以将 <code>passthrough</code>
+选项设置为 <code>true</code>，如下所示：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Get</span>(<span class="hljs-string">&#x27;head&#x27;</span>)<br><span class="hljs-title function_">getHead</span>(<span class="hljs-params"><span class="hljs-meta">@Res</span>(&#123;passthrough:<span class="hljs-literal">true</span>&#125;) res</span>) &#123;<br>    res.<span class="hljs-title function_">status</span>(<span class="hljs-title class_">HttpStatus</span>.<span class="hljs-property">OK</span>)<br>    <span class="hljs-keyword">return</span> []<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-1-2-Request"><a href="#2-1-2-Request" class="headerlink" title="2.1.2 Request"></a>2.1.2 <a target="_blank" rel="noopener" href="https://docs.nestjs.cn/9/controllers?id=request">Request</a></h3><p>访问请求细节。</p>
-<p>需要引入<code>Req</code>和<code>import &#123;Request&#125; from &#39;express&#39;;</code></p>
+<h3 id="request">2.1.2 <a
+target="_blank" rel="noopener" href="https://docs.nestjs.cn/9/controllers?id=request">Request</a></h3>
+<p>访问请求细节。</p>
+<p>需要引入<code>Req</code>和<code>import &#123;Request&#125; from 'express';</code></p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Controller</span>, <span class="hljs-title class_">Get</span>, <span class="hljs-title class_">Req</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@nestjs/common&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">AppService</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./app.service&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Request</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;express&quot;</span>;<br><br><span class="hljs-meta">@Controller</span>(<span class="hljs-string">&quot;/custom&quot;</span>)<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppController</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> appService: AppService</span>) &#123;&#125;<br><br>  <span class="hljs-meta">@Get</span>(<span class="hljs-string">&quot;/eye&quot;</span>)<br>  <span class="hljs-title function_">getEye</span>(<span class="hljs-meta">@Req</span>() <span class="hljs-attr">request</span>: <span class="hljs-title class_">Request</span>): <span class="hljs-built_in">string</span> &#123;<br>    <span class="hljs-comment">// 这里的Request表示类型</span><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(request);<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;我是眼睛&quot;</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p><code>Request</code> 对象代表 <code>HTTP</code> 请求，并具有查询字符串，请求参数参数，HTTP 标头（HTTP header） 和 正文（HTTP body）的属性（在<a target="_blank" rel="noopener" href="https://expressjs.com/en/api.html#req">这里</a>阅读更多）。在多数情况下，不必手动获取它们。 我们可以使用专用的装饰器，比如开箱即用的 <code>@Body()</code> 或 <code>@Query()</code> 。 下面是 Nest 提供的装饰器及其代表的底层平台特定对象的对照列表。</p>
+<p><code>Request</code> 对象代表 <code>HTTP</code>
+请求，并具有查询字符串，请求参数参数，HTTP 标头（HTTP header） 和
+正文（HTTP body）的属性（在<a
+target="_blank" rel="noopener" href="https://expressjs.com/en/api.html#req">这里</a>阅读更多）。在多数情况下，不必手动获取它们。
+我们可以使用专用的装饰器，比如开箱即用的 <code>@Body()</code> 或
+<code>@Query()</code> 。 下面是 Nest
+提供的装饰器及其代表的底层平台特定对象的对照列表。</p>
 </blockquote>
 <p>多个装饰器</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Get</span>(<span class="hljs-string">&#x27;/eye&#x27;</span>)<br><span class="hljs-title function_">getEye</span>(<span class="hljs-meta">@Req</span>() <span class="hljs-attr">request</span>:<span class="hljs-title class_">Request</span>,<span class="hljs-meta">@Ip</span>() ip,<span class="hljs-meta">@HostParam</span>() host): <span class="hljs-built_in">string</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(request.<span class="hljs-property">ip</span>);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(ip);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(host);<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;我是眼睛&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-1-3-Post"><a href="#2-1-3-Post" class="headerlink" title="2.1.3 Post"></a>2.1.3 Post</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Post</span>(<span class="hljs-string">&#x27;/foot&#x27;</span>)<br><span class="hljs-title function_">getFoot</span>():<span class="hljs-built_in">string</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;我是脚&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113153133595.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113153133595"></p>
+<h3 id="post">2.1.3 Post</h3>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Post</span>(<span class="hljs-string">&#x27;/foot&#x27;</span>)<br><span class="hljs-title function_">getFoot</span>():<span class="hljs-built_in">string</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;我是脚&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113153133595.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113153133595" />
+<figcaption aria-hidden="true">image-20230113153133595</figcaption>
+</figure>
 <blockquote>
-<p>Nest 为所有标准的 HTTP 方法提供了相应的装饰器：<code>@Put()</code>、<code>@Delete()</code>、<code>@Patch()</code>、<code>@Options()</code>、以及 <code>@Head()</code>。此外，<code>@All()</code> 则用于定义一个用于处理所有 HTTP 请求方法的处理程序。</p>
+<p>Nest 为所有标准的 HTTP
+方法提供了相应的装饰器：<code>@Put()</code>、<code>@Delete()</code>、<code>@Patch()</code>、<code>@Options()</code>、以及
+<code>@Head()</code>。此外，<code>@All()</code>
+则用于定义一个用于处理所有 HTTP 请求方法的处理程序。</p>
 </blockquote>
-<h3 id="2-1-4-路由通配符"><a href="#2-1-4-路由通配符" class="headerlink" title="2.1.4 路由通配符"></a>2.1.4 路由通配符</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Get</span>(<span class="hljs-string">&#x27;hand*s&#x27;</span>)<br><span class="hljs-title function_">getHead</span>():<span class="hljs-built_in">string</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;我是手&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113154504739.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113154504739"></p>
+<h3 id="路由通配符">2.1.4 路由通配符</h3>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Get</span>(<span class="hljs-string">&#x27;hand*s&#x27;</span>)<br><span class="hljs-title function_">getHead</span>():<span class="hljs-built_in">string</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;我是手&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113154504739.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113154504739" />
+<figcaption aria-hidden="true">image-20230113154504739</figcaption>
+</figure>
 <blockquote>
-<p>路由路径 <code>&#39;ab*cd&#39;</code> 将匹配 <code>abcd</code> 、<code>ab_cd</code> 、<code>abecd</code> 等。字符 <code>?</code> 、<code>+</code> 、 <code>*</code> 以及 <code>()</code> 是它们的正则表达式对应项的子集。连字符（<code>-</code>） 和点（<code>.</code>）按字符串路径逐字解析。</p>
+<p>路由路径 <code>'ab*cd'</code> 将匹配 <code>abcd</code>
+、<code>ab_cd</code> 、<code>abecd</code> 等。字符 <code>?</code>
+、<code>+</code> 、 <code>*</code> 以及 <code>()</code>
+是它们的正则表达式对应项的子集。连字符（<code>-</code>）
+和点（<code>.</code>）按字符串路径逐字解析。</p>
 </blockquote>
-<h3 id="2-1-5-状态码"><a href="#2-1-5-状态码" class="headerlink" title="2.1.5 状态码"></a>2.1.5 状态码</h3><p>状态码默认是 200（post 为 201），可通过<code>@HttpCode()</code>更改状态码</p>
+<h3 id="状态码">2.1.5 状态码</h3>
+<p>状态码默认是 200（post 为
+201），可通过<code>@HttpCode()</code>更改状态码</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Post</span>(<span class="hljs-string">&#x27;foot&#x27;</span>)<br><span class="hljs-meta">@HttpCode</span>(<span class="hljs-number">204</span>)<br><span class="hljs-title function_">getFoot</span>():<span class="hljs-built_in">string</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;我是脚&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-1-6-Headers"><a href="#2-1-6-Headers" class="headerlink" title="2.1.6 Headers"></a>2.1.6 <a target="_blank" rel="noopener" href="https://docs.nestjs.cn/9/controllers?id=headers">Headers</a></h3><p>指定自定义响应头，可以使用 <code>@header()</code> 装饰器或类库特有的响应对象</p>
+<h3 id="headers">2.1.6 <a
+target="_blank" rel="noopener" href="https://docs.nestjs.cn/9/controllers?id=headers">Headers</a></h3>
+<p>指定自定义响应头，可以使用 <code>@header()</code>
+装饰器或类库特有的响应对象</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Post</span>()<br><span class="hljs-meta">@Header</span>(<span class="hljs-string">&#x27;Cache-Control&#x27;</span>, <span class="hljs-string">&#x27;none&#x27;</span>)<br><span class="hljs-title function_">create</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;This action adds a new cat&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-1-7-重定向"><a href="#2-1-7-重定向" class="headerlink" title="2.1.7 重定向"></a>2.1.7 重定向</h3><p>要将响应重定向到特定的 <code>URL</code>，可以使用 <code>@Redirect()</code> 装饰器或特定于库的响应对象</p>
-<p><code>@Redirect()</code>装饰器有两个可选参数，<code>url</code>和 <code>statusCode</code>。 如果省略，则 <code>statusCode</code> 默认为 <code>302</code></p>
+<h3 id="重定向">2.1.7 重定向</h3>
+<p>要将响应重定向到特定的 <code>URL</code>，可以使用
+<code>@Redirect()</code> 装饰器或特定于库的响应对象</p>
+<p><code>@Redirect()</code>装饰器有两个可选参数，<code>url</code>和
+<code>statusCode</code>。 如果省略，则 <code>statusCode</code> 默认为
+<code>302</code></p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Get</span>()<br><span class="hljs-meta">@Redirect</span>(<span class="hljs-string">&#x27;https://nestjs.com&#x27;</span>, <span class="hljs-number">301</span>)<br></code></pre></td></tr></table></figure>
-<h3 id="2-1-8-路由参数"><a href="#2-1-8-路由参数" class="headerlink" title="2.1.8 路由参数"></a>2.1.8 路由参数</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Get</span>(<span class="hljs-string">&#x27;mouse/:id&#x27;</span>)<br><span class="hljs-title function_">getMouseId</span>(<span class="hljs-meta">@Param</span>() params): <span class="hljs-built_in">string</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">`我是嘴巴<span class="hljs-subst">$&#123;params.id&#125;</span>`</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113155638965.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113155638965"></p>
+<h3 id="路由参数">2.1.8 路由参数</h3>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Get</span>(<span class="hljs-string">&#x27;mouse/:id&#x27;</span>)<br><span class="hljs-title function_">getMouseId</span>(<span class="hljs-meta">@Param</span>() params): <span class="hljs-built_in">string</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">`我是嘴巴<span class="hljs-subst">$&#123;params.id&#125;</span>`</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113155638965.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113155638965" />
+<figcaption aria-hidden="true">image-20230113155638965</figcaption>
+</figure>
 <p>或者写成</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Get</span>(<span class="hljs-string">&#x27;mouse/:id&#x27;</span>)<br><span class="hljs-title function_">getMouseId</span>(<span class="hljs-meta">@Param</span>(<span class="hljs-string">&#x27;id&#x27;</span>) id): <span class="hljs-built_in">string</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">`我是嘴巴<span class="hljs-subst">$&#123;id&#125;</span>`</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-1-9-子域路由"><a href="#2-1-9-子域路由" class="headerlink" title="2.1.9 子域路由"></a>2.1.9 <a target="_blank" rel="noopener" href="https://docs.nestjs.cn/9/controllers?id=子域路由">子域路由</a></h3><p><code>@Controller</code> 装饰器可以接受一个 <code>host</code> 选项，以要求传入请求的 <code>HTTP</code> 主机匹配某个特定值</p>
+<h3 id="子域路由">2.1.9 <a
+target="_blank" rel="noopener" href="https://docs.nestjs.cn/9/controllers?id=子域路由">子域路由</a></h3>
+<p><code>@Controller</code> 装饰器可以接受一个 <code>host</code>
+选项，以要求传入请求的 <code>HTTP</code> 主机匹配某个特定值</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Controller</span>(&#123; <span class="hljs-attr">host</span>: <span class="hljs-string">&quot;admin.example.com&quot;</span> &#125;)<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AdminController</span> &#123;<br>  <span class="hljs-meta">@Get</span>()<br>  <span class="hljs-title function_">index</span>(): <span class="hljs-built_in">string</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Admin page&quot;</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-1-10-异步性"><a href="#2-1-10-异步性" class="headerlink" title="2.1.10 异步性"></a>2.1.10 异步性</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/* cats.controller.ts */</span><br><br><span class="hljs-meta">@Get</span>()<br><span class="hljs-keyword">async</span> <span class="hljs-title function_">findAll</span>(): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">any</span>[]&gt; &#123;<br>  <span class="hljs-keyword">return</span> [];<br>&#125;<br><br></code></pre></td></tr></table></figure>
-<h3 id="2-1-11-请求负载"><a href="#2-1-11-请求负载" class="headerlink" title="2.1.11 请求负载"></a>2.1.11 请求负载</h3><p>首先（如果您使用 TypeScript），我们需要确定 <code>DTO</code>（数据传输对象）模式。<code>DTO</code>是一个对象，它定义了如何通过网络发送数据。我们可以通过使用 <strong>TypeScript</strong> 接口（Interface）或简单的类（Class）来定义 DTO 模式。有趣的是，我们在这里推荐使用<strong>类</strong>。</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113193701850.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113193701850"></p>
+<h3 id="异步性">2.1.10 异步性</h3>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/* cats.controller.ts */</span><br><br><span class="hljs-meta">@Get</span>()<br><span class="hljs-keyword">async</span> <span class="hljs-title function_">findAll</span>(): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">any</span>[]&gt; &#123;<br>  <span class="hljs-keyword">return</span> [];<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h3 id="请求负载">2.1.11 请求负载</h3>
+<p>首先（如果您使用 TypeScript），我们需要确定
+<code>DTO</code>（数据传输对象）模式。<code>DTO</code>是一个对象，它定义了如何通过网络发送数据。我们可以通过使用
+<strong>TypeScript</strong> 接口（Interface）或简单的类（Class）来定义
+DTO 模式。有趣的是，我们在这里推荐使用<strong>类</strong>。</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113193701850.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113193701850" />
+<figcaption aria-hidden="true">image-20230113193701850</figcaption>
+</figure>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/*</span><br><span class="hljs-comment">  create-auto.dto.ts</span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CreateAuthDto</span> &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;<br>  <span class="hljs-attr">age</span>: <span class="hljs-built_in">number</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/* auto.controller.ts */</span><br><br><span class="hljs-meta">@Get</span>(<span class="hljs-string">&#x27;getUser/:id&#x27;</span>)<br><span class="hljs-title function_">getUser</span>(<span class="hljs-params"></span><br><span class="hljs-params">    <span class="hljs-meta">@Body</span>() body:CreateAuthDto,</span><br><span class="hljs-params">    <span class="hljs-meta">@Param</span>() params:&#123;id:<span class="hljs-built_in">number</span>&#125;</span><br><span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">authService</span>.<span class="hljs-title function_">getUser</span>(body,params);<br>&#125;<br></code></pre></td></tr></table></figure>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/* auto.service.ts */</span><br><br><span class="hljs-title function_">getUser</span>(<span class="hljs-params"></span><br><span class="hljs-params">    body:CreateAuthDto,</span><br><span class="hljs-params">    params:&#123;id:<span class="hljs-built_in">number</span>&#125;</span><br><span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">return</span> &#123;<span class="hljs-attr">msg</span>:body,params&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="六、管道"><a href="#六、管道" class="headerlink" title="六、管道"></a>六、管道</h1><h2 id="6-1-应用场景"><a href="#6-1-应用场景" class="headerlink" title="6.1 应用场景"></a>6.1 应用场景</h2><p>管道有两个典型的应用场景:</p>
+<h1 id="六管道">六、管道</h1>
+<h2 id="应用场景">6.1 应用场景</h2>
+<p>管道有两个典型的应用场景:</p>
 <ul>
 <li><strong>转换</strong>：管道将输入数据转换为所需的数据输出(例如，将字符串转换为整数)</li>
-<li><strong>验证</strong>：对输入数据进行验证，如果验证成功继续传递; 验证失败则抛出异常</li>
+<li><strong>验证</strong>：对输入数据进行验证，如果验证成功继续传递;
+验证失败则抛出异常</li>
 </ul>
-<h2 id="6-2-内置管道"><a href="#6-2-内置管道" class="headerlink" title="6.2 内置管道"></a>6.2 内置管道</h2><p><code>Nest</code> 自带九个开箱即用的管道，即</p>
+<h2 id="内置管道">6.2 内置管道</h2>
+<p><code>Nest</code> 自带九个开箱即用的管道，即</p>
 <ul>
 <li><code>ValidationPipe</code></li>
 <li><code>ParseIntPipe</code></li>
@@ -418,20 +541,36 @@
 <li><code>ParseFilePipe</code></li>
 </ul>
 <p>他们从 <code>@nestjs/common</code> 包中导出。</p>
-<h2 id="6-3-绑定管道"><a href="#6-3-绑定管道" class="headerlink" title="6.3 绑定管道"></a>6.3 绑定管道</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/* auth.controller.ts */</span><br><br><span class="hljs-meta">@Get</span>(<span class="hljs-string">&#x27;searchUser/:useId&#x27;</span>)<br><span class="hljs-title function_">searchUser</span>(<span class="hljs-params"><span class="hljs-meta">@Param</span>(<span class="hljs-string">&#x27;useId&#x27;</span>,ParseIntPipe) id:<span class="hljs-built_in">number</span></span>)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">authService</span>.<span class="hljs-title function_">searchUser</span>(id);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="绑定管道">6.3 绑定管道</h2>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/* auth.controller.ts */</span><br><br><span class="hljs-meta">@Get</span>(<span class="hljs-string">&#x27;searchUser/:useId&#x27;</span>)<br><span class="hljs-title function_">searchUser</span>(<span class="hljs-params"><span class="hljs-meta">@Param</span>(<span class="hljs-string">&#x27;useId&#x27;</span>,ParseIntPipe) id:<span class="hljs-built_in">number</span></span>)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">authService</span>.<span class="hljs-title function_">searchUser</span>(id);<br>&#125;<br></code></pre></td></tr></table></figure>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/* auth.service.ts */</span><br><br><span class="hljs-title function_">searchUser</span>(<span class="hljs-params">id:<span class="hljs-built_in">number</span></span>)&#123;<br>    <span class="hljs-keyword">return</span> &#123;<span class="hljs-attr">msg</span>:id&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>这里绑定的管道是一个类而不是一个实例对象，如果要改变内置管道的行为，在绑定时通过 new 新建一个实例对象并绑定</p>
+<p>这里绑定的管道是一个类而不是一个实例对象，如果要改变内置管道的行为，在绑定时通过
+new 新建一个实例对象并绑定</p>
 </blockquote>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Get</span>(<span class="hljs-string">&#x27;searchUser/:useId&#x27;</span>)<br><span class="hljs-title function_">searchUser</span>(<span class="hljs-params"><span class="hljs-meta">@Param</span>(<span class="hljs-string">&#x27;useId&#x27;</span>,<span class="hljs-keyword">new</span> ParseIntPipe(&#123; errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE &#125;)) id:<span class="hljs-built_in">number</span></span>)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">authService</span>.<span class="hljs-title function_">searchUser</span>(id);<br>&#125;<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>且会将 string 转换为 int</p>
 </blockquote>
 <p>成功</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113195136018.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113195136018"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113195136018.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113195136018" />
+<figcaption aria-hidden="true">image-20230113195136018</figcaption>
+</figure>
 <p>失败</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113195219407.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113195219407"></p>
-<h1 id="七、技术"><a href="#七、技术" class="headerlink" title="七、技术"></a>七、技术</h1><h2 id="7-1验证"><a href="#7-1验证" class="headerlink" title="7.1验证"></a>7.1<a target="_blank" rel="noopener" href="https://docs.nestjs.cn/9/techniques?id=%e9%aa%8c%e8%af%81">验证</a></h2><h3 id="7-1-1-全局使用"><a href="#7-1-1-全局使用" class="headerlink" title="7.1.1 全局使用"></a>7.1.1 全局使用</h3><p>安装依赖</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113195219407.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113195219407" />
+<figcaption aria-hidden="true">image-20230113195219407</figcaption>
+</figure>
+<h1 id="七技术">七、技术</h1>
+<h2 id="验证">7.1<a
+target="_blank" rel="noopener" href="https://docs.nestjs.cn/9/techniques?id=%e9%aa%8c%e8%af%81">验证</a></h2>
+<h3 id="全局使用">7.1.1 全局使用</h3>
+<p>安装依赖</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm i --save class-validator class-transformer<br></code></pre></td></tr></table></figure>
 <p>注入全局验证管道</p>
 <p><code>app.useGlobalPipes(new ValidationPipe())</code></p>
@@ -442,17 +581,38 @@
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/* auth.controller.ts */</span><br><br><span class="hljs-meta">@Get</span>(<span class="hljs-string">&#x27;updateUser&#x27;</span>)<br><span class="hljs-title function_">updateUser</span>(<span class="hljs-params"><span class="hljs-meta">@Body</span>() body:UpdateAuthDto</span>)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">authService</span>.<span class="hljs-title function_">updateUser</span>(body);<br>&#125;<br></code></pre></td></tr></table></figure>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/* auth.service.ts */</span><br><br><span class="hljs-title function_">updateUser</span>(<span class="hljs-params">body:UpdateAuthDto</span>)&#123;<br>    <span class="hljs-keyword">return</span> &#123;<span class="hljs-attr">msg</span>:body&#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>失败</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113211331532.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113211331532"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113211331532.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113211331532" />
+<figcaption aria-hidden="true">image-20230113211331532</figcaption>
+</figure>
 <p>成功</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113211258694.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113211258694"></p>
-<h3 id="7-1-2-剥离属性"><a href="#7-1-2-剥离属性" class="headerlink" title="7.1.2 剥离属性"></a>7.1.2 剥离属性</h3><blockquote>
-<p>有时我们不处理 token 这个字段，而前端在请求时发送了这个字段，这是可以使用剥离属性，将不接受用不到的属性</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113211258694.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113211258694" />
+<figcaption aria-hidden="true">image-20230113211258694</figcaption>
+</figure>
+<h3 id="剥离属性">7.1.2 剥离属性</h3>
+<blockquote>
+<p>有时我们不处理 token
+这个字段，而前端在请求时发送了这个字段，这是可以使用剥离属性，将不接受用不到的属性</p>
 </blockquote>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript">app.<span class="hljs-title function_">useGlobalPipes</span>(<br>  <span class="hljs-keyword">new</span> <span class="hljs-title class_">ValidationPipe</span>(&#123;<br>    <span class="hljs-attr">whitelist</span>: <span class="hljs-literal">true</span>,<br>  &#125;)<br>);<br></code></pre></td></tr></table></figure>
 <p>使用后</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113212050272.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230113212050272"></p>
-<h3 id="7-1-3-使用管道转换"><a href="#7-1-3-使用管道转换" class="headerlink" title="7.1.3 使用管道转换"></a>7.1.3 使用管道转换</h3><p>如我们在发送 get 请求时，携带 body 中有 age，但是发送到后端 age 变成 string，我们需要将 string 变成 int，只需要使用 6.3 即可。</p>
-<h2 id="7-2-使用-Mongo-数据库"><a href="#7-2-使用-Mongo-数据库" class="headerlink" title="7.2 使用 Mongo 数据库"></a>7.2 使用 Mongo 数据库</h2><h3 id="7-2-1-基本步骤"><a href="#7-2-1-基本步骤" class="headerlink" title="7.2.1 基本步骤"></a>7.2.1 基本步骤</h3><p>安装相关依赖</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230113212050272.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230113212050272" />
+<figcaption aria-hidden="true">image-20230113212050272</figcaption>
+</figure>
+<h3 id="使用管道转换">7.1.3 使用管道转换</h3>
+<p>如我们在发送 get 请求时，携带 body 中有 age，但是发送到后端 age 变成
+string，我们需要将 string 变成 int，只需要使用 6.3 即可。</p>
+<h2 id="使用-mongo-数据库">7.2 使用 Mongo 数据库</h2>
+<h3 id="基本步骤">7.2.1 基本步骤</h3>
+<p>安装相关依赖</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yarn add --save @nestjs/mongoose mongoose<br></code></pre></td></tr></table></figure>
 <p>连接数据库</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/* app.module.ts */</span><br><br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Module</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@nestjs/common&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">MongooseModule</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@nestjs/mongoose&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">AuthModule</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./auth/auth.module&quot;</span>;<br><br><span class="hljs-meta">@Module</span>(&#123;<br>  <span class="hljs-attr">imports</span>: [<br>    <span class="hljs-title class_">AuthModule</span>,<br>    <span class="hljs-title class_">MongooseModule</span>.<span class="hljs-title function_">forRoot</span>(<span class="hljs-string">&quot;mongodb://127.0.0.1:27017/musicians&quot;</span>),<br>  ],<br>&#125;)<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppModule</span> &#123;&#125;<br></code></pre></td></tr></table></figure>
@@ -470,10 +630,21 @@
 <p>依赖注入创建 userModel 属性</p>
 </blockquote>
 <p>创建成功</p>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230114213520674.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230114213520674"></p>
-<h3 id="7-2-2-CRUD"><a href="#7-2-2-CRUD" class="headerlink" title="7.2.2 CRUD"></a>7.2.2 CRUD</h3><p>创建用户</p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230114213520674.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230114213520674" />
+<figcaption aria-hidden="true">image-20230114213520674</figcaption>
+</figure>
+<h3 id="crud">7.2.2 CRUD</h3>
+<p>创建用户</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/* auth.controller.ts */</span><br><span class="hljs-meta">@Post</span>(<span class="hljs-string">&#x27;addUser&#x27;</span>)<br><span class="hljs-title function_">addUser</span>(<span class="hljs-params"><span class="hljs-meta">@Body</span>() body:<span class="hljs-built_in">any</span></span>)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">authService</span>.<span class="hljs-title function_">addUser</span>(body);<br>&#125;<br><br><br><span class="hljs-comment">/* auth.service.ts */</span><br><span class="hljs-keyword">async</span> <span class="hljs-title function_">addUser</span>(<span class="hljs-params">body:<span class="hljs-built_in">any</span></span>)&#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">userModel</span>.<span class="hljs-title function_">create</span>(body);<br>    <span class="hljs-keyword">return</span> body;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230114214717752.png" srcset="/images/icons8-loading-96.png" lazyload alt="image-20230114214717752"></p>
+<figure>
+<img
+src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230114214717752.png" srcset="/images/icons8-loading-96.png" lazyload
+alt="image-20230114214717752" />
+<figcaption aria-hidden="true">image-20230114214717752</figcaption>
+</figure>
 <p>查询所有用户</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">async</span> <span class="hljs-title function_">findAll</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">let</span> result = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">userModel</span>.<span class="hljs-title function_">find</span>().<span class="hljs-title function_">exec</span>();<br>    <span class="hljs-keyword">return</span> &#123;<span class="hljs-attr">msg</span>:result&#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>查找单个用户</p>
@@ -482,7 +653,8 @@
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">async</span> <span class="hljs-title function_">editOne</span>(<span class="hljs-attr">_id</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">body</span>: <span class="hljs-title class_">EditUserDTO</span>): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">void</span>&gt; &#123;<br>    <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">userModel</span>.<span class="hljs-title function_">findByIdAndUpdate</span>(_id, body);<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>删除用户</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">async</span> <span class="hljs-title function_">deleteOne</span>(<span class="hljs-attr">_id</span>: <span class="hljs-built_in">string</span>): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">void</span>&gt; &#123;<br>    <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">userModel</span>.<span class="hljs-title function_">findByIdAndDelete</span>(_id);<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h1><h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><div class="table-container">
+<h1 id="附件">附件</h1>
+<h2 id="装饰器">装饰器</h2>
 <table>
 <thead>
 <tr>
@@ -492,92 +664,100 @@
 </thead>
 <tbody>
 <tr>
-<td>@Controller()</td>
+<td><span class="citation"
+data-cites="Controller">@Controller</span>()</td>
 <td>定义一个基本控制器</td>
 </tr>
 <tr>
-<td>@Get()</td>
+<td><span class="citation" data-cites="Get">@Get</span>()</td>
 <td>定义一个 get 接口</td>
 </tr>
 <tr>
-<td>@Post()</td>
+<td><span class="citation" data-cites="Post">@Post</span>()</td>
 <td>定义一个 post 接口</td>
 </tr>
 <tr>
-<td>@Put()</td>
+<td><span class="citation" data-cites="Put">@Put</span>()</td>
 <td>定义一个 put 接口</td>
 </tr>
 <tr>
-<td>@Delete()</td>
+<td><span class="citation" data-cites="Delete">@Delete</span>()</td>
 <td>定义一个 delete 接口</td>
 </tr>
 <tr>
-<td>@Patch()</td>
+<td><span class="citation" data-cites="Patch">@Patch</span>()</td>
 <td>定义一个 patch 接口</td>
 </tr>
 <tr>
-<td>@Options()</td>
+<td><span class="citation" data-cites="Options">@Options</span>()</td>
 <td>定义一个 option 接口</td>
 </tr>
 <tr>
-<td>@All()</td>
+<td><span class="citation" data-cites="All">@All</span>()</td>
 <td>定义一个处理所有 HTTP 请求的接口</td>
 </tr>
 <tr>
-<td>@Request()，@Req()</td>
+<td><span class="citation" data-cites="Request">@Request</span>()，<span
+class="citation" data-cites="Req">@Req</span>()</td>
 <td>对应 req，Nest 将请求对象注入处理到</td>
 </tr>
 <tr>
-<td>@Response()，@Res()*</td>
+<td><span class="citation"
+data-cites="Response">@Response</span>()，<span class="citation"
+data-cites="Res">@Res</span>()*</td>
 <td>对应 res</td>
 </tr>
 <tr>
-<td>@Next()</td>
+<td><span class="citation" data-cites="Next">@Next</span>()</td>
 <td>对应 next</td>
 </tr>
 <tr>
-<td>@Session()</td>
+<td><span class="citation" data-cites="Session">@Session</span>()</td>
 <td>对应 req.session</td>
 </tr>
 <tr>
-<td>@Param(key?: string)</td>
+<td><span class="citation" data-cites="Param">@Param</span>(key?:
+string)</td>
 <td>对应 req.params<code>/</code>req.params[key] get</td>
 </tr>
 <tr>
-<td>@Body(key?: string)</td>
+<td><span class="citation" data-cites="Body">@Body</span>(key?:
+string)</td>
 <td>对应 req.body<code>/</code>req.body[key] post</td>
 </tr>
 <tr>
-<td>@Query(key?: string)</td>
+<td><span class="citation" data-cites="Query">@Query</span>(key?:
+string)</td>
 <td>对应 req.query<code>/</code>req.query[key]</td>
 </tr>
 <tr>
-<td>@Headers(name?: string)</td>
+<td><span class="citation" data-cites="Headers">@Headers</span>(name?:
+string)</td>
 <td>对应 req.headers<code>/</code>req.headers[name]</td>
 </tr>
 <tr>
-<td>@Ip()</td>
+<td><span class="citation" data-cites="Ip">@Ip</span>()</td>
 <td>对应 req.ip</td>
 </tr>
 <tr>
-<td>@HostParam()</td>
+<td><span class="citation"
+data-cites="HostParam">@HostParam</span>()</td>
 <td>对应 req.hosts</td>
 </tr>
 <tr>
-<td>@HttpCode()</td>
+<td><span class="citation" data-cites="HttpCode">@HttpCode</span>()</td>
 <td>更改状态码</td>
 </tr>
 <tr>
-<td>@Header()</td>
+<td><span class="citation" data-cites="Header">@Header</span>()</td>
 <td>更改请求头</td>
 </tr>
 <tr>
-<td>@Module()</td>
+<td><span class="citation" data-cites="Module">@Module</span>()</td>
 <td>定义模块</td>
 </tr>
 </tbody>
 </table>
-</div>
 
                 
               </div>
