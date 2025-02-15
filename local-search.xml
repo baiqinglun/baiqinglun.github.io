@@ -4,6 +4,41 @@
   
   
   <entry>
+    <title>Abaqus案例之管道爆炸</title>
+    <link href="/2025/02/15/049%20Abaqus%E6%A1%88%E4%BE%8B%E4%B9%8B%E7%AE%A1%E9%81%93%E7%BC%BA%E9%99%B7%E5%BC%80%E8%A3%82/"/>
+    <url>/2025/02/15/049%20Abaqus%E6%A1%88%E4%BE%8B%E4%B9%8B%E7%AE%A1%E9%81%93%E7%BC%BA%E9%99%B7%E5%BC%80%E8%A3%82/</url>
+    
+    <content type="html"><![CDATA[<div class="note note-success">            <p>本文最新更新于 2025/02/15 晚上</p>          </div><h2 id="完整管道">1、完整管道</h2><a class="btn" href=""  title="视频教程" target="_blank">https://www.bilibili.com/video/BV1uP411g7Xu/?spm_id_from=333.337.search-card.all.click&vd_source=33b50a4dd201d7564e6e63d321809ce9</a><h3 id="部件">1.1 部件</h3><p>基本参数</p><ul><li>管道厚度：6.3mm</li><li>长度：2.1m</li><li>直径：450mm</li></ul><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215194206.png"></p></div><h3 id="材料">1.2 材料</h3><ul><li>密度：<spanclass="math inline">\(7800kg/m^{3}=7.8e^{-9}t/m^{3}\)</span></li><li>杨氏模量：<spanclass="math inline">\(2.1×10^{11}N·m^{-2}=2.1×10^{5}N·mm^{-2}\)</span></li><li>泊松比：0.3</li><li>塑性 755 0 809 0.01 829 0.02 842 0.1 895 0.15 922 0.4 953 1 11004</li></ul><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215194446.png"></p></div><h3 id="分析步">1.3 分析步</h3><ul><li>计算类型：动力显性</li><li>时间长度：10s</li><li>自定义质量缩放</li></ul><p>质量缩放</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215195901.png"></p></div><p>场输出选择<code>STATUS</code>和<code>DMICRT</code></p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215200036.png"></p></div><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215200134.png"></p></div><h3 id="载荷">1.4 载荷</h3><ul><li>管道两端面全固定</li><li>内壁面压力20MPa</li></ul><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215200820.png"></p></div><h3 id="网格">1.5 网格</h3><p>全尺寸50mm</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215200809.png"></p></div><h2 id="内腐蚀管道">2、内腐蚀管道</h2><h2 id="外腐蚀管道">3、外腐蚀管道</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>模拟</category>
+      
+      <category>Abaqus</category>
+      
+      <category>案例</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模拟</tag>
+      
+      <tag>Abaqus</tag>
+      
+      <tag>案例</tag>
+      
+      <tag>管道</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Abaqus模拟之勾股拉伸件</title>
     <link href="/2025/02/15/048%20Abaqus%E6%A1%88%E4%BE%8B%E4%B9%8B%E5%8B%BE%E8%82%A1%E6%8B%89%E4%BC%B8%E4%BB%B6/"/>
     <url>/2025/02/15/048%20Abaqus%E6%A1%88%E4%BE%8B%E4%B9%8B%E5%8B%BE%E8%82%A1%E6%8B%89%E4%BC%B8%E4%BB%B6/</url>

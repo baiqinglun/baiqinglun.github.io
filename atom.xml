@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-02-15T09:04:42.190Z</updated>
+  <updated>2025-02-15T13:33:49.731Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Abaqus案例之管道爆炸</title>
+    <link href="http://example.com/2025/02/15/049%20Abaqus%E6%A1%88%E4%BE%8B%E4%B9%8B%E7%AE%A1%E9%81%93%E7%BC%BA%E9%99%B7%E5%BC%80%E8%A3%82/"/>
+    <id>http://example.com/2025/02/15/049%20Abaqus%E6%A1%88%E4%BE%8B%E4%B9%8B%E7%AE%A1%E9%81%93%E7%BC%BA%E9%99%B7%E5%BC%80%E8%A3%82/</id>
+    <published>2025-02-15T11:22:00.000Z</published>
+    <updated>2025-02-15T13:33:49.731Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note note-success">            <p>本文最新更新于 2025/02/15 晚上</p>          </div><h2 id="完整管道">1、完整管道</h2><a class="btn" href=""  title="视频教程" target="_blank">https://www.bilibili.com/video/BV1uP411g7Xu/?spm_id_from=333.337.search-card.all.click&vd_source=33b50a4dd201d7564e6e63d321809ce9</a><h3 id="部件">1.1 部件</h3><p>基本参数</p><ul><li>管道厚度：6.3mm</li><li>长度：2.1m</li><li>直径：450mm</li></ul><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215194206.png"></p></div><h3 id="材料">1.2 材料</h3><ul><li>密度：<spanclass="math inline">\(7800kg/m^{3}=7.8e^{-9}t/m^{3}\)</span></li><li>杨氏模量：<spanclass="math inline">\(2.1×10^{11}N·m^{-2}=2.1×10^{5}N·mm^{-2}\)</span></li><li>泊松比：0.3</li><li>塑性 755 0 809 0.01 829 0.02 842 0.1 895 0.15 922 0.4 953 1 11004</li></ul><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215194446.png"></p></div><h3 id="分析步">1.3 分析步</h3><ul><li>计算类型：动力显性</li><li>时间长度：10s</li><li>自定义质量缩放</li></ul><p>质量缩放</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215195901.png"></p></div><p>场输出选择<code>STATUS</code>和<code>DMICRT</code></p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215200036.png"></p></div><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215200134.png"></p></div><h3 id="载荷">1.4 载荷</h3><ul><li>管道两端面全固定</li><li>内壁面压力20MPa</li></ul><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215200820.png"></p></div><h3 id="网格">1.5 网格</h3><p>全尺寸50mm</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215200809.png"></p></div><h2 id="内腐蚀管道">2、内腐蚀管道</h2><h2 id="外腐蚀管道">3、外腐蚀管道</h2>]]></content>
+    
+    
+    <summary type="html">完整管道、内腐蚀缺陷和外腐蚀缺陷开裂</summary>
+    
+    
+    
+    <category term="模拟" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/"/>
+    
+    <category term="Abaqus" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/Abaqus/"/>
+    
+    <category term="案例" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/Abaqus/%E6%A1%88%E4%BE%8B/"/>
+    
+    
+    <category term="模拟" scheme="http://example.com/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+    <category term="Abaqus" scheme="http://example.com/tags/Abaqus/"/>
+    
+    <category term="案例" scheme="http://example.com/tags/%E6%A1%88%E4%BE%8B/"/>
+    
+    <category term="管道" scheme="http://example.com/tags/%E7%AE%A1%E9%81%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Abaqus模拟之勾股拉伸件</title>
     <link href="http://example.com/2025/02/15/048%20Abaqus%E6%A1%88%E4%BE%8B%E4%B9%8B%E5%8B%BE%E8%82%A1%E6%8B%89%E4%BC%B8%E4%BB%B6/"/>
     <id>http://example.com/2025/02/15/048%20Abaqus%E6%A1%88%E4%BE%8B%E4%B9%8B%E5%8B%BE%E8%82%A1%E6%8B%89%E4%BC%B8%E4%BB%B6/</id>
     <published>2025-02-15T07:51:00.000Z</published>
-    <updated>2025-02-15T09:04:42.190Z</updated>
+    <updated>2025-02-15T11:21:35.895Z</updated>
     
     <content type="html"><![CDATA[<div class="note note-success">            <p>本文最新更新于 2025/02/15 下午</p>          </div><h2 id="创建部件">1、创建部件</h2><p>创建构造：过两点的斜线</p><blockquote><p>“过两点的斜线”指的是在建模过程中通过定义两个特定点来创建一条直线。这条线可以用于构建几何体、划分区域或进行加载和边界条件的设置。通过指定这两个点，可以清晰地确定线段的起始和终止位置，以便于后续的分析和仿真。</p></blockquote><ol type="1"><li><p>创建与x、y轴重合的两条线，便于之后的镜像。</p></li><li><p>创建点</p></li></ol><ul><li>(6.25,0)</li><li>(6.25,50)</li><li>(36.25,50)</li><li>(12.5,0)</li><li>(12.5,50)</li><li>(12.5,100)</li></ul><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215164215.png"></p></div><p>完整草图</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215164321.png"></p></div><p>深度设置为1.5</p><ol start="3" type="1"><li>分割拉伸件</li></ol><p>目的：便于施加边界条件和网格加密</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215164540.png"></p></div><p>完成效果</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215164652.png"></p></div><h2 id="材料属性">2、材料属性</h2><p>Al材料属性</p><blockquote><p>使用mm单位制</p></blockquote><ul><li>密度：2.7e-9</li><li>弹性：<ul><li>杨氏模量：70000</li><li>泊松比：0.3</li></ul></li><li>塑性<ul><li>屈服应力-塑性应变</li><li>150-0</li><li>245-0.7</li></ul></li><li>JC损伤<ul><li>d1：-0.77</li><li>d2：1.45</li><li>d3：-0.47</li><li>d4：0</li><li>d5：1.6</li><li>损伤演化：损伤位移0.02</li></ul></li></ul><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215164719.png"></p></div><p>创建均质平面</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215164748.png"></p></div><p>全部赋予部件，并装配</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215164815.png"></p></div><h2 id="分析步">3、分析步</h2><p>时间长度0.1</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215164943.png"></p></div><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215165040.png"></p></div><h2 id="施加载荷">4、施加载荷</h2><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215165140.png"></p></div><p>位移</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215165207.png"></p></div><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215165235.png"></p></div><h2 id="网格">5、网格</h2><p>网格加密</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215165511.png"></p></div><p>指派单元类型为：八结点线性六面体单元</p><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215165548.png"></p></div><h2 id="提交作业后处理">6、提交作业后处理</h2><div style="width: 80%; margin: auto"><p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250215170331.png"></p></div><div class="note note-success">            <p>参考： 1.https://www.bilibili.com/video/BV1hbpeehEwX/?spm_id_from=333.337.search-card.all.click&amp;vd_source=33b50a4dd201d7564e6e63d321809ce9</p>          </div><div class="note note-success">            <p>完成</p>          </div>]]></content>
     
@@ -514,35 +545,6 @@
     <category term="学习笔记" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     <category term="库朗数" scheme="http://example.com/tags/%E5%BA%93%E6%9C%97%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DPM颗粒模型</title>
-    <link href="http://example.com/2024/07/26/029%20Fluent%20DPM%E6%A8%A1%E5%9E%8B/"/>
-    <id>http://example.com/2024/07/26/029%20Fluent%20DPM%E6%A8%A1%E5%9E%8B/</id>
-    <published>2024-07-26T11:33:00.000Z</published>
-    <updated>2025-02-08T06:47:20.943Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="学习笔记">1 学习笔记</h1><h2 id="fluent-颗粒流">0、Fluent 颗粒流</h2><p>Fluent 有 3 种颗粒模拟方法</p><ol type="1"><li>欧拉颗粒流（双流体模型）：把颗粒当做连续介质处理，优点是计算量小，但需要更多的相互作用模型，比如阻力等，多用于流化床。</li><li>DPM 模型（离散相模型）：DPM模型之间不考虑碰撞也不考虑体积空间，适用于流体占主导作用的，颗粒占比不超过10%。模拟一般灰尘、气溶胶等小颗粒的运动，也经常配合化学反应。</li><li>DDPM 模型（稠密离散相模型）：DDPM 是 Dense Discrete Phase Model的缩写，是专门用来模拟例如流化床这种稠密颗粒流的模型，可以理解为简化了的DEM。他和 DPM的区别就是考虑了<strong>体积分数</strong>，是有孔隙率的，后处理中能够查看颗粒所占的体积分数，在相间相互作用力也可以考虑颗粒之间的碰撞，但是对于碰撞的计算是进行了模化的，不是用软球模型计算真实的碰撞过程，颗粒间的碰撞产生的力是根据KTGF 下颗粒的 stress tensori 计算得到。</li><li>DEM 离散元模型：可考虑颗粒的真实碰撞，可采用弹性 弹性阻尼 赫兹赫兹阻尼碰撞模型，一般 DDPM+DEM 一起使用</li></ol><h2 id="耦合">1、耦合</h2><ol type="1"><li>单向耦合</li><li>双向耦合</li></ol><h3 id="单向耦合">1.1 单向耦合</h3><p>单向耦合：离散相对连续相影响很小无需设置相间耦合.</p><p>单向耦合问题：只要在加入离散相粒子前计算连续相流场直至收敛，然后打开离散相模型，加入离散相粒子，无需迭代计算因为已经计算收敛流场稳定了.</p><p>连续相（也就是流场）计算可以是 steady（定常/稳态流场）也可以是unsteady（非定常/瞬态/transient）。这两种连续相的流场中离散相计算都可以用非耦合粒子计算。</p><p>单相耦合计算不考虑离散相对连续相的影响，离散相的动量、质量、温度等信息不会反馈给流场，因为流场事先已经计算收敛了，不能变了，当开DPM 时候，就是通过流场的信息计算 DPM 了，简单说是流场产生 DPM场的概念。</p><h3 id="双向耦合">1.2 双向耦合</h3><p>耦合计算的步骤：</p><ol type="1"><li>求解连续相流场（在引入离散相之前））</li><li>通过计算每个离散相注入的粒子轨迹来引入离散相。</li><li>使用先前粒子计算期间确定的动量、热量和质量的相间交换，重新计算连续相流。</li><li>重新计算修改的连续相流场中的离散相轨迹。</li><li>重复前两个步骤，直到获得收敛解，其中连续相流场和离散相颗粒轨迹在每次附加计算中都保持不变。</li></ol><h2 id="dpm-边界条件">2、DPM 边界条件</h2><ol type="1"><li>escape 逃逸：颗粒离开流体域</li><li>trap：被捕获吸收</li><li>reflect：反弹，一般用于壁面上，需要指定反射系数</li><li>wall jet：壁面射流，颗粒触碰壁面后会分成更小的颗粒继续流动</li><li>wall film：需要打开壁面液膜模型，与 wall jet 相似</li><li>reinject：当颗粒达到某个计算域边界时，将粒子重新引入域。</li></ol><figure><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291658664.png"alt="image-20230829165815567" /><figcaption aria-hidden="true">image-20230829165815567</figcaption></figure><h2 id="粒子方向">3、粒子方向</h2><p>Inject Using Face NormalDirection：开启这个选项后，粒子在入射时的速度方向将与面法向一致，这样就无需定义颗粒在x、y、z 三个方向的速度分量，只需要定义速度值； <imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202309020913147.png"alt="image.png" /></p><h2 id="粒子射入类型">4、粒子射入类型</h2><p>https://zhuanlan.zhihu.com/p/532180420 <imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202309020914955.png"alt="image.png" /></p><h2 id="颗粒碰撞">5、颗粒碰撞</h2><p>https://zhuanlan.zhihu.com/p/621078742</p><h2 id="颗粒其他作用">6、颗粒其他作用</h2><h1 id="案例颗粒搅拌">2 案例：颗粒搅拌</h1><h2 id="重力项">1、重力项</h2><h2 id="离散相模型">2、离散相模型</h2><p>打开【交互】-【与连续相的交互】</p><ul><li>每次流动迭代更新 DPM 源项：意思是每 10个流动迭代更新一下颗粒的数量变化，这个都给他勾选上，颗粒破碎，被壁面捕获，更改质量流量都会使数量发生变化。</li><li>DPM 迭代间隔：连续相每次迭代 10步，开始进行离散相的计算。（不收敛可调小）</li><li>颗粒时时间步大小：如为 0.001s 代表颗粒相每 0.001s追踪一次，但是，在开始计算阶段，粒子一边释放一边追踪，释放完成后也在追踪。（不收敛可调小）</li><li>最大步数和步长因子：Max number of steps 和 Specify LengthScale，每一次轨迹跟踪的最大积分时间步数和积分长度标尺，都是为了确定积分时间步长∆t。选择 Specify Length Scale选项以确定积分时间步长时，积分时间步长约等于所给的长度尺度（LengthScale）除以颗粒相对于连续相的速度大小。而积分步数约等于颗粒时间步长（ParticleTime Step Size）除以积分时间步长，但以 Max Number of Steps为限（因此：积分时间步长 ∆t&lt;颗粒时间步长 Particle Time StepSize∆tp）。所以，如 Max Number of Steps不够大，则未到颗粒时间步长就结束一个颗粒时间步，并转入下一个颗粒时间步，因而颗粒终了状态报告为incomplete。</li></ul><figure><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291040314.png"alt="image-20230829104022213" /><figcaption aria-hidden="true">image-20230829104022213</figcaption></figure><p>设置喷射源</p><figure><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291041115.png"alt="image-20230829104130041" /><figcaption aria-hidden="true">image-20230829104130041</figcaption></figure><h2 id="追踪颗粒轨迹">3、追踪颗粒轨迹</h2><p>创建颗粒轨迹</p><figure><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291541393.png"alt="image-20230829154138243" /><figcaption aria-hidden="true">image-20230829154138243</figcaption></figure><p>创建颗粒场景并保存</p><figure><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291542031.png"alt="image-20230829154239921" /><figcaption aria-hidden="true">image-20230829154239921</figcaption></figure><p>创建解决方案动画</p><figure><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291543657.png"alt="image-20230829154309557" /><figcaption aria-hidden="true">image-20230829154309557</figcaption></figure><h2 id="导出颗粒数据">4、导出颗粒数据</h2><figure><imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291543784.png"alt="image-20230829154336663" /><figcaption aria-hidden="true">image-20230829154336663</figcaption></figure><h1 id="喷头模拟">3 喷头模拟</h1><h2 id="碳酸氢钠性质">碳酸氢钠性质</h2><p>密度：2.16 g/mL 直径：在 0.1-10mm 之间</p><h2 id="section">20230829</h2><p>使用之前的网格，只有喷嘴和场域，出口 5MPa 和出口 2MPa 都发散。想到昨天尝试的将出口都改为压力出口（包括计算域的edge）计算较好，今天再试一下，但还是发散。使用昨天的设置再跑一边，只不过加入离散相。但是昨天加入了 VOF模型，现在关闭了。 <strong>成功设置</strong> 1、瞬态 2、能量 3、标准k-e，标准壁面 4、离散相模型： <imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291913883.png"alt="image.png" /> 直径 0.0001，温度 300K，停止时间 1e-5，总流量 100000<imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291913817.png"alt="image.png" /> 5、材料 <imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291914553.png"alt="image.png" /> 6、边界条件 <imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291915645.png"alt="image.png" /> 压力进口（ecapse） <imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291916777.png"alt="image.png" /> 压力出口 edge（reflect） <imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291916237.png"alt="image.png" /> <imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291917062.png"alt="image.png" /> 7、方法 PISO 方法 <imgsrc="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/202308291917948.png"alt="image.png" /> 8、残差 1e-06 9、步长 时间步长 0.01 时间步数 100</p><h2 id="section-1">20230905</h2><p>截止今日，在雪研师姐电脑上已经模拟完成渐扩喷头 2MPa 和5MPa，在自己电脑上渐扩喷头（带孔）2MPa，步长 1e-6，共 1000步。但是模拟出的粒子速度太大，现在想要使用 udf改变压力边界条件，呈现一个递减的趋势，气体使用真实气体状态方程进行模拟，密度基求解器。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;udf.h&quot;</span></span><br>DEFINE_PROFILE(inlet_x,thread,index)<br>&#123;<br>real y,v0,h0;<br>real x[ND_ND];<br><span class="hljs-type">face_t</span> f;<br>real flow_time = CURRENT_TIME;  <span class="hljs-comment">// 获取当前模拟的时间</span><br>begin_f_loop(f,thread)<br>&#123;<br><span class="hljs-keyword">if</span>(flow_time &gt;=<span class="hljs-number">0</span> &amp;&amp; flow_time &lt;= <span class="hljs-number">0.05</span> )<br>F_PROFILE(f,thread,index) = <span class="hljs-number">2000000</span> - <span class="hljs-number">40000000</span> * flow_time;<br><span class="hljs-keyword">else</span><br>F_PROFILE(f,thread,index) = <span class="hljs-number">0</span>;<br>&#125;<br>end_f_loop(f,thread)<br>&#125;<br></code></pre></td></tr></table></figure><p>为了能使粒子喷出后分散均匀，共设计 6种喷头结构，分别为渐扩喷头、渐扩喷头（带孔）、拉法尔喷头、拉法尔喷头（带孔）、蘑菇喷头和蘑菇喷头（带孔）。喷嘴尺寸：</p><p>喷嘴网格：</p><h3 id="空气">空气</h3><p>使用高压空气作为驱动气充入喷粉罐中，空气携带粒子以 2MPa 和 5MPa的压力喷出。压力以 40MPa/s 速度衰减，在 50ms 时衰减为 0。使用理想气体，密度变化。</p><h3 id="粒子">粒子</h3><p>抑爆剂粒子选用 NaHCO3 粒子，密度为 2.16g/cm³，比热为 2170J/(kg K)粒子的直径分布在 1~100um 范围内，平均直径为 50um，共 10 种粒子大小。粒子总质量 100g，在 50ms 内喷完。即产生速率为 2kg/s。（假设阀门 50ms打开） 粒子速度为 0.1m/s 从壁面出来 双向耦合，考虑粒子的碰撞</p><h3 id="求解器设置">求解器设置：</h3><p>因喷出速度较大，求解器选用密度基。</p>]]></content>
-    
-    
-    <summary type="html">对Fluent中的DPM模型基本介绍，模拟固体颗粒通过喷头喷出的效果</summary>
-    
-    
-    
-    <category term="模拟" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/"/>
-    
-    <category term="Fluent" scheme="http://example.com/categories/%E6%A8%A1%E6%8B%9F/Fluent/"/>
-    
-    
-    <category term="Fluent" scheme="http://example.com/tags/Fluent/"/>
-    
-    <category term="模拟" scheme="http://example.com/tags/%E6%A8%A1%E6%8B%9F/"/>
-    
-    <category term="学习笔记" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="DPM" scheme="http://example.com/tags/DPM/"/>
     
   </entry>
   
