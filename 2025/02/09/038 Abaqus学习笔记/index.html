@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="大白的个人博客">
 <meta property="og:description" content="Abaqus基础">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210170003.png">
+<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220093805.png">
 <meta property="article:published_time" content="2025-02-09T13:20:00.000Z">
-<meta property="article:modified_time" content="2025-02-13T07:06:36.999Z">
+<meta property="article:modified_time" content="2025-02-20T01:38:25.740Z">
 <meta property="article:author" content="DB">
 <meta property="article:tag" content="模拟">
 <meta property="article:tag" content="学习笔记">
 <meta property="article:tag" content="Abaqus">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210170003.png">
+<meta name="twitter:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220093805.png">
   
   
   
@@ -231,7 +231,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.4k 字
+          3k 字
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
           <!-- compatible with older versions-->
-          12 分钟
+          26 分钟
         
       </span>
     
@@ -392,7 +392,7 @@ Input按钮在工作目录中生成。Inp文件可以输入模型，也可以由
 <blockquote>
 <p>一定要注意单位问题</p>
 </blockquote>
-<h2 id="创建材料">3.1 创建材料</h2>
+<h3 id="创建材料">3.1 创建材料</h3>
 <p>属性获取</p>
 <ul>
 <li>论文</li>
@@ -404,7 +404,7 @@ Input按钮在工作目录中生成。Inp文件可以输入模型，也可以由
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213145331.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
-<h2 id="创建截面">3.2 创建截面</h2>
+<h3 id="创建截面">3.2 创建截面</h3>
 <p>abaqus不能将材料直接赋予给模型，需要先创建包含材料属性的截面，再将截面属性分配给模型区域。</p>
 <div class="note note-info">
             <p>常用截面类型</p>
@@ -420,10 +420,161 @@ Input按钮在工作目录中生成。Inp文件可以输入模型，也可以由
 <blockquote>
 <p>注意：对于均质壳截面，实际可以把厚度显示出来，正常显示的位置为中间层，在装配时要考虑壳的厚度。</p>
 </blockquote>
-<h2 id="指定截面">3.3 指定截面</h2>
+<h3 id="指定截面">3.3 指定截面</h3>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213150230.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
+<h2 id="装配">4、装配</h2>
+<h2 id="分析步">5、分析步</h2>
+<h3 id="分析步的类型及特点">5.1 分析步的类型及特点</h3>
+<ol type="1">
+<li>静力通用
+<ol type="1">
+<li>模拟换那么加载下的相应</li>
+<li>不考虑惯性和阻尼效应[^1]</li>
+<li>重力等简单载荷</li>
+</ol></li>
+<li>动力隐式
+<ol type="1">
+<li>模拟动态载荷下的响应</li>
+<li>复杂集合材料行为的高度非线性问题，如接触和塑性变形</li>
+<li>汽车碰撞、金属成型</li>
+</ol></li>
+<li>动力显式
+<ol type="1">
+<li>模拟快速动态事件</li>
+<li>材料和集合非线性问题复杂变形和接触问题</li>
+<li>高速冲击、爆炸</li>
+</ol></li>
+</ol>
+<h4 id="静力通用">5.1.1 静力通用</h4>
+<p>此设置中的<strong>时间长度并非实际物理意义上的时间长度</strong>，类似于份的概念，比如这里有1份</p>
+<p>若模拟过程中需要有大变形，则需<strong>打开几何非线性</strong></p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250216153023-2025-02-16.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>图中设置的增量含义：</p>
+<ul>
+<li>最大步数为100：如果在迭代过程中迭代步达到100还没有收敛就会报错，提示用户模型的收敛性太差了。</li>
+<li>增量不步初始大小，表示模拟会先试用初始步进行迭代，如果没有收敛会使用二分法逐渐减半，直到达到最小还没有收敛就会报错。</li>
+</ul>
+<p>在指派网格单元类型时，需要使用<code>隐式算法</code></p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250216153620-2025-02-16.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<blockquote>
+<p>动力隐式分析步与静力通用分析步设置时间长度、最大步数、增量以及单元格类型指派含义相同，但会默认打开几何非线性</p>
+</blockquote>
+<h4 id="动力显式">5.1.2 动力显式</h4>
+<p>此设置中<strong>时间长度具有实际物理意义</strong>，比如说一个爆炸行为在0.01s完成，这里的时间步长就要设置为0.01s。</p>
+<p>增量是通过软件在计算过程中会自动调整，一般可不设置。</p>
+<p>在动力显式算法中有个重要概念为<code>质量缩放</code></p>
+<ul>
+<li><strong>含义</strong>：缩放密度改变计算时间</li>
+<li><strong>目的</strong>：提高计算效率</li>
+<li><strong>类型</strong>
+<ul>
+<li>按系数质量缩放：若设置为100，质量就会增大100倍，<span
+class="math inline">\(\sqrt{100}=10\)</span>倍的时间缩放。若我们不知道模型的质量缩放系数在多少合适，只知道在0.1s内就算完啦，可以使用目标时间质量缩放。</li>
+<li>按目标时间质量缩放：若设置为<span
+class="math inline">\(1e^{-5}\)</span>，即增量步小于这个值时，质量会增大</li>
+</ul></li>
+</ul>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250216154845-2025-02-16.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>在指派网格单元类型时需要选择<code>Explicit</code>显式算法，保证算法的统一</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250216155046-2025-02-16.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h3 id="几何非线性">5.2 几何非线性</h3>
+<ol type="1">
+<li>线性：线性摄动分析步适合用于小变形问题。通过线性化处理来简化计算过程。</li>
+<li>非线性：几何非线性分析步考虑大变形效应，适用于材料或结构产生大变形</li>
+</ol>
+<h3 id="模拟设置">5.3 模拟设置</h3>
+<ol type="1">
+<li>选择分析步</li>
+<li>设置时间增量</li>
+<li>质量缩放（针对于动力显式算法）</li>
+<li>选择单元类型</li>
+</ol>
+<h2 id="载荷">6、载荷</h2>
+<h3 id="幅值曲线">6.1 幅值曲线</h3>
+<p>在载荷施加中共有11个幅值曲线，实际加载力/位移=<code>load</code>(载荷)*<code>amplitude</code>(幅值)，<code>step time</code>对应每个分析步时间，<code>total time</code>对应总时间。</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220083328.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h4 id="ramp">6.1.1 Ramp</h4>
+<p>默认为从0时刻幅值为0线性插值到最后时刻幅值为1</p>
+<h4 id="表格幅值曲线tabular">6.1.2 表格幅值曲线：(tabular)</h4>
+<p>表格幅值曲线根据用户输入每个时刻的幅值大小，线性插值。</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220083812.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h4 id="等间距幅值曲线equally-spaced">6.1.3 等间距幅值曲线：(Equally
+spaced)</h4>
+<p>等间距幅值曲线需要给出一个固定时间间隔，在时间间隔内需要给出初始时刻及其幅值大小。然后进行线性插值。</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220083927.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h4 id="周期幅值曲线periodic傅里叶级数">6.1.4
+周期幅值曲线：(Periodic)（傅里叶级数）</h4>
+<p>定义如下：</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220084314.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>正弦</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220084156.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>余弦</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220084215.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>混合</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220084225.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h4 id="调制幅值曲线modulated">6.1.5 调制幅值曲线：(Modulated)</h4>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220084352.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220084421.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h4 id="衰减幅值曲线decay">6.1.6 衰减幅值曲线：(Decay)</h4>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220084443.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h4 id="依赖于解幅值曲线solution-dependent">6.1.7
+依赖于解幅值曲线：(Solution dependent)</h4>
+<p>数据由初始值、最小值和最大值组成。振幅从初始值开始，然后根据解的进度进行修改，但需根据最小值和最大值进行修改。最大值通常是用于结束分析的控制机制。该方法用于超塑成型分析的蠕变应变速率控制。</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220084553.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h4 id="平滑分析步幅值曲线smooth-step">6.1.8 平滑分析步幅值曲线(Smooth
+step)</h4>
+<p>用于定义旨在从一个幅度值平滑地上升或下降到另一个幅度值。该定义不能用于在一组数据点之间进行平滑插值</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220084628.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h4 id="激励器幅值曲线actuator">6.1.9 激励器幅值曲线：(Actuator)</h4>
+<p>激励器振幅的当前值可以在任何给定时间从与逻辑建模程序的共同仿真导入（请参阅关于共同仿真）。激励器振幅定义上指定的名称用作执行器名称，用于共同仿真目的。因此，在给定时间，每个激励器都与一个实数（振幅的当前值）关联。与任何振幅定义一样，用户指定的名称可以与任何可以参考振幅的Abaqus功能结合使用。</p>
+<h4 id="谱幅值曲线spectrum">6.1.10 谱幅值曲线：(Spectrum)</h4>
+<p>多断幅值，以及幅值的一阶二阶导数的变化情况</p>
+<h4 id="用户幅值曲线user">6.1.11 用户幅值曲线：（User）</h4>
+<p>用户幅值曲线即自行编写UAMP或者VUAMP子程序来定义。且给出变量数。</p>
+<h4 id="psd定义幅值曲线psd-definition">6.1.12 PSD定义幅值曲线:（PSD
+Definition）</h4>
+<p>在随机响应分析步骤中，使用PSD定义方法定义随机负载的频率依赖性。选择功率可直接以功率单位定义频率功能。选择“分贝”以分贝为单位定义频率函数。如果将使用频率函数以g为单位定义基本运动，请选择“重力”（基本运动）。如果选择这些单位，则必须定义重力加速度。如果选择了分贝单位，请为参考功率输入一个值。如果选择了重力单位，请输入参考重力值。</p>
+<p>在数据表中，输入或导入该函数的数据值：</p>
+<p>（1）函数的实部和虚部，（以分贝为单位或单位每频率）</p>
+<p>（2）频率，周期/时间或频段号（对于分贝单位）。</p>
+<p>另外：切换上在外部用户子程序指定数据，你可以提供PSD的用户子程序来定义幅值曲线。</p>
+<h2 id="参考">参考</h2>
+<p>[^1]
+任何振动系统在振动中，由于外界作用（如流体阻力、摩擦力等）和/或系统本身固有的原因引起的振动幅度逐渐下降的特性，以及此一特性的量化表征。</p>
 
                 
               </div>
