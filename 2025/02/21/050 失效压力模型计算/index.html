@@ -1,0 +1,805 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/logo-apple.png">
+  <link rel="icon" href="/images/logo-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="DB">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="含腐蚀缺陷管道的失效压力计算模型，输出csv文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="失效压力模型">
+<meta property="og:url" content="http://example.com/2025/02/21/050%20%E5%A4%B1%E6%95%88%E5%8E%8B%E5%8A%9B%E6%A8%A1%E5%9E%8B%E8%AE%A1%E7%AE%97/index.html">
+<meta property="og:site_name" content="大白的个人博客">
+<meta property="og:description" content="含腐蚀缺陷管道的失效压力计算模型，输出csv文件">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250221104911.png">
+<meta property="article:published_time" content="2025-02-21T11:22:00.000Z">
+<meta property="article:modified_time" content="2025-02-21T03:12:33.241Z">
+<meta property="article:author" content="DB">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="失效压力">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250221104911.png">
+  
+  
+  
+  <title>失效压力模型 - 大白的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/images/icons8-loading-96.png","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="大白的个人博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>大白的个人博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives" target="_self">
+                <i class="iconfont icon-books"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-th-large"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="失效压力模型"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        DB
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-21 19:22" pubdate>
+          星期五, 二月 21日 2025, 7:22 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          18 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">失效压力模型</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <div class="note note-success">
+            <p>本文最新更新于 2025/02/21 上午</p>
+          </div>
+<p>想写一个计算缺陷管道失效压力的程序，输入管道尺寸及裂纹参数能够使用不能的方法计算出失效压力，然后输出到csv文件中。</p>
+<a class="btn" href="https://github.com/baiqinglun/Pipe-Failure-Pressure"  title="github地址" target="_blank">github地址</a>
+<pre><code class=" mermaid">classDiagram
+class FailurePressureAbstract
+FailurePressureAbstract : +double calucate(const Params&amp; params)
+FailurePressureAbstract : ~FailurePressureAbstract()
+
+class ASMEB31G2009
+ASMEB31G2009 : +double calucate(const Params&amp; params)
+FailurePressureAbstract &lt;|-- ASMEB31G2009
+
+class RSTRENG085dL
+RSTRENG085dL : +double calucate(const Params&amp; params)
+FailurePressureAbstract &lt;|-- RSTRENG085dL
+
+class PCORRC
+PCORRC : +double calucate(const Params&amp; params)
+FailurePressureAbstract &lt;|-- PCORRC
+
+class DNV_RP_F101
+DNV_RP_F101 : +double calucate(const Params&amp; params)
+FailurePressureAbstract &lt;|-- DNV_RP_F101
+
+class AGANG18
+AGANG18 : +double calucate(const Params&amp; params)
+FailurePressureAbstract &lt;|-- AGANG18
+
+class Netto
+Netto : +double calucate(const Params&amp; params)
+FailurePressureAbstract &lt;|-- Netto
+
+class C_Fer
+C_Fer : +double calucate(const Params&amp; params)
+FailurePressureAbstract &lt;|-- C_Fer
+
+class RAM_PIPE_REQUAL
+RAM_PIPE_REQUAL : +double calucate(const Params&amp; params)
+FailurePressureAbstract &lt;|-- RAM_PIPE_REQUAL
+
+class FailurePressureContext
+FailurePressureContext : - FailurePressureAbstract strategy
+FailurePressureContext : + void setStrategy
+FailurePressureContext : +double executeStrategy(const Params&amp; params)
+FailurePressureContext &lt;|.. FailurePressureAbstract
+
+</code></pre>
+<h2 id="失效模型">1、失效模型</h2>
+<p>根据需求选定策略模型来编写失效模型，方便代码维护。</p>
+<p>首先定义一个抽象类，具有<code>calucate</code>函数，其他子类都要重写这个函数，实现不同的功能。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">FailurePressureAbstract</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">double</span> <span class="hljs-title">calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span> </span>= <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">virtual</span> ~<span class="hljs-built_in">FailurePressureAbstract</span>() = <span class="hljs-keyword">default</span>; <span class="hljs-comment">// 虚析构函数</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>其中<code>Params</code>类型是一个列表，可存储<code>float</code>、<code>double</code>和<code>int</code>三种类型，定义如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">using</span> Params = std::vector&lt;std::variant&lt;<span class="hljs-type">float</span>, <span class="hljs-type">double</span>, <span class="hljs-type">int</span>&gt;&gt;;<br></code></pre></td></tr></table></figure>
+<p>子类集成父类，定义如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ASMEB31G2009</span> : <span class="hljs-keyword">public</span> FailurePressureAbstract &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span> <span class="hljs-keyword">override</span></span>;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">RSTRENG085dL</span> : <span class="hljs-keyword">public</span> FailurePressureAbstract &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span> <span class="hljs-keyword">override</span></span>;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">PCORRC</span> : <span class="hljs-keyword">public</span> FailurePressureAbstract &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span> <span class="hljs-keyword">override</span></span>;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">DNV_RP_F101</span> : <span class="hljs-keyword">public</span> FailurePressureAbstract &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span> <span class="hljs-keyword">override</span></span>;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">C_Fer</span> : <span class="hljs-keyword">public</span> FailurePressureAbstract &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span> <span class="hljs-keyword">override</span></span>;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">AGANG18</span> : <span class="hljs-keyword">public</span> FailurePressureAbstract &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span> <span class="hljs-keyword">override</span></span>;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Netto</span> : <span class="hljs-keyword">public</span> FailurePressureAbstract &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span> <span class="hljs-keyword">override</span></span>;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">RAM_PIPE_REQUAL</span> : <span class="hljs-keyword">public</span> FailurePressureAbstract &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span> <span class="hljs-keyword">override</span></span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>子类实现如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br></pre></td><td class="code"><pre><code class="hljs c++"><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">ASMEB31G2009::calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span> </span>&#123;<br>    <span class="hljs-type">double</span> t = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">0</span>]);<br>    <span class="hljs-type">double</span> D = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">1</span>]);<br>    <span class="hljs-type">double</span> d = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">2</span>]);<br>    <span class="hljs-type">double</span> l = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">3</span>]);<br>    <span class="hljs-type">double</span> SMYS = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">4</span>]);<br><br>    <span class="hljs-type">double</span> S_flow = SMYS * <span class="hljs-number">1.1</span>;<br>    <span class="hljs-type">double</span> z = <span class="hljs-built_in">pow</span>(l, <span class="hljs-number">2</span>) / (D * t);<br><br>    <span class="hljs-type">double</span> M = <span class="hljs-number">0.0</span>;<br>    <span class="hljs-keyword">if</span> (z &gt; <span class="hljs-number">50</span>) &#123;<br>        M = <span class="hljs-number">0.032</span> * z + <span class="hljs-number">3.3</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        M = <span class="hljs-built_in">pow</span>(<span class="hljs-number">1</span> + <span class="hljs-number">0.6275</span> * z - <span class="hljs-number">0.003375</span> * <span class="hljs-built_in">pow</span>(z, <span class="hljs-number">2</span>), <span class="hljs-number">0.5</span>);<br>    &#125;<br><br>    <span class="hljs-type">double</span> failure_pressure = S_flow * <span class="hljs-number">2</span> * t / D * (<span class="hljs-number">1</span> - <span class="hljs-number">0.85</span> * d / t) / (<span class="hljs-number">1</span> - <span class="hljs-number">0.85</span> * d / t / M);<br>    std::cout &lt;&lt; <span class="hljs-string">&quot;调用 ASMEB31G2009 成功&quot;</span> &lt;&lt; failure_pressure &lt;&lt; std::endl;<br>    <span class="hljs-keyword">return</span> failure_pressure;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">RSTRENG085dL::calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span> </span>&#123;<br>    <span class="hljs-type">double</span> t = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">0</span>]);<br>    <span class="hljs-type">double</span> D = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">1</span>]);<br>    <span class="hljs-type">double</span> d = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">2</span>]);<br>    <span class="hljs-type">double</span> l = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">3</span>]);<br>    <span class="hljs-type">double</span> SMYS = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">4</span>]);<br><br>    <span class="hljs-type">double</span> S_flow = SMYS + <span class="hljs-number">68.95</span>;<br>    <span class="hljs-type">double</span> z = <span class="hljs-built_in">pow</span>(l, <span class="hljs-number">2</span>) / (D * t);<br><br>    <span class="hljs-type">double</span> M = <span class="hljs-number">0.0</span>;<br>    <span class="hljs-keyword">if</span> (z &gt; <span class="hljs-number">50</span>) &#123;<br>        M = <span class="hljs-number">0.032</span> * z + <span class="hljs-number">3.3</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        M = <span class="hljs-built_in">pow</span>(<span class="hljs-number">1</span> + <span class="hljs-number">0.6275</span> * z - <span class="hljs-number">0.003375</span> * <span class="hljs-built_in">pow</span>(z, <span class="hljs-number">2</span>), <span class="hljs-number">0.5</span>);<br>    &#125;<br><br>    <span class="hljs-type">double</span> failure_pressure = S_flow * <span class="hljs-number">2</span> * t / D * (<span class="hljs-number">1</span> - <span class="hljs-number">0.85</span> * d / t) / (<span class="hljs-number">1</span> - <span class="hljs-number">0.85</span> * d / t / M);<br>    std::cout &lt;&lt; <span class="hljs-string">&quot;调用 RSTRENG085dL 成功&quot;</span> &lt;&lt; failure_pressure &lt;&lt; std::endl;<br>    <span class="hljs-keyword">return</span> failure_pressure;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">PCORRC::calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span> </span>&#123;<br>    <span class="hljs-type">double</span> t = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">0</span>]);<br>    <span class="hljs-type">double</span> D = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">1</span>]);<br>    <span class="hljs-type">double</span> d = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">2</span>]);<br>    <span class="hljs-type">double</span> l = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">3</span>]);<br>    <span class="hljs-type">double</span> UTS = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">4</span>]);<br><br>    <span class="hljs-type">double</span> M = <span class="hljs-number">1</span> - <span class="hljs-built_in">exp</span>((<span class="hljs-number">-0.157</span> * l) / (<span class="hljs-built_in">pow</span>(D / <span class="hljs-number">2</span>, <span class="hljs-number">0.5</span>) * (t - d)));<br><br>    <span class="hljs-type">double</span> failure_pressure = <span class="hljs-number">2</span> * t * UTS / D * (<span class="hljs-number">1</span> - d * M / t);<br>    cout &lt;&lt; <span class="hljs-string">&quot;调用 PCORRC 成功&quot;</span> &lt;&lt; failure_pressure &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> failure_pressure;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">DNV_RP_F101::calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">double</span> t = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">0</span>]);<br>    <span class="hljs-type">double</span> D = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">1</span>]);<br>    <span class="hljs-type">double</span> d = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">2</span>]);<br>    <span class="hljs-type">double</span> l = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">3</span>]);<br>    <span class="hljs-type">double</span> UTS = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">4</span>]);<br><br>    <span class="hljs-type">double</span> M = <span class="hljs-built_in">pow</span>(<span class="hljs-number">1</span> + <span class="hljs-number">0.31</span> * <span class="hljs-built_in">pow</span>(l, <span class="hljs-number">2</span>) / (D * t), <span class="hljs-number">0.5</span>);<br><br>    <span class="hljs-type">double</span> failure_pressure = <span class="hljs-number">2</span> * t * UTS / (D - t) * ((<span class="hljs-number">1</span> - d / t) / (<span class="hljs-number">1</span> - d / t / M));<br>    cout &lt;&lt; <span class="hljs-string">&quot;调用 DNV_RP_F101 成功&quot;</span> &lt;&lt; failure_pressure &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> failure_pressure;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">C_Fer::calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">double</span> t = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">0</span>]);<br>    <span class="hljs-type">double</span> D = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">1</span>]);<br>    <span class="hljs-type">double</span> d = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">2</span>]);<br>    <span class="hljs-type">double</span> l = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">3</span>]);<br>    <span class="hljs-type">double</span> SMYS = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">4</span>]);<br><br>    <span class="hljs-type">double</span> z = <span class="hljs-built_in">pow</span>(l, <span class="hljs-number">2</span>) / (D * t);<br>    <span class="hljs-type">double</span> S_flow = SMYS * <span class="hljs-number">0.9</span>;<br><br>    <span class="hljs-type">double</span> M = <span class="hljs-number">0.0</span>;<br>    <span class="hljs-keyword">if</span> (z &gt; <span class="hljs-number">50</span>) &#123;<br>        M = <span class="hljs-number">0.032</span> * z + <span class="hljs-number">3.3</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        M = <span class="hljs-built_in">pow</span>(<span class="hljs-number">1</span> + <span class="hljs-number">0.6275</span> * z - <span class="hljs-number">0.003375</span> * <span class="hljs-built_in">pow</span>(z, <span class="hljs-number">2</span>), <span class="hljs-number">0.5</span>);<br>    &#125;<br><br>    <span class="hljs-type">double</span> A0 = l * t;<br>    <span class="hljs-type">double</span> A = l * d;<br><br>    <span class="hljs-type">double</span> failure_pressure = <span class="hljs-number">2</span> * t * S_flow / D * (<span class="hljs-number">1</span> - A/A0) / (<span class="hljs-number">1</span>- A / A0 / M);<br>    cout &lt;&lt; <span class="hljs-string">&quot;调用 C_Fer 成功&quot;</span> &lt;&lt; failure_pressure &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> failure_pressure;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">AGANG18::calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">double</span> t = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">0</span>]);<br>    <span class="hljs-type">double</span> D = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">1</span>]);<br>    <span class="hljs-type">double</span> d = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">2</span>]);<br>    <span class="hljs-type">double</span> l = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">3</span>]);<br>    <span class="hljs-type">double</span> SMYS = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">4</span>]);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0.0</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">Netto::calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">double</span> t = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">0</span>]);<br>    <span class="hljs-type">double</span> D = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">1</span>]);<br>    <span class="hljs-type">double</span> d = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">2</span>]);<br>    <span class="hljs-type">double</span> l = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">3</span>]);<br>    <span class="hljs-type">double</span> SMYS = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">4</span>]);<br><br>    <span class="hljs-type">double</span> failure_pressure = <span class="hljs-number">1.1</span> * SMYS * <span class="hljs-number">2</span> * t / D * (<span class="hljs-number">1</span> - <span class="hljs-number">0.9435</span> * <span class="hljs-built_in">pow</span>(d / t, <span class="hljs-number">1.6</span>) * <span class="hljs-built_in">pow</span>(l / D, <span class="hljs-number">0.4</span>));<br>    cout &lt;&lt; <span class="hljs-string">&quot;调用 Netto 成功&quot;</span> &lt;&lt; failure_pressure &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> failure_pressure;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">RAM_PIPE_REQUAL::calucate</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">double</span> t = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">0</span>]);<br>    <span class="hljs-type">double</span> D = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">1</span>]);<br>    <span class="hljs-type">double</span> d = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">2</span>]);<br>    <span class="hljs-type">double</span> l = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">3</span>]);<br>    <span class="hljs-type">double</span> UTS = std::<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(params[<span class="hljs-number">4</span>]);<br><br>    <span class="hljs-type">double</span> SCF = <span class="hljs-number">1</span> + <span class="hljs-number">2</span> * <span class="hljs-built_in">pow</span>(<span class="hljs-number">2</span> * d / D, <span class="hljs-number">0.5</span>);<br>    <span class="hljs-type">double</span> failure_pressure = <span class="hljs-number">2.2</span> * (t - d) * UTS / (D - t) / SCF;<br>    cout &lt;&lt; <span class="hljs-string">&quot;调用 RAM_PIPE_REQUAL 成功&quot;</span> &lt;&lt; failure_pressure &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> failure_pressure;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="定义上下文类">2、定义上下文类</h2>
+<p>使用智能指针管理生命周期，并保证子类的所有权</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 上下文类</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">FailurePressureContext</span> &#123;<br><span class="hljs-keyword">private</span>:<br>    std::unique_ptr&lt;FailurePressureAbstract&gt; strategy; <span class="hljs-comment">// 使用unique_ptr来管理策略的生命周期</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">FailurePressureContext</span><span class="hljs-params">(std::unique_ptr&lt;FailurePressureAbstract&gt; newStrategy)</span></span><br><span class="hljs-function">        : strategy(move(newStrategy)) &#123;</span><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">setStrategy</span><span class="hljs-params">(std::unique_ptr&lt;FailurePressureAbstract&gt; newStrategy)</span></span>;<br><br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">executeStrategy</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span></span>;<br>&#125;;<br><br><span class="hljs-comment">// 上下文类</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">FailurePressureContext::setStrategy</span><span class="hljs-params">(std::unique_ptr&lt;FailurePressureAbstract&gt; newStrategy)</span> </span>&#123;<br>    strategy = <span class="hljs-built_in">move</span>(newStrategy);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">FailurePressureContext::executeStrategy</span><span class="hljs-params">(<span class="hljs-type">const</span> Params&amp; params)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (strategy) &#123;<br>        <span class="hljs-keyword">return</span> strategy.<span class="hljs-built_in">get</span>()-&gt;<span class="hljs-built_in">calucate</span>(params);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="输出文件类定义">3、输出文件类定义</h2>
+<p>主要有打开、关闭文件，写入行函数，写入行函数使用模板实现传入不同类型的值。</p>
+<blockquote>
+<p>这里一开始写的<code>写入头</code>函数只能写入字符串，在调用时需要将其他类型转化一下，不太方便，于是还按照<code>写入行</code>函数进行调用。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// .h文件</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">CSVFileWriter</span> &#123;<br><span class="hljs-keyword">private</span>:<br>    std::ofstream file;    <span class="hljs-comment">// 文件输出流</span><br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-comment">// 构造函数，接受文件名</span><br>    <span class="hljs-built_in">CSVFileWriter</span>(<span class="hljs-type">const</span> std::string&amp; filename);<br><br>    <span class="hljs-comment">// 析构函数，确保关闭文件</span><br>    ~<span class="hljs-built_in">CSVFileWriter</span>();<br><br>    <span class="hljs-comment">// 写入标题行</span><br>    <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;</span><br><span class="hljs-function">    <span class="hljs-type">void</span> <span class="hljs-title">writeHeader</span><span class="hljs-params">(<span class="hljs-type">const</span> std::vector&lt;T&gt;&amp; headers)</span></span>;<br>    <span class="hljs-comment">//void writeHeader(const std::vector&lt;std::string&gt;&amp; headers);</span><br><br>    <span class="hljs-comment">// 写入一行数据</span><br>    <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;</span><br><span class="hljs-function">    <span class="hljs-type">void</span> <span class="hljs-title">writeRow</span><span class="hljs-params">(<span class="hljs-type">const</span> std::vector&lt;T&gt;&amp; row)</span></span>; <span class="hljs-comment">// 声明模板函数，但实现放在头文件中</span><br><br>    <span class="hljs-comment">// 检查文件是否打开</span><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isOpen</span><span class="hljs-params">()</span> <span class="hljs-type">const</span></span>;<br>&#125;;<br><br><span class="hljs-comment">// 模板函数实现</span><br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;</span><br><span class="hljs-function"><span class="hljs-type">void</span>  <span class="hljs-title">CSVFileWriter::writeRow</span><span class="hljs-params">(<span class="hljs-type">const</span> std::vector&lt;T&gt;&amp; row)</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">size_t</span> i = <span class="hljs-number">0</span>; i &lt; row.<span class="hljs-built_in">size</span>(); ++i) &#123;<br>        <span class="hljs-comment">// 提取变体的值并写入</span><br>        std::<span class="hljs-built_in">visit</span>([<span class="hljs-keyword">this</span>, i, size = row.<span class="hljs-built_in">size</span>()](<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; arg) &#123;<br>            file &lt;&lt; arg &lt;&lt; (i &lt; size - <span class="hljs-number">1</span> ? <span class="hljs-string">&quot;,&quot;</span> : <span class="hljs-string">&quot;&quot;</span>);<br>            &#125;, row[i]);<br>    &#125;<br>    file &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>; <span class="hljs-comment">// 换行</span><br>&#125;<br><br><span class="hljs-comment">// 写入标题行</span><br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">CSVFileWriter::writeHeader</span><span class="hljs-params">(<span class="hljs-type">const</span> std::vector&lt;T&gt;&amp; headers)</span> </span>&#123;<br>    <span class="hljs-built_in">writeRow</span>(headers);<br>&#125;<br><br><span class="hljs-comment">// .cpp文件</span><br><span class="hljs-comment">// 构造函数</span><br>CSVFileWriter::<span class="hljs-built_in">CSVFileWriter</span>(<span class="hljs-type">const</span> std::string&amp; filename) &#123;<br>    file.<span class="hljs-built_in">open</span>(filename);<br>    <span class="hljs-keyword">if</span> (!file.<span class="hljs-built_in">is_open</span>()) &#123;<br>        <span class="hljs-keyword">throw</span> std::<span class="hljs-built_in">runtime_error</span>(<span class="hljs-string">&quot;无法打开文件: &quot;</span> + filename);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 析构函数</span><br>CSVFileWriter::~<span class="hljs-built_in">CSVFileWriter</span>() &#123;<br>    <span class="hljs-keyword">if</span> (file.<span class="hljs-built_in">is_open</span>()) &#123;<br>        file.<span class="hljs-built_in">close</span>();<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 检查文件是否打开</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">CSVFileWriter::isOpen</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> file.<span class="hljs-built_in">is_open</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="示例调用">4、示例调用</h2>
+<p>这里有详细的注释就不写了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// main.cpp</span><br><span class="hljs-comment">// 输出文件名称</span><br>std::string name = <span class="hljs-string">&quot;X52&quot;</span>;<br><span class="hljs-comment">// 基于屈服极限的参数列表</span><br>Params X52_SMYS = &#123; <span class="hljs-number">6.3</span>, <span class="hljs-number">462.6</span>, <span class="hljs-number">6.0</span>, <span class="hljs-number">200.0</span>, <span class="hljs-number">435.5</span> &#125;;<br><span class="hljs-comment">// 基于强度极限的参数列表</span><br>Params X52_UTS = &#123; <span class="hljs-number">6.3</span>, <span class="hljs-number">462.6</span>, <span class="hljs-number">6.0</span>, <span class="hljs-number">200.0</span>, <span class="hljs-number">530.0</span> &#125;;<br><br><span class="hljs-comment">// 定义行类型</span><br><span class="hljs-keyword">using</span> RowParams = std::vector&lt;std::variant&lt;<span class="hljs-type">double</span>, std::string&gt;&gt;;<br>RowParams ASMEB31G2009_res_list = &#123; <span class="hljs-string">&quot;ASMEB31G2009&quot;</span> &#125;;<br>RowParams RSTRENG085dL_res_list = &#123; <span class="hljs-string">&quot;RSTRENG085dL&quot;</span> &#125;;<br>RowParams PCORRC_res_list = &#123; <span class="hljs-string">&quot;PCORRC&quot;</span> &#125;;<br>RowParams DNV_RP_F101_res_list = &#123; <span class="hljs-string">&quot;DNV_RP_F101&quot;</span> &#125;;<br>RowParams C_Fer_res_list = &#123; <span class="hljs-string">&quot;C_Fer&quot;</span> &#125;;<br>RowParams Netto_res_list = &#123; <span class="hljs-string">&quot;Netto&quot;</span> &#125;;<br>RowParams RAM_PIPE_REQUAL_res_list = &#123; <span class="hljs-string">&quot;RAM_PIPE_REQUAL&quot;</span> &#125;;<br><br><span class="hljs-comment">// 定义多行数据，存储指针</span><br>std::vector&lt;RowParams*&gt; rows;<br>rows.<span class="hljs-built_in">push_back</span>(&amp;ASMEB31G2009_res_list );<br>rows.<span class="hljs-built_in">push_back</span>(&amp;RSTRENG085dL_res_list );<br>rows.<span class="hljs-built_in">push_back</span>(&amp;PCORRC_res_list );<br>rows.<span class="hljs-built_in">push_back</span>(&amp;DNV_RP_F101_res_list);<br>rows.<span class="hljs-built_in">push_back</span>(&amp;C_Fer_res_list );<br>rows.<span class="hljs-built_in">push_back</span>(&amp;Netto_res_list );<br>rows.<span class="hljs-built_in">push_back</span>(&amp;RAM_PIPE_REQUAL_res_list );<br></code></pre></td></tr></table></figure>
+<p>调用上下文类计算</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// main.cpp</span><br><span class="hljs-comment">// 定义缺陷深度的变化范围</span><br>std::vector&lt;<span class="hljs-type">double</span>&gt; t = &#123; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span> &#125;;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">size_t</span> i = <span class="hljs-number">0</span>; i &lt; t.<span class="hljs-built_in">size</span>(); i++)<br>&#123;<br>    X52_SMYS[<span class="hljs-number">2</span>] = t[i];<br>    X52_UTS[<span class="hljs-number">2</span>] = t[i];<br><br>    <span class="hljs-comment">// 创建上下文，初始采用FIFO策略</span><br>    <span class="hljs-function">FailurePressureContext <span class="hljs-title">context</span><span class="hljs-params">(make_unique&lt;ASMEB31G2009&gt;())</span></span>;<br>    ASMEB31G2009_res_list.<span class="hljs-built_in">push_back</span>( context.<span class="hljs-built_in">executeStrategy</span>(X52_SMYS)  );<br><br>    context.<span class="hljs-built_in">setStrategy</span>(<span class="hljs-built_in">make_unique</span>&lt;RSTRENG085dL&gt;());<br>    RSTRENG085dL_res_list.<span class="hljs-built_in">push_back</span>(context.<span class="hljs-built_in">executeStrategy</span>(X52_SMYS));<br><br>    context.<span class="hljs-built_in">setStrategy</span>(<span class="hljs-built_in">make_unique</span>&lt;PCORRC&gt;());<br>    PCORRC_res_list.<span class="hljs-built_in">push_back</span>(context.<span class="hljs-built_in">executeStrategy</span>(X52_UTS) );<br><br>    context.<span class="hljs-built_in">setStrategy</span>(<span class="hljs-built_in">make_unique</span>&lt;DNV_RP_F101&gt;());<br>    DNV_RP_F101_res_list.<span class="hljs-built_in">push_back</span>(context.<span class="hljs-built_in">executeStrategy</span>(X52_UTS) );<br><br>    context.<span class="hljs-built_in">setStrategy</span>(<span class="hljs-built_in">make_unique</span>&lt;C_Fer&gt;());<br>    C_Fer_res_list.<span class="hljs-built_in">push_back</span>(context.<span class="hljs-built_in">executeStrategy</span>(X52_SMYS) );<br><br>    context.<span class="hljs-built_in">setStrategy</span>(<span class="hljs-built_in">make_unique</span>&lt;Netto&gt;());<br>    Netto_res_list.<span class="hljs-built_in">push_back</span>(context.<span class="hljs-built_in">executeStrategy</span>(X52_SMYS) );<br><br>    context.<span class="hljs-built_in">setStrategy</span>(<span class="hljs-built_in">make_unique</span>&lt;RAM_PIPE_REQUAL&gt;());<br>    RAM_PIPE_REQUAL_res_list.<span class="hljs-built_in">push_back</span>(context.<span class="hljs-built_in">executeStrategy</span>(X52_UTS));<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>写入文件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 写入文件</span><br><span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-comment">// 创建 CSVFileWriter 对象</span><br>    <span class="hljs-function">CSVFileWriter <span class="hljs-title">csvWriter</span><span class="hljs-params">(name + <span class="hljs-string">&quot;.csv&quot;</span>)</span></span>;<br>    RowParams header = &#123; <span class="hljs-string">&quot;method&quot;</span>&#125;;<br>    header.<span class="hljs-built_in">insert</span>(header.<span class="hljs-built_in">end</span>(), t.<span class="hljs-built_in">begin</span>(), t.<span class="hljs-built_in">end</span>());<br>    <span class="hljs-comment">// 写入表头</span><br>    csvWriter.<span class="hljs-built_in">writeHeader</span>(header);<br><br>    <span class="hljs-comment">// 写入多行数据</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; entry : rows)<br>    &#123;<br>        csvWriter.<span class="hljs-built_in">writeRow</span>(*entry);<br>    &#125;<br><br>    std::cout &lt;&lt; <span class="hljs-string">&quot;数据已成功写入 &quot;</span> &lt;&lt; name &lt;&lt; <span class="hljs-string">&quot;.csv&quot;</span> &lt;&lt; std::endl;<br>    std::cout &lt;&lt; <span class="hljs-string">&quot;大功告成 &quot;</span> &lt;&lt; name &lt;&lt; <span class="hljs-string">&quot;.csv&quot;</span> &lt;&lt; std::endl;<br>&#125;<br><span class="hljs-built_in">catch</span> (<span class="hljs-type">const</span> std::exception&amp; e) &#123;<br>    std::cerr &lt;&lt; <span class="hljs-string">&quot;错误: &quot;</span> &lt;&lt; e.<span class="hljs-built_in">what</span>() &lt;&lt; std::endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; <span class="hljs-comment">// 返回错误代码</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>输出文件示例</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250221105035.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%A7%91%E7%A0%94/" class="category-chain-item">科研</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%A3%82%E7%BA%B9/" class="category-chain-item">裂纹</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+        <a href="/tags/%E7%BC%96%E7%A8%8B/" class="print-no-link">#编程</a>
+      
+        <a href="/tags/%E5%A4%B1%E6%95%88%E5%8E%8B%E5%8A%9B/" class="print-no-link">#失效压力</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>失效压力模型</div>
+      <div>http://example.com/2025/02/21/050 失效压力模型计算/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>DB</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年2月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/02/15/049%20Abaqus%E6%A1%88%E4%BE%8B%E4%B9%8B%E7%AE%A1%E9%81%93%E7%BC%BA%E9%99%B7%E5%BC%80%E8%A3%82/" title="Abaqus案例之管道爆炸">
+                        <span class="hidden-mobile">Abaqus案例之管道爆炸</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
