@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220093600.png">
 <meta property="article:published_time" content="2025-02-11T12:26:00.000Z">
-<meta property="article:modified_time" content="2025-02-20T01:36:21.440Z">
+<meta property="article:modified_time" content="2025-02-24T02:27:33.184Z">
 <meta property="article:author" content="DB">
 <meta property="article:tag" content="模拟">
 <meta property="article:tag" content="Abaqus">
@@ -232,7 +232,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          253 字
+          2.1k 字
         
       </span>
     
@@ -244,7 +244,7 @@
         
         
           <!-- compatible with older versions-->
-          3 分钟
+          18 分钟
         
       </span>
     
@@ -287,20 +287,106 @@
               <div class="markdown-body">
                 
                 <div class="note note-success">
-            <p>本文最新更新于 2025/02/11 晚上</p>
+            <p>本文最新更新于 2025/02/24 上午</p>
           </div>
+<h2 id="基本知识">基本知识</h2>
+<h3 id="三种解释缺陷理论">三种解释缺陷理论</h3>
+<ol type="1">
+<li><strong>基于裂纹的断裂力学理论</strong>：线弹性断裂力学（LEFM）的理论以初始裂纹或缺陷存在为基础，采用热力学定律来制定基于能量的断裂准则。</li>
+<li><strong>基于连续介质的塑性力学理论</strong>：塑性力学理论是处理塑性变形的成熟理论，它以各种局部失效准则以及局部状态变量（如应力张量和弹塑性应变分量）为基础。大多数塑性的裂纹分析都是基于弥散裂缝的软化塑性模型。塑性模型既能预测裂纹的萌生又能预测裂纹的扩展，可以方便地用不同的数值方法实现。</li>
+<li><strong>基于连续介质的损伤力学理论</strong>：损伤力学理论是一种非局部方法（类似于断裂力学），其公式与塑性软化理论相似。在损伤力学中如果材料受到某种程度的损伤，其强度和刚度都会降低，这与经典的塑性理论形成对比，经典塑性理论中刚度保持不变，只有强度根据软化行为更新。</li>
+</ol>
+<h3 id="损伤力学与断裂力学">损伤力学与断裂力学</h3>
+<ol type="1">
+<li>问题层次不同。二者是同一问题的不同层次，是固体力学中描述材料破坏过程的破坏理论。</li>
+<li>尺度不同。大于1mm裂纹尖端就必须考虑应力奇异性，损伤力学小于1mm，断裂力学大于1mm。</li>
+<li>模型不同。断裂力学针对一个或若干个主裂纹，研究含裂纹模型的奇异缺陷的扩展规律（裂纹剪短应力场具有奇异性）。损伤力学：研究材料的分布型细观缺陷的扩展和含有细观缺陷的材料的力学性质。</li>
+<li>损伤力学分析材料从变形到破坏，损伤逐渐积累的整个过程；断裂力学分析裂纹扩展过程。</li>
+<li>断裂力学基本上是用来处理强不连续性（裂纹）问题，其中位移场和应变场在裂纹表面都是不连续的；损伤力学和塑性力学的理论基本上是针对位移场（通常是应变场）在任何地方都保持连续的问题而设计的。</li>
+</ol>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250224082920.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h3 id="模拟方法">模拟方法</h3>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250224083459.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<ol type="1">
+<li><strong>基于经典断裂力学</strong>。断裂力学模型就是基于线弹性断裂力学及其基础上发展的弹塑性断裂力学；如果不考虑裂纹的扩展，abaqus可采用seam型裂纹来分析（也可以不建seam,如notch型裂纹）seam型裂纹：一条缝；notch型裂纹：切口，槽口】，这就是基于断裂力学的方法。这种方法可以计算裂纹的<strong>应力强度因子，J积分及T-应力</strong>等。</li>
+<li><strong>基于损伤力学</strong>。损伤力学模型是指基于损伤力学发展而来的方法单元在达到失效的条件后，刚度不断折减，并可能达到完全失效，最后形成断裂带。【Damage
+Evolution中的所有的选项都是用来确定单元达到强度极限以后的刚度降阶方式。】</li>
+</ol>
+<h3 id="基于扩展有限元法xfem">基于扩展有限元法XFEM</h3>
+<p>从abaquse6.9版本开始还引入了扩展有限元法(XFEM),它既可以模拟静态裂纹，计算应力强度因子和J积分等参量，也可以模拟裂纹的开裂过程。</p>
+<p>相比于内聚力模型的断裂建模方法只允许裂纹沿着预定的路径扩展，粘结界面和单元边界重合。扩展有限元无需定义裂纹扩展路径，可以模拟任意方向的裂纹扩展。</p>
+<h4 id="原理">原理</h4>
+<ol type="1">
+<li>节点富集函数</li>
+<li>水平集函数</li>
+<li>建立有限元求解的扩展有限元法控制方程</li>
+</ol>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250224085201.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h4 id="方法">方法</h4>
+<ol type="1">
+<li>基于牵引分离规侧的损伤力学：（适用于弹塑性损伤分析）
+<ol type="1">
+<li>ABAQUS基于XFEM框架模拟裂缝扩展的一种方法是基于粘结分离行为，其用于控制裂缝扩展的
+的公式和规侧与用于具有牵引分离本构行为的内聚单元非常相似，可适用于弹塑性分析。</li>
+<li><strong>牵引分离模型</strong>假设裂缝单元最初是线性弹性行为，随后是<strong>损伤的发生和演化</strong>。</li>
+</ol></li>
+</ol>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250224090456.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>损伤模型用来模拟富集单元的退化和最终失效；失效机理由两个成分组成：损伤起始准则和损伤演化规律；富集单元在纯压缩下不会受到损伤。【扩展有限元法不能模拟纯压缩破坏】</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250224090047.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>损伤演化规律描述了一旦达到相应的起始标准，材料刚度退化的速率</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250224090126.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<blockquote>
+<p>在有限元中一般使用能量定义损伤，软化方式为显线性</p>
+</blockquote>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250224090841.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>损伤稳定粘性</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250224090918.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<ol start="2" type="1">
+<li>基于线弹性断裂力学：（仅适用于弹性分析）裂纹扩展描述的角度。
+<ol type="1">
+<li>仅适用于弹性分析，基于XFEM的线性弹性断裂力学方法的行为的公式和规律与用于沿已知和部分粘合的表面模拟分层的方法非常相似[上节课提到的VCCT方法]。</li>
+<li>虚拟裂缝闭合技术(VCCT):是一种基于线弹性理论的裂缝分析方法，这个技术是根据Irw能量理论提出来的，其核心思想为：假设裂纹在扩展中释放的能量等于闭合裂纹所需要的能量。</li>
+</ol></li>
+</ol>
+<h3 id="基于内聚力模型模拟裂缝扩展">基于内聚力模型模拟裂缝扩展</h3>
+<a class="btn" href="https://www.bilibili.com/video/BV19d4y1R74S?spm_id_from=333.788.videopod.sections&vd_source=33b50a4dd201d7564e6e63d321809ce9"  title="裂纹扩展专题" target="_blank">裂纹扩展专题</a>
+<p>目前国内外学者利用内聚力模型研究裂纹尖端塑性变形、静力和疲劳载荷条件下的蠕变开裂，以及金属、岩土材料及混凝土、复合材料及纳米晶材料裂纹萌生与裂纹扩展。</p>
+<p>内聚力模型的特征是在分离界面间设定牵引分离法则，ABAQUS中牵引分离法则有多种应用形式。</p>
+<ol type="1">
+<li>基于实体cohesive!单元的内聚力模型。基于实体cohesive.单元的内聚力模型需要详细的胶层材料特性、胶层与被粘结部件之间网格的直接绑定以及有限厚度胶层的建模等。通过设置损伤起始准则和损伤演化准则等相关参数可实现裂纹扩展问题的模拟。比如胶合木，针对中间胶结层可设置内聚力单元。</li>
+<li>基于界面接触的内聚力行为。基于界面接触的内聚力行为，被定义为表面相互作用的性质，利用牵引分离本构模型来模拟具有可忽略的小界面厚度的粘结连接。该方法用宏观内聚规律将复杂的断裂机制理想化，将界面牵引力与分离联系起来。多用于可以预见裂纹扩展路径的情况下，比如层合板。</li>
+<li>基于扩展有限元的内聚力法则。上述两种断裂建模方法只允许裂纹沿着预定的路径扩展，粘结界面和单元边界重合。基于牵引分离准则的XFEM则无需提前定义裂纹扩展路径，可以模拟任意方向的裂纹扩展</li>
+</ol>
+<h2 id="实例1">实例1</h2>
 <div class="note note-info">
             <p>案例需求</p>
           </div>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211203759.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
-<h2 id="创建铁板">1、创建铁板</h2>
+<h3 id="创建铁板">1、创建铁板</h3>
 <p>在<code>Part</code>界面创建一个<code>40x40x5</code>的铁板。</p>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211203656.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
-<h2 id="创建裂纹">2、创建裂纹</h2>
+<h3 id="创建裂纹">2、创建裂纹</h3>
 <p>需要将绘制一个<code>平面</code>嵌入到铁板中完成裂纹的创建</p>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211204047.png" srcset="/images/icons8-loading-96.png" lazyload></p>
@@ -309,7 +395,7 @@
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211204204.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
-<h2 id="创建材料">3、创建材料</h2>
+<h3 id="创建材料">3、创建材料</h3>
 <ul>
 <li>弹性
 <ul>
@@ -344,7 +430,7 @@
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211205639.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
-<h2 id="创建截面">4、创建截面</h2>
+<h3 id="创建截面">4、创建截面</h3>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211210002.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
@@ -352,16 +438,16 @@
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211210047.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
-<h2 id="装配">5、装配</h2>
+<h3 id="装配">5、装配</h3>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211210525.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
-<h2 id="创建分析步">6、创建分析步</h2>
+<h3 id="创建分析步">6、创建分析步</h3>
 <p>打开几何非线性性更容易收敛</p>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211210758.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
-<h2 id="相互作用">7、相互作用</h2>
+<h3 id="相互作用">7、相互作用</h3>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211211137.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
@@ -369,7 +455,7 @@
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211211243.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
-<h2 id="场输出设置">8、场输出设置</h2>
+<h3 id="场输出设置">8、场输出设置</h3>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211211521.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
@@ -381,7 +467,7 @@
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211212029.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
-<h2 id="网格">9、网格</h2>
+<h3 id="网格">9、网格</h3>
 <p>只需要给铁板绘制网格即可，裂纹面不需要绘制。</p>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211212159.png" srcset="/images/icons8-loading-96.png" lazyload></p>
@@ -399,7 +485,7 @@
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211212451.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
-<h2 id="添加约束条件">10、添加约束条件</h2>
+<h3 id="添加约束条件">10、添加约束条件</h3>
 <p>底端固定</p>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211212725.png" srcset="/images/icons8-loading-96.png" lazyload></p>
@@ -408,7 +494,7 @@
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211212915.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
-<h2 id="创建作业并提交计算">11、创建作业并提交计算</h2>
+<h3 id="创建作业并提交计算">11、创建作业并提交计算</h3>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250211213244.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>

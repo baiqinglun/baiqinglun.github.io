@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220093805.png">
 <meta property="article:published_time" content="2025-02-09T13:20:00.000Z">
-<meta property="article:modified_time" content="2025-02-20T01:38:25.740Z">
+<meta property="article:modified_time" content="2025-02-22T13:13:31.395Z">
 <meta property="article:author" content="DB">
 <meta property="article:tag" content="模拟">
 <meta property="article:tag" content="学习笔记">
@@ -231,7 +231,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          3k 字
+          3.5k 字
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
           <!-- compatible with older versions-->
-          26 分钟
+          30 分钟
         
       </span>
     
@@ -286,7 +286,7 @@
               <div class="markdown-body">
                 
                 <div class="note note-success">
-            <p>本文最新更新于 2025/02/10 下午</p>
+            <p>本文最新更新于 2025/02/22 上午</p>
           </div>
 <h2 id="基本介绍">1、基本介绍</h2>
 <a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=2"  title="学习视频" target="_blank">学习视频</a>
@@ -424,6 +424,46 @@ Input按钮在工作目录中生成。Inp文件可以输入模型，也可以由
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250213150230.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
+<h3 id="损伤准则">3.4 损伤准则</h3>
+<p>模拟裂纹扩展需要设定损伤准则，一般使用延性金属损伤准则和服从traction-separation损伤准则。</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250222203739.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250222204042.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h3 id="应力应变关系">3.5 应力应变关系</h3>
+<p><strong>几种典型的应力应变关系</strong></p>
+<ul>
+<li>理想弹性</li>
+<li>理想塑性</li>
+<li>双线性模型</li>
+<li>非线性模型</li>
+</ul>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250222204859.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p><strong>导致非线性应力应变的因素</strong></p>
+<ul>
+<li>应力应变水平</li>
+<li>时间因素（应力/应变变化率）</li>
+<li>温度时间效应（蠕变、松弛）</li>
+<li>温度效应</li>
+</ul>
+<p><strong>线弹性本构关系</strong></p>
+<p>弹性模量E、剪切模量G、体积模量K、泊松比v和拉梅常数<span
+class="math inline">\(\lambda\)</span></p>
+<p>可由随意两个推出其他常数</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250222205108.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p><strong>损伤力学与断裂力学</strong></p>
+<p>断裂力学建立决定裂纹扩展的物理量与材料抵抗裂纹扩展能力（断裂韧性）之间的关系。研究剪短附近的应力场和应变场、应力强度因子、能量释放率等，建立宏观裂纹起裂、稳定扩展和失稳扩展的判据。</p>
+<p>损伤力学定义损伤变量，建立考虑损伤的本构关系及损伤演化方程。</p>
+<p>损伤力学研究内容</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250222210511.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
 <h2 id="装配">4、装配</h2>
 <h2 id="分析步">5、分析步</h2>
 <h3 id="分析步的类型及特点">5.1 分析步的类型及特点</h3>
@@ -462,10 +502,23 @@ Input按钮在工作目录中生成。Inp文件可以输入模型，也可以由
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250216153620-2025-02-16.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
+<h4 id="动力隐式">5.1.2 动力隐式</h4>
 <blockquote>
 <p>动力隐式分析步与静力通用分析步设置时间长度、最大步数、增量以及单元格类型指派含义相同，但会默认打开几何非线性</p>
 </blockquote>
-<h4 id="动力显式">5.1.2 动力显式</h4>
+<p>特征</p>
+<ol type="1">
+<li>利用迭代求解下个增量步的未知量</li>
+<li>无条件稳定，任何大小的增量皆可让结果在一定范围内</li>
+<li>有计算收敛问题</li>
+</ol>
+<h4 id="动力显式">5.1.3 动力显式</h4>
+<p>特征</p>
+<ol type="1">
+<li>仅考虑前一时刻状态</li>
+<li><strong>有条件稳定，增量必须小于一临界值，才会提供可靠的结果</strong></li>
+<li>无计算收敛问题</li>
+</ol>
 <p>此设置中<strong>时间长度具有实际物理意义</strong>，比如说一个爆炸行为在0.01s完成，这里的时间步长就要设置为0.01s。</p>
 <p>增量是通过软件在计算过程中会自动调整，一般可不设置。</p>
 <p>在动力显式算法中有个重要概念为<code>质量缩放</code></p>
@@ -483,9 +536,21 @@ class="math inline">\(1e^{-5}\)</span>，即增量步小于这个值时，质量
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250216154845-2025-02-16.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
+<p>动力方程，由<code>F=ma</code>求出加速度，在用差值求出速度，再求出位移</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250222085212.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
 <p>在指派网格单元类型时需要选择<code>Explicit</code>显式算法，保证算法的统一</p>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250216155046-2025-02-16.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<blockquote>
+<ol type="1">
+<li>显示将问题拆成许多增量求解，必须开启双精度，避免计算过程中误差累计</li>
+</ol>
+</blockquote>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250222084725.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
 <h3 id="几何非线性">5.2 几何非线性</h3>
 <ol type="1">
