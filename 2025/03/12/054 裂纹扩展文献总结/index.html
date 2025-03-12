@@ -16,25 +16,25 @@
   <meta name="author" content="DB">
   <meta name="keywords" content="">
   
-    <meta name="description" content="总结裂纹扩展相关知识点以及文献">
+    <meta name="description" content="总结JC损伤及JC本构方程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="裂纹扩展文献总结">
+<meta property="og:title" content="JC方程">
 <meta property="og:url" content="http://example.com/2025/03/12/054%20%E8%A3%82%E7%BA%B9%E6%89%A9%E5%B1%95%E6%96%87%E7%8C%AE%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="大白的个人博客">
-<meta property="og:description" content="总结裂纹扩展相关知识点以及文献">
+<meta property="og:description" content="总结JC损伤及JC本构方程">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250221104911.png">
+<meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250312195044.png">
 <meta property="article:published_time" content="2025-03-12T10:13:00.000Z">
-<meta property="article:modified_time" content="2025-03-12T11:19:54.781Z">
+<meta property="article:modified_time" content="2025-03-12T12:05:15.742Z">
 <meta property="article:author" content="DB">
 <meta property="article:tag" content="裂纹扩展">
 <meta property="article:tag" content="文献总结">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250221104911.png">
+<meta name="twitter:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250312195044.png">
   
   
   
-  <title>裂纹扩展文献总结 - 大白的个人博客</title>
+  <title>JC方程 - 大白的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="裂纹扩展文献总结"></span>
+            <span id="subtitle" data-typed-text="JC方程"></span>
           
         </div>
 
@@ -230,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.2k 字
+          490 字
         
       </span>
     
@@ -242,7 +242,7 @@
         
         
           <!-- compatible with older versions-->
-          10 分钟
+          5 分钟
         
       </span>
     
@@ -279,19 +279,15 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">裂纹扩展文献总结</h1>
+            <h1 id="seo-header">JC方程</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="主要信息">1 主要信息</h2>
-<h3 id="研究单位">1.1 研究单位</h3>
-<p>  北京科技大学、大连理工大学、浙江大学
-  加拿大西安大略大学、加拿大卡尔加里大学、加拿大纽芬兰纪念大学
-  马来西亚Teknologi PETRONAS   哈西巴·本伯利大学</p>
-<h2 id="基本知识">2 基本知识</h2>
-<h3 id="材料属性">2.1 材料属性</h3>
-<h4 id="材料演变过程">2.1.1 材料演变过程</h4>
+                <div class="note note-success">
+            <p>本文最新更新于 2025/03/12 晚上</p>
+          </div>
+<h2 id="材料演变过程">1 材料演变过程</h2>
 <div style="width: 80%; margin: auto">
 <p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250312183443.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
@@ -299,38 +295,7 @@
 <blockquote>
 <p>Abaqus中的损伤模型，即是要确定图中的损伤开始点C即后续的损伤演化阶段CE。</p>
 </blockquote>
-<h4 id="材料硬化">2.1.2 材料硬化</h4>
-<p>  在单轴拉伸试验中，当应力超过屈服极限时需要施加更大的载荷产生才会产生更多的塑性变形，这个阶段为硬化阶段。</p>
-<p>  <strong>应变硬化</strong>是由于材料中的晶体缺陷引起的，晶体缺陷可以是晶界、晶粒边界、裂纹或缺陷等。当材料受到外力作用时晶体缺陷发生变形，从而使材料变得更坚硬。</p>
-<p>  真实材料的应力应变关系可以使用塑性领域中的<strong>幂率模型</strong></p>
-<p><span class="math display">\[\begin{cases}
-\sigma=E\varepsilon&amp;\sigma&lt;\sigma_y \\
-\sigma=K\varepsilon^n&amp;\sigma\geq\sigma_y&amp;\end{cases}\]</span></p>
-<p>  K为幂率应力应变系数，n为应变硬化指数（<span
-class="math inline">\(0.5 \le n \le 1\)</span>
-），可通过应力应变曲线拟合。若没有完整的应力应变曲线只知道屈服强度<span
-class="math inline">\(\sigma_{y}\)</span>和极限拉伸强度<span
-class="math inline">\(\sigma_{u}\)</span>，可以使用下式估算：</p>
-<p><span
-class="math display">\[n=0.239\left(\frac{1}{\sigma_{y}/\sigma_{UTS}}-1\right)^{0.596}\]</span></p>
-<p><span
-class="math display">\[K=\frac{e^n}{n^n}\sigma_{UTS}\]</span></p>
-<div style="width: 80%; margin: auto">
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250312190018.png" srcset="/images/icons8-loading-96.png" lazyload></p>
-</div>
-<h4 id="应力三轴度">2.1.3 应力三轴度</h4>
-<p>  应力三轴度描述了静水应力和偏应力对整体应力状态的相对贡献。物理意义为材料内任一点的应力张量可分为应力球张量和应力偏张量。应力球张量为静水压，引起体积变形，而应力偏张量引起形状改变。</p>
-<p><span class="math display">\[\eta=\frac{p}{q}\]</span></p>
-<p><span
-class="math display">\[p=\frac{\sigma_1+\sigma_2+\sigma_3}{3}\]</span></p>
-<p>  其中<span class="math inline">\(\eta\)</span>为应力三轴度，<span
-class="math inline">\(p\)</span>为静水压力， <span
-class="math inline">\(q\)</span>为Von Mises等效压力。<span
-class="math inline">\(\sigma_{1}\)</span>为最大主应力， <span
-class="math inline">\(\sigma_{2}\)</span>为第二主应力， <span
-class="math inline">\(\sigma_{3}\)</span>为最小主应力。</p>
-<p>  一般应力三轴度较大的位置，即可能等效应力较小，亦即为塑性变形较小的区域，是材料中体积变形较大，能够释放较多弹性应变的位置，且常常会出现较为严重的应力集中；而应力三轴度较小的区域，即可能等效应力较大，相对容易发生断裂。</p>
-<h3 id="损伤模型">2.2 损伤模型</h3>
+<h2 id="jc损伤模型">2 JC损伤模型</h2>
 <p>  <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/394464302">参考链接</a></p>
 <p>  损伤开始时的等效塑性应变表达式为</p>
 <p><span
@@ -339,33 +304,31 @@ class="math display">\[\overline{\varepsilon}_{D}^{pl}=\left[d_{1}+d_{2}\exp\lef
 class="math inline">\(d_2\)</span>和<span
 class="math inline">\(d_3\)</span>控制，相比于常用的等效应变破坏规则，能够有效反映拉压应力对失效的影响，拉伸时失效应变较小，而在压缩时，失效应变较大。第二项反映了应变速率的影响，同一应力状态，失效应变与应变率的对数成线性关系，通过参数<span
 class="math inline">\(d_4\)</span>调整可以得到符合实际的应变率-失效应变关系。第三项是反映了温度的影响。</p>
-<h2 id="文献知识点总结">3 文献知识点总结</h2>
-<h3 id="section">25.03.10-17</h3>
-<ol type="1">
-<li>试件长度大于试件外径的两倍。试验结果表明，如果试件长度大于直径的两倍，则仅受内压的管道试件的轴向应变可以忽略不计。</li>
-</ol>
-<h3 id="section-1">25.2.17-22</h3>
-<ol type="1">
-<li>由于焦耳汤姆逊冷却效应，CO2在泄漏或通风时会降低到一定低温，当材料温度达到韧性-脆性转变温度
-以下时，材料的屈服点升高，材料韧性降低变脆，表现出局部脆性行为，断裂形式主要为脆性断裂<sup id="fnref:1741777825" class="footnote-ref"><a href="#fn:1741777825" rel="footnote"><span
-class="hint--top hint--rounded"
-aria-label="[Fracture propagation prevention on CO2 pipelines: full scale experimental testing and verification approach](zotero://open-pdf/0_Z4GZILAU)">[1741777825]</span></a></sup>。而氢气是逆焦耳汤姆逊效应，发生泄漏时温度升高，增强材料的韧性，材料表现出韧性增强，更难撕裂。但氢气可燃且自燃点低（560℃），泄漏升温过程可能会引发自燃。亦或是与断面金属摩擦、土壤多孔介质摩擦均会使温度升高而发生自燃。</li>
-</ol>
-<h2 id="参考">参考</h2>
-<section class="footnotes">
-<div class="footnote-list">
-<ol>
-<li>
-<span id="fn:1741777825"
-class="footnote-text"><span><a href="zotero://open-pdf/0_Z4GZILAU">Fracture
-propagation prevention on CO2 pipelines: full scale experimental testing
-and verification approach</a>
-<a href="#fnref:1741777825" rev="footnote" class="footnote-backref">
-↩︎</a></span></span>
-</li>
-</ol>
+<blockquote>
+<p>这里<span
+class="math inline">\(d_3\)</span>为正值，因为在Abaqus中</p>
+</blockquote>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250312195457.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
-</section>
+<blockquote>
+<p>在Abaqus中JC损伤模型只能用于显式算法中</p>
+</blockquote>
+<h2 id="jc本构方程">3 JC本构方程</h2>
+<p><span
+class="math display">\[\sigma=\left[A+B(\overline{\varepsilon^{pl}})^{n}\right]\left[1+C\ln\left(\frac{\dot{\frac{\cdot}{\varepsilon}}^{pl}}{\dot{\varepsilon}_{0}}\right)\right]\left(1-\hat{\theta}^{m}\right)\]</span></p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/frac{T-T^{*}_{r}}{T_{m}-T_{r}}.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>  参数含义，A为静态屈服应力，B和n为材料应变硬化模量和硬化指数，C为材料应变率强化参数，m为材料热软化指数</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250312200312.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<h2 id="参考">参考</h2>
+<ol type="1">
+<li><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bx4y177Qv/?spm_id_from=333.1007.top_right_bar_window_history.content.click">JC模型参数获得方法</a></li>
+</ol>
 
                 
               </div>
@@ -389,7 +352,7 @@ and verification approach</a>
   
     <span>></span>
     
-  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%96%87%E7%8C%AE%E6%80%BB%E7%BB%93/" class="category-chain-item">文献总结</a>
+  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%A3%82%E7%BA%B9/" class="category-chain-item">裂纹</a>
   
   
 
@@ -420,7 +383,7 @@ and verification approach</a>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>裂纹扩展文献总结</div>
+      <div>JC方程</div>
       <div>http://example.com/2025/03/12/054 裂纹扩展文献总结/</div>
     </div>
     <div class="license-meta">
