@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250221104911.png">
 <meta property="article:published_time" content="2025-03-05T06:56:00.000Z">
-<meta property="article:modified_time" content="2025-03-05T09:57:02.605Z">
+<meta property="article:modified_time" content="2025-03-07T06:36:17.036Z">
 <meta property="article:author" content="DB">
 <meta property="article:tag" content="学习笔记">
 <meta property="article:tag" content="Lsdyna">
@@ -230,7 +230,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          76 字
+          862 字
         
       </span>
     
@@ -242,7 +242,7 @@
         
         
           <!-- compatible with older versions-->
-          1 分钟
+          8 分钟
         
       </span>
     
@@ -306,8 +306,98 @@
 <li>求解</li>
 <li>结果解读</li>
 </ol>
-<h2 id="案例">200 案例</h2>
-<h3 id="小球跌落分析">210 小球跌落分析</h3>
+<h2 id="关键字">2、关键字</h2>
+<h3 id="johnson_cook">2.1 Johnson_Cook</h3>
+<p>JC模型可处理应变和温度敏感塑性，有时用于处理应变率变化范围较大，由于塑性加热导致温度上升，从而引起材料软化的问题。如果热效应和损伤不重要，我们推荐使用价格低廉得多的
+<code>MAT_SIMPLIFIED_- JOHNSON_COOK</code>模型。</p>
+<p>JC模型在较低应变速率下，甚至在准静态条件下仍然有效。直到较低的应变速率，甚至进入准静态状态。典型应用典型应用包括爆炸性金属成型、弹道穿透和冲击。</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250307110338.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250307110353.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>解释含义</p>
+<ol type="1">
+<li>MID：唯一标识</li>
+<li>RO：密度</li>
+<li>G：剪切模量。G 对于 <code>solids</code>、<code>2D shell 13-15</code>
+和 <code>tshell 3 5 7</code>有效，其他材料可忽略。</li>
+<li>E：杨氏模量。</li>
+<li>PR：泊松比</li>
+<li>DTF：自动删除元素（壳元素）的最小时间步长。当求解时间步长低于
+<code>DTF × TSSFAC</code>时，元素将被删除。</li>
+<li>VP：针对速率效应方程
+<ol type="1">
+<li>EQ.0.0：比例屈服应力</li>
+<li>EQ.1.0：粘塑性方程</li>
+</ol></li>
+<li>RATEOP：应变速率项的形式。如果VP为0，此项可忽略。
+<ol type="1">
+<li>EQ.0.0: Log-linear Johnson-Cook (default)</li>
+<li>EQ.1.0: Log-quadratic Huh-Kang (2 parameters)</li>
+<li>EQ.2.0: Exponential Allen-Rule-Jones</li>
+<li>EQ.3.0: Exponential Cowper-Symonds (2 parameters)</li>
+<li>EQ.4.0: Nonlinear rate coefficient (2 parameters)</li>
+<li>EQ.5.0: Log-exponential Couque (4 parameters)
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250307143614.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div></li>
+</ol></li>
+<li>A、B、C、D、m：求解流动应力</li>
+<li>TM：融化温度</li>
+<li>TR：室温</li>
+<li>EPS0：准静态阈值应变率（见备注
+1）。理想情况下，该值代表无需对流动应力进行速率调整的最高应变速率，以<span
+class="math inline">\([时间]^{-1}\)</span>为单位输入。最高应变率，并以<span
+class="math inline">\([时间]^{-1}\)</span>为单位输入。例如，如果应变速率对流动应力的影响在应变速率大于<span
+class="math inline">\(10^{-2}\)</span>例如，如果应变速率大于 <span
+class="math inline">\(10^{-2}s^{-1}\)</span>时，流动应力的应变速率效应才开始显现，模型输入的单位系统为
+<code>&#123;kg、mm、ms&#125;</code>，则 <code>EPSO</code> 应设置为 <span
+class="math inline">\(10^{-5}\)</span></li>
+<li>CP：比热</li>
+<li>PC：拉伸失效应力或拉伸压力截止值</li>
+<li>SPALL：
+<ol type="1">
+<li>Spall类型
+<ol type="1">
+<li>EQ.0.0: Set to “2.0” (default).</li>
+<li>EQ.1.0: 拉伸压力受PC限制, p总是大于PC</li>
+</ol></li>
+<li>壳元素的特定行为
+<ol type="1">
+<li>EQ.2.0： 当 $_{max} ≥ -PC $ 时，壳元素被删除。</li>
+<li>EQ.3.0： 当 $p &lt; PC $ 时，壳元素被删除。</li>
+</ol></li>
+<li>Solid特定行为
+<ol type="1">
+<li>EQ.2.0： 当 $_{max} ≥ -PC $ 时，拉应力重置为0。</li>
+<li>EQ.3.0： 当 $p &lt; PC $ 时，拉应力重置为0。</li>
+</ol></li>
+</ol></li>
+<li>IT：塑性应变迭代选项。此输入仅适用于实体元素，因为壳元素始终需要进行迭代平面应力条件
+<ol type="1">
+<li>EQ.0.0: 无迭代 (default)</li>
+<li>EQ.1.0: 塑性应变的精确迭代解决方案</li>
+</ol></li>
+<li>D1-D4：失效参数，如果D30，则为绝对值</li>
+<li>D5：失效参数</li>
+<li>EROD：侵蚀标识
+<ol type="1">
+<li>EQ.0.0: Element erosion allowed (default).</li>
+<li>NE.0.0: 元件无侵蚀；元件失效时偏差应力设为零</li>
+</ol></li>
+<li>EFMIN：断裂处计算应变的下限</li>
+<li>NUMINT：在删除壳元素之前必须失效的贯通厚度积分点数。</li>
+<li>C2/P/XNP：应变速率参数
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250307112713.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div></li>
+<li>K：Couque项的应变速率参数</li>
+<li>EPS1：表征过渡的Couque项的参考应变速率。介于热激活状态和粘性状态之间。输入的单位为[time]−1。</li>
+</ol>
+<h2 id="案例">10、 案例</h2>
+<h3 id="小球跌落分析">10.1、 小球跌落分析</h3>
 
                 
               </div>

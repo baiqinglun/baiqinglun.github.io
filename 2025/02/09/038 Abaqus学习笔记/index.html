@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250220093805.png">
 <meta property="article:published_time" content="2025-02-09T13:20:00.000Z">
-<meta property="article:modified_time" content="2025-02-22T13:13:31.395Z">
+<meta property="article:modified_time" content="2025-03-08T12:39:43.889Z">
 <meta property="article:author" content="DB">
 <meta property="article:tag" content="模拟">
 <meta property="article:tag" content="学习笔记">
@@ -231,7 +231,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          3.5k 字
+          3.7k 字
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
           <!-- compatible with older versions-->
-          30 分钟
+          32 分钟
         
       </span>
     
@@ -286,7 +286,7 @@
               <div class="markdown-body">
                 
                 <div class="note note-success">
-            <p>本文最新更新于 2025/02/22 上午</p>
+            <p>本文最新更新于 2025/03/08 晚上</p>
           </div>
 <h2 id="基本介绍">1、基本介绍</h2>
 <a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=2"  title="学习视频" target="_blank">学习视频</a>
@@ -366,7 +366,7 @@ Input按钮在工作目录中生成。Inp文件可以输入模型，也可以由
 <h3 id="单位制问题">1.4 单位制问题</h3>
 <p>最常用的单位又<code>mm-T-s</code>和<code>m-kg-s</code>两种</p>
 <div style="width: 80%; margin: auto">
-<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250210165813.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250308194336.png" srcset="/images/icons8-loading-96.png" lazyload></p>
 </div>
 <h3 id="操作技巧">1.5 操作技巧</h3>
 <ol type="1">
@@ -374,6 +374,25 @@ Input按钮在工作目录中生成。Inp文件可以输入模型，也可以由
 <li><code>ctrl+shift+左键</code>：旋转</li>
 <li><code>ctrl+shift+右键</code>：缩放</li>
 </ol>
+<h3 id="单元">1.6 单元</h3>
+<p>（1）族</p>
+<p>Abaqus中包含的族</p>
+<div style="width: 80%; margin: auto">
+<p><img src="https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/vscode/20250308194643.png" srcset="/images/icons8-loading-96.png" lazyload></p>
+</div>
+<p>每个族都有对应的缩写，如连续体为C，壳单位为S...</p>
+<p>（2）节点</p>
+<blockquote>
+<p>节点不进行计算，只负责单元间的计算结果传递。共节点才能保证两个单元之间正确传递数据。</p>
+</blockquote>
+<h3 id="显示时间增量">1.7 显示时间增量</h3>
+<p>增量步必须小于某个数值，才能对速度和位移进行精确积分，此极限值成为稳定极限值。<span
+class="math inline">\(\bigtriangleup t_{stable}\)</span></p>
+<p>采用保守单元-单元估计法</p>
+<p><span class="math display">\[\bigtriangleup t_{stable} =
+\frac{L^{e}}{\sqrt{\frac{E}{\rho}}}\]</span></p>
+<p>因此，影响稳定性极限值的大小取决于材料密度、材料特性和单元网格及单元类型。</p>
+<p>可以适当地进行质量缩放以节省时间，但会增大动态分析的惯性效应如同增大了加载速度，质量缩放系数过大会导致错误的分析结果。</p>
 <h2 id="part模块">2、Part模块</h2>
 <a class="btn" href="https://www.bilibili.com/video/BV1j64y1s7Qp?spm_id_from=333.788.videopod.episodes&vd_source=33b50a4dd201d7564e6e63d321809ce9&p=3"  title="学习视频" target="_blank">学习视频</a>
 <p>选择面或者线时：要按住<code>Alt</code>键</p>
